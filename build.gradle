@@ -5,3 +5,10 @@ repositories {
 dependencies {
    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+plugins {
+    id 'net.saliman.cobertura' version '2.3.1'
+    id 'com.github.kt3k.coveralls' version '2.6.3'
+}
+
+cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
