@@ -2,6 +2,7 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertArrayEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class LarioAndMuigiTest {
@@ -14,5 +15,11 @@ public class LarioAndMuigiTest {
 	@Test
 	public void deveConsiderarNegativos() {
 		assertArrayEquals(new int[]{-1,0,1,2,3}, LarioAndMuigi.pipeFix(new int[]{-1,3}));
+	}
+	
+	@Test
+	public void teste() {
+		LarioAndMuigi instance = new LarioAndMuigi();
+		Assert.assertNotNull(instance);
 	}
 }
