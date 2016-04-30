@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertArrayEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class MonkeyCounterTest {
+	
+	@Test
+	public void deveInstanciar() {
+		MonkeyCounter instance = new MonkeyCounter();
+		Assert.assertNotNull(instance);
+	}
 	
 	@Test
 	public void deveContar5() {

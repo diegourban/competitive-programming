@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class TransportationTest {
+	
+	@Test
+	public void deveInstanciar() {
+		Transportation instance = new Transportation();
+		Assert.assertNotNull(instance);
+	}
 	
 	@Test
 	public void deveCalcularUmDia() {

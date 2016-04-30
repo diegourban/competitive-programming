@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ArrayPrinterTest {
+	
+	@Test
+	public void deveInstanciar() {
+		ArrayPrinter instance = new ArrayPrinter();
+		Assert.assertNotNull(instance);
+	}
 
 	@Test
 	public void testInteger() {

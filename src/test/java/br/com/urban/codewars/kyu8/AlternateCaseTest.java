@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class AlternateCaseTest {
+	
+	@Test
+	public void deveInstanciar() {
+		AlternateCase instance = new AlternateCase();
+		Assert.assertNotNull(instance);
+	}
 	
 	@Test
 	public void deveAlternarUmaLetraMaiuscula() {

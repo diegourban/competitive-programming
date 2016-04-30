@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class TripleTroubleTest {
+	
+	@Test
+	public void deveInstanciar() {
+		TripleTrouble instance = new TripleTrouble();
+		Assert.assertNotNull(instance);
+	}
 
 	@Test
 	public void deveCombinarUnico() {

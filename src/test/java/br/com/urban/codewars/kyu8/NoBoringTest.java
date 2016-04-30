@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class NoBoringTest {
+	
+	@Test
+	public void deveInstanciar() {
+		NoBoring instance = new NoBoring();
+		Assert.assertNotNull(instance);
+	}
 	
 	@Test
 	public void deveRemoverUmZeroDoFinal() {

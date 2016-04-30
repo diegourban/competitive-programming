@@ -6,6 +6,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class LarioAndMuigiTest {
+	
+	@Test
+	public void deveInstanciar() {
+		LarioAndMuigi instance = new LarioAndMuigi();
+		Assert.assertNotNull(instance);
+	}
 
 	@Test
 	public void deveAdicionar4() {
@@ -17,9 +23,4 @@ public class LarioAndMuigiTest {
 		assertArrayEquals(new int[]{-1,0,1,2,3}, LarioAndMuigi.pipeFix(new int[]{-1,3}));
 	}
 	
-	@Test
-	public void teste() {
-		LarioAndMuigi instance = new LarioAndMuigi();
-		Assert.assertNotNull(instance);
-	}
 }

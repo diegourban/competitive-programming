@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class HaystackTest {
+	
+	@Test
+	public void deveInstanciar() {
+		Haystack instance = new Haystack();
+		Assert.assertNotNull(instance);
+	}
 	
 	@Test
 	public void deveEncontrarNeedleNaPosicaoTres() {

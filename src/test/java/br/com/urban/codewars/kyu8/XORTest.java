@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class XORTest {
+	
+	@Test
+	public void deveInstanciar() {
+		XOR instance = new XOR();
+		Assert.assertNotNull(instance);
+	}
 
 	@Test
 	public void deveSemFalseComFalseFalse() {

@@ -3,9 +3,16 @@ package br.com.urban.codewars.kyu8;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class IsDigitTest {
+	
+	@Test
+	public void deveInstanciar() {
+		IsDigit instance = new IsDigit();
+		Assert.assertNotNull(instance);
+	}
 	
 	@Test
 	public void deveValidarVazio() {
