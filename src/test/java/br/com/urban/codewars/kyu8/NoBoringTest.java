@@ -9,9 +9,6 @@ public class NoBoringTest {
 	@Test
 	public void deveRemoverUmZeroDoFinal() {
 		assertEquals(145, NoBoring.noBoringZeros(1450));
-		//assertEquals(96, NoBoring.noBoringZeros(960000));
-		//assertEquals(105, NoBoring.noBoringZeros(1050));
-		//assertEquals(-105, NoBoring.noBoringZeros(-1050));
 	}
 	
 	@Test
@@ -32,6 +29,11 @@ public class NoBoringTest {
 	@Test
 	public void deveRemoverUmZeroDoFinalDeNumeroNegativo() {
 		assertEquals(-105, NoBoring.noBoringZeros(-1050));
+	}
+	
+	@Test
+	public void deveRemoverUmZeroDoFinalBestPractice() {
+		assertEquals(115, NoBoring.noBoringZerosBestPractice(1150));
 	}
 
 }

@@ -25,5 +25,10 @@ public class MonkeyCounterTest {
 	public void deveContar0() {
 		assertArrayEquals(new int[]{}, MonkeyCounter.monkeyCount(0));
 	}
+	
+	@Test
+	public void deveContar3BestPractice() {
+		assertArrayEquals(new int[]{1,2,3}, MonkeyCounter.monkeyCountBestPractice(3));
+	}
 
 }
