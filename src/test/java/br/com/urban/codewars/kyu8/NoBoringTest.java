@@ -42,5 +42,10 @@ public class NoBoringTest {
 	public void deveRemoverUmZeroDoFinalBestPractice() {
 		assertEquals(115, NoBoring.noBoringZerosBestPractice(1150));
 	}
+	
+	@Test
+	public void deveRemoverZerosDoFinalBestPractice() {
+		assertEquals(0, NoBoring.noBoringZerosBestPractice(0));
+	}
 
 }
