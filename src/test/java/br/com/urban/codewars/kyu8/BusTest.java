@@ -1,0 +1,59 @@
+package br.com.urban.codewars.kyu8;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class BusTest {
+	
+	@Test
+	public void deveInstanciar() {
+		Bus instance = new Bus();
+		Assert.assertNotNull(instance);
+	}
+	
+	@Test
+	public void deveContarUmaParada() {
+		ArrayList<int[]> stops = new ArrayList<int[]>();
+		stops.add(new int[] {10,0});
+		assertEquals(10,Bus.countPassengers(stops));
+	}
+	
+	@Test
+	public void deveContarDuasParadasSemSaida() {
+		ArrayList<int[]> stops = new ArrayList<int[]>();
+		stops.add(new int[] {10,0});
+		stops.add(new int[] {3,0});
+		assertEquals(13,Bus.countPassengers(stops));
+	}
+	
+	@Test
+	public void deveContarDuasParadasComSaida() {
+		ArrayList<int[]> stops = new ArrayList<int[]>();
+		stops.add(new int[] {10,0});
+		stops.add(new int[] {3,5});
+		assertEquals(8,Bus.countPassengers(stops));
+	}
+	
+	@Test
+	public void deveContarTresParadasComSaida() {
+		ArrayList<int[]> stops = new ArrayList<int[]>();
+		stops.add(new int[] {10,0});
+		stops.add(new int[] {3,5});
+		stops.add(new int[] {0,5});
+		assertEquals(3,Bus.countPassengers(stops));
+	}
+	
+	@Test
+	public void deveContarTresParadasComSaidaClever() {
+		ArrayList<int[]> stops = new ArrayList<int[]>();
+		stops.add(new int[] {10,0});
+		stops.add(new int[] {3,5});
+		stops.add(new int[] {0,5});
+		assertEquals(3,Bus.countPassengersClever(stops));
+	}
+
+}
