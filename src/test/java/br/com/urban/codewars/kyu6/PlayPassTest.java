@@ -15,7 +15,7 @@ public class PlayPassTest {
 	
 	@Test
 	public void testParcial() {
-		assertEquals("b", PlayPass.playPass("z", 2));
+		assertEquals("B", PlayPass.playPass("Z", 2));
 	}
 
 	@Test
