@@ -4,7 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class BooleaToStringTest {
+public class BooleanToStringTest {
+	
+	@Test
+	public void deveInstanciar() {
+		BooleanToString instance = new BooleanToString();
+		Assert.assertNotNull(instance);
+	}
 
 	@Test
 	public void deveTestarTrue() {
