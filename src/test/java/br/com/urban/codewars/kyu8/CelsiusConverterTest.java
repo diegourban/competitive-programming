@@ -13,7 +13,7 @@ public class CelsiusConverterTest {
 		Assert.assertNotNull(instance);
 	}
 	
-	String solution(int temperture) {
+	private String solution(int temperture) {
         int c = (int) (temperture - 32 + (5/9.0));
         return c + (c > 0 ? " is freezing temperature" : " is above freezing temperature");
     }

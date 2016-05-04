@@ -19,7 +19,7 @@ public class HowDoICompareTest {
             assertEquals(t[1], HowDoICompare.whatIs((Integer)t[0]));
     }
     
-    static final Object[][] tests = {
+    private static final Object[][] tests = {
         {0, "nothing"},
         {123, "nothing"},
         {-1, "nothing"},
