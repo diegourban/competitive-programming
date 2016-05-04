@@ -4,9 +4,16 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class EvenNumbersTest {
+	
+	@Test
+	public void deveInstanciar() {
+		EvenNumbers instance = new EvenNumbers();
+		Assert.assertNotNull(instance);
+	}
 
 	@Test
 	public void testSimple() {

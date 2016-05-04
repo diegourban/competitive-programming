@@ -2,9 +2,16 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CelsiusConverterTest {
+	
+	@Test
+	public void deveInstanciar() {
+		CelsiusConverter instance = new CelsiusConverter();
+		Assert.assertNotNull(instance);
+	}
 	
 	String solution(int temperture) {
         int c = (int) (temperture - 32 + (5/9.0));
