@@ -43,10 +43,8 @@ public class PlayPass {
 	private static String downCaseInOdds(String s) {
 		char[] toReplace = s.toCharArray();
 		for (int i = 0; i < toReplace.length; i++) {
-	        if (Character.isLetter(toReplace[i])) {
-	        	if(i % 2 == 1) {
-	        		toReplace[i] = Character.toLowerCase(toReplace[i]);
-	        	}
+	        if (Character.isLetter(toReplace[i]) && i % 2 == 1) {
+	        	toReplace[i] = Character.toLowerCase(toReplace[i]);
 	        }
 	    }
 	    s = String.valueOf(toReplace);
