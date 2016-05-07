@@ -1,15 +1,14 @@
 package br.com.urban.codewars.kyu8;
 
-/*
- * Given a non-negative integer, return an array containing a list of independent digits in reverse order.
-
-Example:
-
-348597 => [7,9,5,8,4,3]
- */
 public class Digitizer {
+	
 	public static int[] digitize(long n) {
-		return null;
+		char[] charArray = new StringBuilder(String.valueOf(n)).reverse().toString().toCharArray();
+		int[] intArray = new int[charArray.length];
+		for(int i = 0; i < charArray.length; i++) {
+			intArray[i] = Character.getNumericValue(charArray[i]);
+		}
+		return intArray;
 	}
 
 }
