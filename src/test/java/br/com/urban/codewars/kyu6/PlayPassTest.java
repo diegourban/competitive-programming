@@ -14,8 +14,13 @@ public class PlayPassTest {
 	}
 	
 	@Test
-	public void testParcial() {
+	public void testUnicaLetraBezao() {
 		assertEquals("B", PlayPass.playPass("Z", 2));
+	}
+	
+	@Test
+	public void testUnicaLetraBezinho() {
+		assertEquals("b", PlayPass.playPass("z", 2));
 	}
 
 	@Test

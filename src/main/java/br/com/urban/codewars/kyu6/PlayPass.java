@@ -20,9 +20,6 @@ public class PlayPass {
 	        	if(toEncode[i] >= 97 && toEncode[i] <= 123) {
 	        		toEncode[i] = (char) ((((toEncode[i]-97) + n) % 26) + 97);
 	        	}
-	        	if(toEncode[i] >= 48 && toEncode[i] <= 58) {
-	        		toEncode[i] = (char) Math.abs(9 - toEncode[i]);
-	        	}
 	        }
 	    }
 	    s = String.valueOf(toEncode);
