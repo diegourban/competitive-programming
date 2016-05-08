@@ -22,8 +22,7 @@ public class PlayPass {
 	        	}
 	        }
 	    }
-	    theString = String.valueOf(toEncode);
-	    return theString;
+		return String.valueOf(toEncode);
 	}
 	
 	private static String replaceDigits(String theString) {
@@ -33,8 +32,7 @@ public class PlayPass {
 	            toReplace[i] = Character.forDigit(Math.abs((Character.digit(toReplace[i], 10) - 9)),10);
 	        }
 	    }
-	    theString = String.valueOf(toReplace);
-	    return theString;
+		return  String.valueOf(toReplace);
 	}
 	
 	private static String downCaseInOdds(String theString) {
@@ -44,8 +42,7 @@ public class PlayPass {
 	        	toReplace[i] = Character.toLowerCase(toReplace[i]);
 	        }
 	    }
-	    theString = String.valueOf(toReplace);
-	    return theString;
+		return String.valueOf(toReplace);
 	}
 	
 	private static String reverse(String theString) {

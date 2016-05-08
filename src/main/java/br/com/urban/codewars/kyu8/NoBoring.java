@@ -16,11 +16,12 @@ public class NoBoring {
 			return theNumber;
 		}
 
-		while (theNumber % 10 == 0) {
-			theNumber /= 10;
+		int theNumberWithNoboringZeroes = theNumber;
+		while (theNumberWithNoboringZeroes % 10 == 0) {
+			theNumberWithNoboringZeroes /= 10;
 		}
 
-		return theNumber;
+		return theNumberWithNoboringZeroes;
 	}
 
 }
