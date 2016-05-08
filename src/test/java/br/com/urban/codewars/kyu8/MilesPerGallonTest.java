@@ -27,5 +27,11 @@ public class MilesPerGallonTest {
 	public void test3() {
 		assertEquals(10.62f, MilesPerGallon.mpgToKPM(30), 0.001f);
 	}
+	
+	@Test
+	public void test4() {
+		assertEquals(1296.02f, MilesPerGallon.mpgToKPM(3661), 0.001f);
+	}
+
 
 }
