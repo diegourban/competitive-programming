@@ -3,8 +3,8 @@ package br.com.urban.codewars.kyu8;
 public class TipCalculator {
 
 	public static Integer calculateTip(double amount, String rating) {
-		rating = rating.toLowerCase();
-		switch (rating) {
+		final String ratingToLower = rating.toLowerCase();
+		switch (ratingToLower) {
 		case "terrible":
 			return 0;
 		case "poor":
