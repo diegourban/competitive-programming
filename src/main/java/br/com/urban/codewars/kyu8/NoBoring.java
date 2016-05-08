@@ -2,8 +2,8 @@ package br.com.urban.codewars.kyu8;
 
 public class NoBoring {
 
-	public static int noBoringZeros(int value) {
-		String nStr = String.valueOf(value);
+	public static int noBoringZeros(int theNumber) {
+		String nStr = String.valueOf(theNumber);
 		nStr = nStr.replaceAll("0+$", "");
 		if (nStr.isEmpty()) {
 			return 0;
@@ -11,16 +11,16 @@ public class NoBoring {
 		return Integer.valueOf(nStr);
 	}
 
-	public static int noBoringZerosBestPractice(int value) {
-		if (value == 0) {
-			return value;
+	public static int noBoringZerosBestPractice(int theNumber) {
+		if (theNumber == 0) {
+			return theNumber;
 		}
 
-		while (value % 10 == 0) {
-			value /= 10;
+		while (theNumber % 10 == 0) {
+			theNumber /= 10;
 		}
 
-		return value;
+		return theNumber;
 	}
 
 }

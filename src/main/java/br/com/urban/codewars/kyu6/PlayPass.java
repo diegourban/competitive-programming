@@ -2,16 +2,16 @@ package br.com.urban.codewars.kyu6;
 
 public class PlayPass {
 	
-	public static String playPass(String s, int n) {
-		String result = shiftLetters(s, n);
+	public static String playPass(String theString, int n) {
+		String result = shiftLetters(theString, n);
 		result = replaceDigits(result);
 		result = downCaseInOdds(result);
 		result = reverse(result);
 		return result;
 	}
 	
-	private static String shiftLetters(String value, int numberOfTimes) {
-		char[] toEncode = value.toCharArray();
+	private static String shiftLetters(String theString, int numberOfTimes) {
+		char[] toEncode = theString.toCharArray();
 		for (int i = 0; i < toEncode.length; i++) {
 	        if (Character.isLetter(toEncode[i])) {
 	        	if(toEncode[i] >= 65 && toEncode[i] <= 91) {
@@ -22,34 +22,34 @@ public class PlayPass {
 	        	}
 	        }
 	    }
-	    value = String.valueOf(toEncode);
-	    return value;
+	    theString = String.valueOf(toEncode);
+	    return theString;
 	}
 	
-	private static String replaceDigits(String value) {
-		char[] toReplace = value.toCharArray();
+	private static String replaceDigits(String theString) {
+		char[] toReplace = theString.toCharArray();
 		for (int i = 0; i < toReplace.length; i++) {
 	        if (Character.isDigit(toReplace[i])) {
 	            toReplace[i] = Character.forDigit(Math.abs((Character.digit(toReplace[i], 10) - 9)),10);
 	        }
 	    }
-	    value = String.valueOf(toReplace);
-	    return value;
+	    theString = String.valueOf(toReplace);
+	    return theString;
 	}
 	
-	private static String downCaseInOdds(String value) {
-		char[] toReplace = value.toCharArray();
+	private static String downCaseInOdds(String theString) {
+		char[] toReplace = theString.toCharArray();
 		for (int i = 0; i < toReplace.length; i++) {
 	        if (Character.isLetter(toReplace[i]) && i % 2 == 1) {
 	        	toReplace[i] = Character.toLowerCase(toReplace[i]);
 	        }
 	    }
-	    value = String.valueOf(toReplace);
-	    return value;
+	    theString = String.valueOf(toReplace);
+	    return theString;
 	}
 	
-	private static String reverse(String value) {
-		return new StringBuilder(value).reverse().toString();
+	private static String reverse(String theString) {
+		return new StringBuilder(theString).reverse().toString();
 	}
 
 }
