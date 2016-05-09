@@ -17,8 +17,28 @@ public class CounterTest {
 	}
 
 	@Test
+	public void testEmpty() {
+		assertEquals("There are 0 sheeps in total", 0, new Counter().countSheeps(new Boolean[]{}));
+	}
+	
+	@Test
+	public void deveContar1True() {
+		assertEquals("There are 1 sheeps in total", 1, new Counter().countSheeps(new Boolean[]{true}));
+	}
+	
+	@Test
+	public void deveContar1False() {
+		assertEquals("There are 0 sheeps in total", 0, new Counter().countSheeps(new Boolean[]{false}));
+	}
+	
+	@Test
+	public void deveContarNull() {
+		assertEquals("There are 0 sheeps in total", 0, new Counter().countSheeps(new Boolean[]{null}));
+	}
+	
+	@Test
 	public void test() {
-		//assertEquals("There are 17 sheeps in total", 17, new Counter().countSheeps(array1));
+		assertEquals("There are 17 sheeps in total", 17, new Counter().countSheeps(array1));
 	}
 
 }
