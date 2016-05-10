@@ -2,10 +2,20 @@ package br.com.urban.codewars.kyu8;
 
 public class God {
 
-	// public static Human[] create(){
-	// code
-	// }
+	public static Human[] create() {
+		return new Human[]{new Man(), new Woman()};
+	}
 
 }
 
-// code
+class Human {
+
+}
+
+class Man extends Human {
+
+}
+
+class Woman extends Human {
+
+}
