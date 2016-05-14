@@ -3,7 +3,10 @@ package br.com.urban.codewars.kyu7;
 public class Reverse {
 
 	public String reverse(String str) {
-		return null;
+		if ((null == str) || (str.length() <= 1)) {
+	        return str;
+	    }
+	    return reverse(str.substring(1)) + str.charAt(0);
 	}
 
 }
