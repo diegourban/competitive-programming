@@ -15,24 +15,17 @@ public class RepeatItTest {
 
 	@Test
 	public void testStar() {
-		repeatTest("*", 3, "***");
+		assertEquals("***", RepeatIt.repeatString("*", 3));
 	}
 
 	@Test
 	public void testHello() {
-		repeatTest("Hello", 11, "HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello");
+		assertEquals("HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHello", RepeatIt.repeatString("Hello", 11));
 	}
 	
 	@Test
 	public void testNotAString() {
-		repeatTest(true, 11, "Not a string");
+		assertEquals("Not a string", RepeatIt.repeatString(true, 11));
 	}
-
-	public void repeatTest(final Object toRepeat, final int n, final String expected) {
-		final String testMessage = String.format("Testing with toRepeat = %s and n = %d", toRepeat, n);
-		assertEquals(testMessage, expected, RepeatIt.repeatString(toRepeat, n));
-	}
-	
-	
 
 }
