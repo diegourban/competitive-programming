@@ -56,7 +56,7 @@ public class RainfallTest {
 	
 	private static void assertFuzzyEquals(double act, double exp) {
         boolean inrange = Math.abs(act - exp) <= 1e-2;
-        if (inrange == false) {
+        if (!inrange) {
             System.out.println("abs(actual - expected) must be <= 1e-2. Expected was " + exp +", but got " + act);
         }
         Assert.assertEquals(exp, act, 1e-2);
