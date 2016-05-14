@@ -16,6 +16,6 @@ public class ReverseTest {
 	@Test
     public void testBasicTrue() {
 		Reverse instance = new Reverse();
-        assertEquals(null, instance.reverse("teste"));
+        assertEquals("etset", instance.reverse("teste"));
     }
 }
