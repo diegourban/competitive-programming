@@ -57,5 +57,10 @@ public class RockPaperScissorsTest {
 	public void deveValidarPedraPedra() {
 		assertEquals("Draw!", RockPaperScissors.rps("rock","rock"));
 	}
+	
+	@Test
+	public void deveValidarOpcaoIncorretaPlayer1() {
+		assertEquals(null, RockPaperScissors.rps("gelly","rock"));
+	}
 
 }
