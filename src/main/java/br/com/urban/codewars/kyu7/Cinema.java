@@ -31,15 +31,17 @@ public class Cinema {
 	
 	public static int movie(int card, int ticket, double perc) {
 		double systemASum = ticket;
-		double systemBSum = card;
+		double discountTicket = ticket * perc;
+		double systemBSum = card + discountTicket;
 		
-		int times = 0;
-		while(systemBSum > systemASum) {
+		int times = 1;
+		while(Math.ceil(systemBSum) >= systemASum) {
 			times++;
 			systemASum = ticket * times;
-			systemBSum += (ticket * Math.pow(perc, times)) * perc ;
+			discountTicket = discountTicket * perc;
+			systemBSum += discountTicket;
 		}
-        return times+1;
+        return times;
     }
 
 }

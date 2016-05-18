@@ -23,5 +23,25 @@ public class CinemaTest {
     	assertEquals(24, Cinema.movie(100, 10, 0.95));
     }
     
+    @Test
+    public void testUmaVez() {
+    	assertEquals(1, Cinema.movie(5, 100, 0.9));
+    }
+    
+    @Test
+    public void testDuasVezes() {
+    	assertEquals(2, Cinema.movie(25, 100, 0.9));
+    }
+    
+    @Test
+    public void testSeteVezes() {
+    	assertEquals(7, Cinema.movie(100, 50, 0.9));
+    }
+    
+    @Test
+    public void testDuasVezesIgual() {
+    	assertEquals(2, Cinema.movie(0, 10, 0.95));
+    }
+    
 
 }
