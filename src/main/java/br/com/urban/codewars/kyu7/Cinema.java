@@ -30,7 +30,16 @@ movie(100, 10, 0.95) should return 24
 public class Cinema {
 	
 	public static int movie(int card, int ticket, double perc) {
-        return 0;
+		double systemASum = ticket;
+		double systemBSum = card;
+		
+		int times = 0;
+		while(systemBSum > systemASum) {
+			times++;
+			systemASum = ticket * times;
+			systemBSum += (ticket * Math.pow(perc, times)) * perc ;
+		}
+        return times+1;
     }
 
 }
