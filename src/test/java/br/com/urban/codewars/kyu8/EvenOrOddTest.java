@@ -15,12 +15,12 @@ public class EvenOrOddTest {
 	
 	@Test
 	public void deveRetornarEven() {
-		assertEquals("Even", EvenOrOdd.even_or_odd(2));
+		assertEquals("Even", EvenOrOdd.evenOrOdd(2));
 	}
 	
 	@Test
 	public void deveRetornarOdd() {
-		assertEquals("Odd", EvenOrOdd.even_or_odd(1));
+		assertEquals("Odd", EvenOrOdd.evenOrOdd(1));
 	}
 
 }
