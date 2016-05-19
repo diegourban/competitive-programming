@@ -4,7 +4,7 @@ var summation = function (num) {
 		total += i;
 	}
 	return total;
-}
+};
 
 function SummationKata() {
 	
