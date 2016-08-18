@@ -1,7 +1,6 @@
 package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,9 +23,4 @@ public class SmashWordsTest {
 		assertEquals("", SmashWords.smash(new String[] {}));
 	}
 	
-	@Test
-	public void deveValidarNull() {
-		assertNull(SmashWords.smash(null));
-	}
-
 }
