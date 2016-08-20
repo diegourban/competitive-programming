@@ -2,7 +2,6 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class SwapperTest {
@@ -10,7 +9,7 @@ public class SwapperTest {
 	@Test
 	public void deveInstanciar() {
 		Swapper instance = new Swapper(null);
-		Assert.assertNotNull(instance);
+		assertNotNull(instance);
 	}
 	
 	@Test

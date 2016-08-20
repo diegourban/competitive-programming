@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class FindMinMaxTest {
@@ -22,7 +21,7 @@ public class FindMinMaxTest {
 	@Test
 	public void deveInstanciar() {
 		FindMinMax instance = new FindMinMax();
-		Assert.assertNotNull(instance);
+		assertNotNull(instance);
 	}
 	
 	@Test

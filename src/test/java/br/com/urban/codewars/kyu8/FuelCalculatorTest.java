@@ -2,7 +2,6 @@ package br.com.urban.codewars.kyu8;
 
 import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class FuelCalculatorTest {
@@ -10,7 +9,7 @@ public class FuelCalculatorTest {
 	@Test
 	public void deveInstanciar() {
 		FuelCalculator instance = new FuelCalculator();
-		Assert.assertNotNull(instance);
+		assertNotNull(instance);
 	}
 	
 	@Test
