@@ -5,13 +5,11 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import br.com.urban.codewars.kyu8.Number;
-
 public class NumberFunTest {
 	
 	@Test
 	public void deveInstanciar() {
-		assertNotNull(new Number());
+		assertNotNull(new NumberFun());
 	}
 	
 	@Test

@@ -53,4 +53,18 @@ public class FindMinMaxTest {
 		assertEquals(-110, min);
 	}
 	
+	@Test
+	public void deveEncontrarMaximoClever() {
+		FindMinMax instance = new FindMinMax();
+		int max = instance.maxClever(new int[]{4,6,2,1,9,63,-134,566});
+		assertEquals(566, max);
+	}
+	
+	@Test
+	public void deveEncontrarMinimoClever() {
+		FindMinMax instance = new FindMinMax();
+		int min = instance.minClever(new int[]{-52, 56, 30, 29, -54, 0, -110});
+		assertEquals(-110, min);
+	}
+	
 }
