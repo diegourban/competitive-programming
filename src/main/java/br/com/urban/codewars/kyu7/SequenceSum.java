@@ -31,7 +31,7 @@ public class SequenceSum {
 		}
 		result = result.deleteCharAt(result.length()-1);
 		
-		int total = (value * (value + 1) / 2); // XXX descobrir total
+		int total = (value * (value + 1) / 2);
 		result = result.append(" = " + total);
 		
 		return result.toString();
