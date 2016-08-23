@@ -22,5 +22,6 @@ public class ArrayMeanTest {
 	public void deveEncontrarMediaQuatroElementos() {
 		assertEquals(4, ArrayMean.findAverage(new int[]{1,3,5,7}));
 	}
+	
 
 }
