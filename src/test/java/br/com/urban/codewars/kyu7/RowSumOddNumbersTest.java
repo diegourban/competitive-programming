@@ -1,8 +1,8 @@
 package br.com.urban.codewars.kyu7;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class RowSumOddNumbersTest {
@@ -10,7 +10,7 @@ public class RowSumOddNumbersTest {
 	@Test
 	public void deveInstanciar() {
 		RowSumOddNumbers instance = new RowSumOddNumbers();
-		Assert.assertNotNull(instance);
+		assertNotNull(instance);
 	}
 	
 	@Test

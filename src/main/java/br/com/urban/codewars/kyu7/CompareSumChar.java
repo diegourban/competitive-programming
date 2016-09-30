@@ -2,12 +2,12 @@ package br.com.urban.codewars.kyu7;
 
 public class CompareSumChar {
 
-	public static Boolean compare(String s1, String s2) {
-		if(s1 == null || !containsOnlyLetters(s1)) s1 = "";
-		if(s2 == null || !containsOnlyLetters(s2)) s2 = "";
+	public static Boolean compare(String firstString, String secondString) {
+		if(firstString == null || !containsOnlyLetters(firstString)) firstString = "";
+		if(secondString == null || !containsOnlyLetters(secondString)) secondString = "";
 		
-		int s1Sum = sumChars(s1);
-		int s2Sum = sumChars(s2);
+		int s1Sum = sumChars(firstString);
+		int s2Sum = sumChars(secondString);
 		return s1Sum == s2Sum;
 	}
 	
