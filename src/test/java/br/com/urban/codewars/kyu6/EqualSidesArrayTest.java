@@ -1,8 +1,8 @@
 package br.com.urban.codewars.kyu6;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 public class EqualSidesArrayTest {
@@ -10,7 +10,7 @@ public class EqualSidesArrayTest {
 	@Test
 	public void deveInstanciar() {
 		EqualSidesArray instance = new EqualSidesArray();
-		Assert.assertNotNull(instance);
+		assertNotNull(instance);
 	}
 	
 	@Test
