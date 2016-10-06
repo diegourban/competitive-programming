@@ -7,11 +7,15 @@ package br.com.urban.codewars.kyu5;
 public class CommonDenominators {
 
 	public static String convertFrac(long[][] lst) {
+		if(lst.length == 0) {
+			return "";
+		}
+		
 		final long lcm = lcm(lst);
 
 		StringBuilder builder = new StringBuilder();
 		for (int i = 0; i < lst.length; i++) {
-			builder.append("(" + lcm / lst[i][1] + "," + lcm + ")");
+			builder.append("(" + lst[i][0] * (lcm / lst[i][1]) + "," + lcm + ")");
 		}
 
 		return builder.toString();
