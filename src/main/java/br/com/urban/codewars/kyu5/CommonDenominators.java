@@ -39,6 +39,8 @@ public class CommonDenominators {
 			a = temp;
 		}
 		return a;
+		
+		// or return b == 0 ? a : gcd(b, a % b);
 	}
 
 }
