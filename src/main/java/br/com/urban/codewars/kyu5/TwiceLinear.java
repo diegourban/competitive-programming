@@ -16,14 +16,14 @@ public class TwiceLinear {
 
         while (true) {
             int min = set.first();
-            set.remove(min);
-            set.add(fy(min));
-            set.add(fz(min));
-
+            
             if (iterations == n) {
                 return min;
             }
             
+            set.remove(min);
+            set.add(fy(min));
+            set.add(fz(min));            
             iterations++;
         }
     }
