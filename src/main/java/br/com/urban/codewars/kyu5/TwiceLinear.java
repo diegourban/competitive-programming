@@ -15,24 +15,18 @@ public class TwiceLinear {
         int iterations = 0;
 
         while (true) {
-            int min = set.first();
-            
+            final int x = set.first();
+
             if (iterations == n) {
-                return min;
+                return x;
             }
-            
-            set.remove(min);
-            set.add(fy(min));
-            set.add(fz(min));            
+
+            set.remove(x);
+            set.add(2 * x + 1);
+            set.add(3 * x + 1);
+
             iterations++;
         }
     }
-
-    private static final int fy(int x) {
-        return 2 * x + 1;
-    }
-
-    private static final int fz(int x) {
-        return 3 * x + 1;
-    }
+    
 }
