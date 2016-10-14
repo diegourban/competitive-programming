@@ -20,10 +20,11 @@ public class TwiceLinear {
             set.add(fy(min));
             set.add(fz(min));
 
-            iterations++;
-            if (iterations == n + 1) {
+            if (iterations == n) {
                 return min;
             }
+            
+            iterations++;
         }
     }
 
