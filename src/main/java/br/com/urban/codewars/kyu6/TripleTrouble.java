@@ -5,7 +5,7 @@ package br.com.urban.codewars.kyu6;
  */
 public class TripleTrouble {
 
-	public static int TripleDouble(long num1, long num2) {
+	public static int tripleDouble(long num1, long num2) {
 		return containsRepeatingDigits(num1, 3) && containsRepeatingDigits(num2, 2) ? 1 : 0;
 	}
 
