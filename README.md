@@ -1,2 +1,2 @@
 # uri-online-judge
-URI Online Judge solutions
+URI Online Judge submissions
