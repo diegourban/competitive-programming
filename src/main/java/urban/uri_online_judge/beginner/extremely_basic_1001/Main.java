@@ -8,7 +8,7 @@ import java.io.PrintStream;
 /**
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1001
  * 
- * @author Diego
+ * @author Diego Leonardo Urban
  *
  */
 public class Main {
