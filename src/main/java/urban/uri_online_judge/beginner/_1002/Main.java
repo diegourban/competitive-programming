@@ -19,7 +19,7 @@ public class Main {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		double R = Double.parseDouble(in.readLine());
 		double A = PI * (R * R);
-		System.out.printf(String.format(Locale.ROOT, "A=%.4f\n", A));
+		System.out.println(String.format(Locale.ROOT, "A=%.4f", A));
 	}
 
 }
