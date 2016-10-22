@@ -13,7 +13,7 @@ public class InputStreamBuilder {
 	}
 	
 	public InputStreamBuilder addLine(String str) {
-		this.builder = this.builder.append(str).append("\n");
+		this.builder = this.builder.append(str).append(System.lineSeparator());
 		return this;
 	}
 	
