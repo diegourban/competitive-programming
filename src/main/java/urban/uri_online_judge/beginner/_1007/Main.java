@@ -1,4 +1,4 @@
-package urban.uri_online_judge.beginner._1003;
+package urban.uri_online_judge.beginner._1007;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * Simple Sum
+ * Difference
  * 
- * https://www.urionlinejudge.com.br/judge/en/problems/view/1003
+ * https://www.urionlinejudge.com.br/judge/en/problems/view/1007
  * 
  * @author Diego Leonardo Urban
  *
@@ -19,11 +19,14 @@ public class Main {
 		System.out.print(main(System.in));
 	}
 
-	public static String main(InputStream input) throws IOException {
+	protected static String main(InputStream input) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(input));
 		int A = Integer.parseInt(in.readLine());
 		int B = Integer.parseInt(in.readLine());
-		return "SOMA = " + (A + B) + System.lineSeparator();
+		int C = Integer.parseInt(in.readLine());
+		int D = Integer.parseInt(in.readLine());
+		int difference = (A * B) - (C * D);
+		return "DIFERENCA = " + difference + System.lineSeparator();
 	}
 
 }

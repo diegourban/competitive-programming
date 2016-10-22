@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
+ * Extremely Basic
+ * 
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1001
  * 
  * @author Diego Leonardo Urban

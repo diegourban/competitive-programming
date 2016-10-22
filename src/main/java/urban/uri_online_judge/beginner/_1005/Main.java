@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.util.Locale;
 
 /**
+ * Average 1
+ * 
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1005
  * 
  * @author Diego Leonardo Urban
