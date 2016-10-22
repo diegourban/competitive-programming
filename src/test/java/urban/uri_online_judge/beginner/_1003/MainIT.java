@@ -1,4 +1,4 @@
-package urban.uri_online_judge.beginner._1001;
+package urban.uri_online_judge.beginner._1003;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,12 +16,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import urban.uri_online_judge.URIOnlineJudge;
-import urban.uri_online_judge.beginner._1001.Main;
+import urban.uri_online_judge.beginner._1003.Main;
 
 public class MainIT {
 
 	private ByteArrayOutputStream output;
-	private static final String FILE = "1001";
+	private static final String FILE = "1003";
 	private static final String INPUT_FILE = FILE + ".in";
 	private static final String OUTPUT_FILE = FILE + ".out";
 
