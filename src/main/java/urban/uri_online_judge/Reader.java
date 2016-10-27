@@ -13,7 +13,7 @@ import java.io.InputStream;
  */
 public class Reader {
 
-	final private int BUFFER_SIZE = 1 << 16;
+	private final int BUFFER_SIZE = 1 << 16;
 	private DataInputStream din;
 	private byte[] buffer;
 	private int bufferPointer, bytesRead;
