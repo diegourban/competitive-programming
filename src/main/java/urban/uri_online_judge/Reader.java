@@ -1,7 +1,6 @@
 package urban.uri_online_judge;
 
 import java.io.DataInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -20,12 +19,6 @@ public class Reader {
 
 	public Reader(InputStream input) {
 		din = new DataInputStream(input);
-		buffer = new byte[BUFFER_SIZE];
-		bufferPointer = bytesRead = 0;
-	}
-
-	public Reader(String file_name) throws IOException {
-		din = new DataInputStream(new FileInputStream(file_name));
 		buffer = new byte[BUFFER_SIZE];
 		bufferPointer = bytesRead = 0;
 	}

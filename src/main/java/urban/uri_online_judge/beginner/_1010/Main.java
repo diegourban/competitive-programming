@@ -34,6 +34,9 @@ public class Main {
 		units = reader.nextInt();
 		price = reader.nextDouble();
 		total += units * price;
+		
+		reader.close();
+		
 		return "VALOR A PAGAR: R$ " + String.format(Locale.ROOT, "%.2f", total) + System.lineSeparator();
 	}
 

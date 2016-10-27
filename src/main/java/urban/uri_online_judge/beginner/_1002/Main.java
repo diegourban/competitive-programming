@@ -21,9 +21,13 @@ public class Main {
 	}
 	
 	public static String main(InputStream input) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(input));
-		double R = Double.parseDouble(in.readLine());
+		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+		
+		double R = Double.parseDouble(reader.readLine());
 		double A = 3.14159 * (R * R);
+		
+		reader.close();
+		
 		return String.format(Locale.ROOT, "A=%.4f", A) + System.lineSeparator();
 	}
 

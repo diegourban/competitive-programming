@@ -20,9 +20,13 @@ public class Main {
 	}
 
 	public static String main(InputStream input) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(input));
-		int A = Integer.parseInt(in.readLine());
-		int B = Integer.parseInt(in.readLine());
+		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+		
+		int A = Integer.parseInt(reader.readLine());
+		int B = Integer.parseInt(reader.readLine());
+		
+		reader.close();
+		
 		return "SOMA = " + (A + B) + System.lineSeparator();
 	}
 

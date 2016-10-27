@@ -21,11 +21,14 @@ public class Main {
 	}
 
 	protected static String main(InputStream input) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(input));
-		int employeeNumber = Integer.parseInt(in.readLine());
-		int workedHours = Integer.parseInt(in.readLine());
-		double amountPerHour = Double.parseDouble(in.readLine());
+		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+		
+		int employeeNumber = Integer.parseInt(reader.readLine());
+		int workedHours = Integer.parseInt(reader.readLine());
+		double amountPerHour = Double.parseDouble(reader.readLine());
 		double salary = workedHours * amountPerHour;
+		
+		reader.close();
 		
 		return String.format(Locale.ROOT, "NUMBER = %d" + System.lineSeparator() + "SALARY = U$ %.2f", employeeNumber, salary) + System.lineSeparator();
 	}

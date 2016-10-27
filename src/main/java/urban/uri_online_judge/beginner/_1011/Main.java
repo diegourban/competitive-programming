@@ -32,6 +32,8 @@ public class Main {
 		DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
 		decimalFormatSymbols.setDecimalSeparator('.');
 		NumberFormat formatter = new DecimalFormat("##0.000", decimalFormatSymbols);
+		
+		reader.close();
 
 		return "VOLUME = " + formatter.format(volume) + System.lineSeparator();
 	}

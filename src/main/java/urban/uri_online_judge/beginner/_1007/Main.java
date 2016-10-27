@@ -20,12 +20,16 @@ public class Main {
 	}
 
 	protected static String main(InputStream input) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(input));
-		int A = Integer.parseInt(in.readLine());
-		int B = Integer.parseInt(in.readLine());
-		int C = Integer.parseInt(in.readLine());
-		int D = Integer.parseInt(in.readLine());
+		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+		
+		int A = Integer.parseInt(reader.readLine());
+		int B = Integer.parseInt(reader.readLine());
+		int C = Integer.parseInt(reader.readLine());
+		int D = Integer.parseInt(reader.readLine());
 		int difference = (A * B) - (C * D);
+		
+		reader.close();
+		
 		return "DIFERENCA = " + difference + System.lineSeparator();
 	}
 

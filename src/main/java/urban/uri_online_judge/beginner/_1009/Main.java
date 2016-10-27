@@ -23,16 +23,18 @@ public class Main {
 	}
 
 	protected static String main(InputStream input) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(input));
-		in.readLine();
-		double fixedSalary = Double.parseDouble(in.readLine());
-		double sales = Double.parseDouble(in.readLine());
+		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 		
+		reader.readLine();
+		double fixedSalary = Double.parseDouble(reader.readLine());
+		double sales = Double.parseDouble(reader.readLine());
 		double total = fixedSalary + (sales * 0.15);
 		
 		DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
 		decimalFormatSymbols.setDecimalSeparator('.');
 		NumberFormat formatter = new DecimalFormat("#0.00", decimalFormatSymbols);
+		
+		reader.close();
 		
 		return "TOTAL = R$ " + formatter.format(total) + System.lineSeparator();
 	}

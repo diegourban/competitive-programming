@@ -21,10 +21,14 @@ public class Main {
 	}
 
 	public static String main(InputStream input) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(input));
-		double A = Double.parseDouble(in.readLine());
-		double B = Double.parseDouble(in.readLine());
+		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+		
+		double A = Double.parseDouble(reader.readLine());
+		double B = Double.parseDouble(reader.readLine());
 		double MEDIA = ((A * 3.5d) + (B * 7.5d)) / 11d;
+		
+		reader.close();
+		
 		return String.format(Locale.ROOT, "MEDIA = %.5f", MEDIA) + System.lineSeparator();
 	}
 
