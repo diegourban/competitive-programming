@@ -1,6 +1,7 @@
 package urban.uri_online_judge.beginner._1009;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,6 +12,11 @@ import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.beginner._1009.Main;
 
 public class MainTest {
+	
+	@Test
+	public void shouldCreateInstance() {
+		assertNotNull(new Main());
+	}
 	
 	@Test
 	public void shouldCalculateSalaryWithoutSales() throws IOException {

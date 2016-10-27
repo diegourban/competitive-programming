@@ -1,6 +1,6 @@
 package urban.uri_online_judge.beginner._1001;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +10,11 @@ import org.junit.Test;
 import urban.uri_online_judge.InputStreamBuilder;
 
 public class MainTest {
+	
+	@Test
+	public void shouldCreateInstance() {
+		assertNotNull(new Main());
+	}
 	
 	@Test
 	public void shouldAddOnesAndOnes() throws IOException {
