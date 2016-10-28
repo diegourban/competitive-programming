@@ -23,5 +23,9 @@ public class InputStreamBuilder {
 		}
 		return new ByteArrayInputStream(this.builder.toString().getBytes(StandardCharsets.UTF_8));
 	}
+	
+	public InputStream build(String str) {
+		return new ByteArrayInputStream(str.getBytes(StandardCharsets.UTF_8));
+	}
 
 }
