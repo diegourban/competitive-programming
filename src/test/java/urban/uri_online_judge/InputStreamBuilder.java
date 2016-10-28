@@ -18,7 +18,9 @@ public class InputStreamBuilder {
 	}
 
 	public InputStream build() {
-		this.builder = this.builder.deleteCharAt(this.builder.length() - System.lineSeparator().length());
+		if(this.builder.length() > System.lineSeparator().length()) {
+			this.builder = this.builder.deleteCharAt(this.builder.length() - System.lineSeparator().length());
+		}
 		return new ByteArrayInputStream(this.builder.toString().getBytes(StandardCharsets.UTF_8));
 	}
 
