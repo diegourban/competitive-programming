@@ -8,7 +8,6 @@ import java.io.InputStream;
  * Solution extracted from
  * http://www.geeksforgeeks.org/fast-io-in-java-in-competitive-programming/
  * 
- *
  */
 public class Reader {
 
@@ -27,7 +26,7 @@ public class Reader {
 		byte[] buf = new byte[64]; // line length
 		int cnt = 0, c;
 		while ((c = read()) != -1) {
-			if (c == '\n')
+			if (c == '\n') // FIXME: \n is for unix, on windows it is \r\n
 				break;
 			buf[cnt++] = (byte) c;
 		}
