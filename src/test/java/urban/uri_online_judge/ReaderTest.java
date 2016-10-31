@@ -352,5 +352,62 @@ public class ReaderTest {
 		assertEquals('1', one);
 		assertEquals('/', slash);
 	}
+	
+	@Test
+	public void shouldReadIntegersWithOtherCharactersInBetween() throws IOException {
+		InputStream input = new InputStreamBuilder().addLine("12a34Z56&78/9").build();
+		
+		Reader reader = new Reader(input);
+		int firstInt = reader.nextInt();
+		int secondInt = reader.nextInt();
+		int thirdInt = reader.nextInt();
+		int fourthInt = reader.nextInt();
+		int fifthInt = reader.nextInt();
+		reader.close();
+		
+		assertEquals(12, firstInt);
+		assertEquals(34, secondInt);
+		assertEquals(56, thirdInt);
+		assertEquals(78, fourthInt);
+		assertEquals(9, fifthInt);
+	}
+	
+	@Test
+	public void shouldReadLongsWithOtherCharactersInBetween() throws IOException {
+		InputStream input = new InputStreamBuilder().addLine("12a34Z56&78/9").build();
+		
+		Reader reader = new Reader(input);
+		long firstLong = reader.nextLong();
+		long secondLong = reader.nextLong();
+		long thirdLong = reader.nextLong();
+		long fourthLong = reader.nextLong();
+		long fifthLong = reader.nextLong();
+		reader.close();
+		
+		assertEquals(12, firstLong);
+		assertEquals(34, secondLong);
+		assertEquals(56, thirdLong);
+		assertEquals(78, fourthLong);
+		assertEquals(9, fifthLong);
+	}
+	
+	@Test
+	public void shouldReadDoublesWithOtherCharactersInBetween() throws IOException {
+		InputStream input = new InputStreamBuilder().addLine("12a3.4Z56&7.88/9").build();
+		
+		Reader reader = new Reader(input);
+		double firstDouble = reader.nextDouble();
+		double secondDouble = reader.nextDouble();
+		double thirdDouble = reader.nextDouble();
+		double fourthDouble = reader.nextDouble();
+		double fifthDouble = reader.nextDouble();
+		reader.close();
+		
+		assertEquals(12, firstDouble, 0.1);
+		assertEquals(3.4, secondDouble, 0.1);
+		assertEquals(56, thirdDouble, 0.1);
+		assertEquals(7.88, fourthDouble, 0.1);
+		assertEquals(9, fifthDouble, 0.1);
+	}
 
 }
