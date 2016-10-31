@@ -214,6 +214,32 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
+	
+	@Test
+	public void shouldCalculateBanknotesAndCoins1NoteAndCoinOfEach() throws IOException {
+		String inputSample = new SampleBuilder().append(188.91).build();
+		InputStream input = this.inputStream.build(inputSample);
+
+		String output = Main.main(input);
+
+		String expectedOutput = new SampleBuilder()//
+				.appendln("NOTAS:")//
+				.appendln("1 nota(s) de R$ 100.00")//
+				.appendln("1 nota(s) de R$ 50.00")//
+				.appendln("1 nota(s) de R$ 20.00")//
+				.appendln("1 nota(s) de R$ 10.00")//
+				.appendln("1 nota(s) de R$ 5.00")//
+				.appendln("1 nota(s) de R$ 2.00")//
+				.appendln("MOEDAS:")//
+				.appendln("1 moeda(s) de R$ 1.00")//
+				.appendln("1 moeda(s) de R$ 0.50")//
+				.appendln("1 moeda(s) de R$ 0.25")//
+				.appendln("1 moeda(s) de R$ 0.10")//
+				.appendln("1 moeda(s) de R$ 0.05")//
+				.appendln("1 moeda(s) de R$ 0.01")//
+				.build();
+		assertEquals(expectedOutput, output);
+	}
 
 	@Test
 	public void shouldCalculateBanknotesAndCoinsSample1() throws IOException {
