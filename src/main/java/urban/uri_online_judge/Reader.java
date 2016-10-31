@@ -61,6 +61,16 @@ public class Reader {
 
 		return ret;
 	}
+	
+	public char nextChar() throws IOException {
+		byte c = read();
+
+		while (c <= ' ') {
+			c = read();
+		}
+		
+		return (char) c;
+	}
 
 	public long nextLong() throws IOException {
 		long ret = 0;
