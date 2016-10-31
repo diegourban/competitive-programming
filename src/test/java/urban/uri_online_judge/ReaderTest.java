@@ -310,5 +310,47 @@ public class ReaderTest {
 		assertEquals(59787712587l, fifth);
 		assertEquals(-123123123123l, sixth);
 	}
+	
+	@Test
+	public void shouldReadLongsWithSpacesAndLineBreaks() throws IOException {
+		InputStream input = new InputStreamBuilder()
+				.addLine("6546546565    -4326757896").addLine("786676767").build();
+
+		Reader reader = new Reader(input);
+		long first = reader.nextLong();
+		long second = reader.nextLong();
+		long third = reader.nextLong();
+		reader.close();
+
+		assertEquals(6546546565l, first);
+		assertEquals(-4326757896l, second);
+		assertEquals(786676767, third);
+	}
+	
+	@Test
+	public void shouldReadChar() throws IOException {
+		InputStream input = new InputStreamBuilder().addLine("a").build();
+
+		Reader reader = new Reader(input);
+		char nextChar= reader.nextChar();
+		reader.close();
+
+		assertEquals('a', nextChar);
+	}
+	
+	@Test
+	public void shouldReadMultipleChars() throws IOException {
+		InputStream input = new InputStreamBuilder().addLine("a 1 /").build();
+		
+		Reader reader = new Reader(input);
+		char a = reader.nextChar();
+		char one = reader.nextChar();
+		char slash = reader.nextChar();
+		reader.close();
+		
+		assertEquals('a', a);
+		assertEquals('1', one);
+		assertEquals('/', slash);
+	}
 
 }
