@@ -55,8 +55,6 @@ public class Main {
 				rationalNumerator = N1 * D2;
 				rationalDenominator = N2 * D1;
 				break;
-			default:
-				break;
 			}
 
 			long gcd = gcd(Math.abs(rationalNumerator), Math.abs(rationalDenominator));
