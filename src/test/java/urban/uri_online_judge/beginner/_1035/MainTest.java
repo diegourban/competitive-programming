@@ -173,7 +173,7 @@ public class MainTest {
 	// D > 0 == true
 	// A % 2 == 0 == false
 	@Test
-	public void shouldValidateSelectionTestBranch10() throws IOException {
+	public void shouldValidateSelectionTestBranch10And11() throws IOException {
 		String inputSample = new SampleBuilder().append(1).append(3).append(2).append(3).build();
 		InputStream input = this.inputStream.build(inputSample);
 
@@ -185,7 +185,7 @@ public class MainTest {
 	}
 
 	@Test
-	public void shouldValidateSelectionMinimalAcceptanceInput() throws IOException {
+	public void shouldValidateSelectionTestBranch12() throws IOException {
 		String inputSample = new SampleBuilder().append(0).append(2).append(1).append(2).build();
 		InputStream input = this.inputStream.build(inputSample);
 
