@@ -39,20 +39,19 @@ public class Main {
 		}
 
 		// quadrants
-		if (x > 0 && y > 0) {
-			return "Q1" + System.lineSeparator();
+		if (x > 0) {
+			if(y > 0) {
+				return "Q1" + System.lineSeparator();
+			} else {
+				return "Q4" + System.lineSeparator();
+			}
+		} else {
+			if(y > 0) {
+				return "Q2" + System.lineSeparator();
+			} else {
+				return "Q3" + System.lineSeparator();
+			}
 		}
-		if (x > 0 && y < 0) {
-			return "Q4" + System.lineSeparator();
-		}
-		if (x < 0 && y > 0) {
-			return "Q2" + System.lineSeparator();
-		}
-		if (x < 0 && y < 0) {
-			return "Q3" + System.lineSeparator();
-		}
-
-		return "";
 	}
 
 }

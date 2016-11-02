@@ -44,13 +44,8 @@ public class Main {
 				}
 			} else {
 				med = a;
-				if (b > c) {
-					max = b;
-					min = c;
-				} else {
-					max = c;
-					min = b;
-				}
+				max = c;
+				min = b;
 			}
 		} else {
 			if (b > c) {

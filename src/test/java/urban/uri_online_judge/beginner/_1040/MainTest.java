@@ -46,12 +46,12 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageEmExameReprovado() throws IOException {
-		String inputSample = new SampleBuilder().append(5.0).append(5.0).append(5.0).appendln(6.0).append(0.0).build();
+		String inputSample = new SampleBuilder().append(5.0).append(5.0).append(5.0).appendln(5.0).append(0.0).build();
 		InputStream input = this.inputStream.build(inputSample);
 
 		String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("Media: 5.1").appendln("Aluno em exame.")
+		String expectedOutput = new SampleBuilder().appendln("Media: 5.0").appendln("Aluno em exame.")
 				.appendln("Nota do exame: 0.0").appendln("Aluno reprovado.").appendln("Media final: 2.5").build();
 
 		assertEquals(expectedOutput, output);

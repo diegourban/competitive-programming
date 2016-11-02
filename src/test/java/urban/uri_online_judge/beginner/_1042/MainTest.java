@@ -57,6 +57,19 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
+	
+	@Test
+	public void shouldHandleNearlyReversedOrder() throws IOException {
+		String inputSample = new SampleBuilder().append(5).append(3).append(4).build();
+		InputStream input = this.inputStream.build(inputSample);
+
+		String output = Main.main(input);
+
+		String expectedOutput = new SampleBuilder().appendln(3).appendln(4).appendln(5).appendln("").appendln(5)
+				.appendln(3).appendln(4).build();
+
+		assertEquals(expectedOutput, output);
+	}
 
 	@Test
 	public void shouldHandleNearlySorted() throws IOException {

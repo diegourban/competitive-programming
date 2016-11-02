@@ -45,15 +45,15 @@ public class Main {
 
 		sb = sb.append("Media: ").append(formatter.format(average)).append(System.lineSeparator());
 
-		if (isReprovado(average)) {
+		if (average < 5) {
 			sb = sb.append("Aluno reprovado.").append(System.lineSeparator());
-		} else if (isEmExame(average)) {
+		} else if (average <= 6.9) {
 			sb = sb.append("Aluno em exame.").append(System.lineSeparator());
 			double examScore = reader.nextDouble();
 			sb = sb.append("Nota do exame: ").append(formatter.format(examScore)).append(System.lineSeparator());
 
 			double newAverage = (average + examScore) / 2d;
-			if (isReprovado(newAverage)) {
+			if (newAverage < 5) {
 				sb = sb.append("Aluno reprovado.").append(System.lineSeparator());
 			} else {
 				sb = sb.append("Aluno aprovado.").append(System.lineSeparator());
@@ -68,19 +68,5 @@ public class Main {
 
 		return sb.toString();
 	}
-
-	private static boolean isReprovado(double average) {
-		if (average < 5) {
-			return true;
-		}
-		return false;
-	}
-
-	private static boolean isEmExame(double average) {
-		if (average >= 5 && average <= 6.9) {
-			return true;
-		}
-		return false;
-	}
-
+	
 }
