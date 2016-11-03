@@ -51,8 +51,8 @@ public class Main {
 		double R2 = (-B - Math.sqrt(delta)) / (2 * A);
 
 		StringBuilder sb = new StringBuilder();
-		sb = sb.append("R1 = ").append(formatter.format(R1)).append(System.lineSeparator());
-		sb = sb.append("R2 = ").append(formatter.format(R2)).append(System.lineSeparator());
+		sb.append("R1 = ").append(formatter.format(R1)).append(System.lineSeparator());
+		sb.append("R2 = ").append(formatter.format(R2)).append(System.lineSeparator());
 
 		return sb.toString();
 	}

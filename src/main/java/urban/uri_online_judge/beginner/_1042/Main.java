@@ -65,8 +65,8 @@ public class Main {
 		}
 
 		StringBuilder sb = new StringBuilder();
-		sb = sb.append(min).append(LS).append(med).append(LS).append(max).append(LS).append(LS);
-		sb = sb.append(a).append(LS).append(b).append(LS).append(c).append(LS);
+		sb.append(min).append(LS).append(med).append(LS).append(max).append(LS).append(LS);
+		sb.append(a).append(LS).append(b).append(LS).append(c).append(LS);
 
 		return sb.toString();
 	}

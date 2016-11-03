@@ -11,42 +11,42 @@ public class SampleBuilder {
 	}
 
 	public SampleBuilder append(int i) {
-		this.stringBuilder = this.stringBuilder.append(i).append(SPACE_SEPARATOR);
+		this.stringBuilder.append(i).append(SPACE_SEPARATOR);
 		return this;
 	}
 	
 	public SampleBuilder appendln(int i) {
-		this.stringBuilder = this.stringBuilder.append(i).append(LINE_SEPARATOR);
+		this.stringBuilder.append(i).append(LINE_SEPARATOR);
 		return this;
 	}
 
 	public SampleBuilder append(double d) {
-		this.stringBuilder = this.stringBuilder.append(d).append(SPACE_SEPARATOR);
+		this.stringBuilder.append(d).append(SPACE_SEPARATOR);
 		return this;
 	}
 	
 	public SampleBuilder appendln(double d) {
-		this.stringBuilder = this.stringBuilder.append(d).append(LINE_SEPARATOR);
+		this.stringBuilder.append(d).append(LINE_SEPARATOR);
 		return this;
 	}
 
 	public SampleBuilder append(long l) {
-		this.stringBuilder = this.stringBuilder.append(l).append(SPACE_SEPARATOR);
+		this.stringBuilder.append(l).append(SPACE_SEPARATOR);
 		return this;
 	}
 	
 	public SampleBuilder appendln(long l) {
-		this.stringBuilder = this.stringBuilder.append(l).append(LINE_SEPARATOR);
+		this.stringBuilder.append(l).append(LINE_SEPARATOR);
 		return this;
 	}
 
 	public SampleBuilder append(String str) {
-		this.stringBuilder = this.stringBuilder.append(str).append(SPACE_SEPARATOR);
+		this.stringBuilder.append(str).append(SPACE_SEPARATOR);
 		return this;
 	}
 	
 	public SampleBuilder appendln(String str) {
-		this.stringBuilder = this.stringBuilder.append(str).append(LINE_SEPARATOR);
+		this.stringBuilder.append(str).append(LINE_SEPARATOR);
 		return this;
 	}
 
@@ -66,7 +66,7 @@ public class SampleBuilder {
 	}
 
 	private void trim() {
-		this.stringBuilder = this.stringBuilder.deleteCharAt(this.stringBuilder.length() - 1);
+		this.stringBuilder.deleteCharAt(this.stringBuilder.length() - 1);
 	}
 
 }

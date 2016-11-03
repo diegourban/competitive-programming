@@ -43,25 +43,25 @@ public class Main {
 
 		StringBuilder sb = new StringBuilder();
 
-		sb = sb.append("Media: ").append(formatter.format(average)).append(System.lineSeparator());
+		sb.append("Media: ").append(formatter.format(average)).append(System.lineSeparator());
 
 		if (average < 5) {
-			sb = sb.append("Aluno reprovado.").append(System.lineSeparator());
+			sb.append("Aluno reprovado.").append(System.lineSeparator());
 		} else if (average <= 6.9) {
-			sb = sb.append("Aluno em exame.").append(System.lineSeparator());
+			sb.append("Aluno em exame.").append(System.lineSeparator());
 			double examScore = reader.nextDouble();
-			sb = sb.append("Nota do exame: ").append(formatter.format(examScore)).append(System.lineSeparator());
+			sb.append("Nota do exame: ").append(formatter.format(examScore)).append(System.lineSeparator());
 
 			double newAverage = (average + examScore) / 2d;
 			if (newAverage < 5) {
-				sb = sb.append("Aluno reprovado.").append(System.lineSeparator());
+				sb.append("Aluno reprovado.").append(System.lineSeparator());
 			} else {
-				sb = sb.append("Aluno aprovado.").append(System.lineSeparator());
+				sb.append("Aluno aprovado.").append(System.lineSeparator());
 			}
 
-			sb = sb.append("Media final: ").append(formatter.format(newAverage)).append(System.lineSeparator());
+			sb.append("Media final: ").append(formatter.format(newAverage)).append(System.lineSeparator());
 		} else {
-			sb = sb.append("Aluno aprovado.").append(System.lineSeparator());
+			sb.append("Aluno aprovado.").append(System.lineSeparator());
 		}
 
 		reader.close();

@@ -33,9 +33,9 @@ public class Main {
 		int days = ageInDays;
 
 		StringBuilder sb = new StringBuilder();
-		sb = sb.append(years).append(" ano(s)").append(System.lineSeparator());
-		sb = sb.append(months).append(" mes(es)").append(System.lineSeparator());
-		sb = sb.append(days).append(" dia(s)").append(System.lineSeparator());
+		sb.append(years).append(" ano(s)").append(System.lineSeparator());
+		sb.append(months).append(" mes(es)").append(System.lineSeparator());
+		sb.append(days).append(" dia(s)").append(System.lineSeparator());
 		return sb.toString();
 	}
 

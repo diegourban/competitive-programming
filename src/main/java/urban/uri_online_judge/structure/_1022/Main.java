@@ -64,7 +64,7 @@ public class Main {
 			int simplifiedNumerator = (int) (rationalNumerator / gcd);
 			int simplifiedDenominator = (int) (rationalDenominator / gcd);
 
-			sb = sb.append(rationalNumerator).append('/').append(rationalDenominator).append(" = ")
+			sb.append(rationalNumerator).append('/').append(rationalDenominator).append(" = ")
 					.append(simplifiedNumerator).append('/').append(simplifiedDenominator).append(LS);
 		}
 
