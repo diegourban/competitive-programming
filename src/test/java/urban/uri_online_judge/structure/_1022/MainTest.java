@@ -33,6 +33,19 @@ public class MainTest {
 		assertNotNull(new Main());
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void shouldHandleUnexpectedOperation() throws IOException {
+		String inputSample = new SampleBuilder()//
+				.appendln(1)//
+				.append("1 / 4 . 1 / 4")//
+				.build();
+		InputStream input = this.inputStream.build(inputSample);
+
+		String output = Main.main(input);
+
+		assertEquals("", output);
+	}
+	
 	@Test
 	public void shouldCalculateRationalSampleSum() throws IOException {
 		String inputSample = new SampleBuilder()//
