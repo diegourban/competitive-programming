@@ -2,6 +2,7 @@ package urban.uri_online_judge.beginner._1045;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 import urban.uri_online_judge.Reader;
 
@@ -23,46 +24,17 @@ public class Main {
 
 	protected static String main(InputStream input) throws IOException {
 		Reader reader = new Reader(input);
-		double A = reader.nextDouble();
-		double B = reader.nextDouble();
-		double C = reader.nextDouble();
+		double[] array = new double[3];
+		array[0] = reader.nextDouble();
+		array[1] = reader.nextDouble();
+		array[2] = reader.nextDouble();
 		reader.close();
+		
+		Arrays.sort(array);
 
-		double min = 0;
-		double max = 0;
-		double med = 0;
-
-		if (A > B) {
-			if (A > C) {
-				max = A;
-				if (B > C) {
-					med = B;
-					min = C;
-				} else {
-					med = C;
-					min = B;
-				}
-			} else {
-				med = A;
-				max = C;
-				min = B;
-			}
-		} else {
-			if (B > C) {
-				max = B;
-				if (A > C) {
-					med = A;
-					min = C;
-				} else {
-					med = C;
-					min = A;
-				}
-			} else {
-				med = B;
-				max = C;
-				min = A;
-			}
-		}
+		double min = array[0];
+		double med = array[1];
+		double max = array[2];
 		
 		StringBuilder sb = new StringBuilder();
 		
@@ -83,10 +55,10 @@ public class Main {
 			
 			if (max == med && med == min) {
 				sb.append("TRIANGULO EQUILATERO").append(LS);
-			}
-
-			if((max == med && med != min) || (med == min && min != max) || (max == min && min != med)) {
-				sb.append("TRIANGULO ISOSCELES").append(LS);
+			} else {
+				if(max == med || med == min) {
+					sb.append("TRIANGULO ISOSCELES").append(LS);
+				}
 			}
 		}
 		
