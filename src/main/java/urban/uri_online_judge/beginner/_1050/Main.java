@@ -10,7 +10,7 @@ import urban.uri_online_judge.Reader;
 /**
  * Animal
  * 
- * https://www.urionlinejudge.com.br/judge/en/problems/view/1049
+ * https://www.urionlinejudge.com.br/judge/en/problems/view/1050
  * 
  * @author Diego Leonardo Urban
  *
@@ -30,7 +30,6 @@ public class Main {
 		DDD.put(19, "Campinas");
 		DDD.put(27, "Vitoria");
 		DDD.put(31, "Belo Horizonte");
-
 	}
 
 	public static void main(String[] args) throws IOException {
