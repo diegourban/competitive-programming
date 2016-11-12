@@ -125,6 +125,12 @@ public class Reader {
 
 		return ret;
 	}
+	
+	public void skip(int n) throws IOException {
+		for(int i = 0; i < n; i++) {
+			read();
+		}
+	}
 
 	private void fillBuffer() throws IOException {
 		bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);

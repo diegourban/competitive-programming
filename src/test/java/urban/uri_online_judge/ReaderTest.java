@@ -409,5 +409,17 @@ public class ReaderTest {
 		assertEquals(7.88, fourthDouble, 0.1);
 		assertEquals(9, fifthDouble, 0.1);
 	}
+	
+	@Test
+	public void shouldSkipNChars() throws IOException {
+		InputStream input = new InputStreamBuilder().addLine("Dia 5").build();
+		
+		Reader reader = new Reader(input);
+		reader.skip(4);
+		int day = reader.nextInt();
+		reader.close();
+		
+		assertEquals(5, day);
+	}
 
 }
