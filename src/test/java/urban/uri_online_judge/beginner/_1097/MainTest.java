@@ -1,4 +1,4 @@
-package urban.uri_online_judge.beginner._1096;
+package urban.uri_online_judge.beginner._1097;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1096.Main;
+import urban.uri_online_judge.beginner._1097.Main;
 
 public class MainTest {
 	
@@ -34,16 +34,16 @@ public class MainTest {
 	}
 	
 	@Test
-	public void shouldCalculateSequenceIJ2() throws IOException {
+	public void shouldCalculateSequenceIJ3() throws IOException {
 		InputStream input = this.inputStream.build(new SampleBuilder().build());
 		
 		String output = Main.main(input);
 		
 		StringBuilder sb = new StringBuilder();
-		for(int i = 1; i <= 9; i+=2) {
-			sb.append("I=").append(i).append(" ").append("J=").append(7).append(System.lineSeparator());
-			sb.append("I=").append(i).append(" ").append("J=").append(6).append(System.lineSeparator());
-			sb.append("I=").append(i).append(" ").append("J=").append(5).append(System.lineSeparator());
+		for(int i = 1, j = 7; i <= 9; i+=2, j+=2) {
+			sb.append("I=").append(i).append(" ").append("J=").append(j).append(System.lineSeparator());
+			sb.append("I=").append(i).append(" ").append("J=").append(j-1).append(System.lineSeparator());
+			sb.append("I=").append(i).append(" ").append("J=").append(j-2).append(System.lineSeparator());
 		}
 		
 		assertEquals(sb.toString(), output);
