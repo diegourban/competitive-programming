@@ -35,11 +35,11 @@ public class MainTest {
 	
 	@Test
 	public void shouldSkipInvalidInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(5).appendln(4).appendln(0).appendln(-1).appendln(6).build();
+		String inputSample = new SampleBuilder().appendln(5).appendln(4).appendln(0).appendln(-1).appendln(5).appendln(5).appendln(12).build();
 		InputStream input = this.inputStream.build(inputSample);
 
 		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(2).build();
+		String expectedOutput = new SampleBuilder().appendln(3).build();
 
 		assertEquals(expectedOutput, output);
 	}

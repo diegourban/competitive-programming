@@ -23,7 +23,7 @@ public class Main {
 		Reader reader = new Reader(input);
 		int x = reader.nextInt();
 		int z = reader.nextInt();
-		while (z < x) {
+		while (z <= x) {
 			z = reader.nextInt();
 		}
 		reader.close();
