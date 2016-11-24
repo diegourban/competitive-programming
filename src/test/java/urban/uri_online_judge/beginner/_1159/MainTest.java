@@ -32,6 +32,17 @@ public class MainTest {
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
+	
+	@Test
+	public void shouldCalculateHugeIntegers() throws IOException {
+		String inputSample = new SampleBuilder().appendln(1000000000).append(0).build();
+		InputStream input = this.inputStream.build(inputSample);
+
+		String output = Main.main(input);
+		String expectedOutput = new SampleBuilder().appendln(5000000020l).build();
+
+		assertEquals(expectedOutput, output);
+	}
 
 	@Test
 	public void shouldCalculateSample() throws IOException {

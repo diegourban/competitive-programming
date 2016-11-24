@@ -25,11 +25,11 @@ public class Main {
 
 		StringBuilder sb = new StringBuilder();
 
-		while (n > 0) {
+		while (n != 0) {
 			if (n % 2 != 0) {
 				n++;
 			}
-			int sum = 0;
+			long sum = 0;
 			for (int i = 1; i <= 5; i++) {
 				sum += n;
 				n += 2;
