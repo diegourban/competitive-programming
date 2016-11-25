@@ -2,8 +2,6 @@ package urban.uri_online_judge.beginner._1165;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashSet;
-import java.util.Set;
 
 import urban.uri_online_judge.Reader;
 
@@ -41,21 +39,26 @@ public class Main {
 
 		return sb.toString();
 	}
-
+	
+	// Based on https://en.wikipedia.org/wiki/Primality_test
 	private static boolean isPrime(int number) {
-		int n = number;
-		Set<Integer> factors = new HashSet<Integer>();
-		factors.add(1);
-		for (int i = 2; i <= n / i; i++) {
-			while (n % i == 0) {
-				factors.add(i);
-				n /= i;
+		if(number <= 1) {
+			return false;
+		} else if(number <= 3) {
+			return true;
+		} else if(number % 2 == 0 || number % 3 == 0) {
+			return false;
+		}
+		
+		int i = 5;
+		while(i * i <= number) {
+			if(number % i == 0 || number % (i + 2) == 0) {
+				return false;
 			}
+			i += 6;
 		}
-		if (n > 1) {
-			factors.add(n);
-		}
-		return factors.size() == 2 && factors.contains(1) && factors.contains(number);
+		
+		return true;
 	}
 
 }
