@@ -12,10 +12,9 @@ import org.junit.Test;
 
 import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1165.Main;
 
 public class MainTest {
-	
+
 	private InputStreamBuilder inputStream;
 
 	@Before
@@ -32,7 +31,7 @@ public class MainTest {
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldHandle1() throws IOException {
 		String inputSample = new SampleBuilder().appendln(1).append(1).build();
@@ -54,26 +53,72 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldHandleHighestXInput() throws IOException {
 		String inputSample = new SampleBuilder().appendln(1).append(10000000).build();
 		InputStream input = this.inputStream.build(inputSample);
-		
+
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln("10000000 nao eh primo").build();
-		
+
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculatePrimeNumberSample1() throws IOException {
 		String inputSample = new SampleBuilder().appendln(3).appendln(8).appendln(51).appendln(7).build();
 		InputStream input = this.inputStream.build(inputSample);
-		
+
 		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln("8 nao eh primo").appendln("51 nao eh primo").appendln("7 eh primo").build();
-		
+		String expectedOutput = new SampleBuilder().appendln("8 nao eh primo").appendln("51 nao eh primo")
+				.appendln("7 eh primo").build();
+
+		assertEquals(expectedOutput, output);
+	}
+
+	@Test
+	public void shouldConsiderAllPrimesNumbers() throws IOException {
+		int[] primes = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 79, 137, 193, 257, 317, 389, 457, 523, 601 };
+		SampleBuilder sb = new SampleBuilder();
+		sb.appendln(primes.length);
+		for (int i = 0; i < primes.length; i++) {
+			sb.appendln(primes[i]);
+		}
+		String inputSample = sb.build();
+		InputStream input = this.inputStream.build(inputSample);
+
+		String output = Main.main(input);
+
+		SampleBuilder osb = new SampleBuilder();
+		for (int i = 0; i < primes.length; i++) {
+			osb.append(primes[i]).appendln("eh primo");
+		}
+		String expectedOutput = osb.build();
+
+		assertEquals(expectedOutput, output);
+	}
+
+	@Test
+	public void shouldConsiderAllNonPrimeNumbers() throws IOException {
+		int[] primes = { 4, 6, 8, 12, 14, 18, 20, 24, 30, 32, 80, 138, 194, 258, 318, 390, 458, 524, 602 };
+
+		SampleBuilder sb = new SampleBuilder();
+		sb.appendln(primes.length);
+		for (int i = 0; i < primes.length; i++) {
+			sb.appendln(primes[i]);
+		}
+		String inputSample = sb.build();
+		InputStream input = this.inputStream.build(inputSample);
+
+		String output = Main.main(input);
+
+		SampleBuilder osb = new SampleBuilder();
+		for (int i = 0; i < primes.length; i++) {
+			osb.append(primes[i]).appendln("nao eh primo");
+		}
+		String expectedOutput = osb.build();
+
 		assertEquals(expectedOutput, output);
 	}
 
