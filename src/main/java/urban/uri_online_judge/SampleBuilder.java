@@ -1,5 +1,11 @@
 package urban.uri_online_judge;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class SampleBuilder {
 
 	private StringBuilder stringBuilder;
@@ -8,6 +14,13 @@ public class SampleBuilder {
 
 	public SampleBuilder() {
 		this.stringBuilder = new StringBuilder();
+	}
+	
+	public SampleBuilder loadFromFile(String pathname) throws IOException {
+		Path inputPath = Paths.get(new File(pathname).getAbsolutePath());
+		byte[] inputBytes = Files.readAllBytes(inputPath);
+		stringBuilder.append(new String(inputBytes));
+		return this;
 	}
 
 	public SampleBuilder append(int i) {
