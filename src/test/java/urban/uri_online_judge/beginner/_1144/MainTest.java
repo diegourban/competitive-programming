@@ -6,27 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1144.Main;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
@@ -35,8 +19,7 @@ public class MainTest {
 
 	@Test
 	public void shouldPrintOneLogicaSequence() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -49,8 +32,7 @@ public class MainTest {
 
 	@Test
 	public void shouldPrintTwoLogicalSequences() throws IOException {
-		String inputSample = new SampleBuilder().appendln(2).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(2).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -65,8 +47,7 @@ public class MainTest {
 
 	@Test
 	public void shouldPrintThreeLogicalSqeuences() throws IOException {
-		String inputSample = new SampleBuilder().appendln(3).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(3).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -83,8 +64,7 @@ public class MainTest {
 
 	@Test
 	public void shouldPrintSquaredCubicSample() throws IOException {
-		String inputSample = new SampleBuilder().appendln(5).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(5).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -105,8 +85,7 @@ public class MainTest {
 
 	@Test
 	public void shouldPrint999Lines() throws IOException {
-		String inputSample = new SampleBuilder().appendln(999).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(999).buildAsInputStream();
 
 		String output = Main.main(input);
 		SampleBuilder sb = new SampleBuilder();

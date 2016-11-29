@@ -6,36 +6,20 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1172.Main;
 
 public class MainTest {
-	
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldReplaceAllByOne() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(0)//
 				.appendln(-5)//
 				.appendln(-63)//
@@ -46,8 +30,7 @@ public class MainTest {
 				.appendln(-9)//
 				.appendln(-6)//
 				.appendln(0)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -60,15 +43,15 @@ public class MainTest {
 				.appendln("X[6] = 1")//
 				.appendln("X[7] = 1")//
 				.appendln("X[8] = 1")//
-				.appendln("X[9] = 1")//				
+				.appendln("X[9] = 1")//
 				.build();
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldNotReplaceByOne() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(10)//
 				.appendln(5)//
 				.appendln(63)//
@@ -79,8 +62,7 @@ public class MainTest {
 				.appendln(9)//
 				.appendln(6)//
 				.appendln(80)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -93,7 +75,7 @@ public class MainTest {
 				.appendln("X[6] = 4")//
 				.appendln("X[7] = 9")//
 				.appendln("X[8] = 6")//
-				.appendln("X[9] = 80")//				
+				.appendln("X[9] = 80")//
 				.build();
 
 		assertEquals(expectedOutput, output);
@@ -101,7 +83,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleSample1() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(0)//
 				.appendln(-5)//
 				.appendln(63)//
@@ -112,8 +94,7 @@ public class MainTest {
 				.appendln(9)//
 				.appendln(-6)//
 				.appendln(0)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -126,15 +107,15 @@ public class MainTest {
 				.appendln("X[6] = 1")//
 				.appendln("X[7] = 9")//
 				.appendln("X[8] = 1")//
-				.appendln("X[9] = 1")//				
+				.appendln("X[9] = 1")//
 				.build();
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldHandleSample2() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(-1)//
 				.appendln(-45234)//
 				.appendln(-22)//
@@ -145,8 +126,7 @@ public class MainTest {
 				.appendln(1)//
 				.appendln(9)//
 				.appendln(22)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -159,7 +139,7 @@ public class MainTest {
 				.appendln("X[6] = 1")//
 				.appendln("X[7] = 1")//
 				.appendln("X[8] = 9")//
-				.appendln("X[9] = 22")//				
+				.appendln("X[9] = 22")//
 				.build();
 
 		assertEquals(expectedOutput, output);

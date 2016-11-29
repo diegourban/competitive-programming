@@ -6,40 +6,23 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1131.Main;
 
 public class MainTest {
-	
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldHandleDraw() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln("1 1")//
 				.appendln(2)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -52,14 +35,13 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldHandleInterWin() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln("2 1")//
 				.appendln(2)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -72,14 +54,13 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldHandleGremioWin() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln("1 2")//
 				.appendln(2)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -92,18 +73,17 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldValidateSample() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln("3 2")//
 				.appendln(1)//
 				.appendln("2 3")//
 				.appendln(1)//
 				.appendln("3 1")//
 				.append(2)//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//

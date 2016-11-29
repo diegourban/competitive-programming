@@ -6,26 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
@@ -34,8 +19,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandlePositiveOddInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(1).append(5).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(1).append(5).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(3).build();
@@ -45,8 +29,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandlePositiveEvenInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(4).append(6).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(4).append(6).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(5).build();
@@ -56,8 +39,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandlePositiveOddEvenInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(5).append(8).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(5).append(8).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(7).build();
@@ -67,8 +49,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandlePositiveEvenOddInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(10).append(12).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(10).append(12).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(11).build();
@@ -78,8 +59,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleNegativeOddInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-1).append(-5).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-1).append(-5).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(-3).build();
@@ -89,8 +69,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleNegativeEvenInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-4).append(-6).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-4).append(-6).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(-5).build();
@@ -100,8 +79,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleNegativeOddEvenInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-5).append(-8).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-5).append(-8).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(-7).build();
@@ -111,8 +89,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleNegativeEvenOddInputs() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-10).append(-12).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-10).append(-12).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(-11).build();
@@ -122,8 +99,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleSameNegativeOdd() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-3).append(3).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-3).append(3).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(0).build();
@@ -133,8 +109,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleSameNegativeEven() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-4).append(4).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-4).append(4).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(0).build();
@@ -144,8 +119,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleSamePositiveOdd() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(55).append(55).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(55).append(55).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(0).build();
@@ -155,8 +129,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleSamePositiveEven() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(40).append(40).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(40).append(40).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(0).build();
@@ -166,8 +139,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandlePositiveEvenNegativeOdd() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(2).append(-3).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(2).append(-3).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(0).build();
@@ -177,8 +149,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandlePositiveOddNegativeEven() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(8).append(-4).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(8).append(-4).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(12).build();
@@ -188,8 +159,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleNegativeEvenPositiveOdd() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-4).append(15).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-4).append(15).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(45).build();
@@ -199,8 +169,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleNegativeOddPositiveEven() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(-9).append(10).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(-9).append(10).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln(9).build();
@@ -210,7 +179,7 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateSample() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(7)//
 				.appendln("4 5")//
 				.appendln("13 10")//
@@ -218,8 +187,8 @@ public class MainTest {
 				.appendln("3 3")//
 				.appendln("3 5")//
 				.appendln("3 4")//
-				.append("3 8").build();
-		InputStream input = this.inputStream.build(inputSample);
+				.append("3 8").buildAsInputStream();
+		
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//

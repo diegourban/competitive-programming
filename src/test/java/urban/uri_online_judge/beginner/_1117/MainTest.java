@@ -6,26 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
@@ -34,19 +19,18 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleTwoValidScoresInSequence() throws IOException {
-		String inputSample = new SampleBuilder().appendln(5.5).append(6.5).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(5.5).append(6.5).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln("media = 6.00").build();
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldSkipInvalidScores() throws IOException {
-		String inputSample = new SampleBuilder().appendln(-0.1).append(7.0).append(10.1).append(7.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(-0.1).append(7.0).append(10.1).append(7.0)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -56,11 +40,11 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldValidateSample() throws IOException {
-		String inputSample = new SampleBuilder().appendln(-3.5).appendln(3.5).appendln(11.0).append(10.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(-3.5).appendln(3.5).appendln(11.0).append(10.0)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//

@@ -6,27 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1078.Main;
 
 public class MainTest {
-	
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
@@ -35,8 +19,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleLowestInput() throws IOException {
-		String inputSample = new SampleBuilder().append(2).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(2).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -54,43 +37,41 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldHandleHighestInput() throws IOException {
-		String inputSample = new SampleBuilder().append(999).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(999).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
-				.append("1 x 999 =").appendln(1*999)//
-				.append("2 x 999 =").appendln(2*999)//
-				.append("3 x 999 =").appendln(3*999)//
-				.append("4 x 999 =").appendln(4*999)//
-				.append("5 x 999 =").appendln(5*999)//
-				.append("6 x 999 =").appendln(6*999)//
-				.append("7 x 999 =").appendln(7*999)//
-				.append("8 x 999 =").appendln(8*999)//
-				.append("9 x 999 =").appendln(9*999)//
-				.append("10 x 999 =").appendln(10*999)//
+				.append("1 x 999 =").appendln(1 * 999)//
+				.append("2 x 999 =").appendln(2 * 999)//
+				.append("3 x 999 =").appendln(3 * 999)//
+				.append("4 x 999 =").appendln(4 * 999)//
+				.append("5 x 999 =").appendln(5 * 999)//
+				.append("6 x 999 =").appendln(6 * 999)//
+				.append("7 x 999 =").appendln(7 * 999)//
+				.append("8 x 999 =").appendln(8 * 999)//
+				.append("9 x 999 =").appendln(9 * 999)//
+				.append("10 x 999 =").appendln(10 * 999)//
 				.build();
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateMultiplicationTableSample() throws IOException {
 		int n = 140;
-		String inputSample = new SampleBuilder().append(n).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(n).buildAsInputStream();
 
 		String output = Main.main(input);
 		SampleBuilder sb = new SampleBuilder();
-		for(int i = 1; i <= 10; i++) {
+		for (int i = 1; i <= 10; i++) {
 			sb.append(i);
 			sb.append("x");
 			sb.append(n);
 			sb.append("=");
-			sb.appendln(i*n);
+			sb.appendln(i * n);
 		}
 
 		assertEquals(sb.build(), output);

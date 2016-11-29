@@ -6,37 +6,20 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1021.Main;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins1Coin() throws IOException {
-		String inputSample = new SampleBuilder().append(1.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(1.0).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -58,11 +41,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins50Coin() throws IOException {
-		String inputSample = new SampleBuilder().append(0.5).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.5).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -84,11 +66,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins25Coin() throws IOException {
-		String inputSample = new SampleBuilder().append(0.25).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.25).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -110,11 +91,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins10Coin() throws IOException {
-		String inputSample = new SampleBuilder().append(0.10).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.10).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -136,11 +116,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins05Coin() throws IOException {
-		String inputSample = new SampleBuilder().append(0.05).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.05).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -162,11 +141,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins01Coin() throws IOException {
-		String inputSample = new SampleBuilder().append(0.01).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.01).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -188,11 +166,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins1CoinOfEach() throws IOException {
-		String inputSample = new SampleBuilder().append(1.91).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(1.91).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -214,11 +191,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoins1NoteAndCoinOfEach() throws IOException {
-		String inputSample = new SampleBuilder().append(188.91).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(188.91).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -243,8 +219,7 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateBanknotesAndCoinsSample1() throws IOException {
-		String inputSample = new SampleBuilder().append(576.73).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(576.73).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -266,11 +241,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoinsSample2() throws IOException {
-		String inputSample = new SampleBuilder().append(4.00).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(4.00).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -292,11 +266,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesAndCoinsSample3() throws IOException {
-		String inputSample = new SampleBuilder().append(91.01).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(91.01).buildAsInputStream();
 
 		String output = Main.main(input);
 

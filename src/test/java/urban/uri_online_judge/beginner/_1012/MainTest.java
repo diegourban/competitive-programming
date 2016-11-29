@@ -6,26 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
@@ -34,8 +19,7 @@ public class MainTest {
 
 	@Test
 	public void shouldSimpleTest1() throws IOException {
-		String inputSample = new SampleBuilder().append(3.0).append(4.0).append(5.2).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(3.0).append(4.0).append(5.2).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -47,8 +31,7 @@ public class MainTest {
 
 	@Test
 	public void shouldSimpleTest2() throws IOException {
-		String inputSample = new SampleBuilder().append(12.7).append(10.4).append(15.2).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(12.7).append(10.4).append(15.2).buildAsInputStream();
 
 		String output = Main.main(input);
 

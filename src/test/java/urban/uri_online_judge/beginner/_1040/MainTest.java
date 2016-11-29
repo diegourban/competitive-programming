@@ -6,26 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
@@ -34,8 +19,7 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageReprovado() throws IOException {
-		String inputSample = new SampleBuilder().append(0.0).append(0.0).append(0.0).appendln(0.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.0).append(0.0).append(0.0).appendln(0.0).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -46,8 +30,8 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageEmExameReprovado() throws IOException {
-		String inputSample = new SampleBuilder().append(5.0).append(5.0).append(5.0).appendln(5.0).append(0.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(5.0).append(5.0).append(5.0).appendln(5.0).append(0.0)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -59,8 +43,8 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageEmExameAprovado() throws IOException {
-		String inputSample = new SampleBuilder().append(5.0).append(5.0).append(5.0).appendln(6.0).append(10.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(5.0).append(5.0).append(5.0).appendln(6.0).append(10.0)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -72,8 +56,8 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageAprovado() throws IOException {
-		String inputSample = new SampleBuilder().append(10.0).append(10.0).append(10.0).appendln(10.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(10.0).append(10.0).append(10.0).appendln(10.0)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -84,8 +68,8 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageSample1() throws IOException {
-		String inputSample = new SampleBuilder().append(2.0).append(4.0).append(7.5).appendln(8.0).append(6.4).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(2.0).append(4.0).append(7.5).appendln(8.0).append(6.4)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -97,8 +81,7 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageSample2() throws IOException {
-		String inputSample = new SampleBuilder().append(2.0).append(6.5).append(4.0).append(9.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(2.0).append(6.5).append(4.0).append(9.0).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -109,8 +92,7 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateAverageSample3() throws IOException {
-		String inputSample = new SampleBuilder().append(9.0).append(4.0).append(8.5).append(9.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(9.0).append(4.0).append(8.5).append(9.0).buildAsInputStream();
 
 		String output = Main.main(input);
 

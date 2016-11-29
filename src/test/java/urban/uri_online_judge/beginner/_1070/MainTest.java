@@ -6,37 +6,20 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1070.Main;
 
 public class MainTest {
-	
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldPrintSixConsecutiveOddsStartingAtEven() throws IOException {
-		String inputSample = new SampleBuilder().append(2).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(2).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -50,11 +33,10 @@ public class MainTest {
 
 		assertEquals(sb.toString(), output);
 	}
-	
+
 	@Test
 	public void shouldPrintSixConsecutiveOddsStartingAtOdd() throws IOException {
-		String inputSample = new SampleBuilder().append(3).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(3).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -68,11 +50,10 @@ public class MainTest {
 
 		assertEquals(sb.toString(), output);
 	}
-	
+
 	@Test
 	public void shouldPrintSixConsecutiveSample() throws IOException {
-		String inputSample = new SampleBuilder().append(8).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(8).buildAsInputStream();
 
 		String output = Main.main(input);
 

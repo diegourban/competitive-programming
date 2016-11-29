@@ -6,77 +6,60 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1160.Main;
 
 public class MainTest {
-	
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldCalculateOneYear() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(200).append(201).append(1.0).append(0.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(200).append(201).append(1.0).append(0.0)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln("1 anos.").build();
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateLowestInput() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(100).append(101).append(0.1).append(0.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(100).append(101).append(0.1).append(0.0)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln("Mais de 1 seculo.").build();
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateHighestInput() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).append(999999).append(1000000).append(10.0).append(9.9).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).append(999999).append(1000000).append(10.0).append(9.9)
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder().appendln("1 anos.").build();
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculatePopulationIncreaseSample1() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(6)//
 				.appendln("100 150 1.0 0")//
 				.appendln("90000 120000 5.5 3.5")//
 				.appendln("56700 72000 5.2 3.0")//
 				.appendln("123 2000 3.0 2.0")//
 				.appendln("100000 110000 1.5 0.5")//
-				.appendln("62422 484317 3.1 1.0").build();
-		InputStream input = this.inputStream.build(inputSample);
+				.appendln("62422 484317 3.1 1.0").buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -90,10 +73,10 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculatePopulationIncreaseSample2() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(11)//
 				.appendln("100 100 10 0")//
 				.appendln("100 101 10 9")//
@@ -106,8 +89,7 @@ public class MainTest {
 				.appendln("1000 1999 1.8 1")//
 				.appendln("100 200 10 0")//
 				.appendln("666 6660 10 0")//
-				.build();
-		InputStream input = this.inputStream.build(inputSample);
+				.buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//

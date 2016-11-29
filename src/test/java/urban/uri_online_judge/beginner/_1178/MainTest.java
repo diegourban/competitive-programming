@@ -9,11 +9,8 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
@@ -24,18 +21,6 @@ public class MainTest {
 		DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
 		dfs.setDecimalSeparator('.');
 		nf = new DecimalFormat("#0.0000", dfs);
-	}
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
 	}
 
 	private String generateExpectedOutputFor(double x) {
@@ -56,8 +41,7 @@ public class MainTest {
 	@Test
 	public void shouldHandleLowestInput() throws IOException {
 		double n = 200.0000;
-		String inputSample = new SampleBuilder().appendln(n).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(n).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -69,8 +53,7 @@ public class MainTest {
 	@Test
 	public void shouldHandleSample2() throws IOException {
 		double n = new Double("100000000000000000.0000");
-		String inputSample = new SampleBuilder().appendln(n).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(n).buildAsInputStream();
 
 		String output = Main.main(input);
 

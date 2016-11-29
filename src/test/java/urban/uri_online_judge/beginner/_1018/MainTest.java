@@ -6,37 +6,20 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1018.Main;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly100Note() throws IOException {
-		String inputSample = new SampleBuilder().append(100).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(100).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -46,11 +29,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly50Note() throws IOException {
-		String inputSample = new SampleBuilder().append(50).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(50).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -60,11 +42,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly20Note() throws IOException {
-		String inputSample = new SampleBuilder().append(20).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(20).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -74,11 +55,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly10Note() throws IOException {
-		String inputSample = new SampleBuilder().append(10).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(10).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -88,11 +68,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly5Note() throws IOException {
-		String inputSample = new SampleBuilder().append(5).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(5).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -102,11 +81,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly2Note() throws IOException {
-		String inputSample = new SampleBuilder().append(2).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(2).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -116,11 +94,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly1Note() throws IOException {
-		String inputSample = new SampleBuilder().append(1).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(1).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -130,11 +107,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateExactly1OfEach() throws IOException {
-		String inputSample = new SampleBuilder().append(188).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(188).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -147,8 +123,7 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateBanknotesSample1() throws IOException {
-		String inputSample = new SampleBuilder().append(576).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(576).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -158,11 +133,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesSample2() throws IOException {
-		String inputSample = new SampleBuilder().append(11257).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(11257).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -172,11 +146,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBanknotesSample3() throws IOException {
-		String inputSample = new SampleBuilder().append(503).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(503).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -186,11 +159,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateMinEntry() throws IOException {
-		String inputSample = new SampleBuilder().append(0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -200,11 +172,10 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateMaxEntry() throws IOException {
-		String inputSample = new SampleBuilder().append(1000000).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(1000000).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -214,5 +185,5 @@ public class MainTest {
 				.build();
 		assertEquals(expectedOutput, output);
 	}
-	
+
 }

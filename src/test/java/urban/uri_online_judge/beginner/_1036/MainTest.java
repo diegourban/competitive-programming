@@ -6,37 +6,20 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1036.Main;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldBeImpossibleToCalculateWithAZero() throws IOException {
-		String inputSample = new SampleBuilder().append(0.0).append(20.1).append(5.1).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.0).append(20.1).append(5.1).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -44,11 +27,10 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldBeImpossibleToCalculateWithDeltaNegative() throws IOException {
-		String inputSample = new SampleBuilder().append(1).append(1).append(1).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(1).append(1).append(1).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -59,8 +41,7 @@ public class MainTest {
 
 	@Test
 	public void shouldCalculateBhaskaraSample1() throws IOException {
-		String inputSample = new SampleBuilder().append(10.0).append(20.1).append(5.1).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(10.0).append(20.1).append(5.1).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -68,11 +49,10 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBhaskaraSample2() throws IOException {
-		String inputSample = new SampleBuilder().append(0.0).append(20.0).append(5.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(0.0).append(20.0).append(5.0).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -80,11 +60,10 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBhaskaraSample3() throws IOException {
-		String inputSample = new SampleBuilder().append(10.3).append(203.0).append(5.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(10.3).append(203.0).append(5.0).buildAsInputStream();
 
 		String output = Main.main(input);
 
@@ -92,11 +71,10 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output);
 	}
-	
+
 	@Test
 	public void shouldCalculateBhaskaraSample4() throws IOException {
-		String inputSample = new SampleBuilder().append(10.0).append(3.0).append(5.0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().append(10.0).append(3.0).append(5.0).buildAsInputStream();
 
 		String output = Main.main(input);
 

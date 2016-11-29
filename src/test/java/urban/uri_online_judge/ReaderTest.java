@@ -1,6 +1,8 @@
 package urban.uri_online_judge;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,7 +18,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldHandleEmptyInput() throws IOException {
-		InputStream input = new InputStreamBuilder().build();
+		InputStream input = new SampleBuilder().buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		String empty = reader.readLine();
@@ -27,7 +29,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldHandleCloseAlreadyClosedReader() throws IOException {
-		InputStream input = new InputStreamBuilder().build();
+		InputStream input = new SampleBuilder().buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		reader.close();
@@ -38,7 +40,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadOneLine() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("this is a line").build();
+		InputStream input = new SampleBuilder().appendln("this is a line").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		String line = reader.readLine();
@@ -49,7 +51,8 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadTwoLines() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("this is a line").addLine("this is another line").build();
+		InputStream input = new SampleBuilder().appendln("this is a line").appendln("this is another line")
+				.buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		String firstLine = reader.readLine();
@@ -62,7 +65,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadPositiveIntegerUnit() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("5").build();
+		InputStream input = new SampleBuilder().appendln("5").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		int nextInt = reader.nextInt();
@@ -73,7 +76,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadNegativeIntegerUnit() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-4").build();
+		InputStream input = new SampleBuilder().appendln("-4").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		int nextInt = reader.nextInt();
@@ -84,7 +87,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadPositiveIntegerDozen() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("16").build();
+		InputStream input = new SampleBuilder().appendln("16").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		int nextInt = reader.nextInt();
@@ -95,7 +98,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadNegativeIntegerDozen() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-20").build();
+		InputStream input = new SampleBuilder().appendln("-20").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		int nextInt = reader.nextInt();
@@ -106,7 +109,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadPositiveIntegerHundred() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("123").build();
+		InputStream input = new SampleBuilder().appendln("123").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		int nextInt = reader.nextInt();
@@ -117,7 +120,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadNegativeIntegerHundred() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-321").build();
+		InputStream input = new SampleBuilder().appendln("-321").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		int nextInt = reader.nextInt();
@@ -128,7 +131,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadChainOfPositiveAndNegativeIntegers() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-123 987 -88 74 -9 7").build();
+		InputStream input = new SampleBuilder().appendln("-123 987 -88 74 -9 7").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		int first = reader.nextInt();
@@ -149,7 +152,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadPositiveDoubleUnit() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("1.1").build();
+		InputStream input = new SampleBuilder().appendln("1.1").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -160,7 +163,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadNegativeDoubleUnit() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-2.3").build();
+		InputStream input = new SampleBuilder().appendln("-2.3").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -171,7 +174,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadPositiveDoubleDozen() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("12.7").build();
+		InputStream input = new SampleBuilder().appendln("12.7").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -182,7 +185,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadNegativeDoubleDozen() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-99.9").build();
+		InputStream input = new SampleBuilder().appendln("-99.9").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -193,7 +196,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadPositiveDoubleHundred() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("612.9").build();
+		InputStream input = new SampleBuilder().appendln("612.9").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -204,7 +207,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadNegativeDoubleHundred() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-193.6").build();
+		InputStream input = new SampleBuilder().appendln("-193.6").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -215,7 +218,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldDoubleWithTwoDecimalPlaces() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("5.68").build();
+		InputStream input = new SampleBuilder().appendln("5.68").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -226,7 +229,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldDoubleWithThreeDecimalPlaces() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("45.771").build();
+		InputStream input = new SampleBuilder().appendln("45.771").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -237,7 +240,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldDoubleWithNineDecimalPlaces() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("0.123456789").build();
+		InputStream input = new SampleBuilder().appendln("0.123456789").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double nextDouble = reader.nextDouble();
@@ -248,7 +251,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadChainOfPositiveAndNegativeDoubles() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-1.23 98.7 -8.8 7.4 -9 7").build();
+		InputStream input = new SampleBuilder().appendln("-1.23 98.7 -8.8 7.4 -9 7").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		double first = reader.nextDouble();
@@ -269,7 +272,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadPositiveLong() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("8172368367890").build();
+		InputStream input = new SampleBuilder().appendln("8172368367890").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		long nextLong = reader.nextLong();
@@ -280,7 +283,7 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadNegativeLong() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("-123578918902").build();
+		InputStream input = new SampleBuilder().appendln("-123578918902").buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		long nextLong = reader.nextLong();
@@ -291,8 +294,9 @@ public class ReaderTest {
 
 	@Test
 	public void shouldReadChainOfPositiveAndNegativeLongs() throws IOException {
-		InputStream input = new InputStreamBuilder()
-				.addLine("8172368367890 -1789236812893 891723689713 -31723581237 59787712587 -123123123123").build();
+		InputStream input = new SampleBuilder()
+				.appendln("8172368367890 -1789236812893 891723689713 -31723581237 59787712587 -123123123123")
+				.buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		long first = reader.nextLong();
@@ -310,11 +314,11 @@ public class ReaderTest {
 		assertEquals(59787712587l, fifth);
 		assertEquals(-123123123123l, sixth);
 	}
-	
+
 	@Test
 	public void shouldReadLongsWithSpacesAndLineBreaks() throws IOException {
-		InputStream input = new InputStreamBuilder()
-				.addLine("6546546565    -4326757896").addLine("786676767").build();
+		InputStream input = new SampleBuilder().appendln("6546546565    -4326757896").appendln("786676767")
+				.buildAsInputStream();
 
 		Reader reader = new Reader(input);
 		long first = reader.nextLong();
@@ -326,37 +330,37 @@ public class ReaderTest {
 		assertEquals(-4326757896l, second);
 		assertEquals(786676767, third);
 	}
-	
+
 	@Test
 	public void shouldReadChar() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("a").build();
+		InputStream input = new SampleBuilder().appendln("a").buildAsInputStream();
 
 		Reader reader = new Reader(input);
-		char nextChar= reader.nextChar();
+		char nextChar = reader.nextChar();
 		reader.close();
 
 		assertEquals('a', nextChar);
 	}
-	
+
 	@Test
 	public void shouldReadMultipleChars() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("a 1 /").build();
-		
+		InputStream input = new SampleBuilder().appendln("a 1 /").buildAsInputStream();
+
 		Reader reader = new Reader(input);
 		char a = reader.nextChar();
 		char one = reader.nextChar();
 		char slash = reader.nextChar();
 		reader.close();
-		
+
 		assertEquals('a', a);
 		assertEquals('1', one);
 		assertEquals('/', slash);
 	}
-	
+
 	@Test
 	public void shouldReadIntegersWithOtherCharactersInBetween() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("12a34Z56&78/9").build();
-		
+		InputStream input = new SampleBuilder().appendln("12a34Z56&78/9").buildAsInputStream();
+
 		Reader reader = new Reader(input);
 		int firstInt = reader.nextInt();
 		int secondInt = reader.nextInt();
@@ -364,18 +368,18 @@ public class ReaderTest {
 		int fourthInt = reader.nextInt();
 		int fifthInt = reader.nextInt();
 		reader.close();
-		
+
 		assertEquals(12, firstInt);
 		assertEquals(34, secondInt);
 		assertEquals(56, thirdInt);
 		assertEquals(78, fourthInt);
 		assertEquals(9, fifthInt);
 	}
-	
+
 	@Test
 	public void shouldReadLongsWithOtherCharactersInBetween() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("12a34Z56&78/9").build();
-		
+		InputStream input = new SampleBuilder().appendln("12a34Z56&78/9").buildAsInputStream();
+
 		Reader reader = new Reader(input);
 		long firstLong = reader.nextLong();
 		long secondLong = reader.nextLong();
@@ -383,18 +387,18 @@ public class ReaderTest {
 		long fourthLong = reader.nextLong();
 		long fifthLong = reader.nextLong();
 		reader.close();
-		
+
 		assertEquals(12, firstLong);
 		assertEquals(34, secondLong);
 		assertEquals(56, thirdLong);
 		assertEquals(78, fourthLong);
 		assertEquals(9, fifthLong);
 	}
-	
+
 	@Test
 	public void shouldReadDoublesWithOtherCharactersInBetween() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("12a3.4Z56&7.88/9").build();
-		
+		InputStream input = new SampleBuilder().appendln("12a3.4Z56&7.88/9").buildAsInputStream();
+
 		Reader reader = new Reader(input);
 		double firstDouble = reader.nextDouble();
 		double secondDouble = reader.nextDouble();
@@ -402,23 +406,23 @@ public class ReaderTest {
 		double fourthDouble = reader.nextDouble();
 		double fifthDouble = reader.nextDouble();
 		reader.close();
-		
+
 		assertEquals(12, firstDouble, 0.1);
 		assertEquals(3.4, secondDouble, 0.1);
 		assertEquals(56, thirdDouble, 0.1);
 		assertEquals(7.88, fourthDouble, 0.1);
 		assertEquals(9, fifthDouble, 0.1);
 	}
-	
+
 	@Test
 	public void shouldSkipNChars() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("Dia 5").build();
-		
+		InputStream input = new SampleBuilder().appendln("Dia 5").buildAsInputStream();
+
 		Reader reader = new Reader(input);
 		reader.skip(4);
 		int day = reader.nextInt();
 		reader.close();
-		
+
 		assertEquals(5, day);
 	}
 

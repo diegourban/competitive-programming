@@ -1,7 +1,10 @@
 package urban.uri_online_judge;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -68,6 +71,10 @@ public class SampleBuilder {
 			trim();
 		}
 		return this.stringBuilder.toString();
+	}
+	
+	public InputStream buildAsInputStream() {
+		return new ByteArrayInputStream(build().getBytes(StandardCharsets.UTF_8));
 	}
 
 	private boolean isEmpty() {

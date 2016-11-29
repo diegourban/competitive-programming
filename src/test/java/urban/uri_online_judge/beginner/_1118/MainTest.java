@@ -6,36 +6,20 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.beginner._1118.Main;
 
 public class MainTest {
-	
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldValidateSample() throws IOException {
-		String inputSample = new SampleBuilder()//
+		InputStream input = new SampleBuilder()//
 				.appendln(-3.5)//
 				.appendln(3.5)//
 				.appendln(11.0)//
@@ -44,8 +28,8 @@ public class MainTest {
 				.appendln(1)//
 				.appendln(8.0)//
 				.appendln(9.0)//
-				.appendln(2).build();
-		InputStream input = this.inputStream.build(inputSample);
+				.appendln(2).buildAsInputStream();
+		
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//

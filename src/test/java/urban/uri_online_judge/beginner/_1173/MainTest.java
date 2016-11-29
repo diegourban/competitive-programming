@@ -6,26 +6,11 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import urban.uri_online_judge.InputStreamBuilder;
 import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
-
-	private InputStreamBuilder inputStream;
-
-	@Before
-	public void beforeTest() {
-		inputStream = new InputStreamBuilder();
-	}
-
-	@After
-	public void afterTest() {
-		inputStream = null;
-	}
 
 	@Test
 	public void shouldCreateInstance() {
@@ -34,8 +19,7 @@ public class MainTest {
 
 	@Test
 	public void shouldStartAtOne() throws IOException {
-		String inputSample = new SampleBuilder().appendln(1).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(1).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -56,8 +40,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleMaximumInput() throws IOException {
-		String inputSample = new SampleBuilder().appendln(49).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(49).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -78,8 +61,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleZero() throws IOException {
-		String inputSample = new SampleBuilder().appendln(0).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(0).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
@@ -100,8 +82,7 @@ public class MainTest {
 
 	@Test
 	public void shouldHandleNegativeNumber() throws IOException {
-		String inputSample = new SampleBuilder().appendln(-2).build();
-		InputStream input = this.inputStream.build(inputSample);
+		InputStream input = new SampleBuilder().appendln(-2).buildAsInputStream();
 
 		String output = Main.main(input);
 		String expectedOutput = new SampleBuilder()//
