@@ -5,11 +5,26 @@ import static org.junit.Assert.*;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import urban.uri_online_judge.InputStreamBuilder;
+import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
+	
+	private InputStreamBuilder inputStream;
+
+	@Before
+	public void beforeTest() {
+		inputStream = new InputStreamBuilder();
+	}
+
+	@After
+	public void afterTest() {
+		inputStream = null;
+	}
 	
 	@Test
 	public void shouldCreateInstance() {
@@ -18,9 +33,10 @@ public class MainTest {
 	
 	@Test
 	public void shouldAddOnesAndOnes() throws IOException {
-		InputStream in = new InputStreamBuilder().addLine("4").addLine("1").build();
-
-		String output = Main.main(in);
+		String inputSample = new SampleBuilder().appendln("4").appendln("1").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
+		String output = Main.main(input);
 		String expectedOutput = "X = 5" + System.lineSeparator();
 		
 		assertEquals(expectedOutput, output);
@@ -28,9 +44,10 @@ public class MainTest {
 	
 	@Test
 	public void shouldAddOnesAndTens() throws IOException {
-		InputStream in = new InputStreamBuilder().addLine("9").addLine("11").build();
-
-		String output = Main.main(in);
+		String inputSample = new SampleBuilder().appendln("9").appendln("11").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
+		String output = Main.main(input);
 		String expectedOutput = "X = 20" + System.lineSeparator();
 		
 		assertEquals(expectedOutput, output);

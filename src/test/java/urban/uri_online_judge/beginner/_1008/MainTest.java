@@ -6,12 +6,26 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import urban.uri_online_judge.InputStreamBuilder;
-import urban.uri_online_judge.beginner._1008.Main;
+import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
+	
+	private InputStreamBuilder inputStream;
+
+	@Before
+	public void beforeTest() {
+		inputStream = new InputStreamBuilder();
+	}
+
+	@After
+	public void afterTest() {
+		inputStream = null;
+	}
 	
 	@Test
 	public void shouldCreateInstance() {
@@ -20,8 +34,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateSalary1() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("25").addLine("100").addLine("5.50").build();
-
+		String inputSample = new SampleBuilder().appendln("25").appendln("100").appendln("5.50").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "NUMBER = 25" + System.lineSeparator() + "SALARY = U$ 550.00" + System.lineSeparator();
 		
@@ -30,8 +45,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateSalary2() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("1").addLine("200").addLine("20.50").build();
-
+		String inputSample = new SampleBuilder().appendln("1").appendln("200").appendln("20.50").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "NUMBER = 1" + System.lineSeparator() + "SALARY = U$ 4100.00" + System.lineSeparator();
 		
@@ -40,8 +56,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateSalary3() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("6").addLine("145").addLine("15.55").build();
-
+		String inputSample = new SampleBuilder().appendln("6").appendln("145").appendln("15.55").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "NUMBER = 6" + System.lineSeparator() + "SALARY = U$ 2254.75" + System.lineSeparator();
 		

@@ -6,12 +6,26 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import urban.uri_online_judge.InputStreamBuilder;
-import urban.uri_online_judge.beginner._1011.Main;
+import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
+	
+	private InputStreamBuilder inputStream;
+
+	@Before
+	public void beforeTest() {
+		inputStream = new InputStreamBuilder();
+	}
+
+	@After
+	public void afterTest() {
+		inputStream = null;
+	}
 	
 	@Test
 	public void shouldCreateInstance() {
@@ -20,8 +34,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateZero() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("0").build();
-
+		String inputSample = new SampleBuilder().appendln("0").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "VOLUME = 0.000" + System.lineSeparator();
 		
@@ -30,8 +45,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateOneDigitInput() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("3").build();
-
+		String inputSample = new SampleBuilder().appendln("3").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "VOLUME = 113.097" + System.lineSeparator();
 		
@@ -40,8 +56,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateTwoDigitInput() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("15").build();
-
+		String inputSample = new SampleBuilder().appendln("15").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "VOLUME = 14137.155" + System.lineSeparator();
 		
@@ -50,8 +67,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateThreeDigitInput() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("999").build();
-
+		String inputSample = new SampleBuilder().appendln("999").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "VOLUME = 4176232868.838" + System.lineSeparator();
 		
@@ -60,8 +78,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateFourDigitInput() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("1523").build();
-
+		String inputSample = new SampleBuilder().appendln("1523").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "VOLUME = 14797486501.627" + System.lineSeparator();
 		

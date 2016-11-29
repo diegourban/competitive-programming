@@ -6,12 +6,26 @@ import static org.junit.Assert.assertNotNull;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import urban.uri_online_judge.InputStreamBuilder;
-import urban.uri_online_judge.beginner._1007.Main;
+import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
+	
+	private InputStreamBuilder inputStream;
+
+	@Before
+	public void beforeTest() {
+		inputStream = new InputStreamBuilder();
+	}
+
+	@After
+	public void afterTest() {
+		inputStream = null;
+	}
 	
 	@Test
 	public void shouldCreateInstance() {
@@ -20,8 +34,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateDifferenceOfZero() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("0").addLine("0").addLine("0").addLine("0").build();
-
+		String inputSample = new SampleBuilder().appendln("0").appendln("0").appendln("0").appendln("0").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "DIFERENCA = 0" + System.lineSeparator();
 		
@@ -30,8 +45,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateDifferenceOfOne() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("1").addLine("1").addLine("0").addLine("0").build();
-
+		String inputSample = new SampleBuilder().appendln("1").appendln("1").appendln("0").appendln("0").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "DIFERENCA = 1" + System.lineSeparator();
 		
@@ -40,8 +56,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateDifferenceOfTwo() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("3").addLine("1").addLine("0").addLine("0").build();
-
+		String inputSample = new SampleBuilder().appendln("3").appendln("1").appendln("0").appendln("0").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "DIFERENCA = 3" + System.lineSeparator();
 		
@@ -50,8 +67,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateNegativeDifference() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("0").addLine("0").addLine("7").addLine("8").build();
-
+		String inputSample = new SampleBuilder().appendln("0").appendln("0").appendln("7").appendln("8").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "DIFERENCA = -56" + System.lineSeparator();
 		
@@ -60,8 +78,9 @@ public class MainTest {
 	
 	@Test
 	public void shouldCalculateTheDifferenceWithNegativeInputs() throws IOException {
-		InputStream input = new InputStreamBuilder().addLine("5").addLine("6").addLine("-7").addLine("8").build();
-
+		String inputSample = new SampleBuilder().appendln("5").appendln("6").appendln("-7").appendln("8").build();
+		InputStream input = this.inputStream.build(inputSample);
+		
 		String output = Main.main(input);
 		String expectedOutput = "DIFERENCA = 86" + System.lineSeparator();
 		
