@@ -72,16 +72,15 @@ public class Main {
 			sb.append("Caso #").append(i).append(": ");
 
 			if (options[0].equals(options[1])) {
-				sb.append("De novo!");
+				sb.append("De novo!").append(System.lineSeparator());
 			} else {
 				if (LOSE_TABLE.get(options[0]).contains(options[1])) {
-					sb.append("Raj trapaceou!");
+					sb.append("Raj trapaceou!").append(System.lineSeparator());
 				} else {
-					sb.append("Bazinga!");
+					sb.append("Bazinga!").append(System.lineSeparator());
 				}
 			}
-
-			sb.append(System.lineSeparator());
+			
 		}
 		reader.close();
 
