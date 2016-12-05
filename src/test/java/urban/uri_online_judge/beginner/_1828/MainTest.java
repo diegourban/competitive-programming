@@ -8,6 +8,7 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
+import urban.uri_online_judge.SampleBuilder;
 import urban.uri_online_judge.SampleContentLoader;
 import urban.uri_online_judge.beginner._1828.Main;
 
@@ -26,7 +27,13 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleAllDraw.out");
+		String expectedOutput = new SampleBuilder()//
+				.appendln("Caso #1: De novo!")//
+				.appendln("Caso #2: De novo!")//
+				.appendln("Caso #3: De novo!")//
+				.appendln("Caso #4: De novo!")//
+				.appendln("Caso #5: De novo!")//
+				.build();
 
 		assertEquals(expectedOutput, output);
 	}
@@ -37,7 +44,18 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleAllWin.out");
+		String expectedOutput = new SampleBuilder()//
+				.appendln("Caso #1: Bazinga!")//
+				.appendln("Caso #2: Bazinga!")//
+				.appendln("Caso #3: Bazinga!")//
+				.appendln("Caso #4: Bazinga!")//
+				.appendln("Caso #5: Bazinga!")//
+				.appendln("Caso #6: Bazinga!")//
+				.appendln("Caso #7: Bazinga!")//
+				.appendln("Caso #8: Bazinga!")//
+				.appendln("Caso #9: Bazinga!")//
+				.appendln("Caso #10: Bazinga!")//
+				.build();
 
 		assertEquals(expectedOutput, output);
 	}
@@ -48,7 +66,18 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleAllLose.out");
+		String expectedOutput = new SampleBuilder()//
+				.appendln("Caso #1: Raj trapaceou!")//
+				.appendln("Caso #2: Raj trapaceou!")//
+				.appendln("Caso #3: Raj trapaceou!")//
+				.appendln("Caso #4: Raj trapaceou!")//
+				.appendln("Caso #5: Raj trapaceou!")//
+				.appendln("Caso #6: Raj trapaceou!")//
+				.appendln("Caso #7: Raj trapaceou!")//
+				.appendln("Caso #8: Raj trapaceou!")//
+				.appendln("Caso #9: Raj trapaceou!")//
+				.appendln("Caso #10: Raj trapaceou!")//
+				.build();
 
 		assertEquals(expectedOutput, output);
 	}
@@ -59,7 +88,11 @@ public class MainTest {
 		
 		String output = Main.main(input);
 		
-		String expectedOutput = scl.loadAsStringFrom("sampleURI.out");
+		String expectedOutput = new SampleBuilder()//
+				.appendln("Caso #1: Bazinga!")//
+				.appendln("Caso #2: Raj trapaceou!")//
+				.appendln("Caso #3: De novo!")//
+				.build();
 		
 		assertEquals(expectedOutput, output);
 	}
