@@ -22,7 +22,7 @@ public class SampleContentLoader {
 		String samplePath = PROBLEM_SAMPLES_PATH + File.separator + sampleFileName;
 		Path inputPath = Paths.get(new File(samplePath).getAbsolutePath());
 		byte[] inputBytes = Files.readAllBytes(inputPath);
-		return new String(inputBytes);
+		return new String(inputBytes, StandardCharsets.UTF_8);
 	}
 
 	public InputStream loadAsInputStream(String sampleFileName) throws IOException {
