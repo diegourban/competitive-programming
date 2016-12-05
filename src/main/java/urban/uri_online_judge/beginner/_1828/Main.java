@@ -25,35 +25,35 @@ public class Main {
 	private static final String LIZARD = "lagarto";
 	private static final String SPOCK = "Spock";
 
-	private static final Map<String, Set<String>> INCIDENCES;
+	private static final Map<String, Set<String>> LOSE_TABLE;
 
 	static {
-		INCIDENCES = new HashMap<>(5);
+		LOSE_TABLE = new HashMap<>(5);
 
 		Set<String> scissorsLoseTo = new HashSet<>(2);
 		scissorsLoseTo.add(ROCK);
 		scissorsLoseTo.add(SPOCK);
-		INCIDENCES.put(SCISSORS, scissorsLoseTo);
+		LOSE_TABLE.put(SCISSORS, scissorsLoseTo);
 
 		Set<String> paperLoseTo = new HashSet<>(2);
 		paperLoseTo.add(SCISSORS);
 		paperLoseTo.add(LIZARD);
-		INCIDENCES.put(PAPER, paperLoseTo);
+		LOSE_TABLE.put(PAPER, paperLoseTo);
 
 		Set<String> rockLoseTo = new HashSet<>(2);
 		rockLoseTo.add(PAPER);
 		rockLoseTo.add(SPOCK);
-		INCIDENCES.put(ROCK, rockLoseTo);
+		LOSE_TABLE.put(ROCK, rockLoseTo);
 
 		Set<String> lizardLoseTo = new HashSet<>(2);
 		lizardLoseTo.add(ROCK);
 		lizardLoseTo.add(SCISSORS);
-		INCIDENCES.put(LIZARD, lizardLoseTo);
+		LOSE_TABLE.put(LIZARD, lizardLoseTo);
 
 		Set<String> spockLoseTo = new HashSet<>(2);
 		spockLoseTo.add(PAPER);
 		spockLoseTo.add(LIZARD);
-		INCIDENCES.put(SPOCK, spockLoseTo);
+		LOSE_TABLE.put(SPOCK, spockLoseTo);
 	}
 
 	public static void main(String[] args) throws IOException {
@@ -74,7 +74,7 @@ public class Main {
 			if (options[0].equals(options[1])) {
 				sb.append("De novo!");
 			} else {
-				if (INCIDENCES.get(options[0]).contains(options[1])) {
+				if (LOSE_TABLE.get(options[0]).contains(options[1])) {
 					sb.append("Raj trapaceou!");
 				} else {
 					sb.append("Bazinga!");
