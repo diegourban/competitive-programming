@@ -1,6 +1,5 @@
 package urban.uri_online_judge.beginner._1847;
 
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
