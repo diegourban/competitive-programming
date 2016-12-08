@@ -47,12 +47,12 @@ public class Main {
 				break loop;
 			}
 
-			if (terrainsPassed.contains(i + "" + j)) {
-				break loop;
-			}
-			terrainsPassed.add(i + "" + j);
-			
 			if (c != '.') {
+				String terrain = i + "," + j;
+				if (terrainsPassed.contains(terrain)) {
+					break loop;
+				}
+				terrainsPassed.add(terrain);
 				direction = c;
 			}
 			
