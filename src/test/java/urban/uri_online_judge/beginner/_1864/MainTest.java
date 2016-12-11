@@ -11,8 +11,7 @@ import org.junit.Test;
 import urban.uri_online_judge.SampleBuilder;
 
 public class MainTest {
-	
-	
+
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
@@ -28,7 +27,7 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output1);
 	}
-	
+
 	@Test
 	public void shouldHandleMaximumInput() throws IOException {
 		InputStream input1 = new SampleBuilder().append(34).buildAsInputStream();
@@ -39,7 +38,7 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output1);
 	}
-	
+
 	@Test
 	public void shouldHandleUDebugSample() throws IOException {
 		InputStream input1 = new SampleBuilder().append(33).buildAsInputStream();
@@ -50,7 +49,7 @@ public class MainTest {
 
 		assertEquals(expectedOutput, output1);
 	}
-	
+
 	@Test
 	public void shouldHandleURISample() throws IOException {
 		InputStream input1 = new SampleBuilder().append(7).buildAsInputStream();
