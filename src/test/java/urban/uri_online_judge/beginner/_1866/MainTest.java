@@ -8,24 +8,26 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
+import urban.uri_online_judge.SampleBuilder;
 import urban.uri_online_judge.SampleContentLoader;
 
 public class MainTest {
-	
+
 	private SampleContentLoader scl = new SampleContentLoader("beginner", "1866");
 
 	@Test
 	public void shouldCreateInstance() {
 		assertNotNull(new Main());
 	}
-	
+
 	@Test
 	public void shouldHandleSample() throws IOException {
 		InputStream input1 = scl.loadAsInputStream("sample.in");
 
 		String output1 = Main.main(input1);
 
-		String expectedOutput = scl.loadAsStringFrom("sample.out");
+		String expectedOutput = new SampleBuilder().appendln(1).appendln(0).appendln(1).appendln(0).appendln(1)
+				.appendln(0).appendln(1).appendln(0).appendln(1).appendln(0).build();
 
 		assertEquals(expectedOutput, output1);
 	}
@@ -36,7 +38,7 @@ public class MainTest {
 
 		String output1 = Main.main(input1);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleURI.out");
+		String expectedOutput = new SampleBuilder().appendln(1).appendln(1).appendln(0).build();
 
 		assertEquals(expectedOutput, output1);
 	}
