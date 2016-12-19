@@ -14,6 +14,9 @@ import urban.uri_online_judge.Reader;
  *
  */
 public class Main {
+	
+	private static final double phi = (1 + Math.sqrt(5)) / 2;
+	private static final double sqrt5 = Math.sqrt(5);
 
 	public static void main(String[] args) throws IOException {
 		System.out.print(main(System.in));
@@ -32,9 +35,6 @@ public class Main {
 
 		return sb.toString();
 	}
-
-	static final double phi = (1 + Math.sqrt(5)) / 2;
-	static final double sqrt5 = Math.sqrt(5);
 
 	private static long fibBinet(int n) {
 		return (long) ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sqrt5);
