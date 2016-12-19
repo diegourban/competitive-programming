@@ -15,8 +15,8 @@ import urban.uri_online_judge.Reader;
  */
 public class Main {
 
-	static final double phi = (1 + Math.sqrt(5)) / 2;
-	static final double sqrt5 = Math.sqrt(5);
+	private static final double phi = (1 + Math.sqrt(5)) / 2;
+	private static final double sqrt5 = Math.sqrt(5);
 
 	public static void main(String[] args) throws IOException {
 		System.out.print(main(System.in));
