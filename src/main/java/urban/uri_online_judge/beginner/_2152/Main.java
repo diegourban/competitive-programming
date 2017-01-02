@@ -4,12 +4,8 @@ import urban.uri_online_judge.Reader;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
 
 /**
  * Pepe, I Already Took the Candle!
@@ -34,8 +30,8 @@ public class Main {
             int h = reader.nextInt();
             int m = reader.nextInt();
             int o = reader.nextInt();
-            sb.append(LocalTime.of(h,m).format(dtf)).append(" - A porta ");
-            if(o == 1) {
+            sb.append(LocalTime.of(h, m).format(dtf)).append(" - A porta ");
+            if (o == 1) {
                 sb.append("abriu");
             } else {
                 sb.append("fechou");
