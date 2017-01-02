@@ -1,0 +1,54 @@
+package urban.uri_online_judge.beginner._1180;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.junit.Test;
+
+import urban.uri_online_judge.SampleBuilder;
+
+public class MainTest {
+
+	@Test
+	public void shouldCreateInstance() {
+		assertNotNull(new Main());
+	}
+
+	@Test
+	public void shouldHandleLowestN() throws IOException {
+		InputStream input = new SampleBuilder().appendln(2).append(12).append(-12).buildAsInputStream();
+
+		String output = Main.main(input);
+
+		String expectedOutput = new SampleBuilder().appendln("Menor valor: -12").appendln("Posicao: 1").build();
+
+		assertEquals(expectedOutput, output);
+	}
+
+	@Test
+	public void shouldHandleSameNumbers() throws IOException {
+		InputStream input = new SampleBuilder().appendln(3).append(1).append(1).append(1).buildAsInputStream();
+
+		String output = Main.main(input);
+
+		String expectedOutput = new SampleBuilder().appendln("Menor valor: 1").appendln("Posicao: 0").build();
+
+		assertEquals(expectedOutput, output);
+	}
+
+	@Test
+	public void shouldHandleSample() throws IOException {
+		InputStream input = new SampleBuilder().appendln(10).append(1).append(2).append(3).append(4).append(-5)
+				.append(6).append(7).append(8).append(9).append(10).buildAsInputStream();
+
+		String output = Main.main(input);
+
+		String expectedOutput = new SampleBuilder().appendln("Menor valor: -5").appendln("Posicao: 4").build();
+
+		assertEquals(expectedOutput, output);
+	}
+
+}
