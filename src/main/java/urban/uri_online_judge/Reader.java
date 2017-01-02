@@ -23,7 +23,7 @@ public class Reader {
 	}
 
 	public String readLine() throws IOException {
-		byte[] buf = new byte[100]; // line length
+		byte[] buf = new byte[10000]; // line length
 		int cnt = 0, c;
 
 		while ((c = read()) != -1) {
