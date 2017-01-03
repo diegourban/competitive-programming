@@ -1,0 +1,44 @@
+3775. Fliperama
+Problema: FLIPERAM
+
+Bebe-bebe é um jogo muito popular de fliperama. E, como a maioria dos jogos de fliperama, ele deve mostrar as maiores pontuações. Para esse fim, a companhia Otori te contratou.
+
+Escreva um programa que, dada a lista de todas as pontuações dos jogos de Bebe-bebe, mostra os melhores placares em ordem decrescente.
+Entrada
+
+A entrada é composta de um único caso de teste. A primeira linha consiste de dois inteiros N e M, dizendo quantas partidas foram jogadas de Bebe-bebe e quantas linhas cabem no mostrador de melhores rankings. As N linhas seguintes contêm cada uma um inteiro indicando a pontuação obtida em cada jogo.
+Saída
+
+Seu programa deve imprimir M linhas, contendo as M maiores pontuações em ordem decrescente.
+Restrições
+
+    1 ≤ N ≤ 10000
+    1 ≤ M ≤ 500
+    M ≤ N
+
+Exemplo
+
+Entrada
+7 4
+100
+200
+200
+150
+30
+524
+942
+
+Saída
+942
+524
+200
+200
+
+Entrada
+2 1
+4000
+2000
+
+Saída
+4000
+
