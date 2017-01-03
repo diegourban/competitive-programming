@@ -1,9 +1,9 @@
 package urban.uri_online_judge.beginner._2031;
 
-import urban.uri_online_judge.Reader;
-
 import java.io.IOException;
 import java.io.InputStream;
+
+import urban.uri_online_judge.Reader;
 
 /**
  * Rock, Paper, Airstrike
@@ -14,7 +14,6 @@ import java.io.InputStream;
  */
 public class Main {
 
-    private static final String ROCK = "pedra";
     private static final String PAPER = "papel";
     private static final String AIRSTRIKE = "ataque";
 
