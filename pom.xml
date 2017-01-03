@@ -20,6 +20,7 @@
 		<module>codewars</module>
 		<module>sphere-online-judge</module>
 		<module>uri-online-judge</module>
+		<module>common</module>
 	</modules>
 
 	<dependencies>
