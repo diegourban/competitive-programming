@@ -9,9 +9,7 @@
 	</parent>
 
 	<artifactId>codewars</artifactId>
-	<packaging>jar</packaging>
 	<name>Codewars</name>
-	<url>http://maven.apache.org</url>
 	
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>

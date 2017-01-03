@@ -9,9 +9,7 @@
 	</parent>
 
 	<artifactId>sphere-online-judge</artifactId>
-	<packaging>jar</packaging>
 	<name>Sphere Online Judge</name>
-	<url>http://maven.apache.org</url>
 
 	<dependencies>
 		<dependency>

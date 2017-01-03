@@ -9,10 +9,7 @@
 	</parent>
 
 	<artifactId>uri-online-judge</artifactId>
-	<packaging>jar</packaging>
 	<name>URI Online Judge</name>
-	<version>0.0.1-SNAPSHOT</version>
-	<url>http://maven.apache.org</url>
 
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
