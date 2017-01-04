@@ -16,9 +16,9 @@ public class MainTest {
         assertNotNull(new Main());
     }
 
-    //@Test
+    @Test
     public void shouldHandleURISample() throws IOException {
-        InputStream input = new SampleBuilder().appendln(1).appendln(2).appendln(88 ).appendln(42).appendln(99).buildAsInputStream();
+        InputStream input = new SampleBuilder().appendln(1).appendln(2).appendln(88).appendln(42).appendln(99).buildAsInputStream();
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder().appendln(1).appendln(2).appendln(88).build();
         assertEquals(expectedOutput, output);
