@@ -2,8 +2,15 @@ package urban.common.math;
 
 public class Numbers {
 
+    /**
+     * Checks if a number contains a digit
+     *
+     * @param number the number to check
+     * @param digit  the digit expected to find in the number
+     * @return true if the number contains the digit, false otherwise
+     */
     public static boolean containsDigit(long number, long digit) {
-        long thisNumber = number >= 0 ? number : -number; // ?: => Conditional Operator
+        long thisNumber = number >= 0 ? number : -number;
         long thisDigit;
 
         while (thisNumber != 0) {
@@ -17,13 +24,20 @@ public class Numbers {
         return false;
     }
 
-    public static boolean containsRepeatingDigits(long num, int times) {
+    /**
+     * Checks if a number contains repeating digits
+     *
+     * @param number the number
+     * @param times  amount of times a digit must repeat
+     * @return true if the number contains a digit repeating at least the expected amount of times, false otherwise
+     */
+    public static boolean containsRepeatingDigits(long number, int times) {
         Long old = null;
         int reps = 0;
 
-        while (num > 0) {
-            Long n = num % 10;
-            num /= 10;
+        while (number > 0) {
+            Long n = number % 10;
+            number /= 10;
             if (n == old) {
                 if (++reps == times) {
                     return true;
@@ -37,6 +51,12 @@ public class Numbers {
         return false;
     }
 
+    /**
+     * Converts a number to an array
+     *
+     * @param number the number to convert
+     * @return an array with each digit of the number
+     */
     public static int[] toArray(long number) {
         int length = Long.toString(number).length();
         int[] array = new int[length];

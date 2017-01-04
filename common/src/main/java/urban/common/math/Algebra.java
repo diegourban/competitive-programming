@@ -6,6 +6,17 @@ import java.util.List;
 public class Algebra {
 
     /**
+     * Least common multiple (lcm) of two numbers.
+     *
+     * @param a
+     * @param b
+     * @return The least common multiple of two numbers.
+     */
+    public static long lcm(long a, long b) {
+        return a * (b / gcdLoop(a, b));
+    }
+
+    /**
      * Least common multiple (lcm) of an array of numbers.
      *
      * @param input array of numbers
@@ -16,17 +27,6 @@ public class Algebra {
         for (int i = 1; i < input.length; i++)
             result = lcm(result, input[i]);
         return result;
-    }
-
-    /**
-     * Least common multiple (lcm) of two numbers.
-     *
-     * @param a
-     * @param b
-     * @return The least common multiple of two numbers.
-     */
-    public static long lcm(long a, long b) {
-        return a * (b / gcdLoop(a, b));
     }
 
     /**
