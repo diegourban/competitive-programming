@@ -17,7 +17,7 @@ public class Main {
     }
 
     protected static String main(InputStream input) throws IOException {
-        Reader reader = new Reader(System.in);
+        Reader reader = new Reader(input);
         StringBuilder sb = new StringBuilder();
         while (true) {
             int n = reader.nextInt();
