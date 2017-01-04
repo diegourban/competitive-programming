@@ -12,8 +12,12 @@ public class Statistics {
      * @return
      */
     public static double mean(int[] data) {
-        int sum = 0;
-        for (double value : data) {
+        if (data.length == 0) {
+            return 0.0;
+        }
+
+        double sum = 0.0;
+        for (int value : data) {
             sum += value;
         }
 
@@ -69,10 +73,10 @@ public class Statistics {
      * @param data
      * @return the Average Absolute Deviation from data
      */
-    public static double averageAbsoluteDeviation(int[] data) {
+    public static double meanAbsoluteDeviation(int[] data) {
         double mean = mean(data);
 
-        int sum = 0;
+        double sum = 0;
         for (int value : data) {
             sum += Math.abs(value - mean);
         }
