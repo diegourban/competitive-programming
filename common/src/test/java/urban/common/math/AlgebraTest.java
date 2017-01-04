@@ -24,6 +24,13 @@ public class AlgebraTest {
     }
 
     @Test
+    public void shouldFindLeastCommonMultiplesOfList() {
+        assertEquals(6, Algebra.lcm(new long[]{1, 2, 3}));
+        assertEquals(12, Algebra.lcm(new long[]{2, 4, 6}));
+        assertEquals(1001, Algebra.lcm(new long[]{7, 11, 13}));
+    }
+
+    @Test
     public void shouldCalculateGreatestCommonDivisorOfTwoNumbersRecursively() {
         assertEquals(1, Algebra.gcdRecursive(2, 3));
         assertEquals(2, Algebra.gcdRecursive(2, 2));
