@@ -11,7 +11,7 @@ import java.io.InputStream;
  * @author Diego Leonardo Urban
  *
  */
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 public class Main {
 

@@ -1,15 +1,14 @@
 package urban.uri_online_judge.beginner._1181;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
+import urban.common.SampleContentLoader;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.Test;
-
-import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.SampleContentLoader;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 

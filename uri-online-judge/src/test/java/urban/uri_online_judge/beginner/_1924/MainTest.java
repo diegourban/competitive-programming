@@ -8,8 +8,8 @@ import java.io.InputStream;
 
 import org.junit.Test;
 
-import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.SampleContentLoader;
+import urban.common.SampleBuilder;
+import urban.common.SampleContentLoader;
 import urban.uri_online_judge.beginner._1924.Main;
 
 public class MainTest {

@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 /**
  * Animal

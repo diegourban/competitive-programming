@@ -1,7 +1,7 @@
 package urban.uri_online_judge.beginner._2152;
 
 import org.junit.Test;
-import urban.uri_online_judge.SampleBuilder;
+import urban.common.SampleBuilder;
 import urban.uri_online_judge.beginner._2152.Main;
 
 import java.io.IOException;

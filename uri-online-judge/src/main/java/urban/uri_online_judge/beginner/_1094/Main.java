@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 /**
  * Experiments

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.TreeMap;
 
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 /**
  * Roman Numerals for Page Numbers

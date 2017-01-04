@@ -11,7 +11,7 @@ import java.text.NumberFormat;
 
 import org.junit.Test;
 
-import urban.uri_online_judge.SampleBuilder;
+import urban.common.SampleBuilder;
 
 public class MainTest {
 

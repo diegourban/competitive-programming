@@ -10,4 +10,12 @@
 
     <artifactId>uri-online-judge</artifactId>
     <name>URI Online Judge</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>urban</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

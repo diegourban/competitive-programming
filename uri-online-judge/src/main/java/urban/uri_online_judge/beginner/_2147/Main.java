@@ -1,6 +1,6 @@
 package urban.uri_online_judge.beginner._2147;
 
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 import java.io.IOException;
 import java.io.InputStream;

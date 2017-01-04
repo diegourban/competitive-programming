@@ -1,4 +1,4 @@
-package urban.uri_online_judge;
+package urban.common;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;

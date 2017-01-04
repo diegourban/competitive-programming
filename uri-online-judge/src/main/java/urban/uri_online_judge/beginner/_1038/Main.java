@@ -14,7 +14,7 @@ import java.text.NumberFormat;
  * @author Diego Leonardo Urban
  *
  */
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 /**
  * Snack

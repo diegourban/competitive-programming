@@ -1,8 +1,8 @@
 package urban.uri_online_judge.beginner._1983;
 
 import org.junit.Test;
-import urban.uri_online_judge.SampleBuilder;
-import urban.uri_online_judge.SampleContentLoader;
+import urban.common.SampleBuilder;
+import urban.common.SampleContentLoader;
 
 import java.io.IOException;
 import java.io.InputStream;

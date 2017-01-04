@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 /**
  * Array Fill IV

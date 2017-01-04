@@ -3,7 +3,7 @@ package urban.uri_online_judge.beginner._1864;
 import java.io.IOException;
 import java.io.InputStream;
 
-import urban.uri_online_judge.Reader;
+import urban.common.Reader;
 
 /**
  * Our Days Are Never Coming Back
