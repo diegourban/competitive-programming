@@ -9,12 +9,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class SampleContentLoader {
+public class SampleLoader {
 
 	private final String SAMPLES_PATH = "src" + File.separator + "test" + File.separator + "resources";
 	private final String PROBLEM_SAMPLES_PATH;
 
-	public SampleContentLoader(String category, String problemId) {
+	public SampleLoader(String category, String problemId) {
 		PROBLEM_SAMPLES_PATH = SAMPLES_PATH + File.separator + category + File.separator + problemId;
 	}
 

@@ -9,12 +9,11 @@ import java.io.InputStream;
 import org.junit.Test;
 
 import urban.common.SampleBuilder;
-import urban.common.SampleContentLoader;
-import urban.uri_online_judge.beginner._1188.Main;
+import urban.common.SampleLoader;
 
 public class MainTest {
 	
-	private SampleContentLoader scl = new SampleContentLoader("beginner", "1188");
+	private SampleLoader scl = new SampleLoader("beginner", "1188");
 
 	@Test
 	public void shouldCreateInstance() {
