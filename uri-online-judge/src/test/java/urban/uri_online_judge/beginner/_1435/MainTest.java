@@ -37,7 +37,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sample2SquareMatrix.out");
+		String expectedOutput = scl.loadAsString("sample2SquareMatrix.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -48,7 +48,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sample3SquareMatrix.out");
+		String expectedOutput = scl.loadAsString("sample3SquareMatrix.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -59,7 +59,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sample4SquareMatrix.out");
+		String expectedOutput = scl.loadAsString("sample4SquareMatrix.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -70,7 +70,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sample5SquareMatrix.out");
+		String expectedOutput = scl.loadAsString("sample5SquareMatrix.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -81,7 +81,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sample100SquareMatrix.out");
+		String expectedOutput = scl.loadAsString("sample100SquareMatrix.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -92,7 +92,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleSequenceOfMatrixes.out");
+		String expectedOutput = scl.loadAsString("sampleSequenceOfMatrixes.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -103,7 +103,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleSequenceOfMatrixes2.out");
+		String expectedOutput = scl.loadAsString("sampleSequenceOfMatrixes2.out");
 
 		assertEquals(expectedOutput, output);
 	}

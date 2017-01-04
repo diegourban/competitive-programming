@@ -11,22 +11,22 @@ import java.nio.file.Paths;
 
 public class SampleLoader {
 
-	private final String SAMPLES_PATH = "src" + File.separator + "test" + File.separator + "resources";
-	private final String PROBLEM_SAMPLES_PATH;
+	private static final String SAMPLES_PATH = "src" + File.separator + "test" + File.separator + "resources";
+	private final String problemSamplePath;
 
 	public SampleLoader(String category, String problemId) {
-		PROBLEM_SAMPLES_PATH = SAMPLES_PATH + File.separator + category + File.separator + problemId;
+		problemSamplePath = SAMPLES_PATH + File.separator + category + File.separator + problemId;
 	}
 
-	public String loadAsStringFrom(String sampleFileName) throws IOException {
-		String samplePath = PROBLEM_SAMPLES_PATH + File.separator + sampleFileName;
+	public String loadAsString(String sampleFileName) throws IOException {
+		String samplePath = problemSamplePath + File.separator + sampleFileName;
 		Path inputPath = Paths.get(new File(samplePath).getAbsolutePath());
 		byte[] inputBytes = Files.readAllBytes(inputPath);
 		return new String(inputBytes, StandardCharsets.UTF_8);
 	}
 
 	public InputStream loadAsInputStream(String sampleFileName) throws IOException {
-		String content = loadAsStringFrom(sampleFileName);
+		String content = loadAsString(sampleFileName);
 		return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
 	}
 

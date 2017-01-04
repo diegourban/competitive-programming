@@ -48,7 +48,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleLowerLimit.out");
+		String expectedOutput = scl.loadAsString("sampleLowerLimit.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -59,7 +59,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleHigherLimit.out");
+		String expectedOutput = scl.loadAsString("sampleHigherLimit.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -70,7 +70,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleURI.out");
+		String expectedOutput = scl.loadAsString("sampleURI.out");
 
 		assertEquals(expectedOutput, output);
 	}
@@ -81,7 +81,7 @@ public class MainTest {
 
 		String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleUDebug.out");
+		String expectedOutput = scl.loadAsString("sampleUDebug.out");
 
 		assertEquals(expectedOutput, output);
 	}

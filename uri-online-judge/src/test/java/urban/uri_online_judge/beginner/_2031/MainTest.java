@@ -71,7 +71,7 @@ public class MainTest {
     public void shouldHandleMaxInput() throws IOException {
         InputStream input = scl.loadAsInputStream("sample.in");
         String output = Main.main(input);
-        String expectedOutput = scl.loadAsStringFrom("sample.out");
+        String expectedOutput = scl.loadAsString("sample.out");
         assertEquals(expectedOutput, output);
     }
 

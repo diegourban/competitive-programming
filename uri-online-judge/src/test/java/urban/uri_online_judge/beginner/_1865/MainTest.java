@@ -37,7 +37,7 @@ public class MainTest {
 				
 		String output1 = Main.main(input1);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleInvalidThorSpelling.out");
+		String expectedOutput = scl.loadAsString("sampleInvalidThorSpelling.out");
 
 		assertEquals(expectedOutput, output1);
 	}
@@ -48,7 +48,7 @@ public class MainTest {
 				
 		String output1 = Main.main(input1);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleURI.out");
+		String expectedOutput = scl.loadAsString("sampleURI.out");
 
 		assertEquals(expectedOutput, output1);
 	}
@@ -59,7 +59,7 @@ public class MainTest {
 				
 		String output1 = Main.main(input1);
 
-		String expectedOutput = scl.loadAsStringFrom("sampleUDebug.out");
+		String expectedOutput = scl.loadAsString("sampleUDebug.out");
 
 		assertEquals(expectedOutput, output1);
 	}
