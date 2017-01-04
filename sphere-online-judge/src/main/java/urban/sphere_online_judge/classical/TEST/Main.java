@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * TEST - Life, the Universe, and Everything
+ * Life, the Universe, and Everything
  * <p>
  * http://www.spoj.com/problems/TEST/
  */
