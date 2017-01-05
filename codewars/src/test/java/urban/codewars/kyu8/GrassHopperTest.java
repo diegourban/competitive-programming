@@ -8,7 +8,7 @@ import org.junit.Test;
 public class GrassHopperTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         GrassHopper instance = new GrassHopper();
         Assert.assertNotNull(instance);
     }

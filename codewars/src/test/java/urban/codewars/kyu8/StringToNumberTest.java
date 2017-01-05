@@ -8,7 +8,7 @@ import org.junit.Test;
 public class StringToNumberTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         StringToNumber instance = new StringToNumber();
         Assert.assertNotNull(instance);
     }

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ParallelResistorsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         ParallelResistors instance = new ParallelResistors();
         Assert.assertNotNull(instance);
     }

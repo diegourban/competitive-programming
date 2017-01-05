@@ -11,7 +11,7 @@ public class GhostTest {
     private static final List<String> COLORS = Arrays.asList(new String[]{"white", "yellow", "purple", "red"});
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Ghost instance = new Ghost();
         Assert.assertNotNull(instance);
     }

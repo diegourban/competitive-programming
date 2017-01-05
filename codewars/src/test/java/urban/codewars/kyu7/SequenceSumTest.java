@@ -7,7 +7,7 @@ import org.junit.Test;
 public class SequenceSumTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         SequenceSum instance = new SequenceSum();
         assertNotNull(instance);
     }

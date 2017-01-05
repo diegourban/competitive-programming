@@ -7,7 +7,7 @@ import org.junit.Test;
 public class FuelCalculatorTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         FuelCalculator instance = new FuelCalculator();
         assertNotNull(instance);
     }

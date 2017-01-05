@@ -9,7 +9,7 @@ import org.junit.Test;
 public class IsDigitTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         IsDigit instance = new IsDigit();
         Assert.assertNotNull(instance);
     }

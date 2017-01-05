@@ -8,7 +8,7 @@ import org.junit.Test;
 public class AlternateCaseTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         AlternateCase instance = new AlternateCase();
         Assert.assertNotNull(instance);
     }

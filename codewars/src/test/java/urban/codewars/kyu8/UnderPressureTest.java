@@ -6,7 +6,7 @@ import org.junit.Test;
 public class UnderPressureTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         UnderPressure instance = new UnderPressure();
         Assert.assertNotNull(instance);
     }

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class MiddleCharacterTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         MiddleCharacter instance = new MiddleCharacter();
         Assert.assertNotNull(instance);
     }

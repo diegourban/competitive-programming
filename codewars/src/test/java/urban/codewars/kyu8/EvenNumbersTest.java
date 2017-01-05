@@ -10,7 +10,7 @@ import org.junit.Test;
 public class EvenNumbersTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         EvenNumbers instance = new EvenNumbers();
         Assert.assertNotNull(instance);
     }

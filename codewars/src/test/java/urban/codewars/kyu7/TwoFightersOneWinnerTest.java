@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TwoFightersOneWinnerTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new TwoFightersOneWinner());
         assertNotNull(new Fighter(null, 0, 0));
     }

@@ -11,7 +11,7 @@ public class HowDoICompareTest {
             {42, "everything"}, {42 * 42, "everything squared"},};
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         HowDoICompare instance = new HowDoICompare();
         Assert.assertNotNull(instance);
     }

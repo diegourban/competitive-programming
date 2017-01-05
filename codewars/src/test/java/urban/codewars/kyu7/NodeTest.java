@@ -1,8 +1,9 @@
 package urban.codewars.kyu7;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class NodeTest {
 
@@ -12,12 +13,17 @@ public class NodeTest {
     }
 
     @Test(expected = Exception.class)
-    public void testNull() throws Exception {
+    public void shouldHandleNullNode() throws Exception {
         Node.getNth(null, 0);
     }
 
     @Test(expected = Exception.class)
-    public void testWrongIndex() throws Exception {
+    public void shouldHandleNegativeIndex() throws Exception {
+        Node.getNth(new Node(), -1);
+    }
+
+    @Test(expected = Exception.class)
+    public void shouldHandleWringIndex() throws Exception {
         Node.getNth(new Node(), 1);
     }
 

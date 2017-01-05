@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CompareSumCharTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         CompareSumChar instance = new CompareSumChar();
         assertNotNull(instance);
     }

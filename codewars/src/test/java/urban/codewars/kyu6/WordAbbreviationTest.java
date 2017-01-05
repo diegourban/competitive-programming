@@ -7,7 +7,7 @@ import org.junit.Test;
 public class WordAbbreviationTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         WordAbbreviation instance = new WordAbbreviation();
         assertNotNull(instance);
     }

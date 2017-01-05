@@ -8,7 +8,7 @@ import org.junit.Test;
 public class OppositeNumberTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Opposite instance = new Opposite();
         Assert.assertNotNull(instance);
     }

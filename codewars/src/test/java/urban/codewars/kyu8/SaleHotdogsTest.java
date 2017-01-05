@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 public class SaleHotdogsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new SaleHotdogs());
     }
 

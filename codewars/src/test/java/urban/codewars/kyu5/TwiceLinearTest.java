@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TwiceLinearTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new TwiceLinear());
     }
 

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class MilesPerGallonTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         MilesPerGallon instance = new MilesPerGallon();
         Assert.assertNotNull(instance);
     }

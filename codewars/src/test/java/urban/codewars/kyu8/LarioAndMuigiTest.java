@@ -8,7 +8,7 @@ import org.junit.Test;
 public class LarioAndMuigiTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         LarioAndMuigi instance = new LarioAndMuigi();
         Assert.assertNotNull(instance);
     }

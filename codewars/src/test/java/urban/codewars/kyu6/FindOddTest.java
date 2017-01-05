@@ -8,7 +8,7 @@ import org.junit.Test;
 public class FindOddTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         FindOdd instance = new FindOdd();
         Assert.assertNotNull(instance);
     }

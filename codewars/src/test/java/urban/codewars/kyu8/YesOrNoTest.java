@@ -8,7 +8,7 @@ import org.junit.Test;
 public class YesOrNoTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         YesOrNo instance = new YesOrNo();
         Assert.assertNotNull(instance);
     }

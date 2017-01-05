@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SmashWordsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         SmashWords instance = new SmashWords();
         Assert.assertNotNull(instance);
     }

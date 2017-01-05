@@ -8,7 +8,7 @@ import org.junit.Test;
 public class GreeterTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Greeter instance = new Greeter();
         Assert.assertNotNull(instance);
     }

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class GodTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         God instance = new God();
         Assert.assertNotNull(instance);
     }

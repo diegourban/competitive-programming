@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TripleTroubleTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         TripleTrouble instance = new TripleTrouble();
         Assert.assertNotNull(instance);
     }

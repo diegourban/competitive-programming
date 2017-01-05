@@ -19,7 +19,7 @@ public class FindMinMaxTest {
 
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         FindMinMax instance = new FindMinMax();
         assertNotNull(instance);
     }

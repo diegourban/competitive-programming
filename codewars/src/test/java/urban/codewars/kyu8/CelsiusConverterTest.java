@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CelsiusConverterTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         CelsiusConverter instance = new CelsiusConverter();
         Assert.assertNotNull(instance);
     }

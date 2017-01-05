@@ -8,7 +8,7 @@ import org.junit.Test;
 public class BonusTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Bonus instance = new Bonus();
         Assert.assertNotNull(instance);
     }

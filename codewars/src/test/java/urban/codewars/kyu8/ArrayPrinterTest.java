@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ArrayPrinterTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         ArrayPrinter instance = new ArrayPrinter();
         Assert.assertNotNull(instance);
     }

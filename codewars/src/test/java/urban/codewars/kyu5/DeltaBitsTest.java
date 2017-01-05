@@ -7,7 +7,7 @@ import org.junit.Test;
 public class DeltaBitsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         DeltaBits instance = new DeltaBits();
         assertNotNull(instance);
     }

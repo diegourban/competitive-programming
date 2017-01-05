@@ -8,7 +8,7 @@ import org.junit.Test;
 public class RowSumOddNumbersTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         RowSumOddNumbers instance = new RowSumOddNumbers();
         assertNotNull(instance);
     }

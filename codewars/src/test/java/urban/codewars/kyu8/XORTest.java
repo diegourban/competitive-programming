@@ -8,7 +8,7 @@ import org.junit.Test;
 public class XORTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         XOR instance = new XOR();
         Assert.assertNotNull(instance);
     }

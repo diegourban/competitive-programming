@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ZebulansNightmareTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         ZebulansNightmare instance = new ZebulansNightmare();
         Assert.assertNotNull(instance);
     }

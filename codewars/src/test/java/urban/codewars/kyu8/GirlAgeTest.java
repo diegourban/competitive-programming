@@ -8,7 +8,7 @@ import org.junit.Test;
 public class GirlAgeTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         GirlAge instance = new GirlAge();
         Assert.assertNotNull(instance);
     }

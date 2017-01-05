@@ -8,7 +8,7 @@ import org.junit.Test;
 public class LeoOscarTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         LeoOscar instance = new LeoOscar();
         Assert.assertNotNull(instance);
     }

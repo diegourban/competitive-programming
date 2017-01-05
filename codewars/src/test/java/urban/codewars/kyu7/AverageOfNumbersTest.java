@@ -8,7 +8,7 @@ import org.junit.Test;
 public class AverageOfNumbersTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Assert.assertNotNull(new AverageOfNumbers());
     }
 

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class MonkeyCounterTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         MonkeyCounter instance = new MonkeyCounter();
         Assert.assertNotNull(instance);
     }

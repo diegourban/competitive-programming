@@ -22,7 +22,7 @@ public class OrderingTest {
     }
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Assert.assertNotNull(ordering);
     }
 

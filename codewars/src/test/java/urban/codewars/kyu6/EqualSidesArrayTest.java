@@ -8,7 +8,7 @@ import org.junit.Test;
 public class EqualSidesArrayTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         EqualSidesArray instance = new EqualSidesArray();
         assertNotNull(instance);
     }

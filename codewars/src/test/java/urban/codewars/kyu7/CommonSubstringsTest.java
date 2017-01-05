@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CommonSubstringsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         CommonSubstrings instance = new CommonSubstrings();
         Assert.assertNotNull(instance);
     }

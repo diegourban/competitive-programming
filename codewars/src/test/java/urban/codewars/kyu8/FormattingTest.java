@@ -8,7 +8,7 @@ import org.junit.Test;
 public class FormattingTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Formatting instance = new Formatting();
         Assert.assertNotNull(instance);
     }

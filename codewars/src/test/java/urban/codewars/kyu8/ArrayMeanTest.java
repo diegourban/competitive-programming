@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ArrayMeanTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         ArrayMean instance = new ArrayMean();
         Assert.assertNotNull(instance);
     }

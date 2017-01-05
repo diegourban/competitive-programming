@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TripleTroubleTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new TripleTrouble());
     }
 

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class StringUtilsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         StringUtils instance = new StringUtils();
         Assert.assertNotNull(instance);
     }

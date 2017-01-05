@@ -8,7 +8,7 @@ import org.junit.Test;
 public class HaystackTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Haystack instance = new Haystack();
         Assert.assertNotNull(instance);
     }

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SlopeTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Slope instance = new Slope();
         Assert.assertNotNull(instance);
     }

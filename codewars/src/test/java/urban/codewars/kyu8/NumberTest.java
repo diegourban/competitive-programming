@@ -22,7 +22,7 @@ public class NumberTest {
     }
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Assert.assertNotNull(num);
     }
 

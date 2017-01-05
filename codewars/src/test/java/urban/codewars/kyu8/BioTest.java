@@ -22,7 +22,7 @@ public class BioTest {
     }
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Assert.assertNotNull(bio);
     }
 

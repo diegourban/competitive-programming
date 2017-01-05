@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 public class KataExampleTwistTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new KataExampleTwist());
     }
 

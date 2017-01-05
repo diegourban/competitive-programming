@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CinemaTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Cinema instance = new Cinema();
         Assert.assertNotNull(instance);
     }

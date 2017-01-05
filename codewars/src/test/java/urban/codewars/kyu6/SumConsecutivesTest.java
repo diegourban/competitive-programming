@@ -11,7 +11,7 @@ import org.junit.Test;
 public class SumConsecutivesTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         SumConsecutives instance = new SumConsecutives();
         assertNotNull(instance);
     }

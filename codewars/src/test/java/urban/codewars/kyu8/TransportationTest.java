@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TransportationTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Transportation instance = new Transportation();
         Assert.assertNotNull(instance);
     }

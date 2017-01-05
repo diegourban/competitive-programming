@@ -7,7 +7,7 @@ import org.junit.Test;
 public class SwapperTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Swapper instance = new Swapper(null);
         assertNotNull(instance);
     }

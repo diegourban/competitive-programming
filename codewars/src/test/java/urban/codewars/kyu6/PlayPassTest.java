@@ -8,7 +8,7 @@ import org.junit.Test;
 public class PlayPassTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         PlayPass instance = new PlayPass();
         Assert.assertNotNull(instance);
     }

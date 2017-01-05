@@ -11,7 +11,7 @@ public class CounterTest {
             true, true, true, true, true, false, false, true, true};
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Counter instance = new Counter();
         Assert.assertNotNull(instance);
     }

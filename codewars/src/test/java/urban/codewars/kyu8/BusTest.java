@@ -10,7 +10,7 @@ import org.junit.Test;
 public class BusTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Bus instance = new Bus();
         Assert.assertNotNull(instance);
     }

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class BanjoTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Banjo instance = new Banjo();
         Assert.assertNotNull(instance);
     }

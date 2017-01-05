@@ -49,7 +49,7 @@ public class RainfallTest {
             "Tokyo", "Beijing", "Lima", "Montevideo", "Caracas", "Madrid", "Berlin"};
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Rainfall instance = new Rainfall();
         Assert.assertNotNull(instance);
     }

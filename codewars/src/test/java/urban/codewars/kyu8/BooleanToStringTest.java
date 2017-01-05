@@ -8,7 +8,7 @@ import org.junit.Test;
 public class BooleanToStringTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         BooleanToString instance = new BooleanToString();
         Assert.assertNotNull(instance);
     }

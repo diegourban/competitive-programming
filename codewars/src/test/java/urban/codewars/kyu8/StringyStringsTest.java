@@ -8,7 +8,7 @@ import org.junit.Test;
 public class StringyStringsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         StringyStrings instance = new StringyStrings();
         Assert.assertNotNull(instance);
     }

@@ -8,7 +8,7 @@ import org.junit.Test;
 public class EvenOrOddTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         EvenOrOdd instance = new EvenOrOdd();
         Assert.assertNotNull(instance);
     }

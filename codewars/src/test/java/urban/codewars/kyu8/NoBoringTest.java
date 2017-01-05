@@ -8,7 +8,7 @@ import org.junit.Test;
 public class NoBoringTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         NoBoring instance = new NoBoring();
         Assert.assertNotNull(instance);
     }

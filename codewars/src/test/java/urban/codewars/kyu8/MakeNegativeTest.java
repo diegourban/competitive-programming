@@ -8,7 +8,7 @@ import org.junit.Test;
 public class MakeNegativeTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         MakeNegative instance = new MakeNegative();
         Assert.assertNotNull(instance);
     }

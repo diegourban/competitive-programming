@@ -6,7 +6,7 @@ import org.junit.Test;
 public class DigitizerTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Digitizer instance = new Digitizer();
         Assert.assertNotNull(instance);
     }

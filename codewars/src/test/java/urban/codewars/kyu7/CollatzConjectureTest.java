@@ -8,7 +8,7 @@ import org.junit.Test;
 public class CollatzConjectureTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         CollatzConjecture instance = new CollatzConjecture();
         Assert.assertNotNull(instance);
     }

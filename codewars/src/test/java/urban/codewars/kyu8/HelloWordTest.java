@@ -8,7 +8,7 @@ import org.junit.Test;
 public class HelloWordTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new HelloWorld());
     }
 

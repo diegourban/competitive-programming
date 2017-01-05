@@ -8,7 +8,7 @@ import org.junit.Test;
 public class ThinkingAndTestingTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         ThinkingAndTesting instance = new ThinkingAndTesting();
         assertNotNull(instance);
     }

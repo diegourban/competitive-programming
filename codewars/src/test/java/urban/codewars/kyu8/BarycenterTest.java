@@ -10,7 +10,7 @@ import org.junit.Test;
 public class BarycenterTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         Barycenter instance = new Barycenter();
         Assert.assertNotNull(instance);
     }

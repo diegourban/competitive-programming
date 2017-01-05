@@ -8,7 +8,7 @@ import org.junit.Test;
 public class NumberFunTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new NumberFun());
     }
 

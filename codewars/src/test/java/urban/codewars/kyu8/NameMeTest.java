@@ -9,7 +9,7 @@ import org.junit.Test;
 public class NameMeTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         NameMe instance = new NameMe(null, null);
         Assert.assertNotNull(instance);
     }

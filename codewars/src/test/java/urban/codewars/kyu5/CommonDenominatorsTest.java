@@ -1,18 +1,19 @@
 package urban.codewars.kyu5;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CommonDenominatorsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         assertNotNull(new CommonDenominators());
     }
 
     @Test
-    public void testEmpyArray() {
+    public void testEmptyArray() {
         long[][] lst = new long[][]{};
         assertEquals("", CommonDenominators.convertFrac(lst));
     }

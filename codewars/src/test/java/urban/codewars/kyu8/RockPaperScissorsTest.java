@@ -8,7 +8,7 @@ import org.junit.Test;
 public class RockPaperScissorsTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         RockPaperScissors instance = new RockPaperScissors();
         Assert.assertNotNull(instance);
     }

@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CreatePhoneNumberTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         CreatePhoneNumber instance = new CreatePhoneNumber();
         assertNotNull(instance);
     }

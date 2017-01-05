@@ -8,7 +8,7 @@ import org.junit.Test;
 public class StringTemplatesTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         StringTemplates instance = new StringTemplates();
         Assert.assertNotNull(instance);
     }

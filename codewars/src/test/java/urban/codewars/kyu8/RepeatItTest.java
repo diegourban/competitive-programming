@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class RepeatItTest {
 
     @Test
-    public void deveInstanciar() {
+    public void shouldCreateInstance() {
         RepeatIt instance = new RepeatIt();
         Assert.assertNotNull(instance);
     }
