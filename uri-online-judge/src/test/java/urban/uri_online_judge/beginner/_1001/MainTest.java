@@ -39,12 +39,14 @@ public class MainTest {
     }
 
     @Test
-    public void shouldCallMain() throws IOException {
-        InputStream input = new SampleBuilder().appendln("9").appendln("11").buildAsInputStream();
-        System.setIn(input);
+    public void shouldRunThroughMain() throws IOException {
+        System.setIn(new SampleBuilder().appendln("9").appendln("11").buildAsInputStream());
+
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
+
         Main.main(new String[]{});
+
         String expectedOutput = "X = 20" + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
