@@ -5,6 +5,8 @@ import java.math.BigInteger;
 public class Combinatorics {
 
     /**
+     * Pascal's Triangle
+     *
      * Solution extracted and adapted from
      * http://www.brpreiss.com/books/opus5/html/page460.html.
      *
