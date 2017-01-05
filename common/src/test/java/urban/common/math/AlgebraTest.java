@@ -2,6 +2,8 @@ package urban.common.math;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class AlgebraTest {
@@ -71,9 +73,34 @@ public class AlgebraTest {
         assertFalse(Algebra.isPrime(1));
         assertFalse(Algebra.isPrime(4));
         assertFalse(Algebra.isPrime(12));
+        assertFalse(Algebra.isPrime(70));
         assertFalse(Algebra.isPrime(90));
+        assertFalse(Algebra.isPrime(125));
         assertFalse(Algebra.isPrime(786));
         assertFalse(Algebra.isPrime(992));
+    }
+
+    @Test
+    public void shouldListPrimeFactorsOfEvenNumber() {
+        List<Integer> primeFactors = Algebra.primeFactorsList(10);
+        assertTrue(primeFactors.size() == 2);
+        assertEquals(2, primeFactors.get(0).intValue());
+        assertEquals(5, primeFactors.get(1).intValue());
+    }
+
+    @Test
+    public void shouldListPrimeFactorsOfOddNumber() {
+        List<Integer> primeFactors = Algebra.primeFactorsList(49);
+        assertTrue(primeFactors.size() == 2);
+        assertEquals(7, primeFactors.get(0).intValue());
+        assertEquals(7, primeFactors.get(1).intValue());
+    }
+
+    @Test
+    public void shouldListPrimeFactorsOfPrimeNumber() {
+        List<Integer> primeFactors = Algebra.primeFactorsList(13);
+        assertTrue(primeFactors.size() == 1);
+        assertEquals(13, primeFactors.get(0).intValue());
     }
 
 }
