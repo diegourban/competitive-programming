@@ -16,7 +16,7 @@ import java.util.Locale;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        System.out.println(main(System.in));
+        System.out.print(main(System.in));
     }
 
     public static String main(InputStream input) throws IOException {
