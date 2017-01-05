@@ -7,32 +7,31 @@ import urban.common.Reader;
 
 /**
  * Time Conversion
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1019
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		int N = reader.nextInt();
-		reader.close();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        int N = reader.nextInt();
+        reader.close();
 
-		int hours = N / 60 / 60;
-		N -= hours * 60 * 60;
+        int hours = N / 60 / 60;
+        N -= hours * 60 * 60;
 
-		int minutes = N / 60;
-		N -= minutes * 60;
+        int minutes = N / 60;
+        N -= minutes * 60;
 
-		int seconds = N;
+        int seconds = N;
 
-		return hours + ":" + minutes + ":" + seconds + System.lineSeparator();
-	}
+        return hours + ":" + minutes + ":" + seconds + System.lineSeparator();
+    }
 
 }

@@ -11,23 +11,23 @@ import java.nio.file.Paths;
 
 public class SampleLoader {
 
-	private static final String SAMPLES_PATH = "src" + File.separator + "test" + File.separator + "resources";
-	private final String problemSamplePath;
+    private static final String SAMPLES_PATH = "src" + File.separator + "test" + File.separator + "resources";
+    private final String problemSamplePath;
 
-	public SampleLoader(String category, String problemId) {
-		problemSamplePath = SAMPLES_PATH + File.separator + category + File.separator + problemId;
-	}
+    public SampleLoader(String category, String problemId) {
+        problemSamplePath = SAMPLES_PATH + File.separator + category + File.separator + problemId;
+    }
 
-	public String loadAsString(String sampleFileName) throws IOException {
-		String samplePath = problemSamplePath + File.separator + sampleFileName;
-		Path inputPath = Paths.get(new File(samplePath).getAbsolutePath());
-		byte[] inputBytes = Files.readAllBytes(inputPath);
-		return new String(inputBytes, StandardCharsets.UTF_8);
-	}
+    public String loadAsString(String sampleFileName) throws IOException {
+        String samplePath = problemSamplePath + File.separator + sampleFileName;
+        Path inputPath = Paths.get(new File(samplePath).getAbsolutePath());
+        byte[] inputBytes = Files.readAllBytes(inputPath);
+        return new String(inputBytes, StandardCharsets.UTF_8);
+    }
 
-	public InputStream loadAsInputStream(String sampleFileName) throws IOException {
-		String content = loadAsString(sampleFileName);
-		return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
-	}
+    public InputStream loadAsInputStream(String sampleFileName) throws IOException {
+        String content = loadAsString(sampleFileName);
+        return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
+    }
 
 }

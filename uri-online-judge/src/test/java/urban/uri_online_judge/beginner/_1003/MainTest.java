@@ -12,79 +12,79 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldAddOnesPlace() throws IOException {
-		InputStream input = new SampleBuilder().appendln("4").appendln("1").buildAsInputStream();
+    @Test
+    public void shouldAddOnesPlace() throws IOException {
+        InputStream input = new SampleBuilder().appendln("4").appendln("1").buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = "SOMA = 5" + System.lineSeparator();
+        String output = Main.main(input);
+        String expectedOutput = "SOMA = 5" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldAddOnesPlaceWithNegative() throws IOException {
-		InputStream input = new SampleBuilder().appendln("6").appendln("-3").buildAsInputStream();
+    @Test
+    public void shouldAddOnesPlaceWithNegative() throws IOException {
+        InputStream input = new SampleBuilder().appendln("6").appendln("-3").buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = "SOMA = 3" + System.lineSeparator();
+        String output = Main.main(input);
+        String expectedOutput = "SOMA = 3" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldAddTensPlace() throws IOException {
-		InputStream input = new SampleBuilder().appendln("11").appendln("12").buildAsInputStream();
+    @Test
+    public void shouldAddTensPlace() throws IOException {
+        InputStream input = new SampleBuilder().appendln("11").appendln("12").buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = "SOMA = 23" + System.lineSeparator();
+        String output = Main.main(input);
+        String expectedOutput = "SOMA = 23" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldAddTensPlaceWithNegative() throws IOException {
-		InputStream input = new SampleBuilder().appendln("-10").appendln("25").buildAsInputStream();
+    @Test
+    public void shouldAddTensPlaceWithNegative() throws IOException {
+        InputStream input = new SampleBuilder().appendln("-10").appendln("25").buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = "SOMA = 15" + System.lineSeparator();
+        String output = Main.main(input);
+        String expectedOutput = "SOMA = 15" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldAddZeros() throws IOException {
-		InputStream input = new SampleBuilder().appendln("0").appendln("0").buildAsInputStream();
+    @Test
+    public void shouldAddZeros() throws IOException {
+        InputStream input = new SampleBuilder().appendln("0").appendln("0").buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = "SOMA = 0" + System.lineSeparator();
+        String output = Main.main(input);
+        String expectedOutput = "SOMA = 0" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldAddNegatives() throws IOException {
-		InputStream input = new SampleBuilder().appendln("-5").appendln("-12").buildAsInputStream();
+    @Test
+    public void shouldAddNegatives() throws IOException {
+        InputStream input = new SampleBuilder().appendln("-5").appendln("-12").buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = "SOMA = -17" + System.lineSeparator();
+        String output = Main.main(input);
+        String expectedOutput = "SOMA = -17" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldAddLargePositiveInteger() throws IOException {
-		InputStream input = new SampleBuilder().appendln("123456789").appendln("987654321").buildAsInputStream();
+    @Test
+    public void shouldAddLargePositiveInteger() throws IOException {
+        InputStream input = new SampleBuilder().appendln("123456789").appendln("987654321").buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = "SOMA = 1111111110" + System.lineSeparator();
+        String output = Main.main(input);
+        String expectedOutput = "SOMA = 1111111110" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

@@ -43,7 +43,7 @@ public class Main {
         Reader reader = new Reader(input);
         int p = reader.nextInt();
         double sum = 0.0;
-        for(int i = 0; i < p; i++) {
+        for (int i = 0; i < p; i++) {
             int pn = reader.nextInt();
             int pq = reader.nextInt();
             sum += MENU.get(pn) * pq;

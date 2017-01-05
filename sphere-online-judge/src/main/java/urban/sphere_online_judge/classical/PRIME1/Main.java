@@ -20,15 +20,15 @@ public class Main {
         Reader reader = new Reader(input);
         int t = reader.nextInt();
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < t; i++) {
+        for (int i = 0; i < t; i++) {
             int m = reader.nextInt();
             int n = reader.nextInt();
-            for(int j = m; j <= n; j++) {
-                if(isPrime(j)) {
+            for (int j = m; j <= n; j++) {
+                if (isPrime(j)) {
                     sb.append(j).append(System.lineSeparator());
                 }
             }
-            if(i < t - 1) {
+            if (i < t - 1) {
                 sb.append(System.lineSeparator());
             }
         }
@@ -37,17 +37,17 @@ public class Main {
     }
 
     private static boolean isPrime(int number) {
-        if(number <= 1) {
+        if (number <= 1) {
             return false;
-        } else if(number <= 3) {
+        } else if (number <= 3) {
             return true;
-        } else if(number % 2 == 0 || number % 3 == 0) {
+        } else if (number % 2 == 0 || number % 3 == 0) {
             return false;
         }
 
         int i = 5;
-        while(i * i <= number) {
-            if(number % i == 0 || number % (i + 2) == 0) {
+        while (i * i <= number) {
+            if (number % i == 0 || number % (i + 2) == 0) {
                 return false;
             }
             i += 6;

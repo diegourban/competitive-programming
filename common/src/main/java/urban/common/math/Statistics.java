@@ -49,7 +49,8 @@ public class Statistics {
      * @return
      */
     public static int mode(int[] data) {
-        int maxValue = 0, maxCount = 0;
+        int maxValue = 0;
+        int maxCount = 0;
 
         for (int i = 0; i < data.length; ++i) {
             int count = 0;

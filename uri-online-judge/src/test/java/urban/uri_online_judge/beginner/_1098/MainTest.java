@@ -15,36 +15,36 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	private static final NumberFormat formatter;
+    private static final NumberFormat formatter;
 
-	static {
-		DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
-		decimalFormatSymbols.setDecimalSeparator('.');
-		formatter = new DecimalFormat("#0.#", decimalFormatSymbols);
-	}
+    static {
+        DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
+        decimalFormatSymbols.setDecimalSeparator('.');
+        formatter = new DecimalFormat("#0.#", decimalFormatSymbols);
+    }
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldCalculateSequenceIJ4() throws IOException {
-		InputStream input = new SampleBuilder().buildAsInputStream();
+    @Test
+    public void shouldCalculateSequenceIJ4() throws IOException {
+        InputStream input = new SampleBuilder().buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		StringBuilder sb = new StringBuilder();
-		for (double i = 0, j = 1; i <= 2; i += 0.2, j += 0.2) {
-			sb.append("I=").append(formatter.format(i)).append(" ").append("J=").append(formatter.format(j))
-					.append(System.lineSeparator());
-			sb.append("I=").append(formatter.format(i)).append(" ").append("J=").append(formatter.format(j + 1))
-					.append(System.lineSeparator());
-			sb.append("I=").append(formatter.format(i)).append(" ").append("J=").append(formatter.format(j + 2))
-					.append(System.lineSeparator());
-		}
+        StringBuilder sb = new StringBuilder();
+        for (double i = 0, j = 1; i <= 2; i += 0.2, j += 0.2) {
+            sb.append("I=").append(formatter.format(i)).append(" ").append("J=").append(formatter.format(j))
+                    .append(System.lineSeparator());
+            sb.append("I=").append(formatter.format(i)).append(" ").append("J=").append(formatter.format(j + 1))
+                    .append(System.lineSeparator());
+            sb.append("I=").append(formatter.format(i)).append(" ").append("J=").append(formatter.format(j + 2))
+                    .append(System.lineSeparator());
+        }
 
-		assertEquals(sb.toString(), output);
-	}
+        assertEquals(sb.toString(), output);
+    }
 
 }

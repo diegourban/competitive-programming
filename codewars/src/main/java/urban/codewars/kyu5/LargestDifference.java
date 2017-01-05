@@ -5,20 +5,20 @@ package urban.codewars.kyu5;
  */
 public class LargestDifference {
 
-	public static int largestDifference(int[] data) {
-		int largestDifference = 0;
+    public static int largestDifference(int[] data) {
+        int largestDifference = 0;
 
-		for (int i = 0; i < data.length; i++) {
-			for (int j = data.length - 1; j > i; j--) {
-				if (data[j] >= data[i]) {
-					int difference = j - i;
-					if (difference > largestDifference) {
-						largestDifference = difference;
-					}
-				}
-			}
-		}
-		return largestDifference;
-	}
+        for (int i = 0; i < data.length; i++) {
+            for (int j = data.length - 1; j > i; j--) {
+                if (data[j] >= data[i]) {
+                    int difference = j - i;
+                    if (difference > largestDifference) {
+                        largestDifference = difference;
+                    }
+                }
+            }
+        }
+        return largestDifference;
+    }
 
 }

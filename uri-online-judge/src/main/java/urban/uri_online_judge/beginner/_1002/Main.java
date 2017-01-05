@@ -8,27 +8,26 @@ import java.util.Locale;
 
 /**
  * Area of a Circle
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1002
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
-	
-	public static String main(InputStream input) throws IOException {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-		
-		double R = Double.parseDouble(reader.readLine());
-		double A = 3.14159 * (R * R);
-		
-		reader.close();
-		
-		return String.format(Locale.ROOT, "A=%.4f", A) + System.lineSeparator();
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
+
+    public static String main(InputStream input) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+
+        double R = Double.parseDouble(reader.readLine());
+        double A = 3.14159 * (R * R);
+
+        reader.close();
+
+        return String.format(Locale.ROOT, "A=%.4f", A) + System.lineSeparator();
+    }
 
 }

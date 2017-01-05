@@ -6,31 +6,31 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class GrassHopperTest {
-	
-	@Test
-	public void deveInstanciar() {
-		GrassHopper instance = new GrassHopper();
-		Assert.assertNotNull(instance);
-	}
 
-	@Test
-	public void test1() {
-		assertEquals("Hello, Mr. Spock", GrassHopper.sayHello("Mr. Spock"));
-	}
+    @Test
+    public void deveInstanciar() {
+        GrassHopper instance = new GrassHopper();
+        Assert.assertNotNull(instance);
+    }
 
-	@Test
-	public void test2() {
-		assertEquals("Hello, Captain Kirk", GrassHopper.sayHello("Captain Kirk"));
-	}
+    @Test
+    public void test1() {
+        assertEquals("Hello, Mr. Spock", GrassHopper.sayHello("Mr. Spock"));
+    }
 
-	@Test
-	public void test3() {
-		assertEquals("Hello, Liutenant Uhura", GrassHopper.sayHello("Liutenant Uhura"));
-	}
+    @Test
+    public void test2() {
+        assertEquals("Hello, Captain Kirk", GrassHopper.sayHello("Captain Kirk"));
+    }
 
-	@Test
-	public void test4() {
-		assertEquals("Hello, Dr. McCoy", GrassHopper.sayHello("Dr. McCoy"));
-	}
+    @Test
+    public void test3() {
+        assertEquals("Hello, Liutenant Uhura", GrassHopper.sayHello("Liutenant Uhura"));
+    }
+
+    @Test
+    public void test4() {
+        assertEquals("Hello, Dr. McCoy", GrassHopper.sayHello("Dr. McCoy"));
+    }
 
 }

@@ -12,57 +12,57 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	private String generateExpectedOutputFor(int t) {
-		StringBuilder sb = new StringBuilder();
-		int count = 0;
-		for (int i = 0; i < 1000; i++) {
-			sb.append("N[").append(i).append("] = ").append(count).append(System.lineSeparator());
-			count++;
-			if (count == t) {
-				count = 0;
-			}
-		}
-		return sb.toString();
-	}
+    private String generateExpectedOutputFor(int t) {
+        StringBuilder sb = new StringBuilder();
+        int count = 0;
+        for (int i = 0; i < 1000; i++) {
+            sb.append("N[").append(i).append("] = ").append(count).append(System.lineSeparator());
+            count++;
+            if (count == t) {
+                count = 0;
+            }
+        }
+        return sb.toString();
+    }
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldHandleLowestInput() throws IOException {
-		int t = 2;
-		InputStream input = new SampleBuilder().appendln(t).buildAsInputStream();
+    @Test
+    public void shouldHandleLowestInput() throws IOException {
+        int t = 2;
+        InputStream input = new SampleBuilder().appendln(t).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = generateExpectedOutputFor(t);
+        String expectedOutput = generateExpectedOutputFor(t);
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleHighestInput() throws IOException {
-		int t = 50;
-		InputStream input = new SampleBuilder().appendln(t).buildAsInputStream();
+    @Test
+    public void shouldHandleHighestInput() throws IOException {
+        int t = 50;
+        InputStream input = new SampleBuilder().appendln(t).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = generateExpectedOutputFor(t);
+        String expectedOutput = generateExpectedOutputFor(t);
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleSample() throws IOException {
-		int t = 3;
-		InputStream input = new SampleBuilder().appendln(t).buildAsInputStream();
+    @Test
+    public void shouldHandleSample() throws IOException {
+        int t = 3;
+        InputStream input = new SampleBuilder().appendln(t).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = generateExpectedOutputFor(t);
+        String expectedOutput = generateExpectedOutputFor(t);
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 }

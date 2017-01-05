@@ -11,31 +11,30 @@ import urban.common.Reader;
 
 /**
  * Sphere
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1011
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
 
-		BigDecimal R = new BigDecimal(reader.nextInt());
-		BigDecimal volume = new BigDecimal((4 / 3.0) * 3.14159).multiply(R).multiply(R).multiply(R);
+        BigDecimal R = new BigDecimal(reader.nextInt());
+        BigDecimal volume = new BigDecimal((4 / 3.0) * 3.14159).multiply(R).multiply(R).multiply(R);
 
-		DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
-		decimalFormatSymbols.setDecimalSeparator('.');
-		NumberFormat formatter = new DecimalFormat("##0.000", decimalFormatSymbols);
-		
-		reader.close();
+        DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
+        decimalFormatSymbols.setDecimalSeparator('.');
+        NumberFormat formatter = new DecimalFormat("##0.000", decimalFormatSymbols);
 
-		return "VOLUME = " + formatter.format(volume) + System.lineSeparator();
-	}
+        reader.close();
+
+        return "VOLUME = " + formatter.format(volume) + System.lineSeparator();
+    }
 
 }

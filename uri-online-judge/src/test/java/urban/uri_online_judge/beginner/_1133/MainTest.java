@@ -12,51 +12,51 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldHandleAscendingInput() throws IOException {
-		InputStream input = new SampleBuilder().appendln(1).append(13).buildAsInputStream();
+    @Test
+    public void shouldHandleAscendingInput() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).append(13).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(2).appendln(3).appendln(7).appendln(8).appendln(12)
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(2).appendln(3).appendln(7).appendln(8).appendln(12)
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleDescendingInput() throws IOException {
-		InputStream input = new SampleBuilder().appendln(13).append(1).buildAsInputStream();
+    @Test
+    public void shouldHandleDescendingInput() throws IOException {
+        InputStream input = new SampleBuilder().appendln(13).append(1).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(2).appendln(3).appendln(7).appendln(8).appendln(12)
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(2).appendln(3).appendln(7).appendln(8).appendln(12)
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleSameInput() throws IOException {
-		InputStream input = new SampleBuilder().appendln(2).append(2).buildAsInputStream();
+    @Test
+    public void shouldHandleSameInput() throws IOException {
+        InputStream input = new SampleBuilder().appendln(2).append(2).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintRestOfDivisionSample() throws IOException {
-		InputStream input = new SampleBuilder().appendln(10).append(18).buildAsInputStream();
+    @Test
+    public void shouldPrintRestOfDivisionSample() throws IOException {
+        InputStream input = new SampleBuilder().appendln(10).append(18).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(12).appendln(13).appendln(17).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(12).appendln(13).appendln(17).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

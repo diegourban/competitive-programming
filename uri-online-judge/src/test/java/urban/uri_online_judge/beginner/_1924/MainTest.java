@@ -12,34 +12,34 @@ import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
 public class MainTest {
-	
-	private SampleLoader scl = new SampleLoader("beginner", "1924");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    private SampleLoader scl = new SampleLoader("beginner", "1924");
 
-	@Test
-	public void shouldHandleURISample1() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleURI1.in");
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-		String output1 = Main.main(input1);
+    @Test
+    public void shouldHandleURISample1() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleURI1.in");
 
-		String expectedOutput = new SampleBuilder().appendln("Ciencia da Computacao").build();
+        String output1 = Main.main(input1);
 
-		assertEquals(expectedOutput, output1);
-	}
-	
-	@Test
-	public void shouldHandleURISample2() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleURI2.in");
+        String expectedOutput = new SampleBuilder().appendln("Ciencia da Computacao").build();
 
-		String output1 = Main.main(input1);
+        assertEquals(expectedOutput, output1);
+    }
 
-		String expectedOutput = new SampleBuilder().appendln("Ciencia da Computacao").build();
+    @Test
+    public void shouldHandleURISample2() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleURI2.in");
 
-		assertEquals(expectedOutput, output1);
-	}
+        String output1 = Main.main(input1);
+
+        String expectedOutput = new SampleBuilder().appendln("Ciencia da Computacao").build();
+
+        assertEquals(expectedOutput, output1);
+    }
 
 }

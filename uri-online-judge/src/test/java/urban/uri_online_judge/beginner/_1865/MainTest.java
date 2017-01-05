@@ -12,55 +12,55 @@ import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
 public class MainTest {
-	
-	private SampleLoader scl = new SampleLoader("beginner", "1865");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    private SampleLoader scl = new SampleLoader("beginner", "1865");
 
-	@Test
-	public void shouldAcceptThor() throws IOException {
-		InputStream input1 = new SampleBuilder().appendln(1).append("Thor").buildAsInputStream();
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-		String output1 = Main.main(input1);
+    @Test
+    public void shouldAcceptThor() throws IOException {
+        InputStream input1 = new SampleBuilder().appendln(1).append("Thor").buildAsInputStream();
 
-		String expectedOutput = "Y" + System.lineSeparator();
+        String output1 = Main.main(input1);
 
-		assertEquals(expectedOutput, output1);
-	}
-	
-	@Test
-	public void shouldHandleInvalidThorSpelling() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleInvalidThorSpelling.in");
-				
-		String output1 = Main.main(input1);
+        String expectedOutput = "Y" + System.lineSeparator();
 
-		String expectedOutput = scl.loadAsString("sampleInvalidThorSpelling.out");
+        assertEquals(expectedOutput, output1);
+    }
 
-		assertEquals(expectedOutput, output1);
-	}
-	
-	@Test
-	public void shouldHandleURISample() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleURI.in");
-				
-		String output1 = Main.main(input1);
+    @Test
+    public void shouldHandleInvalidThorSpelling() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleInvalidThorSpelling.in");
 
-		String expectedOutput = scl.loadAsString("sampleURI.out");
+        String output1 = Main.main(input1);
 
-		assertEquals(expectedOutput, output1);
-	}
-	
-	@Test
-	public void shouldHandleUDebugSample() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleUDebug.in");
-				
-		String output1 = Main.main(input1);
+        String expectedOutput = scl.loadAsString("sampleInvalidThorSpelling.out");
 
-		String expectedOutput = scl.loadAsString("sampleUDebug.out");
+        assertEquals(expectedOutput, output1);
+    }
 
-		assertEquals(expectedOutput, output1);
-	}
+    @Test
+    public void shouldHandleURISample() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleURI.in");
+
+        String output1 = Main.main(input1);
+
+        String expectedOutput = scl.loadAsString("sampleURI.out");
+
+        assertEquals(expectedOutput, output1);
+    }
+
+    @Test
+    public void shouldHandleUDebugSample() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleUDebug.in");
+
+        String output1 = Main.main(input1);
+
+        String expectedOutput = scl.loadAsString("sampleUDebug.out");
+
+        assertEquals(expectedOutput, output1);
+    }
 }

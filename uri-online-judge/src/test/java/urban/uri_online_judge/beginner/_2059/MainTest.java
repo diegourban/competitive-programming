@@ -76,6 +76,7 @@ public class MainTest {
             assertEquals(expectedOutput, output);
         }
     }
+
     @Test
     public void shouldHandlePlayer2Wins() throws IOException {
         List<int[]> inputs = new ArrayList<>();

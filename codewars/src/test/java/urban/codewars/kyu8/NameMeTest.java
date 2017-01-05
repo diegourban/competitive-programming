@@ -7,15 +7,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class NameMeTest {
-	
-	@Test
-	public void deveInstanciar() {
-		NameMe instance = new NameMe(null, null);
-		Assert.assertNotNull(instance);
-	}
-	
-	@Test
-	public void testNameMeOne() throws Exception {
+
+    @Test
+    public void deveInstanciar() {
+        NameMe instance = new NameMe(null, null);
+        Assert.assertNotNull(instance);
+    }
+
+    @Test
+    public void testNameMeOne() throws Exception {
         NameMe nameMe = new NameMe("John", "Doe");
 
         assertEquals("Verifying First name. Object returned should contain the firstname: John",
@@ -26,7 +26,7 @@ public class NameMeTest {
                 "Doe",
                 nameMe.getLastName());
 
-       assertNotEquals("Verifying full name. Object returned should contain full name: John Doe",
+        assertNotEquals("Verifying full name. Object returned should contain full name: John Doe",
                 "JohnDoe",
                 nameMe.getFullName());
 

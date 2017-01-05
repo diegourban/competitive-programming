@@ -10,37 +10,36 @@ import java.text.NumberFormat;
 
 /**
  * Area
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1012
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	private static final DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
+    private static final DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		decimalFormatSymbols.setDecimalSeparator('.');
-		NumberFormat formatter = new DecimalFormat("##0.000", decimalFormatSymbols);
+    protected static String main(InputStream input) throws IOException {
+        decimalFormatSymbols.setDecimalSeparator('.');
+        NumberFormat formatter = new DecimalFormat("##0.000", decimalFormatSymbols);
 
-		Reader reader = new Reader(input);
-		double A = reader.nextDouble();
-		double B = reader.nextDouble();
-		double C = reader.nextDouble();
-		reader.close();
+        Reader reader = new Reader(input);
+        double A = reader.nextDouble();
+        double B = reader.nextDouble();
+        double C = reader.nextDouble();
+        reader.close();
 
-		StringBuilder output = new StringBuilder();
-		output = output.append("TRIANGULO: ").append(formatter.format(.5 * A * C)).append(System.lineSeparator());
-		output = output.append("CIRCULO: ").append(formatter.format(3.14159 * C * C)).append(System.lineSeparator());
-		output = output.append("TRAPEZIO: ").append(formatter.format(.5 * (A + B) * C)).append(System.lineSeparator());
-		output = output.append("QUADRADO: ").append(formatter.format(B * B)).append(System.lineSeparator());
-		output = output.append("RETANGULO: ").append(formatter.format(A * B)).append(System.lineSeparator());
-		return output.toString();
-	}
+        StringBuilder output = new StringBuilder();
+        output = output.append("TRIANGULO: ").append(formatter.format(.5 * A * C)).append(System.lineSeparator());
+        output = output.append("CIRCULO: ").append(formatter.format(3.14159 * C * C)).append(System.lineSeparator());
+        output = output.append("TRAPEZIO: ").append(formatter.format(.5 * (A + B) * C)).append(System.lineSeparator());
+        output = output.append("QUADRADO: ").append(formatter.format(B * B)).append(System.lineSeparator());
+        output = output.append("RETANGULO: ").append(formatter.format(A * B)).append(System.lineSeparator());
+        return output.toString();
+    }
 
 }

@@ -1,8 +1,8 @@
 package urban.codewars.kyu8;
 
 public class CelsiusConverter {
-	
-	public static String weatherInfo(int temp) {
+
+    public static String weatherInfo(int temp) {
         int c = convertToCelsius(temp);
         if (c > 0)
             return (c + " is freezing temperature");
@@ -11,7 +11,7 @@ public class CelsiusConverter {
     }
 
     public static int convertToCelsius(int temperature) {
-        int celsius = (int) ((temperature) - 32 + (5/9.0));
+        int celsius = (int) ((temperature) - 32 + (5 / 9.0));
         return celsius;
     }
 

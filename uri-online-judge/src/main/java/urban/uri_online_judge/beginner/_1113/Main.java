@@ -7,39 +7,38 @@ import urban.common.Reader;
 
 /**
  * Ascending and Descending
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1113
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		int m = reader.nextInt();
-		int n = reader.nextInt();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        int m = reader.nextInt();
+        int n = reader.nextInt();
 
-		StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-		while (m != n) {
-			if (m > n) {
-				sb.append("Decrescente");
-			} else {
-				sb.append("Crescente");
-			}
-			sb.append(System.lineSeparator());
+        while (m != n) {
+            if (m > n) {
+                sb.append("Decrescente");
+            } else {
+                sb.append("Crescente");
+            }
+            sb.append(System.lineSeparator());
 
-			m = reader.nextInt();
-			n = reader.nextInt();
-		}
-		reader.close();
+            m = reader.nextInt();
+            n = reader.nextInt();
+        }
+        reader.close();
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
 }

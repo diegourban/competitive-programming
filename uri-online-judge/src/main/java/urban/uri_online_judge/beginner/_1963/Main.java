@@ -10,35 +10,34 @@ import urban.common.Reader;
 
 /**
  * The Motion Picture
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1963
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	private static final DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
-	private static final NumberFormat nf;
+    private static final DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
+    private static final NumberFormat nf;
 
-	static {
-		dfs.setDecimalSeparator('.');
-		nf = new DecimalFormat("#0.00", dfs);
-	}
+    static {
+        dfs.setDecimalSeparator('.');
+        nf = new DecimalFormat("#0.00", dfs);
+    }
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		double a = reader.nextDouble();
-		double b = reader.nextDouble();
-		reader.close();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        double a = reader.nextDouble();
+        double b = reader.nextDouble();
+        reader.close();
 
-		double ppi = ((b - a) / a) * 100;
+        double ppi = ((b - a) / a) * 100;
 
-		return nf.format(ppi) + "%" + System.lineSeparator();
-	}
+        return nf.format(ppi) + "%" + System.lineSeparator();
+    }
 
 }

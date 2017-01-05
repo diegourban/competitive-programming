@@ -12,79 +12,79 @@ import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
 public class MainTest {
-	
-	private SampleLoader scl = new SampleLoader("beginner", "1589");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    private SampleLoader scl = new SampleLoader("beginner", "1589");
 
-	@Test
-	public void shouldHandleInvalidNegativeTestCaseInput() throws IOException {
-		InputStream input = new SampleBuilder().append(-1).buildAsInputStream();
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleInvalidNegativeTestCaseInput() throws IOException {
+        InputStream input = new SampleBuilder().append(-1).buildAsInputStream();
 
-		String expectedOutput = "";
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = "";
 
-	@Test
-	public void shouldHandleInvalidZeroTestCaseInput() throws IOException {
-		InputStream input = new SampleBuilder().append(0).buildAsInputStream();
+        assertEquals(expectedOutput, output);
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleInvalidZeroTestCaseInput() throws IOException {
+        InputStream input = new SampleBuilder().append(0).buildAsInputStream();
 
-		String expectedOutput = "";
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldHandleLowerLimit() throws IOException {
-		InputStream input = scl.loadAsInputStream("sampleLowerLimit.in");
+        String expectedOutput = "";
 
-		String output = Main.main(input);
+        assertEquals(expectedOutput, output);
+    }
 
-		String expectedOutput = scl.loadAsString("sampleLowerLimit.out");
+    @Test
+    public void shouldHandleLowerLimit() throws IOException {
+        InputStream input = scl.loadAsInputStream("sampleLowerLimit.in");
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldHandleHigherLimit() throws IOException {
-		InputStream input = scl.loadAsInputStream("sampleHigherLimit.in");
+        String output = Main.main(input);
 
-		String output = Main.main(input);
+        String expectedOutput = scl.loadAsString("sampleLowerLimit.out");
 
-		String expectedOutput = scl.loadAsString("sampleHigherLimit.out");
+        assertEquals(expectedOutput, output);
+    }
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldHandleURISample() throws IOException {
-		InputStream input = scl.loadAsInputStream("sampleURI.in");
+    @Test
+    public void shouldHandleHigherLimit() throws IOException {
+        InputStream input = scl.loadAsInputStream("sampleHigherLimit.in");
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsString("sampleURI.out");
+        String expectedOutput = scl.loadAsString("sampleHigherLimit.out");
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldHandleUDebugSample() throws IOException {
-		InputStream input = scl.loadAsInputStream("sampleUDebug.in");
+        assertEquals(expectedOutput, output);
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleURISample() throws IOException {
+        InputStream input = scl.loadAsInputStream("sampleURI.in");
 
-		String expectedOutput = scl.loadAsString("sampleUDebug.out");
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = scl.loadAsString("sampleURI.out");
+
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldHandleUDebugSample() throws IOException {
+        InputStream input = scl.loadAsInputStream("sampleUDebug.in");
+
+        String output = Main.main(input);
+
+        String expectedOutput = scl.loadAsString("sampleUDebug.out");
+
+        assertEquals(expectedOutput, output);
+    }
 
 
 }

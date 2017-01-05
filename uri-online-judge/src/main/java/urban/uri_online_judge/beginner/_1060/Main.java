@@ -7,30 +7,29 @@ import urban.common.Reader;
 
 /**
  * Positive Numbers
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1060
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		int total = 0;
-		for (int i = 0; i < 6; i++) {
-			double d = reader.nextDouble();
-			if (d >= 0) {
-				total++;
-			}
-		}
-		reader.close();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        int total = 0;
+        for (int i = 0; i < 6; i++) {
+            double d = reader.nextDouble();
+            if (d >= 0) {
+                total++;
+            }
+        }
+        reader.close();
 
-		return total + " valores positivos" + System.lineSeparator();
-	}
+        return total + " valores positivos" + System.lineSeparator();
+    }
 
 }

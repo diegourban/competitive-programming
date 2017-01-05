@@ -29,8 +29,8 @@ public class Main {
         int reversedLength = String.valueOf(reversed).length();
 
         StringBuilder sb = new StringBuilder();
-        if(reversedLength < nLength) {
-            for(int i = 0; i < nLength - reversedLength; i++) {
+        if (reversedLength < nLength) {
+            for (int i = 0; i < nLength - reversedLength; i++) {
                 sb.append("0");
             }
         }
@@ -39,15 +39,15 @@ public class Main {
         return sb.toString();
     }
 
-    public static long reverse(long number){
+    public static long reverse(long number) {
         long reverse = 0;
         long remainder = 0;
-        do{
-            remainder = number%10;
-            reverse = reverse*10 + remainder;
-            number = number/10;
+        do {
+            remainder = number % 10;
+            reverse = reverse * 10 + remainder;
+            number = number / 10;
 
-        }while(number > 0);
+        } while (number > 0);
 
         return reverse;
     }

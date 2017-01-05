@@ -12,64 +12,64 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldFindMultiplesAGreaterThanB() throws IOException {
-		InputStream input = new SampleBuilder().append(8).append(4).buildAsInputStream();
+    @Test
+    public void shouldFindMultiplesAGreaterThanB() throws IOException {
+        InputStream input = new SampleBuilder().append(8).append(4).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("Sao Multiplos").build();
+        String expectedOutput = new SampleBuilder().appendln("Sao Multiplos").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldFindMultiplesBGreaterThanA() throws IOException {
-		InputStream input = new SampleBuilder().append(4).append(8).buildAsInputStream();
+    @Test
+    public void shouldFindMultiplesBGreaterThanA() throws IOException {
+        InputStream input = new SampleBuilder().append(4).append(8).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("Sao Multiplos").build();
+        String expectedOutput = new SampleBuilder().appendln("Sao Multiplos").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleNotMultiples() throws IOException {
-		InputStream input = new SampleBuilder().append(5).append(3).buildAsInputStream();
+    @Test
+    public void shouldHandleNotMultiples() throws IOException {
+        InputStream input = new SampleBuilder().append(5).append(3).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("Nao sao Multiplos").build();
+        String expectedOutput = new SampleBuilder().appendln("Nao sao Multiplos").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldFindMultiplesSample1() throws IOException {
-		InputStream input = new SampleBuilder().append(6).append(24).buildAsInputStream();
+    @Test
+    public void shouldFindMultiplesSample1() throws IOException {
+        InputStream input = new SampleBuilder().append(6).append(24).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("Sao Multiplos").build();
+        String expectedOutput = new SampleBuilder().appendln("Sao Multiplos").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldFindMultiplesSample2() throws IOException {
-		InputStream input = new SampleBuilder().append(6).append(25).buildAsInputStream();
+    @Test
+    public void shouldFindMultiplesSample2() throws IOException {
+        InputStream input = new SampleBuilder().append(6).append(25).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("Nao sao Multiplos").build();
+        String expectedOutput = new SampleBuilder().appendln("Nao sao Multiplos").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

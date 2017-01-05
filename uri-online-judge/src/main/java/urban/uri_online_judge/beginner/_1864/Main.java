@@ -7,26 +7,25 @@ import urban.common.Reader;
 
 /**
  * Our Days Are Never Coming Back
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1864
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	private static final String QUOTE = "LIFE IS NOT A PROBLEM TO BE SOLVED";
+    private static final String QUOTE = "LIFE IS NOT A PROBLEM TO BE SOLVED";
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		int n = reader.nextInt();
-		reader.close();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        int n = reader.nextInt();
+        reader.close();
 
-		return QUOTE.substring(0, n) + System.lineSeparator();
-	}
+        return QUOTE.substring(0, n) + System.lineSeparator();
+    }
 
 }

@@ -7,37 +7,36 @@ import urban.common.Reader;
 
 /**
  * Fibonacci Array
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1176
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
-	
-	private static final double phi = (1 + Math.sqrt(5)) / 2;
-	private static final double sqrt5 = Math.sqrt(5);
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    private static final double phi = (1 + Math.sqrt(5)) / 2;
+    private static final double sqrt5 = Math.sqrt(5);
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		int t = reader.nextInt();
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < t; i++) {
-			int n = reader.nextInt();
-			sb.append("Fib(").append(n).append(") = ").append(fibBinet(n)).append(System.lineSeparator());
-		}
-		reader.close();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        int t = reader.nextInt();
 
-		return sb.toString();
-	}
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < t; i++) {
+            int n = reader.nextInt();
+            sb.append("Fib(").append(n).append(") = ").append(fibBinet(n)).append(System.lineSeparator());
+        }
+        reader.close();
 
-	private static long fibBinet(int n) {
-		return (long) ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sqrt5);
-	}
+        return sb.toString();
+    }
+
+    private static long fibBinet(int n) {
+        return (long) ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sqrt5);
+    }
 
 }

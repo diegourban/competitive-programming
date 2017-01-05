@@ -12,101 +12,101 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldHandleTypeAlcool() throws IOException {
-		InputStream input = new SampleBuilder().appendln(1).append(4).buildAsInputStream();
+    @Test
+    public void shouldHandleTypeAlcool() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).append(4).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("MUITO OBRIGADO")//
-				.appendln("Alcool: 1")//
-				.appendln("Gasolina: 0")//
-				.appendln("Diesel: 0")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("MUITO OBRIGADO")//
+                .appendln("Alcool: 1")//
+                .appendln("Gasolina: 0")//
+                .appendln("Diesel: 0")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleTypeGasolina() throws IOException {
-		InputStream input = new SampleBuilder().appendln(2).append(4).buildAsInputStream();
+    @Test
+    public void shouldHandleTypeGasolina() throws IOException {
+        InputStream input = new SampleBuilder().appendln(2).append(4).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("MUITO OBRIGADO")//
-				.appendln("Alcool: 0")//
-				.appendln("Gasolina: 1")//
-				.appendln("Diesel: 0")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("MUITO OBRIGADO")//
+                .appendln("Alcool: 0")//
+                .appendln("Gasolina: 1")//
+                .appendln("Diesel: 0")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleTypeDiesel() throws IOException {
-		InputStream input = new SampleBuilder().appendln(3).append(4).buildAsInputStream();
+    @Test
+    public void shouldHandleTypeDiesel() throws IOException {
+        InputStream input = new SampleBuilder().appendln(3).append(4).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("MUITO OBRIGADO")//
-				.appendln("Alcool: 0")//
-				.appendln("Gasolina: 0")//
-				.appendln("Diesel: 1")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("MUITO OBRIGADO")//
+                .appendln("Alcool: 0")//
+                .appendln("Gasolina: 0")//
+                .appendln("Diesel: 1")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleOneOfEachType() throws IOException {
-		InputStream input = new SampleBuilder().appendln(1).appendln(2).appendln(3).append(4).buildAsInputStream();
+    @Test
+    public void shouldHandleOneOfEachType() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).appendln(2).appendln(3).append(4).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("MUITO OBRIGADO")//
-				.appendln("Alcool: 1")//
-				.appendln("Gasolina: 1")//
-				.appendln("Diesel: 1")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("MUITO OBRIGADO")//
+                .appendln("Alcool: 1")//
+                .appendln("Gasolina: 1")//
+                .appendln("Diesel: 1")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldIgnoreTypesOutOfRange() throws IOException {
-		InputStream input = new SampleBuilder().appendln(1).appendln(0).appendln(2).appendln(5).appendln(3).appendln(-1)
-				.append(4).buildAsInputStream();
+    @Test
+    public void shouldIgnoreTypesOutOfRange() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).appendln(0).appendln(2).appendln(5).appendln(3).appendln(-1)
+                .append(4).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("MUITO OBRIGADO")//
-				.appendln("Alcool: 1")//
-				.appendln("Gasolina: 1")//
-				.appendln("Diesel: 1")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("MUITO OBRIGADO")//
+                .appendln("Alcool: 1")//
+                .appendln("Gasolina: 1")//
+                .appendln("Diesel: 1")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldCountTypesOfFuelSample() throws IOException {
-		InputStream input = new SampleBuilder().appendln(8).appendln(1).appendln(7).appendln(2).appendln(2).append(4)
-				.buildAsInputStream();
+    @Test
+    public void shouldCountTypesOfFuelSample() throws IOException {
+        InputStream input = new SampleBuilder().appendln(8).appendln(1).appendln(7).appendln(2).appendln(2).append(4)
+                .buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("MUITO OBRIGADO")//
-				.appendln("Alcool: 1")//
-				.appendln("Gasolina: 2")//
-				.appendln("Diesel: 0")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("MUITO OBRIGADO")//
+                .appendln("Alcool: 1")//
+                .appendln("Gasolina: 2")//
+                .appendln("Diesel: 0")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

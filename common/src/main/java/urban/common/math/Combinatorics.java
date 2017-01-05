@@ -6,7 +6,7 @@ public class Combinatorics {
 
     /**
      * Pascal's Triangle
-     *
+     * <p>
      * Solution extracted and adapted from
      * http://www.brpreiss.com/books/opus5/html/page460.html.
      *

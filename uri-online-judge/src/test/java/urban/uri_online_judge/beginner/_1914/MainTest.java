@@ -12,23 +12,23 @@ import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
 public class MainTest {
-	
-	private SampleLoader scl = new SampleLoader("beginner", "1914");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    private SampleLoader scl = new SampleLoader("beginner", "1914");
 
-	@Test
-	public void shouldHandleSample() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleURI.in");
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-		String output1 = Main.main(input1);
+    @Test
+    public void shouldHandleSample() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleURI.in");
 
-		String expectedOutput = new SampleBuilder().appendln("Quico").appendln("Marcus").appendln("Conrado").appendln("Chaves").build();
+        String output1 = Main.main(input1);
 
-		assertEquals(expectedOutput, output1);
-	}
+        String expectedOutput = new SampleBuilder().appendln("Quico").appendln("Marcus").appendln("Conrado").appendln("Chaves").build();
+
+        assertEquals(expectedOutput, output1);
+    }
 
 }

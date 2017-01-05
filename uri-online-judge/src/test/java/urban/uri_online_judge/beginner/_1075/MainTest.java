@@ -12,35 +12,35 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldHandleHighestInput() throws IOException {
-		InputStream input = new SampleBuilder().append(9999).buildAsInputStream();
+    @Test
+    public void shouldHandleHighestInput() throws IOException {
+        InputStream input = new SampleBuilder().append(9999).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln("2").build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln("2").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldCalculateRemainingSample() throws IOException {
-		InputStream input = new SampleBuilder().append(13).buildAsInputStream();
+    @Test
+    public void shouldCalculateRemainingSample() throws IOException {
+        InputStream input = new SampleBuilder().append(13).buildAsInputStream();
 
-		String output = Main.main(input);
-		StringBuilder sb = new StringBuilder();
-		for (int i = 1; i <= 10000; i++) {
-			if (i % 13 == 2) {
-				sb.append(i).append(System.lineSeparator());
-			}
-		}
-		String expectedOutput = sb.toString();
+        String output = Main.main(input);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= 10000; i++) {
+            if (i % 13 == 2) {
+                sb.append(i).append(System.lineSeparator());
+            }
+        }
+        String expectedOutput = sb.toString();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

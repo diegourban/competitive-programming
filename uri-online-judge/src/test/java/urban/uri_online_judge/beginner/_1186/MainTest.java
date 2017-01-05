@@ -12,56 +12,56 @@ import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
 public class MainTest {
-	
-	private SampleLoader scl = new SampleLoader("beginner", "1186");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    private SampleLoader scl = new SampleLoader("beginner", "1186");
 
-	@Test
-	public void shouldHandleSample1() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample1.in");
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleSample1() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample1.in");
 
-		String expectedOutput = new SampleBuilder().appendln(6644.0).build();
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = new SampleBuilder().appendln(6644.0).build();
 
-	@Test
-	public void shouldHandleSample2() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample2.in");
+        assertEquals(expectedOutput, output);
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleSample2() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample2.in");
 
-		String expectedOutput = new SampleBuilder().appendln(100.7).build();
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = new SampleBuilder().appendln(100.7).build();
 
-	@Test
-	public void shouldHandleSample3() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample3.in");
+        assertEquals(expectedOutput, output);
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleSample3() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample3.in");
 
-		String expectedOutput = new SampleBuilder().appendln(499.0).build();
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = new SampleBuilder().appendln(499.0).build();
 
-	@Test
-	public void shouldHandleSample4() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample4.in");
+        assertEquals(expectedOutput, output);
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleSample4() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample4.in");
 
-		String expectedOutput = new SampleBuilder().appendln(7.6).build();
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = new SampleBuilder().appendln(7.6).build();
+
+        assertEquals(expectedOutput, output);
+    }
 
 }

@@ -12,44 +12,44 @@ import urban.common.SampleLoader;
 
 public class MainTest {
 
-	private SampleLoader scl = new SampleLoader("beginner", "1541");
+    private SampleLoader scl = new SampleLoader("beginner", "1541");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldHandleSample1() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample1.in");
+    @Test
+    public void shouldHandleSample1() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample1.in");
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsString("sample1.out");
+        String expectedOutput = scl.loadAsString("sample1.out");
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldHandleSample2() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample2.in");
+    @Test
+    public void shouldHandleSample2() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample2.in");
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = scl.loadAsString("sample2.out");
+        String expectedOutput = scl.loadAsString("sample2.out");
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldHandleLimits() throws IOException {
-		InputStream input = scl.loadAsInputStream("sampleLimits.in");
+        assertEquals(expectedOutput, output);
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldHandleLimits() throws IOException {
+        InputStream input = scl.loadAsInputStream("sampleLimits.in");
 
-		String expectedOutput = scl.loadAsString("sampleLimits.out");
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = scl.loadAsString("sampleLimits.out");
+
+        assertEquals(expectedOutput, output);
+    }
 
 }

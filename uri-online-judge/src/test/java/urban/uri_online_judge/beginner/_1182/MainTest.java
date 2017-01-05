@@ -12,56 +12,56 @@ import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
 public class MainTest {
-	
-	private SampleLoader scl = new SampleLoader("beginner", "1182");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
-	
-	@Test
-	public void shouldHandleSample1() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample1.in");
+    private SampleLoader scl = new SampleLoader("beginner", "1182");
 
-		String output = Main.main(input);
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-		String expectedOutput = new SampleBuilder().appendln(6.0).build();
+    @Test
+    public void shouldHandleSample1() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample1.in");
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldHandleSample2() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample2.in");
+        String output = Main.main(input);
 
-		String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(6.0).build();
 
-		String expectedOutput = new SampleBuilder().appendln(0.5).build();
+        assertEquals(expectedOutput, output);
+    }
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldCalculateFirstColum() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample3.in");
+    @Test
+    public void shouldHandleSample2() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample2.in");
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln(-115.7).build();
+        String expectedOutput = new SampleBuilder().appendln(0.5).build();
 
-		assertEquals(expectedOutput, output);
-	}
-	
-	@Test
-	public void shouldCalculateLastColum() throws IOException {
-		InputStream input = scl.loadAsInputStream("sample4.in");
+        assertEquals(expectedOutput, output);
+    }
 
-		String output = Main.main(input);
+    @Test
+    public void shouldCalculateFirstColum() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample3.in");
 
-		String expectedOutput = new SampleBuilder().appendln(-350.9).build();
+        String output = Main.main(input);
 
-		assertEquals(expectedOutput, output);
-	}
+        String expectedOutput = new SampleBuilder().appendln(-115.7).build();
+
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldCalculateLastColum() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample4.in");
+
+        String output = Main.main(input);
+
+        String expectedOutput = new SampleBuilder().appendln(-350.9).build();
+
+        assertEquals(expectedOutput, output);
+    }
 
 }

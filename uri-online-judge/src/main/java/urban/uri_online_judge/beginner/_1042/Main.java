@@ -7,68 +7,67 @@ import urban.common.Reader;
 
 /**
  * Simple Sort
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1042
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	private static final String LS = System.lineSeparator();
+    private static final String LS = System.lineSeparator();
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		int a = reader.nextInt();
-		int b = reader.nextInt();
-		int c = reader.nextInt();
-		reader.close();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        int a = reader.nextInt();
+        int b = reader.nextInt();
+        int c = reader.nextInt();
+        reader.close();
 
-		int min = 0;
-		int max = 0;
-		int med = 0;
+        int min = 0;
+        int max = 0;
+        int med = 0;
 
-		if (a > b) {
-			if (a > c) {
-				max = a;
-				if (b > c) {
-					med = b;
-					min = c;
-				} else {
-					med = c;
-					min = b;
-				}
-			} else {
-				med = a;
-				max = c;
-				min = b;
-			}
-		} else {
-			if (b > c) {
-				max = b;
-				if (a > c) {
-					med = a;
-					min = c;
-				} else {
-					med = c;
-					min = a;
-				}
-			} else {
-				med = b;
-				max = c;
-				min = a;
-			}
-		}
+        if (a > b) {
+            if (a > c) {
+                max = a;
+                if (b > c) {
+                    med = b;
+                    min = c;
+                } else {
+                    med = c;
+                    min = b;
+                }
+            } else {
+                med = a;
+                max = c;
+                min = b;
+            }
+        } else {
+            if (b > c) {
+                max = b;
+                if (a > c) {
+                    med = a;
+                    min = c;
+                } else {
+                    med = c;
+                    min = a;
+                }
+            } else {
+                med = b;
+                max = c;
+                min = a;
+            }
+        }
 
-		StringBuilder sb = new StringBuilder();
-		sb.append(min).append(LS).append(med).append(LS).append(max).append(LS).append(LS);
-		sb.append(a).append(LS).append(b).append(LS).append(c).append(LS);
+        StringBuilder sb = new StringBuilder();
+        sb.append(min).append(LS).append(med).append(LS).append(max).append(LS).append(LS);
+        sb.append(a).append(LS).append(b).append(LS).append(c).append(LS);
 
-		return sb.toString();
-	}
+        return sb.toString();
+    }
 
 }

@@ -12,29 +12,29 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldCalculateHugeIntegers() throws IOException {
-		InputStream input = new SampleBuilder().appendln(1000000000).append(0).buildAsInputStream();
+    @Test
+    public void shouldCalculateHugeIntegers() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1000000000).append(0).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(5000000020l).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(5000000020l).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldCalculateSample() throws IOException {
-		InputStream input = new SampleBuilder().appendln(4).appendln(11).append(0).buildAsInputStream();
+    @Test
+    public void shouldCalculateSample() throws IOException {
+        InputStream input = new SampleBuilder().appendln(4).appendln(11).append(0).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(40).appendln(80).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(40).appendln(80).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

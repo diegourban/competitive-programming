@@ -10,42 +10,41 @@ import urban.common.Reader;
 
 /**
  * Ages
- * 
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1154
- * 
- * @author Diego Leonardo Urban
  *
+ * @author Diego Leonardo Urban
  */
 public class Main {
 
-	private static final NumberFormat numberFormat;
+    private static final NumberFormat numberFormat;
 
-	static {
-		DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
-		decimalFormatSymbols.setDecimalSeparator('.');
-		numberFormat = new DecimalFormat("#0.00", decimalFormatSymbols);
-	}
+    static {
+        DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance();
+        decimalFormatSymbols.setDecimalSeparator('.');
+        numberFormat = new DecimalFormat("#0.00", decimalFormatSymbols);
+    }
 
-	public static void main(String[] args) throws IOException {
-		System.out.print(main(System.in));
-	}
+    public static void main(String[] args) throws IOException {
+        System.out.print(main(System.in));
+    }
 
-	protected static String main(InputStream input) throws IOException {
-		Reader reader = new Reader(input);
-		int n = reader.nextInt();
+    protected static String main(InputStream input) throws IOException {
+        Reader reader = new Reader(input);
+        int n = reader.nextInt();
 
-		int agesSum = 0;
-		int agesTot = 0;
+        int agesSum = 0;
+        int agesTot = 0;
 
-		while (n >= 0) {
-			agesSum += n;
-			agesTot++;
+        while (n >= 0) {
+            agesSum += n;
+            agesTot++;
 
-			n = reader.nextInt();
-		}
-		reader.close();
+            n = reader.nextInt();
+        }
+        reader.close();
 
-		return numberFormat.format(agesSum / (agesTot * 1.0)) + System.lineSeparator();
-	}
+        return numberFormat.format(agesSum / (agesTot * 1.0)) + System.lineSeparator();
+    }
 
 }

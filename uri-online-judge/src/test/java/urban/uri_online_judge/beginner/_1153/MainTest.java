@@ -12,38 +12,38 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldCalculateLowerInput() throws IOException {
-		InputStream input = new SampleBuilder().append(1).buildAsInputStream();
+    @Test
+    public void shouldCalculateLowerInput() throws IOException {
+        InputStream input = new SampleBuilder().append(1).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(1).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(1).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldCalculateHigherInput() throws IOException {
-		InputStream input = new SampleBuilder().append(12).buildAsInputStream();
+    @Test
+    public void shouldCalculateHigherInput() throws IOException {
+        InputStream input = new SampleBuilder().append(12).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(479001600).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(479001600).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldCalculateSample() throws IOException {
-		InputStream input = new SampleBuilder().append(4).buildAsInputStream();
+    @Test
+    public void shouldCalculateSample() throws IOException {
+        InputStream input = new SampleBuilder().append(4).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(24).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(24).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 }

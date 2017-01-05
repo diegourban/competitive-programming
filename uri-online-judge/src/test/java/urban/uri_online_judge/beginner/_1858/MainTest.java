@@ -11,55 +11,55 @@ import org.junit.Test;
 import urban.common.SampleLoader;
 
 public class MainTest {
-	
-	private SampleLoader scl = new SampleLoader("beginner", "1858");
-	
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
 
-	@Test
-	public void shouldHandleMinimumInput() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleMinimumInput.in");
+    private SampleLoader scl = new SampleLoader("beginner", "1858");
 
-		String output1 = Main.main(input1);
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-		String expectedOutput = "1" + System.lineSeparator();
+    @Test
+    public void shouldHandleMinimumInput() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleMinimumInput.in");
 
-		assertEquals(expectedOutput, output1);
-	}
-	
-	@Test
-	public void shouldHandleRepeatingMinimalNumbersInput() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleRepeatingMinimalNumbers.in");
+        String output1 = Main.main(input1);
 
-		String output1 = Main.main(input1);
+        String expectedOutput = "1" + System.lineSeparator();
 
-		String expectedOutput = "4" + System.lineSeparator();
+        assertEquals(expectedOutput, output1);
+    }
 
-		assertEquals(expectedOutput, output1);
-	}
-	
-	@Test
-	public void shouldHandleURISample() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleURI.in");
+    @Test
+    public void shouldHandleRepeatingMinimalNumbersInput() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleRepeatingMinimalNumbers.in");
 
-		String output1 = Main.main(input1);
+        String output1 = Main.main(input1);
 
-		String expectedOutput = "2" + System.lineSeparator();
+        String expectedOutput = "4" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output1);
-	}
+        assertEquals(expectedOutput, output1);
+    }
 
-	@Test
-	public void shouldHandleMaximumInput() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleMaximumInput.in");
+    @Test
+    public void shouldHandleURISample() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleURI.in");
 
-		String output1 = Main.main(input1);
+        String output1 = Main.main(input1);
 
-		String expectedOutput = "9" + System.lineSeparator();
+        String expectedOutput = "2" + System.lineSeparator();
 
-		assertEquals(expectedOutput, output1);
-	}
+        assertEquals(expectedOutput, output1);
+    }
+
+    @Test
+    public void shouldHandleMaximumInput() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleMaximumInput.in");
+
+        String output1 = Main.main(input1);
+
+        String expectedOutput = "9" + System.lineSeparator();
+
+        assertEquals(expectedOutput, output1);
+    }
 }

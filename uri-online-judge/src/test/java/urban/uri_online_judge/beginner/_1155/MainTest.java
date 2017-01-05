@@ -12,19 +12,19 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldCalculateSSequenceSample() throws IOException {
-		InputStream input = new SampleBuilder().buildAsInputStream();
+    @Test
+    public void shouldCalculateSSequenceSample() throws IOException {
+        InputStream input = new SampleBuilder().buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln("5.19").build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln("5.19").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

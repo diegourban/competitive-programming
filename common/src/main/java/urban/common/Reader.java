@@ -7,152 +7,153 @@ import java.io.InputStream;
 /**
  * Solution extracted from
  * http://www.geeksforgeeks.org/fast-io-in-java-in-competitive-programming/
- * 
  */
 public class Reader {
 
-	private final int BUFFER_SIZE = 1 << 16;
-	private DataInputStream din;
-	private byte[] buffer;
-	private int bufferPointer, bytesRead;
+    private final int BUFFER_SIZE = 1 << 16;
+    private DataInputStream din;
+    private byte[] buffer;
+    private int bufferPointer, bytesRead;
 
-	public Reader(InputStream input) {
-		din = new DataInputStream(input);
-		buffer = new byte[BUFFER_SIZE];
-		bufferPointer = bytesRead = 0;
-	}
+    public Reader(InputStream input) {
+        din = new DataInputStream(input);
+        buffer = new byte[BUFFER_SIZE];
+        bufferPointer = bytesRead = 0;
+    }
 
-	public String readLine() throws IOException {
-		byte[] buf = new byte[10000]; // line length
-		int cnt = 0, c;
+    public String readLine() throws IOException {
+        byte[] buf = new byte[10000]; // line length
+        int cnt = 0;
+        int c = 0;
 
-		while ((c = read()) != -1) {
-			if (c == '\n' || c == '\r') {
-				if (cnt == 0) {
-					continue;
-				}
-				break;
-			}
-			buf[cnt++] = (byte) c;
-		}
-		return new String(buf, 0, cnt);
-	}
+        while ((c = read()) != -1) {
+            if (c == '\n' || c == '\r') {
+                if (cnt == 0) {
+                    continue;
+                }
+                break;
+            }
+            buf[cnt++] = (byte) c;
+        }
+        return new String(buf, 0, cnt);
+    }
 
-	public int nextInt() throws IOException {
-		int ret = 0;
-		byte c = read();
+    public int nextInt() throws IOException {
+        int ret = 0;
+        byte c = read();
 
-		while (c <= ' ') {
-			c = read();
-		}
+        while (c <= ' ') {
+            c = read();
+        }
 
-		boolean neg = (c == '-');
-		if (neg) {
-			c = read();
-		}
+        boolean neg = (c == '-');
+        if (neg) {
+            c = read();
+        }
 
-		do {
-			ret = ret * 10 + c - '0';
-		} while ((c = read()) >= '0' && c <= '9');
+        do {
+            ret = ret * 10 + c - '0';
+        } while ((c = read()) >= '0' && c <= '9');
 
-		if (neg) {
-			return -ret;
-		}
+        if (neg) {
+            return -ret;
+        }
 
-		return ret;
-	}
-	
-	public char nextChar() throws IOException {
-		byte c = read();
+        return ret;
+    }
 
-		while (c <= ' ') {
-			c = read();
-		}
-		
-		return (char) c;
-	}
+    public char nextChar() throws IOException {
+        byte c = read();
 
-	public long nextLong() throws IOException {
-		long ret = 0;
-		byte c = read();
+        while (c <= ' ') {
+            c = read();
+        }
 
-		while (c <= ' ') {
-			c = read();
-		}
+        return (char) c;
+    }
 
-		boolean neg = (c == '-');
-		if (neg) {
-			c = read();
-		}
+    public long nextLong() throws IOException {
+        long ret = 0;
+        byte c = read();
 
-		do {
-			ret = ret * 10 + c - '0';
-		} while ((c = read()) >= '0' && c <= '9');
+        while (c <= ' ') {
+            c = read();
+        }
 
-		if (neg) {
-			return -ret;
-		}
+        boolean neg = (c == '-');
+        if (neg) {
+            c = read();
+        }
 
-		return ret;
-	}
+        do {
+            ret = ret * 10 + c - '0';
+        } while ((c = read()) >= '0' && c <= '9');
 
-	public double nextDouble() throws IOException {
-		double ret = 0, div = 1;
-		byte c = read();
+        if (neg) {
+            return -ret;
+        }
 
-		while (c <= ' ') {
-			c = read();
-		}
+        return ret;
+    }
 
-		boolean neg = (c == '-');
-		if (neg) {
-			c = read();
-		}
+    public double nextDouble() throws IOException {
+        double ret = 0;
+        double div = 1;
+        byte c = read();
 
-		do {
-			ret = ret * 10 + c - '0';
-		} while ((c = read()) >= '0' && c <= '9');
+        while (c <= ' ') {
+            c = read();
+        }
 
-		if (c == '.') {
-			while ((c = read()) >= '0' && c <= '9') {
-				ret += (c - '0') / (div *= 10);
-			}
-		}
+        boolean neg = (c == '-');
+        if (neg) {
+            c = read();
+        }
 
-		if (neg) {
-			return -ret;
-		}
+        do {
+            ret = ret * 10 + c - '0';
+        } while ((c = read()) >= '0' && c <= '9');
 
-		return ret;
-	}
-	
-	public void skip(int n) throws IOException {
-		for(int i = 0; i < n; i++) {
-			read();
-		}
-	}
+        if (c == '.') {
+            while ((c = read()) >= '0' && c <= '9') {
+                ret += (c - '0') / (div *= 10);
+            }
+        }
 
-	private void fillBuffer() throws IOException {
-		bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
-		if (bytesRead == -1) {
-			buffer[0] = -1;
-		}
-	}
+        if (neg) {
+            return -ret;
+        }
 
-	private byte read() throws IOException {
-		if (bufferPointer == bytesRead) {
-			fillBuffer();
-		}
+        return ret;
+    }
 
-		return buffer[bufferPointer++];
-	}
+    public void skip(int n) throws IOException {
+        for (int i = 0; i < n; i++) {
+            read();
+        }
+    }
 
-	public void close() throws IOException {
-		if (din == null) {
-			return;
-		}
+    private void fillBuffer() throws IOException {
+        bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
+        if (bytesRead == -1) {
+            buffer[0] = -1;
+        }
+    }
 
-		din.close();
-		din = null;
-	}
+    private byte read() throws IOException {
+        if (bufferPointer == bytesRead) {
+            fillBuffer();
+        }
+
+        return buffer[bufferPointer++];
+    }
+
+    public void close() throws IOException {
+        if (din == null) {
+            return;
+        }
+
+        din.close();
+        din = null;
+    }
 }

@@ -12,39 +12,39 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldPrintOneLine() throws IOException {
-		InputStream input = new SampleBuilder().append(1).append(2).buildAsInputStream();
+    @Test
+    public void shouldPrintOneLine() throws IOException {
+        InputStream input = new SampleBuilder().append(1).append(2).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(3).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(3).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldReadAnotherNWhileNIsZeroOrNegative() throws IOException {
-		InputStream input = new SampleBuilder().append(3).append(0).append(-1).append(2).buildAsInputStream();
+    @Test
+    public void shouldReadAnotherNWhileNIsZeroOrNegative() throws IOException {
+        InputStream input = new SampleBuilder().append(3).append(0).append(-1).append(2).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(7).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(7).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldSumConsecutiveIntegers() throws IOException {
-		InputStream input = new SampleBuilder().append(3).append(2).buildAsInputStream();
+    @Test
+    public void shouldSumConsecutiveIntegers() throws IOException {
+        InputStream input = new SampleBuilder().append(3).append(2).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder().appendln(7).build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln(7).build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }

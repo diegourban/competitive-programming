@@ -12,140 +12,140 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldPrintJanuary() throws IOException {
-		InputStream input = new SampleBuilder().append(1).buildAsInputStream();
+    @Test
+    public void shouldPrintJanuary() throws IOException {
+        InputStream input = new SampleBuilder().append(1).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("January").build();
+        String expectedOutput = new SampleBuilder().appendln("January").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintFebruary() throws IOException {
-		InputStream input = new SampleBuilder().append(2).buildAsInputStream();
+    @Test
+    public void shouldPrintFebruary() throws IOException {
+        InputStream input = new SampleBuilder().append(2).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("February").build();
+        String expectedOutput = new SampleBuilder().appendln("February").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintMarch() throws IOException {
-		InputStream input = new SampleBuilder().append(3).buildAsInputStream();
+    @Test
+    public void shouldPrintMarch() throws IOException {
+        InputStream input = new SampleBuilder().append(3).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("March").build();
+        String expectedOutput = new SampleBuilder().appendln("March").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintApril() throws IOException {
-		InputStream input = new SampleBuilder().append(4).buildAsInputStream();
+    @Test
+    public void shouldPrintApril() throws IOException {
+        InputStream input = new SampleBuilder().append(4).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("April").build();
+        String expectedOutput = new SampleBuilder().appendln("April").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintMay() throws IOException {
-		InputStream input = new SampleBuilder().append(5).buildAsInputStream();
+    @Test
+    public void shouldPrintMay() throws IOException {
+        InputStream input = new SampleBuilder().append(5).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("May").build();
+        String expectedOutput = new SampleBuilder().appendln("May").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintJune() throws IOException {
-		InputStream input = new SampleBuilder().append(6).buildAsInputStream();
+    @Test
+    public void shouldPrintJune() throws IOException {
+        InputStream input = new SampleBuilder().append(6).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("June").build();
+        String expectedOutput = new SampleBuilder().appendln("June").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintJuly() throws IOException {
-		InputStream input = new SampleBuilder().append(7).buildAsInputStream();
+    @Test
+    public void shouldPrintJuly() throws IOException {
+        InputStream input = new SampleBuilder().append(7).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("July").build();
+        String expectedOutput = new SampleBuilder().appendln("July").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintAugust() throws IOException {
-		InputStream input = new SampleBuilder().append(8).buildAsInputStream();
+    @Test
+    public void shouldPrintAugust() throws IOException {
+        InputStream input = new SampleBuilder().append(8).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("August").build();
+        String expectedOutput = new SampleBuilder().appendln("August").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintSeptember() throws IOException {
-		InputStream input = new SampleBuilder().append(9).buildAsInputStream();
+    @Test
+    public void shouldPrintSeptember() throws IOException {
+        InputStream input = new SampleBuilder().append(9).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("September").build();
+        String expectedOutput = new SampleBuilder().appendln("September").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintOctober() throws IOException {
-		InputStream input = new SampleBuilder().append(10).buildAsInputStream();
+    @Test
+    public void shouldPrintOctober() throws IOException {
+        InputStream input = new SampleBuilder().append(10).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("October").build();
+        String expectedOutput = new SampleBuilder().appendln("October").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintNovember() throws IOException {
-		InputStream input = new SampleBuilder().append(11).buildAsInputStream();
+    @Test
+    public void shouldPrintNovember() throws IOException {
+        InputStream input = new SampleBuilder().append(11).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("November").build();
+        String expectedOutput = new SampleBuilder().appendln("November").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintDecember() throws IOException {
-		InputStream input = new SampleBuilder().append(12).buildAsInputStream();
+    @Test
+    public void shouldPrintDecember() throws IOException {
+        InputStream input = new SampleBuilder().append(12).buildAsInputStream();
 
-		String output = Main.main(input);
+        String output = Main.main(input);
 
-		String expectedOutput = new SampleBuilder().appendln("December").build();
+        String expectedOutput = new SampleBuilder().appendln("December").build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 }

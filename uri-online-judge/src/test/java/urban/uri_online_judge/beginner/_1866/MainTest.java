@@ -13,34 +13,34 @@ import urban.common.SampleLoader;
 
 public class MainTest {
 
-	private SampleLoader scl = new SampleLoader("beginner", "1866");
+    private SampleLoader scl = new SampleLoader("beginner", "1866");
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldHandleSample() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sample.in");
+    @Test
+    public void shouldHandleSample() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sample.in");
 
-		String output1 = Main.main(input1);
+        String output1 = Main.main(input1);
 
-		String expectedOutput = new SampleBuilder().appendln(1).appendln(0).appendln(1).appendln(0).appendln(1)
-				.appendln(0).appendln(1).appendln(0).appendln(1).appendln(0).build();
+        String expectedOutput = new SampleBuilder().appendln(1).appendln(0).appendln(1).appendln(0).appendln(1)
+                .appendln(0).appendln(1).appendln(0).appendln(1).appendln(0).build();
 
-		assertEquals(expectedOutput, output1);
-	}
+        assertEquals(expectedOutput, output1);
+    }
 
-	@Test
-	public void shouldHandleURISample() throws IOException {
-		InputStream input1 = scl.loadAsInputStream("sampleURI.in");
+    @Test
+    public void shouldHandleURISample() throws IOException {
+        InputStream input1 = scl.loadAsInputStream("sampleURI.in");
 
-		String output1 = Main.main(input1);
+        String output1 = Main.main(input1);
 
-		String expectedOutput = new SampleBuilder().appendln(1).appendln(1).appendln(0).build();
+        String expectedOutput = new SampleBuilder().appendln(1).appendln(1).appendln(0).build();
 
-		assertEquals(expectedOutput, output1);
-	}
+        assertEquals(expectedOutput, output1);
+    }
 
 }

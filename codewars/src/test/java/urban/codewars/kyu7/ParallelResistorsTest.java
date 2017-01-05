@@ -7,17 +7,17 @@ import org.junit.Test;
 
 public class ParallelResistorsTest {
 
-	@Test
-	public void deveInstanciar() {
-		ParallelResistors instance = new ParallelResistors();
-		Assert.assertNotNull(instance);
-	}
-	
-	@Test
+    @Test
+    public void deveInstanciar() {
+        ParallelResistors instance = new ParallelResistors();
+        Assert.assertNotNull(instance);
+    }
+
+    @Test
     public void resistanceTest1() {
         assertEquals(10.0, ParallelResistors.resistance(20, 20), 1e-10);
     }
-    
+
     @Test
     public void resistanceTest2() {
         assertEquals(8.0, ParallelResistors.resistance(20, 20, 40), 1e-10);

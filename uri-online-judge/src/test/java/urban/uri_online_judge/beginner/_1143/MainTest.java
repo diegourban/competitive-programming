@@ -12,78 +12,78 @@ import urban.common.SampleBuilder;
 
 public class MainTest {
 
-	@Test
-	public void shouldCreateInstance() {
-		assertNotNull(new Main());
-	}
+    @Test
+    public void shouldCreateInstance() {
+        assertNotNull(new Main());
+    }
 
-	@Test
-	public void shouldPrintOneLine() throws IOException {
-		InputStream input = new SampleBuilder().appendln(1).buildAsInputStream();
+    @Test
+    public void shouldPrintOneLine() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("1 1 1")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("1 1 1")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintTwoLine() throws IOException {
-		InputStream input = new SampleBuilder().appendln(2).buildAsInputStream();
+    @Test
+    public void shouldPrintTwoLine() throws IOException {
+        InputStream input = new SampleBuilder().appendln(2).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("1 1 1")//
-				.appendln("2 4 8")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("1 1 1")//
+                .appendln("2 4 8")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintThreeLine() throws IOException {
-		InputStream input = new SampleBuilder().appendln(3).buildAsInputStream();
+    @Test
+    public void shouldPrintThreeLine() throws IOException {
+        InputStream input = new SampleBuilder().appendln(3).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("1 1 1")//
-				.appendln("2 4 8")//
-				.appendln("3 9 27")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("1 1 1")//
+                .appendln("2 4 8")//
+                .appendln("3 9 27")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrintSquaredCubicSample() throws IOException {
-		InputStream input = new SampleBuilder().appendln(5).buildAsInputStream();
+    @Test
+    public void shouldPrintSquaredCubicSample() throws IOException {
+        InputStream input = new SampleBuilder().appendln(5).buildAsInputStream();
 
-		String output = Main.main(input);
-		String expectedOutput = new SampleBuilder()//
-				.appendln("1 1 1")//
-				.appendln("2 4 8")//
-				.appendln("3 9 27")//
-				.appendln("4 16 64")//
-				.appendln("5 25 125")//
-				.build();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder()//
+                .appendln("1 1 1")//
+                .appendln("2 4 8")//
+                .appendln("3 9 27")//
+                .appendln("4 16 64")//
+                .appendln("5 25 125")//
+                .build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
-	@Test
-	public void shouldPrint999Lines() throws IOException {
-		InputStream input = new SampleBuilder().appendln(999).buildAsInputStream();
+    @Test
+    public void shouldPrint999Lines() throws IOException {
+        InputStream input = new SampleBuilder().appendln(999).buildAsInputStream();
 
-		String output = Main.main(input);
-		SampleBuilder sb = new SampleBuilder();
-		for (int i = 1; i <= 999; i++) {
-			sb.append(i).append(i * i).appendln(i * i * i);
-		}
-		String expectedOutput = sb.build();
+        String output = Main.main(input);
+        SampleBuilder sb = new SampleBuilder();
+        for (int i = 1; i <= 999; i++) {
+            sb.append(i).append(i * i).appendln(i * i * i);
+        }
+        String expectedOutput = sb.build();
 
-		assertEquals(expectedOutput, output);
-	}
+        assertEquals(expectedOutput, output);
+    }
 
 }
