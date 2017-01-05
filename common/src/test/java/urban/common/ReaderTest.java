@@ -62,6 +62,17 @@ public class ReaderTest {
     }
 
     @Test
+    public void shouldJumpEmptyLines() throws IOException {
+        InputStream input = new SampleBuilder().appendln("").appendln("this is a line").buildAsInputStream();
+
+        Reader reader = new Reader(input);
+        String line = reader.readLine();
+        reader.close();
+
+        assertEquals("this is a line", line);
+    }
+
+    @Test
     public void shouldReadPositiveIntegerUnit() throws IOException {
         InputStream input = new SampleBuilder().appendln("5").buildAsInputStream();
 
@@ -70,6 +81,17 @@ public class ReaderTest {
         reader.close();
 
         assertEquals(5, nextInt);
+    }
+
+    @Test
+    public void shouldReadIntegerAfterSpace() throws IOException {
+        InputStream input = new SampleBuilder().appendln(" 2").buildAsInputStream();
+
+        Reader reader = new Reader(input);
+        int nextInt = reader.nextInt();
+        reader.close();
+
+        assertEquals(2, nextInt);
     }
 
     @Test
@@ -157,6 +179,17 @@ public class ReaderTest {
         reader.close();
 
         assertEquals(1.1, nextDouble, 0.1);
+    }
+
+    @Test
+    public void shouldReadDoubleAfterSpace() throws IOException {
+        InputStream input = new SampleBuilder().appendln(" 5.6").buildAsInputStream();
+
+        Reader reader = new Reader(input);
+        double d = reader.nextDouble();
+        reader.close();
+
+        assertEquals(5.6, d, 0.1);
     }
 
     @Test
