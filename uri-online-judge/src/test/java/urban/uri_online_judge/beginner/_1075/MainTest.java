@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1075;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleBuilder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -41,6 +42,27 @@ public class MainTest {
         String expectedOutput = sb.toString();
 
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().append(13).buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i <= 10000; i++) {
+            if (i % 13 == 2) {
+                sb.append(i).append(System.lineSeparator());
+            }
+        }
+        String expectedOutput = sb.toString();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1078;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleBuilder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -75,6 +76,32 @@ public class MainTest {
         }
 
         assertEquals(sb.build(), output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().append(2).buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder()//
+                .appendln("1 x 2 = 2")//
+                .appendln("2 x 2 = 4")//
+                .appendln("3 x 2 = 6")//
+                .appendln("4 x 2 = 8")//
+                .appendln("5 x 2 = 10")//
+                .appendln("6 x 2 = 12")//
+                .appendln("7 x 2 = 14")//
+                .appendln("8 x 2 = 16")//
+                .appendln("9 x 2 = 18")//
+                .appendln("10 x 2 = 20")//
+                .build();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

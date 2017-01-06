@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1094;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleBuilder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -136,6 +137,41 @@ public class MainTest {
                 .build();
 
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        SampleBuilder sb = new SampleBuilder();
+        sb.appendln(10);
+        sb.appendln("10 C");
+        sb.appendln("6 R");
+        sb.appendln("15 S");
+        sb.appendln("5 C");
+        sb.appendln("14 R");
+        sb.appendln("9 C");
+        sb.appendln("6 R");
+        sb.appendln("8 S");
+        sb.appendln("5 C");
+        sb.appendln("14 R");
+
+        InputStream input = sb.buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder()//
+                .appendln("Total: 92 cobaias")//
+                .appendln("Total de coelhos: 29")//
+                .appendln("Total de ratos: 40")//
+                .appendln("Total de sapos: 23")//
+                .appendln("Percentual de coelhos: 31.52 %")//
+                .appendln("Percentual de ratos: 43.48 %")//
+                .appendln("Percentual de sapos: 25.00 %")//
+                .build();
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }
