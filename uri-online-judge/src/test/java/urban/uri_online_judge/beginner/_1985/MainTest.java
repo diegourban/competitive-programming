@@ -4,8 +4,10 @@ import org.junit.Test;
 import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -92,6 +94,21 @@ public class MainTest {
         assertEquals(expectedOutput1, output1);
         assertEquals(expectedOutput2, output2);
         assertEquals(expectedOutput3, output3);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().appendln(5).appendln("1001 500").appendln("1002 500").appendln("1003 500").appendln("1004 500").appendln("1005 500").buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder().appendln("8750.00").build();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

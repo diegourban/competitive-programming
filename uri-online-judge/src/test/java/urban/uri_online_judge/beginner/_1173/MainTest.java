@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1173;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleBuilder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -99,6 +100,31 @@ public class MainTest {
                 .build();
 
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().appendln(-2).buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder()//
+                .appendln("N[0] = -2")//
+                .appendln("N[1] = -4")//
+                .appendln("N[2] = -8")//
+                .appendln("N[3] = -16")//
+                .appendln("N[4] = -32")//
+                .appendln("N[5] = -64")//
+                .appendln("N[6] = -128")//
+                .appendln("N[7] = -256")//
+                .appendln("N[8] = -512")//
+                .appendln("N[9] = -1024")//
+                .build();
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

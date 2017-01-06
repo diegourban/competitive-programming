@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1855;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleLoader;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleLoader;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -83,6 +84,21 @@ public class MainTest {
         assertEquals(expectedOutput, output2);
         assertEquals(expectedOutput, output3);
         assertEquals(expectedOutput, output4);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = scl.loadAsInputStream("sampleOutOfBounds1.in");
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = "!" + System.lineSeparator();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

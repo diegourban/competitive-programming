@@ -1,17 +1,17 @@
 package urban.uri_online_judge.beginner._1037;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
  * Interval
- *
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1037
  *
  * @author Diego Leonardo Urban
- *
  */
-import urban.common.Reader;
 
 public class Main {
 

@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1172;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleBuilder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -143,6 +144,42 @@ public class MainTest {
                 .build();
 
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder()//
+                .appendln(-1)//
+                .appendln(-45234)//
+                .appendln(-22)//
+                .appendln(-120)//
+                .appendln(0)//
+                .appendln(2)//
+                .appendln(-200)//
+                .appendln(1)//
+                .appendln(9)//
+                .appendln(22)//
+                .buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder()//
+                .appendln("X[0] = 1")//
+                .appendln("X[1] = 1")//
+                .appendln("X[2] = 1")//
+                .appendln("X[3] = 1")//
+                .appendln("X[4] = 1")//
+                .appendln("X[5] = 2")//
+                .appendln("X[6] = 1")//
+                .appendln("X[7] = 1")//
+                .appendln("X[8] = 9")//
+                .appendln("X[9] = 22")//
+                .build();
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

@@ -1,9 +1,9 @@
 package urban.uri_online_judge.structure._1022;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
-
-import urban.common.Reader;
 
 /**
  * TDA Rational

@@ -1,9 +1,9 @@
 package urban.uri_online_judge.beginner._1101;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
-
-import urban.common.Reader;
 
 /**
  * Sequence of Numbers and Sum

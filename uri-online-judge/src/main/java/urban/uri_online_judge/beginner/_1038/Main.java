@@ -1,5 +1,7 @@
 package urban.uri_online_judge.beginner._1038;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
@@ -8,13 +10,11 @@ import java.text.NumberFormat;
 
 /**
  * Snack
- *
+ * <p>
  * https://www.urionlinejudge.com.br/judge/en/problems/view/1038
  *
  * @author Diego Leonardo Urban
- *
  */
-import urban.common.Reader;
 
 /**
  * Snack

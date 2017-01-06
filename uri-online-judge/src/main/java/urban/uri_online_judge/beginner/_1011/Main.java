@@ -1,13 +1,13 @@
 package urban.uri_online_judge.beginner._1011;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-
-import urban.common.Reader;
 
 /**
  * Sphere

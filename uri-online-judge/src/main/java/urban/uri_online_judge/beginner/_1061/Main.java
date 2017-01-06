@@ -1,10 +1,10 @@
 package urban.uri_online_judge.beginner._1061;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
-
-import urban.common.Reader;
 
 /**
  * Event Time

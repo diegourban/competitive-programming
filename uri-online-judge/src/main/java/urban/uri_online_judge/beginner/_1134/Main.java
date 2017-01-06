@@ -1,9 +1,9 @@
 package urban.uri_online_judge.beginner._1134;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
-
-import urban.common.Reader;
 
 /**
  * Rest of a division

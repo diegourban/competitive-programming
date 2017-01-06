@@ -3,8 +3,10 @@ package urban.uri_online_judge.beginner._2059;
 import org.junit.Test;
 import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,38 +19,6 @@ public class MainTest {
     public void shouldCreateInstance() {
         assertNotNull(new Main());
     }
-
-    /*
-    @Test
-    public void shouldHandleLimits() throws IOException {
-        List<int[]> inputs = new ArrayList<>();
-        inputs.add(new int[]{0, 1, -5});
-        inputs.add(new int[]{0, 1, 5});
-        inputs.add(new int[]{0, 12, -5});
-        inputs.add(new int[]{0, 12, 5});
-        inputs.add(new int[]{23, 1, -5});
-        inputs.add(new int[]{23, 1, 5});
-        inputs.add(new int[]{23, 12, -5});
-        inputs.add(new int[]{23, 12, 5});
-
-        List<Integer> outputs = new ArrayList<>();
-        outputs.add(20);
-        outputs.add(6);
-        outputs.add(7);
-        outputs.add(17);
-        outputs.add(19);
-        outputs.add(5);
-        outputs.add(6);
-        outputs.add(16);
-
-        for (int i = 0; i < inputs.size(); i++) {
-            InputStream input = new SampleBuilder().append(inputs.get(i)[0]).append(inputs.get(i)[1]).append(inputs.get(i)[2]).buildAsInputStream();
-            String output = Main.main(input);
-            String expectedOutput = new SampleBuilder().appendln(outputs.get(i)).build();
-            assertEquals(expectedOutput, output);
-        }
-    }
-    */
 
     @Test
     public void shouldHandlePlayer1Wins() throws IOException {
@@ -117,6 +87,21 @@ public class MainTest {
         assertEquals(expectedOutput1, output1);
         assertEquals(expectedOutput2, output2);
         assertEquals(expectedOutput3, output3);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().append("1 4 5 0 0").buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder().appendln("Jogador 2 ganha!").build();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

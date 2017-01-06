@@ -3,8 +3,10 @@ package urban.uri_online_judge.beginner._2057;
 import org.junit.Test;
 import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +75,21 @@ public class MainTest {
         assertEquals(expectedOutput1, output1);
         assertEquals(expectedOutput2, output2);
         assertEquals(expectedOutput3, output3);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().append(10).append(7).append(3).buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder().appendln(20).build();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

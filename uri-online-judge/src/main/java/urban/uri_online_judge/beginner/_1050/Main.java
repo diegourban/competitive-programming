@@ -1,11 +1,11 @@
 package urban.uri_online_judge.beginner._1050;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-
-import urban.common.Reader;
 
 /**
  * Animal

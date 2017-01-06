@@ -1,10 +1,10 @@
 package urban.uri_online_judge.beginner._1010;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
-
-import urban.common.Reader;
 
 /**
  * Simple Calculate

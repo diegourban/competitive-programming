@@ -1,9 +1,9 @@
 package urban.uri_online_judge.beginner._1158;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
-
-import urban.common.Reader;
 
 /**
  * Sum of Consecutive Odd Numbers III

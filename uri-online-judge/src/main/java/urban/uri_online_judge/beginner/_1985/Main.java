@@ -1,5 +1,7 @@
 package urban.uri_online_judge.beginner._1985;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
@@ -7,8 +9,6 @@ import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
-
-import urban.common.Reader;
 
 /**
  * MacPRONALTS

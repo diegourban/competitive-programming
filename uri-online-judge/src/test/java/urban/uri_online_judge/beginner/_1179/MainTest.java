@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1179;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleBuilder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -83,5 +84,26 @@ public class MainTest {
                 .appendln("par[0] = -64").appendln("par[1] = -20").build();
 
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().appendln(12).appendln(-38).appendln(-11).appendln(61).appendln(-2)
+                .appendln(23).appendln(70).appendln(62).appendln(-79).appendln(49).appendln(-64).appendln(-20)
+                .appendln(-3).appendln(27).appendln(69).buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder().appendln("par[0] = 12").appendln("par[1] = -38")
+                .appendln("par[2] = -2").appendln("par[3] = 70").appendln("par[4] = 62").appendln("impar[0] = -11")
+                .appendln("impar[1] = 61").appendln("impar[2] = 23").appendln("impar[3] = -79")
+                .appendln("impar[4] = 49").appendln("impar[0] = -3").appendln("impar[1] = 27").appendln("impar[2] = 69")
+                .appendln("par[0] = -64").appendln("par[1] = -20").build();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 }

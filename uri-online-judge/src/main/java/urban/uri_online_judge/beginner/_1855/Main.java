@@ -1,11 +1,11 @@
 package urban.uri_online_judge.beginner._1855;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
-
-import urban.common.Reader;
 
 /**
  * Maester's Map
