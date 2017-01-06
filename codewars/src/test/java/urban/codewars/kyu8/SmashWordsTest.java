@@ -15,12 +15,12 @@ public class SmashWordsTest {
 
     @Test
     public void deveJuntarDuasPalavras() {
-        assertEquals("Bilal Djaghout", SmashWords.smash(new String[]{"Bilal", "Djaghout"}));
+        assertEquals("Bilal Djaghout", SmashWords.smash("Bilal", "Djaghout"));
     }
 
     @Test
     public void deveValidarVazio() {
-        assertEquals("", SmashWords.smash(new String[]{}));
+        assertEquals("", SmashWords.smash());
     }
 
 }

@@ -29,7 +29,7 @@ public class Main {
         return result[0] + " " + result[1] + System.lineSeparator();
     }
 
-    private static final int[] divide(int n, int d) {
+    private static int[] divide(int n, int d) {
         if (d == 0) {
             throw new IllegalArgumentException("division by zero");
         }

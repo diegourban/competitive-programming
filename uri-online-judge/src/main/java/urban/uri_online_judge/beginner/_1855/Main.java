@@ -83,10 +83,7 @@ public class Main {
     }
 
     private static boolean pointsToOutOfBounds(int i, int j, int mapWidth, int mapHeight) {
-        if (i < 0 || i >= mapHeight || j < 0 || j >= mapWidth) {
-            return true;
-        }
-        return false;
+        return i < 0 || i >= mapHeight || j < 0 || j >= mapWidth;
     }
 
 }

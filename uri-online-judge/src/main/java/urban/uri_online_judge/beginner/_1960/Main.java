@@ -1,10 +1,10 @@
 package urban.uri_online_judge.beginner._1960;
 
+import urban.common.Reader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.TreeMap;
-
-import urban.common.Reader;
 
 /**
  * Roman Numerals for Page Numbers
@@ -45,7 +45,7 @@ public class Main {
         return toRoman(n) + System.lineSeparator();
     }
 
-    private final static String toRoman(int number) {
+    private static String toRoman(int number) {
         int l = map.floorKey(number);
         if (number == l) {
             return map.get(number);

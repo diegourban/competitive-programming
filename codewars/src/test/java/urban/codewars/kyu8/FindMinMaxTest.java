@@ -1,22 +1,11 @@
 package urban.codewars.kyu8;
 
-import static org.junit.Assert.*;
-
-import java.util.Random;
-
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 public class FindMinMaxTest {
-
-    private int[] array = new int[1000];
-
-    public FindMinMaxTest() {
-        Random random = new Random();
-        for (int i = 0; i < array.length; i++) {
-            array[i] = random.nextInt();
-        }
-    }
-
 
     @Test
     public void shouldCreateInstance() {

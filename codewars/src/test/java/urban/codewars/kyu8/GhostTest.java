@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class GhostTest {
 
-    private static final List<String> COLORS = Arrays.asList(new String[]{"white", "yellow", "purple", "red"});
+    private static final List<String> COLORS = Arrays.asList("white", "yellow", "purple", "red");
 
     @Test
     public void shouldCreateInstance() {

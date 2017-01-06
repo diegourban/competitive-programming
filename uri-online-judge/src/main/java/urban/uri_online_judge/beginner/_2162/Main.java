@@ -27,11 +27,7 @@ public class Main {
         if (h2 == h1) {
             return 0 + System.lineSeparator();
         }
-        if (h2 > h1) {
-            isPeak = true;
-        } else {
-            isPeak = false;
-        }
+        isPeak = h2 > h1;
         int previousH = h2;
         for (int i = 2; i < n; i++) {
             int h = reader.nextInt();

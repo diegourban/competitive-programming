@@ -125,7 +125,7 @@ public class MainTest {
 
         Main.main(new String[]{});
 
-        String expectedOutput = new SampleBuilder().appendln("minhoca").build();;
+        String expectedOutput = new SampleBuilder().appendln("minhoca").build();
         assertEquals(expectedOutput, outContent.toString());
     }
 
