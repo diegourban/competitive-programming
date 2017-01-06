@@ -111,4 +111,10 @@ public class Algebra {
         return factors;
     }
 
+    public static double fibonacciBinetFormula(int n) {
+        final double phi = (1 + Math.sqrt(5)) / 2;
+        final double sqrt5 = Math.sqrt(5);
+        return ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sqrt5);
+    }
+
 }
