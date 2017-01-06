@@ -1,14 +1,15 @@
 package urban.uri_online_judge.beginner._1018;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import org.junit.Test;
+import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
-import org.junit.Test;
-
-import urban.common.SampleBuilder;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
@@ -184,6 +185,23 @@ public class MainTest {
                 .appendln("0 nota(s) de R$ 5,00").appendln("0 nota(s) de R$ 2,00").appendln("0 nota(s) de R$ 1,00")
                 .build();
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().append(1000000).buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder().appendln("1000000").appendln("10000 nota(s) de R$ 100,00")
+                .appendln("0 nota(s) de R$ 50,00").appendln("0 nota(s) de R$ 20,00").appendln("0 nota(s) de R$ 10,00")
+                .appendln("0 nota(s) de R$ 5,00").appendln("0 nota(s) de R$ 2,00").appendln("0 nota(s) de R$ 1,00")
+                .build();
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }
