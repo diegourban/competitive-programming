@@ -3,8 +3,10 @@ package urban.uri_online_judge.beginner._2162;
 import org.junit.Test;
 import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -166,6 +168,33 @@ public class MainTest {
             String expectedOutput = new SampleBuilder().appendln(outputs[i]).build();
             assertEquals(expectedOutput, output);
         }
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        int[] inputsN = {3, 5, 4};
+        int[][] inputsH = {{1, 4, -2}, {100, 99, 112, -8, -7}, {1, 2, 2, 1}};
+        int[] outputs = {1, 1, 0};
+
+        for (int i = 0; i < inputsN.length; i++) {
+            SampleBuilder sb = new SampleBuilder();
+            sb.appendln(inputsN[i]);
+            for (int j = 0; j < inputsH[i].length; j++) {
+                sb.append(inputsH[i][j]);
+            }
+            InputStream input = sb.buildAsInputStream();
+            System.setIn(input);
+
+            ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+            System.setOut(new PrintStream(outContent));
+
+            Main.main(new String[]{});
+
+            String expectedOutput = new SampleBuilder().appendln(outputs[i]).build();
+
+            assertEquals(expectedOutput, outContent.toString());
+        }
+
     }
 
 }
