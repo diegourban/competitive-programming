@@ -31,13 +31,14 @@ public class Numbers {
      * @param times  amount of times a digit must repeat
      * @return true if the number contains a digit repeating at least the expected amount of times, false otherwise
      */
-    public static boolean containsRepeatingDigits(long number, int times) {
+    public static boolean containsRepeatingDigits(final long number, final int times) {
+        long theNumber = number;
         Long old = null;
         int reps = 0;
 
-        while (number > 0) {
-            Long n = number % 10;
-            number /= 10;
+        while (theNumber > 0) {
+            Long n = theNumber % 10;
+            theNumber /= 10;
             if (n == old) {
                 if (++reps == times) {
                     return true;

@@ -10,4 +10,12 @@
 
     <artifactId>codewars</artifactId>
     <name>Codewars</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>urban</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

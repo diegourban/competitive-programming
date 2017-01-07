@@ -1,5 +1,7 @@
 package urban.codewars.kyu5;
 
+import urban.common.math.Algebra;
+
 /**
  * https://www.codewars.com/kata/common-denominators
  */
@@ -23,23 +25,8 @@ public class CommonDenominators {
     private static long lcm(long[][] input) {
         long result = input[0][1];
         for (int i = 1; i < input.length; i++)
-            result = lcm(result, input[i][1]);
+            result = Algebra.lcm(result, input[i][1]);
         return result;
-    }
-
-    private static long lcm(long a, long b) {
-        return a * (b / gcd(a, b));
-    }
-
-    private static long gcd(long a, long b) {
-        while (b > 0) {
-            long temp = b;
-            b = a % b; // % is remainder
-            a = temp;
-        }
-        return a;
-
-        // or return b == 0 ? a : gcd(b, a % b);
     }
 
 }

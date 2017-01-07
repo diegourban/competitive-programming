@@ -1,6 +1,7 @@
 package urban.uri_online_judge.structure._1022;
 
 import urban.common.Reader;
+import urban.common.math.Algebra;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,7 +59,7 @@ public class Main {
                     throw new IllegalArgumentException("Operação inválida");
             }
 
-            long gcd = gcd(Math.abs(rationalNumerator), Math.abs(rationalDenominator));
+            long gcd = Algebra.gcdLoop(Math.abs(rationalNumerator), Math.abs(rationalDenominator));
 
             int simplifiedNumerator = (int) (rationalNumerator / gcd);
             int simplifiedDenominator = (int) (rationalDenominator / gcd);
@@ -68,25 +69,6 @@ public class Main {
         }
 
         return sb.toString();
-    }
-
-    /**
-     * Greatest common divisor (gdc) of two numbers using while strategy.
-     * <p>
-     * Also known as greatest common factor (gcf), highest common factor (hcf),
-     * greatest common measure (gcm) or highest common divisor
-     *
-     * @param a
-     * @param b
-     * @return The greatest common divisor of two numbers.
-     */
-    public static long gcd(long a, long b) {
-        while (b > 0) {
-            long temp = b;
-            b = a % b; // % is remainder
-            a = temp;
-        }
-        return a;
     }
 
 }

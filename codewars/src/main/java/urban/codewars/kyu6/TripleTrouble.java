@@ -9,13 +9,14 @@ public class TripleTrouble {
         return containsRepeatingDigits(num1, 3) && containsRepeatingDigits(num2, 2) ? 1 : 0;
     }
 
-    private static boolean containsRepeatingDigits(long num, int times) {
+    private static boolean containsRepeatingDigits(final long num, final int times) {
+        long number = num;
         Long old = null;
         int reps = 0;
 
-        while (num > 0) {
-            Long n = num % 10;
-            num /= 10;
+        while (number > 0) {
+            Long n = number % 10;
+            number /= 10;
             if (n == old) {
                 if (++reps == times) {
                     return true;

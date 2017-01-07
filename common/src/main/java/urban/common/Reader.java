@@ -149,11 +149,10 @@ public class Reader {
     }
 
     public void close() throws IOException {
-        if (din == null) {
-            return;
+        if (din != null) {
+            din.close();
+            din = null;
         }
-
-        din.close();
-        din = null;
     }
+
 }
