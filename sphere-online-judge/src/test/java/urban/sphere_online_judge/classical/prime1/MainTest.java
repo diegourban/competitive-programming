@@ -1,15 +1,20 @@
-package urban.sphere_online_judge.classical.PRIME1;
+package urban.sphere_online_judge.classical.prime1;
 
 import org.junit.Test;
 import urban.common.SampleBuilder;
+import urban.common.SampleLoader;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
+
+    private final SampleLoader sl = new SampleLoader("classical", "prime1");
 
     @Test
     public void shouldCreateInstance() {
@@ -71,12 +76,34 @@ public class MainTest {
         assertEquals(expectedOutput, output);
     }
 
-    //@Test
-    public void shouldHandleHigherLimit() throws IOException {
-        // FIXME: da ruim quando é acima de 100M, pesquisar segmented sieve of eratosthenes
-        InputStream input = new SampleBuilder().appendln(1).appendln("1 1000000000").buildAsInputStream();
+    @Test
+    public void shouldHandleMaxDifSmallNumber() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).appendln("1 100001").buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(2).appendln(3).appendln(5).appendln(7).appendln("").appendln(3).appendln(5).build();
+        String expectedOutput = sl.loadAsString("sampleMaxDifSmall.out");
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldHandleMaxDifLargeNumber() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).appendln("999900000 1000000000").buildAsInputStream();
+        String output = Main.main(input);
+        String expectedOutput = sl.loadAsString("sampleMaxDifLarge.out");
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().appendln(2).appendln("1 10").appendln("3 5").buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder().appendln(2).appendln(3).appendln(5).appendln(7).appendln("").appendln(3).appendln(5).build();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 }

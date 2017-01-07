@@ -23,6 +23,17 @@ public class MainTest {
 
     @Test
     public void shouldHandleSample() throws IOException {
+        InputStream input = scl.loadAsInputStream("sample1.in");
+
+        String output = Main.main(input);
+
+        String expectedOutput = new SampleBuilder().appendln("Chiquinha").appendln("Dami").build();
+
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldHandleURISample() throws IOException {
         InputStream input = scl.loadAsInputStream("sampleURI.in");
 
         String output = Main.main(input);

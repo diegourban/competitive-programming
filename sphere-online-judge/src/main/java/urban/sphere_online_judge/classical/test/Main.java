@@ -1,4 +1,4 @@
-package urban.sphere_online_judge.classical.TEST;
+package urban.sphere_online_judge.classical.test;
 
 import urban.common.Reader;
 

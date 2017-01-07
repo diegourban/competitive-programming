@@ -18,6 +18,17 @@ public class MainTest {
         assertNotNull(new Main());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldHandleDivisionByZero() throws IOException {
+        InputStream input = new SampleBuilder().append(0).append(0).buildAsInputStream();
+
+        String output = Main.main(input);
+
+        String expectedOutput = "2 1" + System.lineSeparator();
+
+        assertEquals(expectedOutput, output);
+    }
+
     @Test
     public void shouldHandlePositiveInputs() throws IOException {
         InputStream input = new SampleBuilder().append(7).append(3).buildAsInputStream();

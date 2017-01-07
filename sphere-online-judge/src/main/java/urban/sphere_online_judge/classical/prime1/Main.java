@@ -1,4 +1,4 @@
-package urban.sphere_online_judge.classical.PRIME1;
+package urban.sphere_online_judge.classical.prime1;
 
 import urban.common.Reader;
 

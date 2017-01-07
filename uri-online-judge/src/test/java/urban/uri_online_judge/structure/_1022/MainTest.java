@@ -3,8 +3,10 @@ package urban.uri_online_judge.structure._1022;
 import org.junit.Test;
 import urban.common.SampleBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -75,6 +77,21 @@ public class MainTest {
         String expectedOutput = new SampleBuilder().appendln("10/8 = 5/4").appendln("-2/8 = -1/4")
                 .appendln("12/18 = 2/3").appendln("4/6 = 2/3").build();
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldRunThroughMain() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).append("1 / 4 + 1 / 4").buildAsInputStream();
+        System.setIn(input);
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Main.main(new String[]{});
+
+        String expectedOutput = new SampleBuilder().appendln("8/16 = 1/2").build();
+
+        assertEquals(expectedOutput, outContent.toString());
     }
 
 }

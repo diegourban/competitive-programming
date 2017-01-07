@@ -1,6 +1,7 @@
 package urban.uri_online_judge.beginner._1165;
 
 import urban.common.Reader;
+import urban.common.math.Algebra;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +28,7 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             int x = reader.nextInt();
 
-            if (isPrime(x)) {
+            if (Algebra.isPrime(x)) {
                 sb.append(x).append(" eh primo");
             } else {
                 sb.append(x).append(" nao eh primo");
@@ -37,27 +38,6 @@ public class Main {
         reader.close();
 
         return sb.toString();
-    }
-
-    // Based on https://en.wikipedia.org/wiki/Primality_test
-    private static boolean isPrime(int number) {
-        if (number <= 1) {
-            return false;
-        } else if (number <= 3) {
-            return true;
-        } else if (number % 2 == 0 || number % 3 == 0) {
-            return false;
-        }
-
-        int i = 5;
-        while (i * i <= number) {
-            if (number % i == 0 || number % (i + 2) == 0) {
-                return false;
-            }
-            i += 6;
-        }
-
-        return true;
     }
 
 }
