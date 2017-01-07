@@ -17,7 +17,7 @@ public class TripleTrouble {
         while (number > 0) {
             Long n = number % 10;
             number /= 10;
-            if (n == old) {
+            if (n.equals(old)) {
                 if (++reps == times) {
                     return true;
                 }

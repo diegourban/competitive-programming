@@ -58,13 +58,15 @@ public class Numbers {
      * @param number the number to convert
      * @return an array with each digit of the number
      */
-    public static int[] toArray(long number) {
-        int length = Long.toString(number).length();
+    public static int[] toArray(final long number) {
+        long theNumber = number;
+
+        int length = Long.toString(theNumber).length();
         int[] array = new int[length];
 
         for (int index = 0; index < length; index++) {
-            array[index] = (int) number % 10;
-            number /= 10;
+            array[index] = (int) theNumber % 10;
+            theNumber /= 10;
         }
 
         return array;

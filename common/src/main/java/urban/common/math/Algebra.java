@@ -42,11 +42,12 @@ public class Algebra {
      * @param b
      * @return The greatest common divisor of two numbers.
      */
-    public static long gcdLoop(final long a, long b) {
+    public static long gcdLoop(final long a, final long b) {
         long gcd = a;
-        while (b > 0) {
-            long temp = b;
-            b = gcd % b; // % is remainder
+        long bNumber = b;
+        while (bNumber > 0) {
+            long temp = bNumber;
+            bNumber = gcd % bNumber; // % is remainder
             gcd = temp;
         }
         return gcd;
