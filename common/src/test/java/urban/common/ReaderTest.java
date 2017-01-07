@@ -30,7 +30,9 @@ public class ReaderTest {
         InputStream input = new SampleBuilder().buildAsInputStream();
 
         Reader reader = new Reader(input);
+        assertFalse(reader.isClosed());
         reader.close();
+        assertTrue(reader.isClosed());
         reader.close();
         assertTrue(reader.isClosed());
     }
