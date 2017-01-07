@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 
-import static urban.common.math.Algebra.fibonacciBinetFormula;
+import static urban.common.math.Algebra.simpleFibonacciBinetFormula;
 
 /**
  * Fast Fibonacci
@@ -36,7 +36,7 @@ public class Main {
         int n = reader.nextInt();
         reader.close();
 
-        double fib = fibonacciBinetFormula(n);
+        double fib = simpleFibonacciBinetFormula(n);
 
         return fmt.format(fib) + System.lineSeparator();
     }

@@ -1,5 +1,8 @@
 package urban.common.math;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,10 +114,46 @@ public class Algebra {
         return factors;
     }
 
-    public static double fibonacciBinetFormula(int n) {
+    /**
+     * Calculates the nth Fibonacci number.
+     * Works with n <= 67
+     *
+     * @param n the nth number in the Fibonacci sequence to calculate
+     * @return the nth Fibonacci number
+     */
+    public static double simpleFibonacciBinetFormula(int n) {
+        if(n == 0) {
+            return 0;
+        }
         final double phi = (1 + Math.sqrt(5)) / 2;
         final double sqrt5 = Math.sqrt(5);
         return ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sqrt5);
+    }
+
+    /**
+     * Calculates the nth Fibonacci number.
+     * Works with n <= 71
+     *
+     * @param n the nth number in the Fibonacci sequence to calculate
+     * @return the nth Fibonacci number
+     */
+    public static BigInteger fibonacciBinetFormula(int n) {
+        if (n == 0) {
+            return new BigInteger("0");
+        }
+        if (n == 1 || n == 2) {
+            return new BigInteger("1");
+        }
+        if (n == 3) {
+            return new BigInteger("2");
+        }
+
+        final double phi = (1 + Math.sqrt(5)) / 2;
+        BigDecimal sqrt5 = new BigDecimal(Math.sqrt(5));
+
+        BigDecimal pow = new BigDecimal(Math.pow(phi, n));
+        BigDecimal powInvrt = new BigDecimal(Math.pow(-phi, -n));
+        return pow.subtract(powInvrt).divide(sqrt5, RoundingMode.HALF_UP).toBigInteger();
     }
 
 }

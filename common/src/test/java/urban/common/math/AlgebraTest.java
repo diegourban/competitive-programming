@@ -2,6 +2,7 @@ package urban.common.math;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -101,6 +102,32 @@ public class AlgebraTest {
         List<Integer> primeFactors = Algebra.primeFactorsList(13);
         assertTrue(primeFactors.size() == 1);
         assertEquals(13, primeFactors.get(0).intValue());
+    }
+
+    @Test
+    public void shouldCalculateSimpleFibonacciWithBinetFormula() {
+        assertEquals(0, Algebra.simpleFibonacciBinetFormula(0), 0.1);
+        assertEquals(1, Algebra.simpleFibonacciBinetFormula(1), 0.1);
+        assertEquals(1, Algebra.simpleFibonacciBinetFormula(2), 0.1);
+        assertEquals(2, Algebra.simpleFibonacciBinetFormula(3), 0.1);
+        assertEquals(3, Algebra.simpleFibonacciBinetFormula(4), 0.1);
+        assertEquals(5, Algebra.simpleFibonacciBinetFormula(5), 0.1);
+        assertEquals(89, Algebra.simpleFibonacciBinetFormula(11), 0.1);
+        assertEquals(12586269025d, Algebra.simpleFibonacciBinetFormula(50), 0.1);
+        assertEquals(44945570212853d, Algebra.simpleFibonacciBinetFormula(67), 0.1);
+    }
+
+    @Test
+    public void shouldCalculateFibonacciWithBinetFormula() {
+        assertEquals(new BigInteger("0"), Algebra.fibonacciBinetFormula(0));
+        assertEquals(new BigInteger("1"), Algebra.fibonacciBinetFormula(1));
+        assertEquals(new BigInteger("1"), Algebra.fibonacciBinetFormula(2));
+        assertEquals(new BigInteger("2"), Algebra.fibonacciBinetFormula(3));
+        assertEquals(new BigInteger("3"), Algebra.fibonacciBinetFormula(4));
+        assertEquals(new BigInteger("5"), Algebra.fibonacciBinetFormula(5));
+        assertEquals(new BigInteger("89"), Algebra.fibonacciBinetFormula(11));
+        assertEquals(new BigInteger("12586269025"), Algebra.fibonacciBinetFormula(50));
+        assertEquals(new BigInteger("308061521170129"), Algebra.fibonacciBinetFormula(71));
     }
 
 }

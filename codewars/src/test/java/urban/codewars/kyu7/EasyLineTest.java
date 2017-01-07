@@ -1,10 +1,11 @@
 package urban.codewars.kyu7;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 import java.math.BigInteger;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class EasyLineTest {
 

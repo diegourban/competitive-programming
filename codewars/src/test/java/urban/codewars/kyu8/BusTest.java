@@ -1,11 +1,11 @@
 package urban.codewars.kyu8;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.util.ArrayList;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class BusTest {
 
