@@ -110,6 +110,17 @@ public class MainTest {
     }
 
     @Test
+    public void shouldHandleSample7() throws IOException {
+        InputStream input = new SampleBuilder().append(1).append(2).append(1).append(2).buildAsInputStream();
+
+        String output = Main.main(input);
+
+        String expectedOutput = new SampleBuilder().appendln("S").build();
+
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
     public void shouldRunThroughMain() throws IOException {
         InputStream input = scl.loadAsInputStream("sampleUDebug6.in");
         System.setIn(input);
