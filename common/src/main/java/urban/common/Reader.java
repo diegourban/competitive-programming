@@ -155,4 +155,8 @@ public class Reader {
         }
     }
 
+    public boolean isClosed() {
+        return din == null;
+    }
+
 }

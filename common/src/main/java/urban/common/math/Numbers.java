@@ -39,7 +39,7 @@ public class Numbers {
         while (theNumber > 0) {
             Long n = theNumber % 10;
             theNumber /= 10;
-            if (n == old) {
+            if (n.equals(old)) {
                 if (++reps == times) {
                     return true;
                 }

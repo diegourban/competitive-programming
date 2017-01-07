@@ -32,6 +32,7 @@ public class ReaderTest {
         Reader reader = new Reader(input);
         reader.close();
         reader.close();
+        assertTrue(reader.isClosed());
     }
 
     @Test

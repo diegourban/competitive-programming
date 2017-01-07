@@ -39,15 +39,16 @@ public class Main {
         return sb.toString();
     }
 
-    public static long reverse(long number) {
+    public static long reverse(final long number) {
+        long theNumber = number;
         long reverse = 0;
         long remainder = 0;
         do {
-            remainder = number % 10;
+            remainder = theNumber % 10;
             reverse = reverse * 10 + remainder;
-            number = number / 10;
+            theNumber = theNumber / 10;
 
-        } while (number > 0);
+        } while (theNumber > 0);
 
         return reverse;
     }
