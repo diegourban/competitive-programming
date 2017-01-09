@@ -63,22 +63,61 @@ public class AlgebraTest {
     public void shouldHandlePrimeNumbers() {
         assertTrue(Algebra.isPrime(2));
         assertTrue(Algebra.isPrime(3));
+        assertTrue(Algebra.isPrime(5));
         assertTrue(Algebra.isPrime(7));
-        assertTrue(Algebra.isPrime(89));
-        assertTrue(Algebra.isPrime(787));
-        assertTrue(Algebra.isPrime(991));
+        assertTrue(Algebra.isPrime(11));
+        assertTrue(Algebra.isPrime(13));
+        assertTrue(Algebra.isPrime(17));
+        assertTrue(Algebra.isPrime(19));
+        assertTrue(Algebra.isPrime(23));
+        assertTrue(Algebra.isPrime(29));
+        assertTrue(Algebra.isPrime(31));
+        assertTrue(Algebra.isPrime(37));
+        assertTrue(Algebra.isPrime(41));
+        assertTrue(Algebra.isPrime(43));
+        assertTrue(Algebra.isPrime(47));
+        assertTrue(Algebra.isPrime(7919));
     }
 
     @Test
     public void shouldHandleNotPrimeNumbers() {
         assertFalse(Algebra.isPrime(1));
         assertFalse(Algebra.isPrime(4));
+        assertFalse(Algebra.isPrime(6));
+        assertFalse(Algebra.isPrime(8));
+        assertFalse(Algebra.isPrime(9));
+        assertFalse(Algebra.isPrime(10));
         assertFalse(Algebra.isPrime(12));
-        assertFalse(Algebra.isPrime(70));
-        assertFalse(Algebra.isPrime(90));
-        assertFalse(Algebra.isPrime(125));
-        assertFalse(Algebra.isPrime(786));
-        assertFalse(Algebra.isPrime(992));
+        assertFalse(Algebra.isPrime(14));
+        assertFalse(Algebra.isPrime(15));
+        assertFalse(Algebra.isPrime(16));
+        assertFalse(Algebra.isPrime(18));
+        assertFalse(Algebra.isPrime(20));
+        assertFalse(Algebra.isPrime(21));
+        assertFalse(Algebra.isPrime(22));
+        assertFalse(Algebra.isPrime(24));
+        assertFalse(Algebra.isPrime(25));
+        assertFalse(Algebra.isPrime(26));
+        assertFalse(Algebra.isPrime(27));
+        assertFalse(Algebra.isPrime(28));
+        assertFalse(Algebra.isPrime(30));
+        assertFalse(Algebra.isPrime(32));
+        assertFalse(Algebra.isPrime(33));
+        assertFalse(Algebra.isPrime(34));
+        assertFalse(Algebra.isPrime(35));
+        assertFalse(Algebra.isPrime(36));
+        assertFalse(Algebra.isPrime(38));
+        assertFalse(Algebra.isPrime(39));
+        assertFalse(Algebra.isPrime(40));
+        assertFalse(Algebra.isPrime(42));
+        assertFalse(Algebra.isPrime(44));
+        assertFalse(Algebra.isPrime(45));
+        assertFalse(Algebra.isPrime(46));
+        assertFalse(Algebra.isPrime(48));
+        assertFalse(Algebra.isPrime(49));
+        assertFalse(Algebra.isPrime(50));
+        assertFalse(Algebra.isPrime(7918));
+        assertFalse(Algebra.isPrime(7920));
     }
 
     @Test
