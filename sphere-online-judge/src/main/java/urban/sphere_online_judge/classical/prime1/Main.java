@@ -1,6 +1,7 @@
 package urban.sphere_online_judge.classical.prime1;
 
 import urban.common.Reader;
+import urban.common.math.Algebra;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +25,7 @@ public class Main {
             int m = reader.nextInt();
             int n = reader.nextInt();
             for (int j = m; j <= n; j++) {
-                if (isPrime(j)) {
+                if (Algebra.isPrime(j)) {
                     sb.append(j).append(System.lineSeparator());
                 }
             }
@@ -34,26 +35,6 @@ public class Main {
         }
         reader.close();
         return sb.toString();
-    }
-
-    private static boolean isPrime(int number) {
-        if (number <= 1) {
-            return false;
-        } else if (number <= 3) {
-            return true;
-        } else if (number % 2 == 0 || number % 3 == 0) {
-            return false;
-        }
-
-        int i = 5;
-        while (i * i <= number) {
-            if (number % i == 0 || number % (i + 2) == 0) {
-                return false;
-            }
-            i += 6;
-        }
-
-        return true;
     }
 
 }
