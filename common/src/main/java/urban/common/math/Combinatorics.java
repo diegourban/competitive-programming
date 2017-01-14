@@ -7,11 +7,17 @@ public class Combinatorics {
     /**
      * Pascal's Triangle
      * <p>
+     * 1
+     * 1 1
+     * 1 2 1
+     * 1 3 3 1
+     * 1 4 6 4 1
+     * <p>
      * Solution extracted and adapted from
      * http://www.brpreiss.com/books/opus5/html/page460.html.
      *
-     * @param n
-     * @param m
+     * @param n the row number (0-indexed)
+     * @param m the column number (0-indexed)
      * @return
      */
     public static BigInteger binomialCoefficient(int n, int m) {

@@ -24,6 +24,7 @@ public class CombinatoricsTest {
         // margin values
         assertEquals(new BigInteger("1"), Combinatorics.binomialCoefficient(0, 0));
         assertEquals(new BigInteger("1"), Combinatorics.binomialCoefficient(1, 0));
+        assertEquals(new BigInteger("1"), Combinatorics.binomialCoefficient(1, 1));
         assertEquals(new BigInteger("1"), Combinatorics.binomialCoefficient(20, 0));
         assertEquals(new BigInteger("1"), Combinatorics.binomialCoefficient(1, 1));
         assertEquals(new BigInteger("1"), Combinatorics.binomialCoefficient(35, 35));
