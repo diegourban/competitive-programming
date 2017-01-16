@@ -35,6 +35,14 @@ public class MainTest {
     }
 
     @Test
+    public void shouldHandleLetterZ() throws IOException {
+        InputStream input = new SampleBuilder().appendln(1).append("===.===.=.=").buildAsInputStream();
+        String output = Main.main(input);
+        String expectedOutput = new SampleBuilder().appendln("z").build();
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
     public void shouldHandleURISamples() throws IOException {
         InputStream input = new SampleBuilder().appendln(2).appendln("===.===...===.===.===...=.===.=...=.=.=...=.......===.=.===.=...===.===.===...===.=.=...=").appendln("=.=.=...===.===.===...=.=.=").buildAsInputStream();
         String output = Main.main(input);

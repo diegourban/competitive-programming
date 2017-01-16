@@ -65,7 +65,7 @@ public class Main {
                 for (String letter : letters) {
                     sb.append(MORSE_CODE_TO_CHAR.get(letter));
                 }
-                if(w < words.length - 1) {
+                if (w < words.length - 1) {
                     sb.append(" ");
                 }
             }
