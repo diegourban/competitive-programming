@@ -1,6 +1,7 @@
 package urban.common;
 
 import java.io.DataInputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -135,17 +136,24 @@ public class Reader {
 
     private void fillBuffer() throws IOException {
         bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
-        if (bytesRead == -1) {
+        if (isEOF()) {
             buffer[0] = -1;
         }
     }
 
     private byte read() throws IOException {
+        if(isEOF()) {
+            throw new EOFException();
+        }
         if (bufferPointer == bytesRead) {
             fillBuffer();
         }
 
         return buffer[bufferPointer++];
+    }
+
+    public boolean isEOF() {
+        return bytesRead == -1;
     }
 
     public void close() throws IOException {

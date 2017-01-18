@@ -2,6 +2,7 @@ package urban.common;
 
 import org.junit.Test;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -23,6 +24,31 @@ public class ReaderTest {
         reader.close();
 
         assertEquals("", empty);
+    }
+
+    @Test(expected = EOFException.class)
+    public void shouldHandleEOF() throws IOException {
+        InputStream input = new SampleBuilder().append(1).buildAsInputStream();
+
+        Reader reader = new Reader(input);
+        int i = reader.nextInt();
+        int j = reader.nextInt();
+        reader.close();
+    }
+
+    @Test
+    public void shouldReadUntilEOF() throws IOException {
+        String[] inputs = {"first line", "second line", "last line"};
+        InputStream input = new SampleBuilder().appendln(inputs[0]).appendln(inputs[1]).append(inputs[2]).buildAsInputStream();
+
+        Reader reader = new Reader(input);
+        int i = 0;
+        while(!reader.isEOF()) {
+            String line = reader.readLine();
+            assertEquals(inputs[i], line);
+            i++;
+        }
+        reader.close();
     }
 
     @Test
