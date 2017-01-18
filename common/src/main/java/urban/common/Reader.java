@@ -152,7 +152,7 @@ public class Reader {
         return buffer[bufferPointer++];
     }
 
-    public boolean isEOF() {
+    private boolean isEOF() {
         return bytesRead == -1;
     }
 

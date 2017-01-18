@@ -43,10 +43,14 @@ public class ReaderTest {
 
         Reader reader = new Reader(input);
         int i = 0;
-        while(!reader.isEOF()) {
-            String line = reader.readLine();
-            assertEquals(inputs[i], line);
-            i++;
+        while(true) {
+            try {
+                String line = reader.readLine();
+                assertEquals(inputs[i], line);
+                i++;
+            } catch(EOFException ex) {
+               break;
+            }
         }
         reader.close();
     }
