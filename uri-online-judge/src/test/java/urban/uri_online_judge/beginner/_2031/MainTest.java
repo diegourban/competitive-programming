@@ -2,7 +2,6 @@ package urban.uri_online_judge.beginner._2031;
 
 import org.junit.Test;
 import urban.common.SampleBuilder;
-import urban.common.SampleLoader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,8 +12,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
-
-    private final SampleLoader scl = new SampleLoader("beginner", "2031");
 
     @Test
     public void shouldCreateInstance() {

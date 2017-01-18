@@ -31,8 +31,8 @@ public class ReaderTest {
         InputStream input = new SampleBuilder().append(1).buildAsInputStream();
 
         Reader reader = new Reader(input);
-        int i = reader.nextInt();
-        int j = reader.nextInt();
+        reader.nextInt();
+        reader.nextInt();
         reader.close();
     }
 
