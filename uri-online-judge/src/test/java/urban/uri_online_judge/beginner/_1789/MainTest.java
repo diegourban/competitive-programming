@@ -2,7 +2,6 @@ package urban.uri_online_judge.beginner._1789;
 
 import org.junit.Test;
 import urban.common.SampleBuilder;
-import urban.common.SampleLoader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,8 +12,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
-
-    private final SampleLoader sl = new SampleLoader("beginner", "1789");
 
     @Test
     public void shouldCreateInstance() {
@@ -47,15 +44,19 @@ public class MainTest {
 
     @Test
     public void shouldHandleURISample() throws IOException {
-        InputStream input = sl.loadAsInputStream("uri.in");
+        InputStream input = new SampleBuilder().appendln(10).appendln("10 10 10 10 15 18 20 15 11 10")//
+                .appendln(10).appendln("1 5 2 9 5 5 8 4 4 3")//
+                .appendln(10).append("19 9 1 4 5 8 6 11 9 7").buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = sl.loadAsString("uri.out");
+        String expectedOutput = new SampleBuilder().appendln(3).appendln(1).appendln(2).build();
         assertEquals(expectedOutput, output);
     }
 
     @Test
     public void shouldRunThroughMain() throws IOException {
-        InputStream input = sl.loadAsInputStream("uri.in");
+        InputStream input = new SampleBuilder().appendln(10).appendln("10 10 10 10 15 18 20 15 11 10")//
+                .appendln(10).appendln("1 5 2 9 5 5 8 4 4 3")//
+                .appendln(10).append("19 9 1 4 5 8 6 11 9 7").buildAsInputStream();
         System.setIn(input);
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -63,7 +64,7 @@ public class MainTest {
 
         Main.main(new String[]{});
 
-        String expectedOutput = sl.loadAsString("uri.out");
+        String expectedOutput = new SampleBuilder().appendln(3).appendln(1).appendln(2).build();
         assertEquals(expectedOutput, outContent.toString());
     }
 }
