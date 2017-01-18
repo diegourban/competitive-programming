@@ -28,7 +28,7 @@ public class MainTest {
 
     @Test
     public void shouldHandleHighestInput() throws IOException {
-        InputStream input = new SampleBuilder().appendln(1).appendln(2147483648l).buildAsInputStream();
+        InputStream input = new SampleBuilder().appendln(1).appendln(2147483648L).buildAsInputStream();
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder().appendln("2147481634 A.C.").build();
         assertEquals(expectedOutput, output);
@@ -59,9 +59,9 @@ public class MainTest {
                 .appendln(5)//
                 .appendln(2015)//
                 .appendln(2016)//
-                .appendln(1073740816l)//
-                .appendln(2147483647l)//
-                .appendln(2147483648l).buildAsInputStream();
+                .appendln(1073740816L)//
+                .appendln(2147483647L)//
+                .appendln(2147483648L).buildAsInputStream();
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder()//
                 .appendln("1 A.C.")//

@@ -31,7 +31,7 @@ public class MainTest {
 
     @Test
     public void shouldConvert1Month() throws IOException {
-        InputStream input = new SampleBuilder().append(1 * 30).buildAsInputStream();
+        InputStream input = new SampleBuilder().append(30).buildAsInputStream();
 
         String output = Main.main(input);
 

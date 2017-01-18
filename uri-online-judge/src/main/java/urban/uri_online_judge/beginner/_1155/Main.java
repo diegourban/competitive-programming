@@ -27,7 +27,7 @@ public class Main {
         System.out.print(main(System.in));
     }
 
-    protected static String main(InputStream input) throws IOException {
+    protected static String main(InputStream input) {
         double sum = 0;
         for (int i = 1; i <= 100; i++) {
             sum += 1.0 / i;

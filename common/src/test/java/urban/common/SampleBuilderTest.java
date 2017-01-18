@@ -46,7 +46,7 @@ public class SampleBuilderTest {
 
     @Test
     public void shouldAppendLong() {
-        String sample = this.sampleBuilder.append(123456789l).build();
+        String sample = this.sampleBuilder.append(123456789L).build();
         assertEquals("123456789", sample);
     }
 
@@ -58,7 +58,7 @@ public class SampleBuilderTest {
 
     @Test
     public void shouldAppendAllTypes() {
-        String sample = this.sampleBuilder.append(123).append(9.9).append(9876543210l).append("bla bla").build();
+        String sample = this.sampleBuilder.append(123).append(9.9).append(9876543210L).append("bla bla").build();
         assertEquals("123 9.9 9876543210 bla bla", sample);
     }
 
@@ -80,7 +80,7 @@ public class SampleBuilderTest {
 
     @Test
     public void shouldAppendTwoLongLines() {
-        String sample = this.sampleBuilder.appendln(123987123987l).append(1122334455l).build();
+        String sample = this.sampleBuilder.appendln(123987123987L).append(1122334455L).build();
 
         String expected = "123987123987" + System.lineSeparator() + "1122334455";
         assertEquals(expected, sample);
@@ -112,7 +112,7 @@ public class SampleBuilderTest {
 
     @Test
     public void shouldAppendFourLinesOneTypeEach() {
-        String sample = this.sampleBuilder.appendln(123).appendln(987654321l).appendln(99.99).appendln("end").build();
+        String sample = this.sampleBuilder.appendln(123).appendln(987654321L).appendln(99.99).appendln("end").build();
 
         String expected = "123" + System.lineSeparator() + "987654321" + System.lineSeparator() + "99.99" + System.lineSeparator() + "end" + System.lineSeparator();
         assertEquals(expected, sample);

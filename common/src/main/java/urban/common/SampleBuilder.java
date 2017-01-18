@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 public class SampleBuilder {
 
-    private StringBuilder stringBuilder;
+    private final StringBuilder stringBuilder;
     private static final char SPACE_SEPARATOR = ' ';
     private static final String LINE_SEPARATOR = System.lineSeparator();
 

@@ -45,7 +45,7 @@ public class MainTest {
 
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder()//
-                .append("1 x 999 =").appendln(1 * 999)//
+                .append("1 x 999 =").appendln(999)//
                 .append("2 x 999 =").appendln(2 * 999)//
                 .append("3 x 999 =").appendln(3 * 999)//
                 .append("4 x 999 =").appendln(4 * 999)//

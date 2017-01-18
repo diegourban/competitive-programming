@@ -27,7 +27,7 @@ public class Main {
         System.out.print(main(System.in));
     }
 
-    protected static String main(InputStream input) throws IOException {
+    protected static String main(InputStream input) {
         StringBuilder sb = new StringBuilder();
 
         for (double i = 0, j = 1; i <= 2; i += 0.2, j += 0.2) {

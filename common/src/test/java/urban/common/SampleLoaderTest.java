@@ -32,7 +32,7 @@ public class SampleLoaderTest {
         sb.append("some content").append(System.lineSeparator());
         sb.append(1).append(System.lineSeparator());
         sb.append(5.55).append(System.lineSeparator());
-        sb.append(8712367891236l).append(System.lineSeparator());
+        sb.append(8712367891236L).append(System.lineSeparator());
         sb.append("y");
         String expectedContent = sb.toString();
 

@@ -103,7 +103,7 @@ public class Algebra {
      */
     public static List<Integer> primeFactorsList(int number) {
         int n = number;
-        List<Integer> factors = new ArrayList<Integer>();
+        List<Integer> factors = new ArrayList<>();
         for (int i = 2; i <= n / i; i++) {
             while (n % i == 0) {
                 factors.add(i);
@@ -124,7 +124,7 @@ public class Algebra {
      * @return the nth Fibonacci number
      */
     public static double simpleFibonacciBinetFormula(int n) {
-        if(n == 0) {
+        if (n == 0) {
             return 0;
         }
         final double phi = (1 + Math.sqrt(5)) / 2;

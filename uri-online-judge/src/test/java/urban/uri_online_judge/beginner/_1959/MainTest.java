@@ -30,7 +30,7 @@ public class MainTest {
     public void shouldConvertHighestInput() throws IOException {
         InputStream input = new SampleBuilder().append(1000000).append(4000).buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(4000000000l).build();
+        String expectedOutput = new SampleBuilder().appendln(4000000000L).build();
         assertEquals(expectedOutput, output);
     }
 

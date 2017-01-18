@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
-    private SampleLoader scl = new SampleLoader("beginner", "2031");
+    private final SampleLoader scl = new SampleLoader("beginner", "2031");
 
     @Test
     public void shouldCreateInstance() {
@@ -66,14 +66,6 @@ public class MainTest {
         InputStream input = new SampleBuilder().appendln(2).appendln("pedra").appendln("pedra").appendln("ataque").appendln("papel").buildAsInputStream();
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder().appendln("Sem ganhador").appendln("Jogador 1 venceu").build();
-        assertEquals(expectedOutput, output);
-    }
-
-    //@Test FIXME: da treta ao executar no ambiente do CI
-    public void shouldHandleMaxInput() throws IOException {
-        InputStream input = scl.loadAsInputStream("sample.in");
-        String output = Main.main(input);
-        String expectedOutput = scl.loadAsString("sample.out");
         assertEquals(expectedOutput, output);
     }
 

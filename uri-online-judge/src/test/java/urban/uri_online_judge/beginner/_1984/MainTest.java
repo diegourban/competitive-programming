@@ -28,9 +28,9 @@ public class MainTest {
 
     @Test
     public void shouldHandleMaxInput() throws IOException {
-        InputStream input = new SampleBuilder().append(9999999998l).buildAsInputStream();
+        InputStream input = new SampleBuilder().append(9999999998L).buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(8999999999l).build();
+        String expectedOutput = new SampleBuilder().appendln(8999999999L).build();
         assertEquals(expectedOutput, output);
     }
 
@@ -53,7 +53,7 @@ public class MainTest {
     @Test
     public void shouldHandleURISamples() throws IOException {
         InputStream input1 = new SampleBuilder().append(1234).buildAsInputStream();
-        InputStream input2 = new SampleBuilder().append(9876543210l).buildAsInputStream();
+        InputStream input2 = new SampleBuilder().append(9876543210L).buildAsInputStream();
         InputStream input3 = new SampleBuilder().append(12).buildAsInputStream();
 
         String output1 = Main.main(input1);

@@ -11,8 +11,7 @@ public class CelsiusConverter {
     }
 
     public static int convertToCelsius(int temperature) {
-        int celsius = (int) ((temperature) - 32 + (5 / 9.0));
-        return celsius;
+        return (int) ((temperature) - 32 + (5 / 9.0));
     }
 
 }

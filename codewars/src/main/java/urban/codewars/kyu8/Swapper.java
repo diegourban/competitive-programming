@@ -2,7 +2,7 @@ package urban.codewars.kyu8;
 
 public class Swapper {
 
-    public Object[] arguments;
+    public final Object[] arguments;
 
     public Swapper(final Object[] args) {
         arguments = args;

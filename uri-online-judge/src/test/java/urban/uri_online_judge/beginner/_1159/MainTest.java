@@ -23,7 +23,7 @@ public class MainTest {
         InputStream input = new SampleBuilder().appendln(1000000000).append(0).buildAsInputStream();
 
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(5000000020l).build();
+        String expectedOutput = new SampleBuilder().appendln(5000000020L).build();
 
         assertEquals(expectedOutput, output);
     }

@@ -340,7 +340,7 @@ public class ReaderTest {
         long nextLong = reader.nextLong();
         reader.close();
 
-        assertEquals(8172368367890l, nextLong);
+        assertEquals(8172368367890L, nextLong);
     }
 
     @Test
@@ -351,7 +351,7 @@ public class ReaderTest {
         long nextLong = reader.nextLong();
         reader.close();
 
-        assertEquals(-123578918902l, nextLong);
+        assertEquals(-123578918902L, nextLong);
     }
 
     @Test
@@ -369,12 +369,12 @@ public class ReaderTest {
         long sixth = reader.nextLong();
         reader.close();
 
-        assertEquals(8172368367890l, first);
-        assertEquals(-1789236812893l, second);
-        assertEquals(891723689713l, third);
-        assertEquals(-31723581237l, fourth);
-        assertEquals(59787712587l, fifth);
-        assertEquals(-123123123123l, sixth);
+        assertEquals(8172368367890L, first);
+        assertEquals(-1789236812893L, second);
+        assertEquals(891723689713L, third);
+        assertEquals(-31723581237L, fourth);
+        assertEquals(59787712587L, fifth);
+        assertEquals(-123123123123L, sixth);
     }
 
     @Test
@@ -388,8 +388,8 @@ public class ReaderTest {
         long third = reader.nextLong();
         reader.close();
 
-        assertEquals(6546546565l, first);
-        assertEquals(-4326757896l, second);
+        assertEquals(6546546565L, first);
+        assertEquals(-4326757896L, second);
         assertEquals(786676767, third);
     }
 

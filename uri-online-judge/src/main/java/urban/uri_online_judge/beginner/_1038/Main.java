@@ -15,14 +15,6 @@ import java.text.NumberFormat;
  *
  * @author Diego Leonardo Urban
  */
-
-/**
- * Snack
- * <p>
- * https://www.urionlinejudge.com.br/judge/en/problems/view/1038
- *
- * @author Diego Leonardo Urban
- */
 public class Main {
 
     private final static double[] PRICES = new double[]{4, 4.5, 5, 2, 1.5};

@@ -6,7 +6,7 @@ public class Ghost {
 
     private static final String[] COLORS = {"white", "yellow", "purple", "red"};
 
-    private String color;
+    private final String color;
 
     public Ghost() {
         Random random = new Random();

@@ -13,7 +13,7 @@ public class Reader {
 
     private final int BUFFER_SIZE = 1 << 16;
     private DataInputStream din;
-    private byte[] buffer;
+    private final byte[] buffer;
     private int bufferPointer, bytesRead;
 
     public Reader(InputStream input) {

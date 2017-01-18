@@ -5,7 +5,7 @@ public class Counter {
     public int countSheeps(Boolean[] arrayOfSheeps) {
         int count = 0;
         for (Boolean b : arrayOfSheeps) {
-            if (b != null && b.booleanValue()) {
+            if (b != null && b) {
                 count++;
             }
         }

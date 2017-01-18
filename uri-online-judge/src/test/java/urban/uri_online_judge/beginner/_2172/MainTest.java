@@ -52,25 +52,25 @@ public class MainTest {
 
     @Test
     public void shouldHandleIncreaseOfOneTimeTheMaxExp() throws IOException {
-        InputStream input = new SampleBuilder().append(1).appendln(4294967296l).append(0).append(0).buildAsInputStream();
+        InputStream input = new SampleBuilder().append(1).appendln(4294967296L).append(0).append(0).buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(4294967296l).build();
+        String expectedOutput = new SampleBuilder().appendln(4294967296L).build();
         assertEquals(expectedOutput, output);
     }
 
     @Test
     public void shouldHandleIncreaseOfTwoTimesTheMaxExp() throws IOException {
-        InputStream input = new SampleBuilder().append(2).appendln(4294967296l).append(0).append(0).buildAsInputStream();
+        InputStream input = new SampleBuilder().append(2).appendln(4294967296L).append(0).append(0).buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(8589934592l).build();
+        String expectedOutput = new SampleBuilder().appendln(8589934592L).build();
         assertEquals(expectedOutput, output);
     }
 
     @Test
     public void shouldHandleIncreaseOfThreeTimesTheMaxExp() throws IOException {
-        InputStream input = new SampleBuilder().append(3).appendln(4294967296l).append(0).append(0).buildAsInputStream();
+        InputStream input = new SampleBuilder().append(3).appendln(4294967296L).append(0).append(0).buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(12884901888l).build();
+        String expectedOutput = new SampleBuilder().appendln(12884901888L).build();
         assertEquals(expectedOutput, output);
     }
 

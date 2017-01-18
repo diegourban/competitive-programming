@@ -16,7 +16,7 @@ public class Main {
         System.out.print(main(System.in));
     }
 
-    protected static String main(InputStream input) throws IOException {
+    protected static String main(InputStream input) {
         return "Ciencia da Computacao" + System.lineSeparator();
     }
 

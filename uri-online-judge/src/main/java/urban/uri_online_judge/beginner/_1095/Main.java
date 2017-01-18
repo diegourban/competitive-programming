@@ -16,7 +16,7 @@ public class Main {
         System.out.print(main(System.in));
     }
 
-    protected static String main(InputStream input) throws IOException {
+    protected static String main(InputStream input) {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 1, j = 60; j >= 0; i += 3, j -= 5) {

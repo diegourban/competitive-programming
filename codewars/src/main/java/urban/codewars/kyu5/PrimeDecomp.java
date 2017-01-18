@@ -37,7 +37,7 @@ public class PrimeDecomp {
 
     public static List<Integer> primeFactorsList(int number) {
         int n = number;
-        List<Integer> factors = new ArrayList<Integer>();
+        List<Integer> factors = new ArrayList<>();
         for (int i = 2; i <= n / i; i++) {
             while (n % i == 0) {
                 factors.add(i);
