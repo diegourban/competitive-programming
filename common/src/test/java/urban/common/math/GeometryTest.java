@@ -40,4 +40,13 @@ public class GeometryTest {
     public void shouldCalculateTheRadiusOfCircleFromItsArea() {
         assertEquals(5, Geometry.radiusOfCircleFromArea(78.5), 0.1);
     }
+
+    @Test
+    public void shouldCalculateDiagonalsOfPolygons() {
+        assertEquals(0, Geometry.diagonalsOfPolygonWithSides(3));
+        assertEquals(2, Geometry.diagonalsOfPolygonWithSides(4));
+        assertEquals(35, Geometry.diagonalsOfPolygonWithSides(10));
+        assertEquals(44, Geometry.diagonalsOfPolygonWithSides(11));
+        assertEquals(4999850000L, Geometry.diagonalsOfPolygonWithSides(100000));
+    }
 }

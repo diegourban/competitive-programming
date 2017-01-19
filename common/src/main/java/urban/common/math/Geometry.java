@@ -57,4 +57,14 @@ public class Geometry {
         return Math.sqrt(area / Math.PI);
     }
 
+    /**
+     * Calculates the number of diagonals of an n-sided polygon
+     *
+     * @param sides the number of sides of the polygon
+     * @return the amount of diagonals
+     */
+    public static long diagonalsOfPolygonWithSides(long sides) {
+        return (sides * (sides - 3)) / 2;
+    }
+
 }
