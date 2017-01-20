@@ -22,7 +22,7 @@ public class MainTest {
     public void shouldHandleZero() throws IOException {
         InputStream input = new SampleBuilder().append(0).buildAsInputStream();
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln("Caso 1: 1 numero").appendln("0 ").appendln("").build();
+        String expectedOutput = new SampleBuilder().appendln("Caso 1: 1 numero").appendln("0").appendln("").build();
         assertEquals(expectedOutput, output);
     }
 
@@ -31,10 +31,10 @@ public class MainTest {
         InputStream input = new SampleBuilder().appendln(0).appendln(1).appendln(2).append(3).buildAsInputStream();
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder()//
-                .appendln("Caso 1: 1 numero").appendln("0 ").appendln("")//
-                .appendln("Caso 2: 2 numeros").appendln("0 1 ").appendln("")//
-                .appendln("Caso 3: 4 numeros").appendln("0 1 2 2 ").appendln("")//
-                .appendln("Caso 4: 7 numeros").appendln("0 1 2 2 3 3 3 ").appendln("")//
+                .appendln("Caso 1: 1 numero").appendln("0").appendln("")//
+                .appendln("Caso 2: 2 numeros").appendln("0 1").appendln("")//
+                .appendln("Caso 3: 4 numeros").appendln("0 1 2 2").appendln("")//
+                .appendln("Caso 4: 7 numeros").appendln("0 1 2 2 3 3 3").appendln("")//
                 .build();
 
         assertEquals(expectedOutput, output);
@@ -50,7 +50,7 @@ public class MainTest {
 
         Main.main(new String[]{});
 
-        String expectedOutput = new SampleBuilder().appendln("Caso 1: 2 numeros").appendln("0 1 ").appendln("").build();
+        String expectedOutput = new SampleBuilder().appendln("Caso 1: 2 numeros").appendln("0 1").appendln("").build();
 
         assertEquals(expectedOutput, outContent.toString());
     }
