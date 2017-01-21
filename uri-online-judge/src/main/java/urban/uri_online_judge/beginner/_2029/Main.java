@@ -39,8 +39,7 @@ public class Main {
                 double v = reader.nextDouble();
                 double d = reader.nextDouble();
 
-                double r = d / 2;
-                double h = v / (3.14 * r * r);
+                double h = Geometry.heightOfCylinder(v, d / 2);
 
                 sb.append("ALTURA").append(" = ").append(fmt.format(h)).append(System.lineSeparator());
                 sb.append("AREA").append(" = ").append(fmt.format(Geometry.areaOfCircleFromDiameter(d))).append(System.lineSeparator());

@@ -49,4 +49,9 @@ public class GeometryTest {
         assertEquals(44, Geometry.diagonalsOfPolygonWithSides(11));
         assertEquals(4999850000L, Geometry.diagonalsOfPolygonWithSides(100000));
     }
+
+    @Test
+    public void shouldCalculateHeightOfACylinder() {
+        assertEquals(7.00, Geometry.heightOfCylinder(87.62, 2), 0.1);
+    }
 }

@@ -69,4 +69,15 @@ public class Geometry {
         return (sides * (sides - 3)) / 2;
     }
 
+    /**
+     * Calculates the height of a cylinder based on its volume and base radius
+     *
+     * @param volume     the cylinder volume
+     * @param baseRadius the cylinder base radius
+     * @return the height of the cylinder
+     */
+    public static double heightOfCylinder(double volume, double baseRadius) {
+        return volume / (SIMPLE_PI * baseRadius * baseRadius);
+    }
+
 }
