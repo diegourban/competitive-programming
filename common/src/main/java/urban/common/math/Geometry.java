@@ -2,6 +2,8 @@ package urban.common.math;
 
 public class Geometry {
 
+    private static final double SIMPLE_PI = 3.14;
+
     /**
      * Calculates the distance between two bi-dimensional points
      *
@@ -23,7 +25,7 @@ public class Geometry {
      * @return the area of the circle
      */
     public static double areaOfCircleFromRadius(double radius) {
-        return Math.PI * (radius * radius);
+        return SIMPLE_PI * (radius * radius);
     }
 
     /**
@@ -54,7 +56,7 @@ public class Geometry {
      * @return the radius of the circle
      */
     public static double radiusOfCircleFromArea(double area) {
-        return Math.sqrt(area / Math.PI);
+        return Math.sqrt(area / SIMPLE_PI);
     }
 
     /**
