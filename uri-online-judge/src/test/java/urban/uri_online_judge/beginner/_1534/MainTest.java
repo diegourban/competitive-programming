@@ -47,7 +47,7 @@ public class MainTest {
 
     @Test
     public void shouldRunThroughMain() throws IOException {
-        InputStream input = new SampleBuilder().append(3).buildAsInputStream();
+        InputStream input = new SampleBuilder().appendln(4).append(7).buildAsInputStream();
         System.setIn(input);
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -55,7 +55,7 @@ public class MainTest {
 
         Main.main(new String[]{});
 
-        String expectedOutput = sl.loadAsString("lowestInput.out");
+        String expectedOutput = sl.loadAsString("uri.out");
         assertEquals(expectedOutput, outContent.toString());
     }
 
