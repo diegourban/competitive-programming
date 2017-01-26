@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
-    private static final SampleLoader sl = new SampleLoader("beginner", "1527");
+    private static final SampleLoader sl = new SampleLoader("beginner", "1827");
 
     @Test
     public void shouldCreateInstance() {
