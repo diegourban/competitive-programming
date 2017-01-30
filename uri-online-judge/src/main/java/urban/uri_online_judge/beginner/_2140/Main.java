@@ -27,7 +27,7 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         while (n != 0 && m != 0) {
             int change = m - n;
-            if (change < 7 || !canGiveTwoDifferentBillsChange(change)) {
+            if (change < 2 || !canGiveTwoDifferentBillsChange(change)) {
                 sb.append("impossible").append(System.lineSeparator());
             } else {
                 sb.append("possible").append(System.lineSeparator());
@@ -45,7 +45,8 @@ public class Main {
                 || change - 70 == 0 || change - 60 == 0 || change - 55 == 0 || change - 52 == 0
                 || change - 30 == 0 || change - 25 == 0 || change - 22 == 0
                 || change - 15 == 0 || change - 12 == 0
-                || change - 7 == 0);
+                || change - 7 == 0
+                || change - 4 == 0 || change - 10 == 0 || change - 20 == 0 || change - 40 == 0 || change - 100 == 0 || change - 200 == 0);
     }
 
 }
