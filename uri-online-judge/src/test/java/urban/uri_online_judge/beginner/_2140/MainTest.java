@@ -2,6 +2,7 @@ package urban.uri_online_judge.beginner._2140;
 
 import org.junit.Test;
 import urban.common.SampleBuilder;
+import urban.common.SampleLoader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,6 +14,8 @@ import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
+    private final SampleLoader sl = new SampleLoader("beginner", "2140");
+
     @Test
     public void shouldCreateInstance() {
         assertNotNull(new Main());
@@ -23,6 +26,22 @@ public class MainTest {
         InputStream input = new SampleBuilder().append("0 0").buildAsInputStream();
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder().append("").build();
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldHandleURISample() throws IOException {
+        InputStream input = sl.loadAsInputStream("uri.in");
+        String output = Main.main(input);
+        String expectedOutput = sl.loadAsString("uri.out");
+        assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    public void shouldHandleUDebugSample() throws IOException {
+        InputStream input = sl.loadAsInputStream("udebug.in");
+        String output = Main.main(input);
+        String expectedOutput = sl.loadAsString("udebug.out");
         assertEquals(expectedOutput, output);
     }
 
