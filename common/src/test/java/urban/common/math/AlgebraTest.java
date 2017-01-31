@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.math.BigInteger;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -141,6 +142,28 @@ public class AlgebraTest {
         List<Integer> primeFactors = Algebra.primeFactorsList(13);
         assertTrue(primeFactors.size() == 1);
         assertEquals(13, primeFactors.get(0).intValue());
+    }
+
+    @Test
+    public void shouldCreateSetOfPrimeFactorsOfEvenNumber() {
+        Set<Integer> primeFactors = Algebra.primeFactorsSet(12);
+        assertTrue(primeFactors.size() == 2);
+        assertTrue(primeFactors.contains(2));
+        assertTrue(primeFactors.contains(3));
+    }
+
+    @Test
+    public void shouldCreateSetOfPrimeFactorsOfOddNumber() {
+        Set<Integer> primeFactors = Algebra.primeFactorsSet(49);
+        assertTrue(primeFactors.size() == 1);
+        assertTrue(primeFactors.contains(7));
+    }
+
+    @Test
+    public void shouldCreateSetOfPrimeFactorsOfPrimeNumber() {
+        Set<Integer> primeFactors = Algebra.primeFactorsSet(7);
+        assertTrue(primeFactors.size() == 1);
+        assertTrue(primeFactors.contains(7));
     }
 
     @Test

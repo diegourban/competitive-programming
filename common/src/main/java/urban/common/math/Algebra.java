@@ -3,8 +3,7 @@ package urban.common.math;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Algebra {
 
@@ -102,8 +101,31 @@ public class Algebra {
      * @return The list of prime factors of a number.
      */
     public static List<Integer> primeFactorsList(int number) {
-        int n = number;
         List<Integer> factors = new ArrayList<>();
+        fillPrimeFactors(number, factors);
+        return factors;
+    }
+
+    /**
+     * Build the set of prime factors of a number.
+     *
+     * @param number
+     * @return The set of prime factors of a number.
+     */
+    public static Set<Integer> primeFactorsSet(int number) {
+        Set<Integer> factors = new HashSet<>();
+        fillPrimeFactors(number, factors);
+        return factors;
+    }
+
+    /**
+     * Fill the collection with the prime factors of a number
+     *
+     * @param number  the number to extract the prime factors
+     * @param factors the collection to fill with the prime factors
+     */
+    private static void fillPrimeFactors(int number, Collection<Integer> factors) {
+        int n = number;
         for (int i = 2; i <= n / i; i++) {
             while (n % i == 0) {
                 factors.add(i);
@@ -113,7 +135,6 @@ public class Algebra {
         if (n > 1) {
             factors.add(n);
         }
-        return factors;
     }
 
     /**
