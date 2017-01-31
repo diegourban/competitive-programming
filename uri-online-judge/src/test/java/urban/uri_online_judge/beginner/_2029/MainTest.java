@@ -15,7 +15,7 @@ public class MainTest {
 
     @Test
     public void shouldCreateInstance() {
-        assertNotNull(new urban.uri_online_judge.beginner._2028.Main());
+        assertNotNull(new Main());
     }
 
     @Test

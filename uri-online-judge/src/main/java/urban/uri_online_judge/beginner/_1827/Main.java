@@ -31,11 +31,7 @@ public class Main {
                     for (int j = 0; j < n; j++) {
                         if (i >= innerRange && j >= innerRange && i < n - innerRange && j < n - innerRange) {
                             if (n / 2 == i && i == j) {
-                                if (n % 2 == 0) {
-                                    sb.append(1);
-                                } else {
-                                    sb.append(4);
-                                }
+                                sb.append(4);
                             } else {
                                 sb.append(1);
                             }
