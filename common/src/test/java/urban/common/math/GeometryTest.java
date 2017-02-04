@@ -3,8 +3,7 @@ package urban.common.math;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class GeometryTest {
 
@@ -53,5 +52,17 @@ public class GeometryTest {
     @Test
     public void shouldCalculateHeightOfACylinder() {
         assertEquals(7.00, Geometry.heightOfCylinder(87.62, 2), 0.1);
+    }
+
+    @Test
+    public void shouldConsiderValidTriangles() {
+        assertTrue(Geometry.isValidTriangle(7, 10, 5));
+        assertTrue(Geometry.isValidTriangle(20, 30, 40));
+        assertTrue(Geometry.isValidTriangle(1, 1, 1));
+    }
+
+    @Test
+    public void shouldConsiderInvalidTriangles() {
+        assertFalse(Geometry.isValidTriangle(5, 8, 3));
     }
 }

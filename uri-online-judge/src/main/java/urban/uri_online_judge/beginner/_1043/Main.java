@@ -1,6 +1,7 @@
 package urban.uri_online_judge.beginner._1043;
 
 import urban.common.Reader;
+import urban.common.math.Geometry;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,7 +39,7 @@ public class Main {
         double C = reader.nextDouble();
         reader.close();
 
-        if (A + B > C && A + C > B && B + C > A) {
+        if (Geometry.isValidTriangle(A, B, C)) {
             return "Perimetro = " + formatter.format(A + B + C) + System.lineSeparator();
         } else {
             return "Area = " + formatter.format(.5 * (A + B) * C) + System.lineSeparator();

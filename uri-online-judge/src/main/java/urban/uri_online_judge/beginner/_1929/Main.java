@@ -1,6 +1,7 @@
 package urban.uri_online_judge.beginner._1929;
 
 import urban.common.Reader;
+import urban.common.math.Geometry;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,21 +29,17 @@ public class Main {
 
         final String S = "S" + System.lineSeparator();
 
-        if (isTriangle(a, b, c)) {
+        if (Geometry.isValidTriangle(a, b, c)) {
             return S;
-        } else if (isTriangle(a, b, d)) {
+        } else if (Geometry.isValidTriangle(a, b, d)) {
             return S;
-        } else if (isTriangle(a, c, d)) {
+        } else if (Geometry.isValidTriangle(a, c, d)) {
             return S;
-        } else if (isTriangle(b, c, d)) {
+        } else if (Geometry.isValidTriangle(b, c, d)) {
             return S;
         }
 
         return "N" + System.lineSeparator();
-    }
-
-    private static boolean isTriangle(int a, int b, int c) {
-        return (a + b > c) && (b + c > a) && (a + c > b);
     }
 
 }

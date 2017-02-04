@@ -80,4 +80,16 @@ public class Geometry {
         return volume / (SIMPLE_PI * baseRadius * baseRadius);
     }
 
+    /**
+     * Checks if the sides a, b and c can form a valid triangle
+     *
+     * @param a side a
+     * @param b side b
+     * @param c side c
+     * @return true if the sides form a valid triangle, false otherwise
+     */
+    public static boolean isValidTriangle(double a, double b, double c) {
+        return (a + b > c) && (b + c > a) && (a + c > b);
+    }
+
 }
