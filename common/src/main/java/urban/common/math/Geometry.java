@@ -1,5 +1,7 @@
 package urban.common.math;
 
+import java.util.Arrays;
+
 public class Geometry {
 
     private static final double SIMPLE_PI = 3.14;
@@ -90,6 +92,46 @@ public class Geometry {
      */
     public static boolean isValidTriangle(double a, double b, double c) {
         return (a + b > c) && (b + c > a) && (a + c > b);
+    }
+
+    public static TriangleType checkTriangleType(double a, double b, double c) {
+        double[] array = new double[3];
+        array[0] = a;
+        array[1] = b;
+        array[2] = c;
+        Arrays.sort(array);
+
+        double min = array[0];
+        double med = array[1];
+        double max = array[2];
+
+        if(max == med && med == min) {
+            return TriangleType.EQUILATERAL;
+        }
+
+        if (max == med || med == min) {
+            return TriangleType.ISOSCELES;
+        }
+
+        return TriangleType.ESCALENE;
+    }
+
+    public static boolean isRectangleTriangle(double a, double b, double c) {
+        double[] array = new double[3];
+        array[0] = a;
+        array[1] = b;
+        array[2] = c;
+        Arrays.sort(array);
+
+        double min = array[0];
+        double med = array[1];
+        double max = array[2];
+
+        double maxSquared = max * max;
+        double medSquared = med * med;
+        double minSquared = min * min;
+
+        return maxSquared == medSquared + minSquared;
     }
 
 }

@@ -65,4 +65,37 @@ public class GeometryTest {
     public void shouldConsiderInvalidTriangles() {
         assertFalse(Geometry.isValidTriangle(5, 8, 3));
     }
+
+    @Test
+    public void shouldConsiderAsEquilateralTriangle() {
+        assertEquals(TriangleType.EQUILATERAL, Geometry.checkTriangleType(6, 6, 6));
+        assertEquals(TriangleType.EQUILATERAL, Geometry.checkTriangleType(2.2, 2.2, 2.2));
+        assertEquals(TriangleType.EQUILATERAL, Geometry.checkTriangleType(1, 1, 1));
+    }
+
+    @Test
+    public void shouldConsiderAsIsoscelesTriangle() {
+        assertEquals(TriangleType.ISOSCELES, Geometry.checkTriangleType(6, 6, 7));
+        assertEquals(TriangleType.ISOSCELES, Geometry.checkTriangleType(2.2, 2.1, 2.2));
+        assertEquals(TriangleType.ISOSCELES, Geometry.checkTriangleType(2, 1, 1));
+    }
+
+    @Test
+    public void shouldConsiderAsEscaleneTriangle() {
+        assertEquals(TriangleType.ESCALENE, Geometry.checkTriangleType(6, 7, 8));
+        assertEquals(TriangleType.ESCALENE, Geometry.checkTriangleType(2.2, 2.3, 2.4));
+        assertEquals(TriangleType.ESCALENE, Geometry.checkTriangleType(3, 2, 1));
+    }
+
+    @Test
+    public void shouldConsiderValidRectangleTriangle() {
+        assertTrue(Geometry.isRectangleTriangle(6, 8, 10));
+    }
+
+    @Test
+    public void shouldConsiderInvalidRectangleTriangle() {
+        assertFalse(Geometry.isRectangleTriangle(7, 8, 10));
+        assertFalse(Geometry.isRectangleTriangle(6, 9, 10));
+        assertFalse(Geometry.isRectangleTriangle(6, 8, 11));
+    }
 }
