@@ -51,7 +51,7 @@ public class MainTest {
     }
 
     @Test
-    public void shouldHandleURISample() throws IOException {
+    public void shouldHandleSPOJSample() throws IOException {
         InputStream input = new SampleBuilder().appendln(2).appendln(3).buildAsInputStream();
         String output = Main.main(input);
         String expectedOutput = new SampleBuilder().appendln(5).build();

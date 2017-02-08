@@ -1,7 +1,7 @@
-package urban.sphere_online_judge.classical.test;
+package urban.sphere_online_judge.basics.strhh;
 
 import org.junit.Test;
-import urban.common.SampleBuilder;
+import urban.common.SampleLoader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,6 +13,8 @@ import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
+    private final SampleLoader sl = new SampleLoader("basics", "strhh");
+
     @Test
     public void shouldCreateInstance() {
         assertNotNull(new Main());
@@ -20,15 +22,15 @@ public class MainTest {
 
     @Test
     public void shouldHandleSPOJSample() throws IOException {
-        InputStream input = new SampleBuilder().appendln(1).appendln(2).appendln(88).appendln(42).appendln(99).buildAsInputStream();
+        InputStream input = sl.loadAsInputStream("spoj.in");
         String output = Main.main(input);
-        String expectedOutput = new SampleBuilder().appendln(1).appendln(2).appendln(88).build();
+        String expectedOutput = sl.loadAsString("spoj.out");
         assertEquals(expectedOutput, output);
     }
 
     @Test
     public void shouldRunThroughMain() throws IOException {
-        InputStream input = new SampleBuilder().appendln(1).appendln(2).appendln(88).appendln(42).appendln(99).buildAsInputStream();
+        InputStream input = sl.loadAsInputStream("spoj.in");
         System.setIn(input);
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -36,8 +38,7 @@ public class MainTest {
 
         Main.main(new String[]{});
 
-        String expectedOutput = new SampleBuilder().appendln(1).appendln(2).appendln(88).build();
-
+        String expectedOutput = sl.loadAsString("spoj.out");
         assertEquals(expectedOutput, outContent.toString());
     }
 }

@@ -1,15 +1,14 @@
-package urban.sphere_online_judge.classical.prime1;
+package urban.sphere_online_judge.basics.strhh;
 
 import urban.common.Reader;
-import urban.common.math.Algebra;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Prime Generator
+ * Half of the half
  * <p>
- * http://www.spoj.com/problems/PRIME1/
+ * http://www.spoj.com/problems/STRHH/
  */
 public class Main {
 
@@ -19,21 +18,19 @@ public class Main {
 
     protected static String main(InputStream input) throws IOException {
         Reader reader = new Reader(input);
-        int t = reader.nextInt();
         StringBuilder sb = new StringBuilder();
+
+        final int t = reader.nextInt();
         for (int i = 0; i < t; i++) {
-            int m = reader.nextInt();
-            int n = reader.nextInt();
-            for (int j = m; j <= n; j++) {
-                if (Algebra.isPrime(j)) {
-                    sb.append(j).append(System.lineSeparator());
-                }
+            String k = reader.readLine();
+            String half = k.substring(0, k.length() / 2);
+            for (int j = 0; j < half.length(); j += 2) {
+                sb.append(half.charAt(j));
             }
-            if (i < t - 1) {
-                sb.append(System.lineSeparator());
-            }
+            sb.append(System.lineSeparator());
         }
         reader.close();
+
         return sb.toString();
     }
 
