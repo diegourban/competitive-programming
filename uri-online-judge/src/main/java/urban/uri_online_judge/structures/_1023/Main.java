@@ -1,4 +1,4 @@
-package urban.uri_online_judge.structure._1023;
+package urban.uri_online_judge.structures._1023;
 
 import urban.common.Reader;
 

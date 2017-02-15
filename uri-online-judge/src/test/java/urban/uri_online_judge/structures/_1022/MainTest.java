@@ -1,4 +1,4 @@
-package urban.uri_online_judge.structure._1022;
+package urban.uri_online_judge.structures._1022;
 
 import org.junit.Test;
 import urban.common.SampleBuilder;

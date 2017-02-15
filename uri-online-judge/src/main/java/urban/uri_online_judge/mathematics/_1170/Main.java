@@ -4,6 +4,8 @@ import urban.common.Reader;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Blobs
@@ -32,6 +34,15 @@ public class Main {
             sb.append(days).append(" dias").append(System.lineSeparator());
         }
         reader.close();
+
+        Integer[] x= {1,2,3};
+        Arrays.sort(x, new Comparator<Integer>() {
+
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
 
         return sb.toString();
     }

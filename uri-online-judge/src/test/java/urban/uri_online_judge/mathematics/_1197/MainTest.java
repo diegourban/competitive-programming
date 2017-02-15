@@ -1,4 +1,4 @@
-package urban.uri_online_judge.structure._1023;
+package urban.uri_online_judge.mathematics._1197;
 
 import org.junit.Test;
 import urban.common.SampleLoader;
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class MainTest {
 
-    private final SampleLoader sl = new SampleLoader("structures", "1023");
+    private final SampleLoader sl = new SampleLoader("mathematics", "1197");
 
     @Test
     public void shouldCreateInstance() {
@@ -25,18 +25,18 @@ public class MainTest {
         InputStream input = sl.loadAsInputStream("uri.in");
 
         String output = Main.main(input);
-
         String expectedOutput = sl.loadAsString("uri.out");
+
         assertEquals(expectedOutput, output);
     }
 
     @Test
-    public void shouldHandleUdebugSample() throws IOException {
+    public void shouldHandleUDebugSample() throws IOException {
         InputStream input = sl.loadAsInputStream("udebug.in");
 
         String output = Main.main(input);
-
         String expectedOutput = sl.loadAsString("udebug.out");
+
         assertEquals(expectedOutput, output);
     }
 
