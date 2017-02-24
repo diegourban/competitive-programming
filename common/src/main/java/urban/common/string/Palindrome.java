@@ -5,6 +5,25 @@ import java.util.Set;
 
 public class Palindrome {
 
+    public static boolean isPalindrome(String theString) {
+        if(theString == null || theString.isEmpty()) {
+            return false;
+        }
+
+        if(theString.length() == 1) {
+            return true;
+        }
+
+        for(int i = 0; i < theString.length() / 2; i++) {
+            char c1 = theString.charAt(i);
+            char c2 = theString.charAt(theString.length() - i - 1);
+            if(c1 != c2) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static boolean hasPalindromePermutation(String theString) {
         // track characters we've seen an odd number of times
         Set<Character> unpairedCharacters = new HashSet<Character>();
