@@ -7,7 +7,7 @@ public class Geometry {
     private static final double SIMPLE_PI = 3.14;
 
     /**
-     * Calculates the distance between two bi-dimensional points
+     * Calculates the distance between two bi-dimensional points using the Pythagorean theorem.
      *
      * @param x1 point 1 x coordinate
      * @param y1 point 1 y coordinate
