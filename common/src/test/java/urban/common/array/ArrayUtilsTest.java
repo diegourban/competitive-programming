@@ -55,4 +55,12 @@ public class ArrayUtilsTest {
         Assert.assertEquals(1, ArrayUtils.findDuplicate(new int [] {1,2,3,4,5,6,7,1,8}));
         Assert.assertEquals(1, ArrayUtils.findDuplicate(new int [] {1,2,3,4,5,6,7,8,1}));
     }
+
+    @Test
+    public void shouldFindTwoMatchingLengthsTest() {
+        Assert.assertTrue(ArrayUtils.canTwoLengthsFillMaxLength(new int [] {1, 1}, 2));
+        Assert.assertTrue(ArrayUtils.canTwoLengthsFillMaxLength(new int [] {1, 1, 2}, 3));
+        Assert.assertFalse(ArrayUtils.canTwoLengthsFillMaxLength(new int [] {1, 1}, 3));
+        Assert.assertFalse(ArrayUtils.canTwoLengthsFillMaxLength(new int [] {2, 3}, 2));
+    }
 }

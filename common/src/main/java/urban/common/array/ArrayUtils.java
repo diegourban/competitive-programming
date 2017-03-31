@@ -1,5 +1,8 @@
 package urban.common.array;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ArrayUtils {
 
     /**
@@ -126,5 +129,37 @@ public class ArrayUtils {
         // since there are multiple values pointing to the first node
         // in the cycle, its position is a duplicate in our array
         return pointerStart;
+    }
+
+    /**
+     * Check if there are two lengths whose total will equal the exact max length.
+     * <p>
+     * Solution: We make one pass through lengths, treating each item as the firstLength. At each iteration, we:
+     * <p>
+     * 1 - See if there's a matchingSecondLength we've seen already (stored in our lengthsSeen hash set) that is equal to maxLength - firstLength. If there is, we short-circuit and return true;<br>
+     * 2 - Keep our lengthsSeen hash set up to date by throwing in the current firstLength.
+     * <p>
+     * We know we won't use the same length twice because we check lengthsSeen for matchingSecondLength before we've put firstLength in it!
+     * <p>
+     * Complexity: O(n) space and O(n) time.
+     *
+     * @param lengths   the array of lengths
+     * @param maxLength the max length
+     * @return if there are two lengths that sum up to length
+     */
+    public static boolean canTwoLengthsFillMaxLength(int[] lengths, int maxLength) {
+        // lengths we've seen so far
+        Set<Integer> lengthsSeen = new HashSet<Integer>();
+
+        for (int firstLength : lengths) {
+            int matchingSecondLength = maxLength - firstLength;
+            if (lengthsSeen.contains(matchingSecondLength)) {
+                return true;
+            }
+            lengthsSeen.add(firstLength);
+        }
+
+        // we never found a match, so return false
+        return false;
     }
 }
