@@ -17,7 +17,6 @@ public class ArrayUtils {
      * @return the first repeating number
      */
     public static int findRepeat(int[] theArray) {
-
         int floor = 1;
         int ceiling = theArray.length - 1;
 
@@ -63,5 +62,69 @@ public class ArrayUtils {
         // floor and ceiling have converged
         // we found a number that repeats!
         return floor;
+    }
+
+    /**
+     * We want to think of our array as a linked list but we don't want to actually use up all that space, so we traverse our array as if it were a linked list ↴ by converting positions to indices.
+     * <p>
+     * Solution: We treat the input array as a linked list like we described at the top in the problem.
+     * <p>
+     * 1 - We know the position of a node with multiple incoming pointers is a duplicate in our array because the nodes that pointed to it must have the same value;<br>
+     * 2 - We find a node with multiple incoming pointers by finding the first node in a cycle;<br>
+     * 3 - We find the first node in a cycle by finding the length of the cycle and advancing two pointers: one starting at the head of the linked list, and the other starting ahead as many steps as there are nodes in the cycle. The pointers will meet at the first node in the cycle;<br>
+     * 4 - We find the length of a cycle by remembering a position inside the cycle and counting the number of steps it takes to get back to that position;<br>
+     * 5 - We get inside a cycle by starting at the head and walking nn steps. We know the head of the list is at position n + 1.
+     * <p>
+     * Complexity: O(1) space and O(n) time.
+     *
+     * @param intArray the array to find a duplicate number
+     * @return the first duplicate number
+     */
+    public static int findDuplicate(int[] intArray) {
+        final int n = intArray.length - 1;
+
+        // STEP 1: GET INSIDE A CYCLE
+        // start at position n+1 and walk n steps to
+        // find a position guaranteed to be in a cycle
+        int positionInCycle = n + 1;
+        for (int x = 0; x < n; x++) {
+
+            // we subtract 1 from the current position to step ahead:
+            // the 2nd *position* in an array is *index* 1
+            positionInCycle = intArray[positionInCycle - 1];
+        }
+
+        // STEP 2: FIND THE LENGTH OF THE CYCLE
+        // find the length of the cycle by remembering a position in the cycle
+        // and counting the steps it takes to get back to that position
+        int rememberedPositionInCycle = positionInCycle;
+        int currentPositionInCycle = intArray[positionInCycle - 1]; // 1 step ahead
+        int cycleStepCount = 1;
+
+        while (currentPositionInCycle != rememberedPositionInCycle) {
+            currentPositionInCycle = intArray[currentPositionInCycle - 1];
+            cycleStepCount += 1;
+        }
+
+        // STEP 3: FIND THE FIRST NODE OF THE CYCLE
+        // start two pointers
+        //   (1) at position n+1
+        //   (2) ahead of position n+1 as many steps as the cycle's length
+        int pointerStart = n + 1;
+        int pointerAhead = n + 1;
+        for (int x = 0; x < cycleStepCount; x++) {
+            pointerAhead = intArray[pointerAhead - 1];
+        }
+
+        // advance until the pointers are in the same position
+        // which is the first node in the cycle
+        while (pointerStart != pointerAhead) {
+            pointerStart = intArray[pointerStart - 1];
+            pointerAhead = intArray[pointerAhead - 1];
+        }
+
+        // since there are multiple values pointing to the first node
+        // in the cycle, its position is a duplicate in our array
+        return pointerStart;
     }
 }
