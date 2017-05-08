@@ -1,4 +1,4 @@
-package urban.common.structure.linkedlist;
+package urban.common.data_structure.linkedlist;
 
 /**
  * Utility methods for LinkedLists
@@ -12,11 +12,11 @@ public class LinkedListUtils {
      * <p>
      * Complexity: O(1) space and O(n) time.
      *
-     * @param headOfList
+     * @param linkedList
      * @return previous because when we exit the list, current is null. Which means that the last node we visited—previous—was the tail of the original list, and thus the head of our reversed list
      */
-    public static LinkedListNode reverse(final LinkedListNode headOfList) {
-        LinkedListNode current = headOfList;
+    public static LinkedListNode reverse(final LinkedList linkedList) {
+        LinkedListNode current = linkedList.getFirst();
         LinkedListNode previous = null;
         LinkedListNode nextNode = null;
 

@@ -1,6 +1,6 @@
-package urban.common.structure.linkedlist;
+package urban.common.data_structure.linkedlist;
 
-import urban.common.structure.Element;
+import urban.common.data_structure.Element;
 
 public class LinkedList {
 

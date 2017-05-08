@@ -1,7 +1,7 @@
-package urban.common.structure.linkedlist;
+package urban.common.data_structure.linkedlist;
 
 import org.junit.Test;
-import urban.common.structure.Element;
+import urban.common.data_structure.Element;
 
 import static org.junit.Assert.assertEquals;
 

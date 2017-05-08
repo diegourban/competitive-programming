@@ -1,4 +1,4 @@
-package urban.common.array;
+package urban.common.data_structure.array;
 
 import java.util.HashSet;
 import java.util.Set;

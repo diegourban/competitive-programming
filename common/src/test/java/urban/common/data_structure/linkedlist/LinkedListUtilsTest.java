@@ -1,8 +1,8 @@
-package urban.common.structure.linkedlist;
+package urban.common.data_structure.linkedlist;
 
 import org.junit.Assert;
 import org.junit.Test;
-import urban.common.structure.Element;
+import urban.common.data_structure.Element;
 
 public class LinkedListUtilsTest {
 
@@ -17,7 +17,7 @@ public class LinkedListUtilsTest {
         linkedList.addAtEnd(new Element("b"));
         linkedList.addAtEnd(new Element("c"));
 
-        LinkedListNode reverse = LinkedListUtils.reverse(linkedList.getFirst());
+        LinkedListNode reverse = LinkedListUtils.reverse(linkedList);
         Assert.assertEquals(reverse.getElement().getName(), "c");
         Assert.assertEquals(reverse.getNext().getElement().getName(), "b");
         Assert.assertEquals(reverse.getNext().getNext().getElement().getName(), "a");

@@ -1,4 +1,4 @@
-package urban.common.structure;
+package urban.common.data_structure;
 
 public class Element {
 

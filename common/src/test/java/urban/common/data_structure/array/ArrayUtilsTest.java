@@ -1,4 +1,4 @@
-package urban.common.array;
+package urban.common.data_structure.array;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,6 +1,6 @@
-package urban.common.structure.vector;
+package urban.common.data_structure.vector;
 
-import urban.common.structure.Element;
+import urban.common.data_structure.Element;
 
 import java.util.Arrays;
 

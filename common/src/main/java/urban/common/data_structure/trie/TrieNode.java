@@ -1,4 +1,4 @@
-package urban.common.structure.trie;
+package urban.common.data_structure.trie;
 
 import java.util.HashMap;
 
