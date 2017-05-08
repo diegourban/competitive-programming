@@ -1,11 +1,30 @@
 package urban.common.structure.linkedlist;
 
+import urban.common.structure.Element;
+
 public class LinkedListNode {
 
-    public int value;
-    public LinkedListNode next;
+    private Element element;
+    private LinkedListNode next;
 
-    public LinkedListNode(final int value) {
-        this.value = value;
+    public LinkedListNode(final Element element, final LinkedListNode next) {
+        this.element = element;
+        this.next = next;
+    }
+
+    public Element getElement() {
+        return element;
+    }
+
+    public void setElement(Element element) {
+        this.element = element;
+    }
+
+    public LinkedListNode getNext() {
+        return next;
+    }
+
+    public void setNext(LinkedListNode next) {
+        this.next = next;
     }
 }

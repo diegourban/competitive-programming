@@ -2,6 +2,7 @@ package urban.common.structure.linkedlist;
 
 import org.junit.Assert;
 import org.junit.Test;
+import urban.common.structure.Element;
 
 public class LinkedListUtilsTest {
 
@@ -11,16 +12,14 @@ public class LinkedListUtilsTest {
 
     @Test
     public void shouldReverseLinkedList() {
-        LinkedListNode head = new LinkedListNode(1);
-        LinkedListNode middle = new LinkedListNode(1);
-        LinkedListNode tail = new LinkedListNode(1);
+        LinkedList linkedList = new LinkedList();
+        linkedList.addAtEnd(new Element("a"));
+        linkedList.addAtEnd(new Element("b"));
+        linkedList.addAtEnd(new Element("c"));
 
-        head.next = middle;
-        middle.next = tail;
-
-        LinkedListNode reverse = LinkedListUtils.reverse(head);
-        Assert.assertEquals(reverse, tail);
-        Assert.assertEquals(reverse.next, middle);
-        Assert.assertEquals(reverse.next.next, head);
+        LinkedListNode reverse = LinkedListUtils.reverse(linkedList.getFirst());
+        Assert.assertEquals(reverse.getElement().getName(), "c");
+        Assert.assertEquals(reverse.getNext().getElement().getName(), "b");
+        Assert.assertEquals(reverse.getNext().getNext().getElement().getName(), "a");
     }
 }

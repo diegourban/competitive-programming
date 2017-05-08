@@ -25,10 +25,10 @@ public class LinkedListUtils {
 
             // copy a pointer to the next element
             // before we overwrite current.next
-            nextNode = current.next;
+            nextNode = current.getNext();
 
             // reverse the 'next' pointer
-            current.next = previous;
+            current.setNext(previous);
 
             // step forward in the list
             previous = current;
