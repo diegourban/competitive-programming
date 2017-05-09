@@ -5,7 +5,13 @@ import urban.common.data_structure.Element;
 public class LinkedListNode {
 
     private Element element;
+
+    private LinkedListNode previous;
     private LinkedListNode next;
+
+    public LinkedListNode(final Element element) {
+        this(element, null);
+    }
 
     public LinkedListNode(final Element element, final LinkedListNode next) {
         this.element = element;
@@ -26,5 +32,13 @@ public class LinkedListNode {
 
     public void setNext(LinkedListNode next) {
         this.next = next;
+    }
+
+    public LinkedListNode getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(LinkedListNode previous) {
+        this.previous = previous;
     }
 }

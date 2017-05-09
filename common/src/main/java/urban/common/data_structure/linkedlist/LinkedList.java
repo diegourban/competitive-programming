@@ -9,11 +9,14 @@ public class LinkedList {
     private int totalElements = 0;
 
     public void addAtStart(final Element element) {
-        LinkedListNode newNode = new LinkedListNode(element, first);
-        this.first = newNode;
-
         if(this.totalElements == 0) {
-            this.last = this.first;
+            LinkedListNode newNode = new LinkedListNode(element);
+            this.first = newNode;
+            this.last = newNode;
+        } else {
+            LinkedListNode newNode = new LinkedListNode(element, this.first);
+            this.first.setPrevious(newNode);
+            this.first = newNode;
         }
 
         this.totalElements++;
@@ -23,9 +26,11 @@ public class LinkedList {
         if(this.totalElements == 0) {
             addAtStart(element);
         } else {
-            LinkedListNode newNode = new LinkedListNode(element, null);
+            LinkedListNode newNode = new LinkedListNode(element);
             this.last.setNext(newNode);
+            newNode.setPrevious(this.last);
             this.last = newNode;
+
             this.totalElements++;
         }
     }
@@ -37,8 +42,13 @@ public class LinkedList {
             addAtEnd(element);
         } else {
             LinkedListNode previous = this.getNode(position - 1);
+            LinkedListNode next = previous.getNext();
+
             LinkedListNode newNode = new LinkedListNode(element, previous.getNext());
+            newNode.setPrevious(previous);
             previous.setNext(newNode);
+            next.setPrevious(newNode);
+
             this.totalElements++;
         }
     }
@@ -79,8 +89,32 @@ public class LinkedList {
         }
     }
 
-    public void remove(final int position) {
+    public void removeFromEnd() {
+        if(this.totalElements == 1) {
+            this.removeFromStart();
+        } else {
+            LinkedListNode previous = this.last.getPrevious();
+            previous.setNext(null);
+            this.last = previous;
+        }
 
+        this.totalElements--;
+    }
+
+    public void remove(final int position) {
+        if(position == 0) {
+            this.removeFromStart();
+        } else if(position == totalElements - 1) {
+            this.removeFromEnd();
+        } else {
+            LinkedListNode previous = this.getNode(position - 1);
+            LinkedListNode current = previous.getNext();
+            LinkedListNode next = current.getNext();
+            previous.setNext(next);
+            next.setPrevious(previous);
+
+            this.totalElements--;
+        }
     }
 
     public int size() {
@@ -88,6 +122,13 @@ public class LinkedList {
     }
 
     public boolean contains(Element element) {
+        LinkedListNode current = this.first;
+        while(current != null) {
+            if(current.getElement().equals(element)) {
+                return true;
+            }
+            current = current.getNext();
+        }
         return false;
     }
 
