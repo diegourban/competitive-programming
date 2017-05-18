@@ -2,22 +2,18 @@ package urban.common.algorithm;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class SelectionSortTest {
 
     @Test
     public void test() {
-        List<Integer> list = Arrays.asList(5,7,1,4,9,10,2,8);
+        final int[] list = new int[]{5,7,2,9,4,8,1,10,3,6};
 
         SelectionSort selectionSort = new SelectionSort();
-        selectionSort.sort(list);
-        assertThat(list.get(0), is(1));
-        assertThat(list.get(7), is(10));
+        selectionSort.sort(list, list.length);
+        assertThat(list[0], is(1));
+        assertThat(list[9], is(10));
     }
 }
