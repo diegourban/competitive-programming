@@ -1,9 +1,15 @@
 package urban.common.algorithm;
 
-import java.util.List;
-
+/**
+ * Selection Sort algorithm
+ */
 public class SelectionSort {
 
+    /**
+     * Sorts the list
+     * @param list the list to sort
+     * @param totalElements total elements at the list
+     */
     public void sort(final int[] list, final int totalElements) {
         for(int i = 0; i < totalElements - 1; i++) {
             final int smallerIndex = findSmallerIndex(list, i, totalElements);
