@@ -3,8 +3,8 @@ package urban.common.data_structure.vector;
 import org.junit.Test;
 import urban.common.data_structure.Element;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class VectorTest {
 
@@ -17,25 +17,20 @@ public class VectorTest {
         vector.add(e1);
         vector.add(e2);
 
-        System.out.println(vector);
-        System.out.println(vector.contains(e1));
+        assertThat(vector.size(), is(2));
+        assertThat(vector.contains(e1), is(true));
 
         Element e3 = new Element("Mario");
-        System.out.println(vector.contains(e3));
-
         vector.add(1, e3);
-        System.out.println(vector);
+        assertThat(vector.contains(e3), is(true));
+        assertThat(vector.size(), is(3));
 
         vector.remove(1);
-        System.out.println(vector);
 
         for(int i = 0; i < 300; i++) {
             Element e = new Element("Element " + i);
             vector.add(e);
         }
         System.out.println(vector);
-
-        // arraylist is similar
-        List<Element> list = new ArrayList<>();
     }
 }

@@ -1,7 +1,6 @@
-package urban.common.data_structure;
+package urban.common.data_structure.set;
 
 import org.junit.Test;
-import urban.common.data_structure.set.Set;
 
 import static org.junit.Assert.assertEquals;
 
