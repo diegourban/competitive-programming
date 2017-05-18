@@ -1,7 +1,5 @@
 package urban.common.data_structure.set;
 
-import urban.common.data_structure.Element;
-
 import java.util.LinkedList;
 import java.util.List;
 
