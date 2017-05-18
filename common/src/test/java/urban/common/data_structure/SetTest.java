@@ -4,7 +4,6 @@ import org.junit.Test;
 import urban.common.data_structure.set.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class SetTest {
 
