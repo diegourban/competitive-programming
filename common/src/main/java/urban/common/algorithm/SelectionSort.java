@@ -7,23 +7,23 @@ public class SelectionSort {
 
     /**
      * Sorts the list
-     * @param list the list to sort
+     * @param items the list to sort
      * @param totalElements total elements at the list
      */
-    public void sort(final int[] list, final int totalElements) {
+    public void sort(final int[] items, final int totalElements) {
         for(int i = 0; i < totalElements - 1; i++) {
-            final int smallerIndex = findSmallerIndex(list, i, totalElements);
-            Integer current = list[i];
-            Integer smaller = list[smallerIndex];
-            list[i] = smaller;
-            list[smallerIndex] = current;
+            final int smallerIndex = findSmallerIndex(items, i, totalElements);
+            Integer current = items[i];
+            Integer smaller = items[smallerIndex];
+            items[i] = smaller;
+            items[smallerIndex] = current;
         }
     }
 
-    private int findSmallerIndex(final int[] list, final int begin, final int end) {
+    private int findSmallerIndex(final int[] items, final int begin, final int end) {
         int smallerIndex = begin;
         for(int i = begin; i < end; i++) {
-            if(list[i] < list[smallerIndex]) {
+            if(items[i] < items[smallerIndex]) {
                 smallerIndex = i;
             }
         }
