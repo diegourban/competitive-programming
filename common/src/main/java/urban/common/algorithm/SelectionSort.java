@@ -6,9 +6,10 @@ package urban.common.algorithm;
 public class SelectionSort {
 
     /**
-     * Sorts the list
-     * @param items the list to sort
-     * @param totalElements total elements at the list
+     * Sort the items using selection sort algorithm
+     *
+     * @param items items to sort
+     * @param totalElements total elements
      */
     public void sort(final int[] items, final int totalElements) {
         for(int i = 0; i < totalElements - 1; i++) {
