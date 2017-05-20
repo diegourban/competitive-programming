@@ -12,12 +12,12 @@ public class SelectionSort {
      * @param totalElements total elements
      */
     public void sort(final int[] items, final int totalElements) {
-        for(int i = 0; i < totalElements - 1; i++) {
-            final int smallerIndex = findSmallerIndex(items, i, totalElements);
-            Integer current = items[i];
-            Integer smaller = items[smallerIndex];
-            items[i] = smaller;
-            items[smallerIndex] = current;
+        for(int current = 0; current < totalElements - 1; current++) {
+            final int smallerIndex = findSmallerIndex(items, current, totalElements);
+            Integer currentItem = items[current];
+            Integer smallerItem = items[smallerIndex];
+            items[current] = smallerItem;
+            items[smallerIndex] = currentItem;
         }
     }
 
