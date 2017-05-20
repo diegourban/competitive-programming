@@ -167,16 +167,28 @@ public class AlgebraTest {
     }
 
     @Test
-    public void shouldCalculateSimpleFibonacciWithBinetFormula() {
-        assertEquals(0, Algebra.simpleFibonacciBinetFormula(0), 0.1);
-        assertEquals(1, Algebra.simpleFibonacciBinetFormula(1), 0.1);
-        assertEquals(1, Algebra.simpleFibonacciBinetFormula(2), 0.1);
-        assertEquals(2, Algebra.simpleFibonacciBinetFormula(3), 0.1);
-        assertEquals(3, Algebra.simpleFibonacciBinetFormula(4), 0.1);
-        assertEquals(5, Algebra.simpleFibonacciBinetFormula(5), 0.1);
-        assertEquals(89, Algebra.simpleFibonacciBinetFormula(11), 0.1);
-        assertEquals(12586269025d, Algebra.simpleFibonacciBinetFormula(50), 0.1);
-        assertEquals(44945570212853d, Algebra.simpleFibonacciBinetFormula(67), 0.1);
+    public void shouldCalculateFibonacci() {
+        assertEquals(0, Algebra.fibonacci(0));
+        assertEquals(1, Algebra.fibonacci(1));
+        assertEquals(1, Algebra.fibonacci(2));
+        assertEquals(2, Algebra.fibonacci(3));
+        assertEquals(3, Algebra.fibonacci(4));
+        assertEquals(5, Algebra.fibonacci(5));
+        assertEquals(89, Algebra.fibonacci(11));
+        assertEquals(1836311903, Algebra.fibonacci(46));
+    }
+
+    @Test
+    public void shouldCalculateFibonacciWithSimpleBinetFormula() {
+        assertEquals(0, Algebra.fibonacciSimpleBinetFormula(0), 0.1);
+        assertEquals(1, Algebra.fibonacciSimpleBinetFormula(1), 0.1);
+        assertEquals(1, Algebra.fibonacciSimpleBinetFormula(2), 0.1);
+        assertEquals(2, Algebra.fibonacciSimpleBinetFormula(3), 0.1);
+        assertEquals(3, Algebra.fibonacciSimpleBinetFormula(4), 0.1);
+        assertEquals(5, Algebra.fibonacciSimpleBinetFormula(5), 0.1);
+        assertEquals(89, Algebra.fibonacciSimpleBinetFormula(11), 0.1);
+        assertEquals(12586269025d, Algebra.fibonacciSimpleBinetFormula(50), 0.1);
+        assertEquals(44945570212853d, Algebra.fibonacciSimpleBinetFormula(67), 0.1);
     }
 
     @Test

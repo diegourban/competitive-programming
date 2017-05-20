@@ -139,12 +139,51 @@ public class Algebra {
 
     /**
      * Calculates the nth Fibonacci number.
+     * Works with n <= 46
+     * <p>
+     * Solution: Using a bottom-up approach, starting with the 0th fibonacci number and iteratively computing subsequent numbers until we get to n.
+     * <p>
+     * Complexity: N time and O(1) space.
+     *
+     * @param n the nth number in the Fibonacci sequence to calculate
+     * @return the nth Fibonacci number
+     */
+    public static int fibonacci(int n) {
+        // edge cases:
+        if (n < 0) {
+            throw new IllegalArgumentException("Index was negative. No such thing as a negative index in a series.");
+        } else if (n == 0 || n == 1) {
+            return n;
+        }
+
+        // we'll be building the fibonacci series from the bottom up
+        // so we'll need to track the previous 2 numbers at each step
+        int prevPrev = 0;   // 0th fibonacci
+        int prev = 1;       // 1st fibonacci
+        int current = 0;    // Declare and initialize current
+
+        for (int i = 1; i < n; i++) {
+
+            // Iteration 1: current = 2nd fibonacci
+            // Iteration 2: current = 3rd fibonacci
+            // Iteration 3: current = 4th fibonacci
+            // To get nth fibonacci ... do n-1 iterations.
+            current = prev + prevPrev;
+            prevPrev = prev;
+            prev = current;
+        }
+
+        return current;
+    }
+
+    /**
+     * Calculates the nth Fibonacci number.
      * Works with n <= 67
      *
      * @param n the nth number in the Fibonacci sequence to calculate
      * @return the nth Fibonacci number
      */
-    public static double simpleFibonacciBinetFormula(int n) {
+    public static double fibonacciSimpleBinetFormula(int n) {
         if (n == 0) {
             return 0;
         }
