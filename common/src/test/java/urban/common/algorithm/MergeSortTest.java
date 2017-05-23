@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class MergeSortTest {
-
+/*
     @Test
     public void shouldSortWithGroupsOfSameSize() {
         // already sorted groups
@@ -45,4 +45,5 @@ public class MergeSortTest {
         assertThat(scores[0], is(3D));
         assertThat(scores[8], is(10D));
     }
+    */
 }
