@@ -2,44 +2,47 @@ package urban.common.algorithm;
 
 public class MergeSort {
 
-    public Double[] sort(final Double[] firstGroup, final Double[] secondGroup) {
-        final int total = firstGroup.length + secondGroup.length;
-        Double[] result = new Double[total];
+    public int[] sort(final int[] items, final int begin, final int middle, final int end) {
+        int[] result = new int[end - begin];
 
         int current = 0;
-        int currentFirstGroup = 0;
-        int currentSecondGroup = 0;
+        int currentLeft = begin;
+        int currentRight = middle;
 
-        while(currentFirstGroup < firstGroup.length && currentSecondGroup < secondGroup.length) {
-            final Double firstValue = firstGroup[currentFirstGroup];
-            final Double secondValue = secondGroup[currentSecondGroup];
+        while(currentLeft < middle && currentRight < end) {
+            final int firstValue = items[currentLeft];
+            final int secondValue = items[currentRight];
 
             if(firstValue < secondValue) {
                 result[current] = firstValue;
-                currentFirstGroup++;
+                currentLeft++;
             } else {
                 result[current] = secondValue;
-                currentSecondGroup++;
+                currentRight++;
             }
 
             current++;
         }
 
-        // values left at first group
-        while(currentFirstGroup < firstGroup.length) {
-            result[current] = firstGroup[currentFirstGroup];
+        // remaining values on the left side
+        while(currentLeft < middle) {
+            result[current] = items[currentLeft];
+            currentLeft++;
             current++;
-            currentFirstGroup++;
         }
 
-        // values left at second group
-        while(currentSecondGroup < secondGroup.length) {
-            result[current] = secondGroup[currentSecondGroup];
+        // remaining values on the right side
+        while(currentRight < end) {
+            result[current] = items[currentRight];
+            currentRight++;
             current++;
-            currentSecondGroup++;
         }
 
-        return result;
+        for(int count = 0; count < current; count++) {
+            items[begin + count] = result[count];
+        }
+
+        return items;
     }
 
 }
