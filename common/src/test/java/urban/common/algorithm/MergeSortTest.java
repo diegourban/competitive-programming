@@ -6,44 +6,40 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class MergeSortTest {
-/*
+
     @Test
     public void shouldSortWithGroupsOfSameSize() {
         // already sorted groups
-        Double[] firstGroup = {4D, 5D, 8.5, 9D};
-        Double[] secondGroup = {3D, 6.7, 7D, 9.3D};
+        final int[] items = {4, 5, 8, 9, 1, 3, 6, 7};
 
         MergeSort mergeSort = new MergeSort();
-        Double[] scores = mergeSort.sort(firstGroup, secondGroup);
+        final int[] merged = mergeSort.sort(items, 0 , 4, items.length);
 
-        assertThat(scores[0], is(3D));
-        assertThat(scores[7], is(9.3));
+        assertThat(merged[0], is(1));
+        assertThat(merged[7], is(9));
     }
 
     @Test
     public void shouldSortWithLeftoverAtGroup1() {
         // already sorted groups
-        Double[] firstGroup = {4D, 5D, 8.5, 9D, 10D};
-        Double[] secondGroup = {3D, 6.7, 7D, 9.3D};
+        final int[] items = {4, 5, 8, 9, 10, 1, 3, 6, 7};
 
         MergeSort mergeSort = new MergeSort();
-        Double[] scores = mergeSort.sort(firstGroup, secondGroup);
+        final int[] merged = mergeSort.sort(items, 0, 5, items.length);
 
-        assertThat(scores[0], is(3D));
-        assertThat(scores[8], is(10D));
+        assertThat(merged[0], is(1));
+        assertThat(merged[8], is(10));
     }
 
     @Test
     public void shouldSortWithLeftoverAtGroup2() {
         // already sorted groups
-        Double[] firstGroup = {4D, 5D, 8.5, 9D};
-        Double[] secondGroup = {3D, 6.7, 7D, 9.3D, 10D};
+        final int[] items = {4, 5, 8, 9, 1, 3, 6, 7, 10};
 
         MergeSort mergeSort = new MergeSort();
-        Double[] scores = mergeSort.sort(firstGroup, secondGroup);
+        final int[] merged = mergeSort.sort(items, 0, 4, items.length);
 
-        assertThat(scores[0], is(3D));
-        assertThat(scores[8], is(10D));
+        assertThat(merged[0], is(1));
+        assertThat(merged[8], is(10));
     }
-    */
 }
