@@ -9,37 +9,34 @@ public class MergeSortTest {
 
     @Test
     public void shouldSortWithGroupsOfSameSize() {
-        // already sorted groups
-        final int[] items = {4, 5, 8, 9, 1, 3, 6, 7};
+        final int[] items = {4, 5, 1, 9, 2, 3, 6, 7};
 
         MergeSort mergeSort = new MergeSort();
-        final int[] merged = mergeSort.sort(items, 0 , 4, items.length);
+        mergeSort.sort(items, 0 , items.length);
 
-        assertThat(merged[0], is(1));
-        assertThat(merged[7], is(9));
+        assertThat(items[0], is(1));
+        assertThat(items[7], is(9));
     }
 
     @Test
     public void shouldSortWithLeftoverAtGroup1() {
-        // already sorted groups
-        final int[] items = {4, 5, 8, 9, 10, 1, 3, 6, 7};
+        final int[] items = {4, 1, 8, 9, 10, 2, 3, 7, 6};
 
         MergeSort mergeSort = new MergeSort();
-        final int[] merged = mergeSort.sort(items, 0, 5, items.length);
+        mergeSort.sort(items, 0 , items.length);
 
-        assertThat(merged[0], is(1));
-        assertThat(merged[8], is(10));
+        assertThat(items[0], is(1));
+        assertThat(items[8], is(10));
     }
 
     @Test
     public void shouldSortWithLeftoverAtGroup2() {
-        // already sorted groups
-        final int[] items = {4, 5, 8, 9, 1, 3, 6, 7, 10};
+        final int[] items = {4, 5, 2, 9, 1, 7, 6, 3, 10};
 
         MergeSort mergeSort = new MergeSort();
-        final int[] merged = mergeSort.sort(items, 0, 4, items.length);
+        mergeSort.sort(items, 0 , items.length);
 
-        assertThat(merged[0], is(1));
-        assertThat(merged[8], is(10));
+        assertThat(items[0], is(1));
+        assertThat(items[8], is(10));
     }
 }

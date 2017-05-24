@@ -1,9 +1,28 @@
 package urban.common.algorithm;
 
+/**
+ * Merge sort algorithm
+ */
 public class MergeSort {
 
-    public int[] sort(final int[] items, final int begin, final int middle, final int end) {
-        int[] result = new int[end - begin];
+    /**
+     * Sorts the items from begin to end
+     * @param items the items to sort
+     * @param begin begin
+     * @param end end
+     */
+    public void sort(final int[] items, final int begin, final int end) {
+        final int total = end - begin;
+        if(total > 1) {
+            final int middle = (begin + end) / 2;
+            sort(items, begin, middle);
+            sort(items, middle, end);
+            merge(items, begin, middle, end);
+        }
+    }
+
+    private void merge(final int[] items, final int begin, final int middle, final int end) {
+        final int[] result = new int[end - begin];
 
         int current = 0;
         int currentLeft = begin;
@@ -41,8 +60,6 @@ public class MergeSort {
         for(int count = 0; count < current; count++) {
             items[begin + count] = result[count];
         }
-
-        return items;
     }
 
 }
