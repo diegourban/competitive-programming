@@ -7,6 +7,7 @@ public class MergeSort {
 
     /**
      * Sorts the items from begin to end
+     *
      * @param items the items to sort
      * @param begin begin
      * @param end end
