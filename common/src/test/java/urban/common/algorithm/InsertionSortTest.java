@@ -2,18 +2,19 @@ package urban.common.algorithm;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class InsertionSortTest {
 
     @Test
     public void test() {
-        final int[] items = new int[]{5,7,2,9,4,8,1,10,3,6};
+        final int[] unsortedItems = {5, 7, 2, 9, 4, 8, 1, 10, 3, 6};
+        final int[] sortedItems = {1, 2, 3, 4, 5, 6 ,7, 8, 9, 10};
 
         InsertionSort insertionSort = new InsertionSort();
-        insertionSort.sort(items, items.length);
-        assertThat(items[0], is(1));
-        assertThat(items[9], is(10));
+        insertionSort.sort(unsortedItems, unsortedItems.length);
+
+        assertThat(unsortedItems, equalTo(sortedItems));
     }
 }
