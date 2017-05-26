@@ -9,7 +9,7 @@ public class SelectionSortTest {
 
     @Test
     public void test() {
-        final int[] unsortedItems = new int[]{5, 7, 2, 9, 4, 8, 1, 10, 3, 6};
+        final int[] unsortedItems = {5, 7, 2, 9, 4, 8, 1, 10, 3, 6};
         final int[] sortedItems = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         SelectionSort selectionSort = new SelectionSort();
