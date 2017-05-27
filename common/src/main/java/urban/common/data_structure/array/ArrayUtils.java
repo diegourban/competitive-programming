@@ -162,4 +162,27 @@ public class ArrayUtils {
         // we never found a match, so return false
         return false;
     }
+
+    /**
+     * Given the array of IDs, which contains many duplicate integers and one unique integer, find the unique integer.
+     * <p>
+     * Solution:
+     * It XOR all the integers in the array. It starts with a variable uniqueDeliveryId set to 0.
+     * Every time it uses XOR with a new ID, it will change the bits.
+     * When it uses XOR with the same ID again, it will cancel out the earlier change.
+     * <p>
+     * Complexity: O(1) space, and O(n) time.
+     *
+     * @param ids
+     * @return unique id
+     */
+    public static int findUniqueId(final int[] ids) {
+        int uniqueDeliveryId = 0;
+
+        for (int i = 0; i < ids.length; i++) {
+            uniqueDeliveryId ^= ids[i];
+        }
+
+        return uniqueDeliveryId;
+    }
 }
