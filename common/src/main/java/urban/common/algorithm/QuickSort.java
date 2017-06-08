@@ -6,22 +6,22 @@ package urban.common.algorithm;
 public class QuickSort {
 
     /**
-     * Sort the items from begin to end
+     * Sort the items from start to end
      *
      * @param items the items to sort
-     * @param begin begin
+     * @param start from
      * @param end end
      */
-    public void sort(final int[] items, final int begin, final int end) {
-        final int totalElements = end - begin;
+    public void sort(final int[] items, final int start, final int end) {
+        final int totalElements = end - start;
         if(totalElements > 1) {
-            final int pivotPosition = partition(items, begin, end);
-            sort(items, begin, pivotPosition);
+            final int pivotPosition = partition(items, end);
+            sort(items, start, pivotPosition);
             sort(items, pivotPosition + 1, end);
         }
     }
 
-    private int partition(final int[] items, final int begin, final int end) {
+    private int partition(final int[] items, final int end) {
         int minorsFound = 0;
 
         final int pivot = items[end - 1];
