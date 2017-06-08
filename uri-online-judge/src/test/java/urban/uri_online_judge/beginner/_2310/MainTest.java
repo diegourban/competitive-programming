@@ -1,7 +1,6 @@
 package urban.uri_online_judge.beginner._2310;
 
 import org.junit.Test;
-import urban.common.SampleBuilder;
 import urban.common.SampleLoader;
 
 import java.io.ByteArrayOutputStream;

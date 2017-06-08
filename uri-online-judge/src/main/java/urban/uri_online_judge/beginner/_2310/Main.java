@@ -42,7 +42,7 @@ public class Main {
         int attackAttempts = 0;
         int attacksSucceeded = 0;
         for (int i = 0; i < n; i++) {
-            final String playerName = reader.readLine();
+            reader.readLine();
 
             serviceAttempts += reader.nextInt();
             blockAttempts += reader.nextInt();
