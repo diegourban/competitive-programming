@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import urban.common.data_structure.Element;
 
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
+
 public class LinkedListUtilsTest {
 
     public void shouldCreateInstance() {
@@ -21,5 +24,24 @@ public class LinkedListUtilsTest {
         Assert.assertEquals(reverse.getElement().getName(), "c");
         Assert.assertEquals(reverse.getNext().getElement().getName(), "b");
         Assert.assertEquals(reverse.getNext().getNext().getElement().getName(), "a");
+    }
+
+    @Test
+    public void shouldDeleteNode() {
+        LinkedListNode a = new LinkedListNode(new Element("A"));
+        LinkedListNode b = new LinkedListNode(new Element("B"));
+        LinkedListNode c = new LinkedListNode(new Element("C"));
+
+        a.setNext(b);
+        b.setNext(c);
+
+        LinkedListUtils.deleteNode(b);
+        assertThat(a.getNext().getElement().getName(), is(c.getElement().getName()));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldHandleDeleteLastNode() {
+        LinkedListNode a = new LinkedListNode(new Element("A"));
+        LinkedListUtils.deleteNode(a);
     }
 }
