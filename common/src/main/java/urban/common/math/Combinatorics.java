@@ -53,7 +53,7 @@ public class Combinatorics {
      * <p>
      * Complexity: O(n * k) time and O(k) space, where n is the number of boxes and k is the capacity of the bag.
      *
-     * @param boxes the boxes available
+     * @param boxes          the boxes available
      * @param weightCapacity the maximum weight capacity of the bag
      * @return the maximum value
      */
@@ -101,13 +101,14 @@ public class Combinatorics {
 
     protected class Box {
 
+        private int weight;
+        private int value;
+
         Box(final int weight, final int value) {
             this.weight = weight;
             this.value = value;
         }
 
-        private int weight;
-        private int value;
     }
 
     static class InfinityException extends RuntimeException {
