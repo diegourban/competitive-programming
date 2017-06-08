@@ -40,13 +40,16 @@ public class Main {
         return s + System.lineSeparator();
     }
 
-    private static int bitCount(long value) {
+    private static int bitCount(final long value) {
         int count = 0;
-        while (value > 0) {           // until all bits are zero
-            if ((value & 1) == 1)     // check lower bit
+        long valueCopy = value;
+
+        while (valueCopy > 0) {           // until all bits are zero
+            if ((valueCopy & 1) == 1)     // check lower bit
                 count++;
-            value >>= 1;              // shift bits, removing lower bit
+            valueCopy >>= 1;              // shift bits, removing lower bit
         }
+        
         return count;
     }
 
