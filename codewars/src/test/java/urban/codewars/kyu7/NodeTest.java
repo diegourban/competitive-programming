@@ -12,23 +12,23 @@ public class NodeTest {
         assertNotNull(new Node());
     }
 
-    @Test(expected = Exception.class)
-    public void shouldHandleNullNode() throws Exception {
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldHandleNullNode() {
         Node.getNth(null, 0);
     }
 
-    @Test(expected = Exception.class)
-    public void shouldHandleNegativeIndex() throws Exception {
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldHandleNegativeIndex() {
         Node.getNth(new Node(), -1);
     }
 
-    @Test(expected = Exception.class)
-    public void shouldHandleWringIndex() throws Exception {
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldHandleWringIndex() {
         Node.getNth(new Node(), 1);
     }
 
     @Test
-    public void test2Nodes() throws Exception {
+    public void test2Nodes() {
         Node n = new Node();
         n.data = 1337;
         n.next = new Node();

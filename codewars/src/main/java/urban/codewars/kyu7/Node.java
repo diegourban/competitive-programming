@@ -5,9 +5,9 @@ public class Node {
     public int data;
     public Node next = null;
 
-    public static int getNth(Node n, int index) throws Exception {
+    public static int getNth(Node n, int index) {
         if (n == null || index < 0) {
-            throw new Exception();
+            throw new IllegalArgumentException();
         }
         if (index == 0) {
             return n.data;
