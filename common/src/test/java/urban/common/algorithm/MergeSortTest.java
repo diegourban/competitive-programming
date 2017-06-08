@@ -2,7 +2,6 @@ package urban.common.algorithm;
 
 import org.junit.Test;
 
-import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
@@ -14,7 +13,7 @@ public class MergeSortTest {
         final int[] sortedItems = {1, 2, 3, 4, 5, 6, 7, 9};
 
         MergeSort mergeSort = new MergeSort();
-        mergeSort.sort(unsortedItems, 0 , unsortedItems.length);
+        mergeSort.sort(unsortedItems, 0, unsortedItems.length);
 
         assertThat(unsortedItems, equalTo(sortedItems));
     }
@@ -25,7 +24,7 @@ public class MergeSortTest {
         final int[] sortedItems = {1, 2, 3, 4, 6, 7, 8, 9, 10};
 
         MergeSort mergeSort = new MergeSort();
-        mergeSort.sort(unsortedItems, 0 , unsortedItems.length);
+        mergeSort.sort(unsortedItems, 0, unsortedItems.length);
 
         assertThat(unsortedItems, equalTo(sortedItems));
     }
@@ -36,7 +35,7 @@ public class MergeSortTest {
         final int[] sortedItems = {1, 2, 3, 4, 5, 6, 7, 9, 10};
 
         MergeSort mergeSort = new MergeSort();
-        mergeSort.sort(unsortedItems, 0 , unsortedItems.length);
+        mergeSort.sort(unsortedItems, 0, unsortedItems.length);
 
         assertThat(unsortedItems, equalTo(sortedItems));
     }
