@@ -99,9 +99,15 @@ public class Combinatorics {
         return maxValuesAtCapacities[weightCapacity];
     }
 
-    class Box {
-        int weight;
-        int value;
+    protected class Box {
+
+        Box(final int weight, final int value) {
+            this.weight = weight;
+            this.value = value;
+        }
+
+        private int weight;
+        private int value;
     }
 
     static class InfinityException extends RuntimeException {

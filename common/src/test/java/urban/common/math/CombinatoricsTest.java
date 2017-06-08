@@ -5,8 +5,10 @@ import org.junit.Test;
 
 import java.math.BigInteger;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 
 public class CombinatoricsTest {
 
@@ -38,6 +40,18 @@ public class CombinatoricsTest {
         assertEquals(new BigInteger("20"), Combinatorics.binomialCoefficient(6, 3));
         assertEquals(new BigInteger("35"), Combinatorics.binomialCoefficient(7, 4));
         assertEquals(new BigInteger("21"), Combinatorics.binomialCoefficient(7, 5));
+    }
+
+    @Test
+    public void shouldHandleKnapsackProblem() {
+        final Combinatorics combinatorics = new Combinatorics();
+        final Combinatorics.Box[] boxes = new Combinatorics.Box[3];
+        boxes[0] = combinatorics.new Box(1, 3);
+        boxes[1] = combinatorics.new Box(2, 2);
+        boxes[2] = combinatorics.new Box(4, 5);
+
+        final long value = Combinatorics.knapsackProblem(boxes, 15);
+        assertThat(value, is(45L));
     }
 
 }
