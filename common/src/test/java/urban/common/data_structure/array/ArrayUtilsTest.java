@@ -3,7 +3,11 @@ package urban.common.data_structure.array;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
+import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 public class ArrayUtilsTest {
@@ -72,5 +76,25 @@ public class ArrayUtilsTest {
         assertThat(ArrayUtils.findUniqueId(new int[]{1, 2, 2}), is(1));
         assertThat(ArrayUtils.findUniqueId(new int[]{1, 2, 1}), is(2));
         assertThat(ArrayUtils.findUniqueId(new int[]{1, 5, 8, 2, 4, 9, 9, 8, 4, 1, 2}), is(5));
+    }
+
+    @Test
+    public void shouldNotShuffleSmallArray() {
+        int[] array = new int[]{1};
+        ArrayUtils.shuffle(array);
+        assertThat(array.length, is(1));
+
+        Integer[] what = Arrays.stream(array).boxed().toArray(Integer[]::new);
+        assertThat(what, arrayContainingInAnyOrder(equalTo(1)));
+    }
+
+    @Test
+    public void shouldShuffle() {
+        int[] array = new int[]{1, 2, 3, 4, 5};
+        ArrayUtils.shuffle(array);
+        assertThat(array.length, is(5));
+
+        Integer[] what = Arrays.stream(array).boxed().toArray(Integer[]::new);
+        assertThat(what, arrayContainingInAnyOrder(equalTo(1), equalTo(2), equalTo(3), equalTo(4), equalTo(5)));
     }
 }
