@@ -58,5 +58,11 @@ public class StringUtilsTest {
         assertFalse(StringUtils.hasPalindromePermutation("livci"));
     }
 
+    @Test
+    public void shouldValidateBrackets() {
+        assertTrue(StringUtils.bracketValidator("{[]()}"));
+        assertFalse(StringUtils.bracketValidator("{[(])}"));
+        assertFalse(StringUtils.bracketValidator("{[}"));
+    }
 
 }

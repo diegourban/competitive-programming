@@ -1,7 +1,6 @@
 package urban.common.string;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class StringUtils {
 
@@ -48,18 +47,18 @@ public class StringUtils {
     }
 
     public static boolean isPalindrome(String theString) {
-        if(theString == null || theString.isEmpty()) {
+        if (theString == null || theString.isEmpty()) {
             return false;
         }
 
-        if(theString.length() == 1) {
+        if (theString.length() == 1) {
             return true;
         }
 
-        for(int i = 0; i < theString.length() / 2; i++) {
+        for (int i = 0; i < theString.length() / 2; i++) {
             char c1 = theString.charAt(i);
             char c2 = theString.charAt(theString.length() - i - 1);
-            if(c1 != c2) {
+            if (c1 != c2) {
                 return false;
             }
         }
@@ -81,5 +80,50 @@ public class StringUtils {
         // the string has a palindrome permutation if it
         // has one or zero characters without a pair
         return unpairedCharacters.size() <= 1;
+    }
+
+    /**
+     * Simply making sure each opener has a corresponding closer is not enough—we must also confirm that they are correctly ordered.
+     * <p>
+     * Solution: We iterate through our string, making sure that:
+     * 1. each closer corresponds to the most recently seen, unclosed opener;
+     * 2. every opener and closer is in a pair.
+     * <p>
+     * We use a stack to keep track of the most recently seen, unclosed opener. And if the stack is ever empty when we come to a closer, we know that closer doesn't have an opener.
+     * <p>
+     * Complexity: O(n) time (one iteration through the string), and O(n) space (in the worst case, all of our characters are openers, so we push them all onto the stack)
+     *
+     * @param code the code
+     * @return true if is valid, false otherwise
+     */
+    public static boolean bracketValidator(String code) {
+        Map<Character, Character> openersToClosers = new HashMap<>();
+        openersToClosers.put('(', ')');
+        openersToClosers.put('[', ']');
+        openersToClosers.put('{', '}');
+
+        Set<Character> openers = openersToClosers.keySet();
+        Set<Character> closers = new HashSet<>(openersToClosers.values());
+
+        Stack<Character> openersStack = new Stack<>();
+
+        for (char c : code.toCharArray()) {
+            if (openers.contains(c)) {
+                openersStack.push(c);
+            } else if (closers.contains(c)) {
+                if (openersStack.empty()) {
+                    return false;
+                } else {
+                    char lastUnclosedOpener = openersStack.pop();
+
+                    // if this closer doesn't correspond to the most recently
+                    // seen unclosed opener, short-circuit, returning false
+                    if (openersToClosers.get(lastUnclosedOpener) != c) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return openersStack.empty();
     }
 }
