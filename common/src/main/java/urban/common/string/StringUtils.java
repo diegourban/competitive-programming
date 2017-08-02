@@ -126,4 +126,59 @@ public class StringUtils {
         }
         return openersStack.empty();
     }
+
+    /**
+     * Takes a string message and reverses the order of the words in-place.
+     * <p>
+     * Solution: We'll write a helper function reverseCharacters() that reverses all the characters in a string between a frontIndex and backIndex. We use it to:
+     * <p>
+     * 1. Reverse all the characters in the entire message, giving us the correct word order but with each word backwards.
+     * 2. Reverse the characters in each individual word.
+     * <p>
+     * Complexity: O(n) time and O(n) space
+     *
+     * @param message some message
+     * @return the message reversed
+     */
+    public static String reverseWords(String message) {
+        char[] messageChars = message.toCharArray();
+
+        // first we reverse all the characters in the entire messageChars array
+        // this gives us the right word order
+        // but with each word backwards
+        reverseCharacters(messageChars, 0, messageChars.length - 1);
+
+        // now we'll make the words forward again
+        // by reversing each word's characters
+
+        // we hold the index of the *start* of the current word
+        // as we look for the *end* of the current word
+        int currentWordStartIndex = 0;
+        for (int i = 0; i <= messageChars.length; i++) {
+
+            // found the end of the current word!
+            if (i == messageChars.length || messageChars[i] == ' ') {
+
+                // if we haven't exhausted the string, our
+                // next word's start is one character ahead
+                reverseCharacters(messageChars, currentWordStartIndex, i - 1);
+                currentWordStartIndex = i + 1;
+            }
+        }
+
+        return new String(messageChars);
+    }
+
+    private static void reverseCharacters(char[] messageChars, int startIndex, int endIndex) {
+        // walk towards the middle, from both sides
+        while (startIndex < endIndex) {
+
+            // swap the front char and back char
+            char temp = messageChars[startIndex];
+            messageChars[startIndex] = messageChars[endIndex];
+            messageChars[endIndex] = temp;
+            startIndex++;
+            endIndex--;
+        }
+    }
 }

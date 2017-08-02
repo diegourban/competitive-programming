@@ -1,10 +1,10 @@
 package urban.common.string;
 
+import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class StringUtilsTest {
 
@@ -64,5 +64,12 @@ public class StringUtilsTest {
         assertFalse(StringUtils.bracketValidator("{[(])}"));
         assertFalse(StringUtils.bracketValidator("{[}"));
     }
+
+    @Test
+    public void shouldReverseWords() {
+        Assert.assertThat(StringUtils.reverseWords("the eagle has landed"), Matchers.equalTo("landed has eagle the"));
+        Assert.assertThat(StringUtils.reverseWords("find you will pain only go you recordings security the into if"), Matchers.equalTo("if into the security recordings you go only pain will you find"));
+    }
+
 
 }
