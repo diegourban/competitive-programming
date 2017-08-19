@@ -63,4 +63,36 @@ public class LinkedListUtils {
             throw new IllegalArgumentException("Can't delete the last node with this method!");
         }
     }
+
+    /**
+     * You have a singly-linked list and want to check if it contains a cycle.
+     * <p>
+     * Solution: We keep two pointers to nodes (we'll call these “runners”), both starting at the first node. Every time slowRunner moves one node ahead, fastRunner moves two nodes ahead.
+     * If the linked list has a cycle, fastRunner will "lap" (catch up with) slowRunner, and they will momentarily equal each other.
+     * If the list does not have a cycle, fastRunner will reach the end.
+     * <p>
+     * Complexity: O(n) time, O(1) space
+     *
+     * @param firstNode the first node
+     * @return true if contains a cycle, false otherwise
+     */
+    public static boolean containsCycle(LinkedListNode firstNode) {
+        // start both runners at the beginning
+        LinkedListNode slowRunner = firstNode;
+        LinkedListNode fastRunner = firstNode;
+
+        // until we hit the end of the list
+        while (fastRunner != null && fastRunner.getNext() != null) {
+            slowRunner = slowRunner.getNext();
+            fastRunner = fastRunner.getNext().getNext();
+
+            // case: fastRunner is about to "lap" slowRunner
+            if (fastRunner == slowRunner) {
+                return true;
+            }
+        }
+
+        // case: fastRunner hit the end of the list
+        return false;
+    }
 }
