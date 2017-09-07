@@ -127,6 +127,22 @@ public class StringUtils {
         return openersStack.empty();
     }
 
+    public static boolean isAnagram(String a, String b) {
+        if(a.length() != b.length()) {
+            return false;
+        }
+
+        char[] arrA = sort(a);
+        char[] arrB = sort(b);
+        return Arrays.equals(arrA, arrB);
+    }
+
+    private static char[] sort(String original) {
+        char[] chars = original.toLowerCase().toCharArray();
+        Arrays.sort(chars); // Dual-Pivot Quicksort, O(n log(n))
+        return chars;
+    }
+
     /**
      * Takes a string message and reverses the order of the words in-place.
      * <p>
