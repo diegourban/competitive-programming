@@ -121,11 +121,14 @@ public class BinaryTreeUtils {
         return true;
     }
 
+    /**
+     * Utilitary class to encapsulate the node and its depth
+     */
     private static class NodeDepthPair {
-        BinaryTreeNode node;
-        int depth;
+        private BinaryTreeNode node;
+        private int depth;
 
-        NodeDepthPair(BinaryTreeNode node, int depth) {
+        private NodeDepthPair(BinaryTreeNode node, int depth) {
             this.node = node;
             this.depth = depth;
         }
