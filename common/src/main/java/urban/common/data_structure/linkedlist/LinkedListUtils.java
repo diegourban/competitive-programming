@@ -95,4 +95,42 @@ public class LinkedListUtils {
         // case: fastRunner hit the end of the list
         return false;
     }
+
+    /**
+     * Merge two sorted linked lists
+     *
+     * @param headA the head from the first linked list
+     * @param headB the head from the second linked list
+     *
+     * @return the head from the merged linked list
+     */
+    public static Node merge(final Node headA, final Node headB) {
+        final Node preHead = new Node(0);
+        Node current = preHead;
+
+        Node currentA = headA;
+        Node currentB = headB;
+
+        while(currentA != null || currentB != null) {
+            if(currentA != null && currentB != null) {
+                if(currentA.getData() < currentB.getData()) {
+                    current.setNext(currentA);
+                    currentA = currentA.getNext();
+                } else {
+                    current.setNext(currentB);
+                    currentB = currentB.getNext();
+                }
+                current = current.getNext();
+            } else if(currentA == null) {
+                current.setNext(currentB);
+                break;
+            } else if(currentB == null) {
+                current.setNext(currentA);
+                break;
+            }
+        }
+
+        return preHead.getNext();
+    }
+
 }

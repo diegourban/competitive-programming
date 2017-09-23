@@ -1,13 +1,12 @@
 package urban.common.data_structure.linkedlist;
 
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 import urban.common.data_structure.Element;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class LinkedListUtilsTest {
 
@@ -83,5 +82,50 @@ public class LinkedListUtilsTest {
         c.setNext(b);
 
         assertTrue(LinkedListUtils.containsCycle(a));
+    }
+
+    @Test
+    public void shouldMergeLinkedListWithEmptyOne() {
+        Node headA = new Node(1);
+        Node node = new Node(2);
+        node.setNext(new Node(3));
+        headA.setNext(node);
+
+        Node headB = null;
+
+        Node merged = LinkedListUtils.merge(headA, headB);
+        Assert.assertThat(merged.getData(), Matchers.is(1));
+        Assert.assertThat(merged.getNext().getData(), Matchers.is(2));
+        Assert.assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
+    }
+
+    @Test
+    public void shouldMergeEmptyLinkedListWithNotEmpty() {
+        Node headA = null;
+
+        Node headB = new Node(1);
+        Node node = new Node(2);
+        node.setNext(new Node(3));
+        headB.setNext(node);
+
+        Node merged = LinkedListUtils.merge(headA, headB);
+        Assert.assertThat(merged.getData(), Matchers.is(1));
+        Assert.assertThat(merged.getNext().getData(), Matchers.is(2));
+        Assert.assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
+    }
+
+    @Test
+    public void shouldMergeLinkedLists() {
+        Node headA = new Node(1);
+        headA.setNext(new Node(3));
+
+        Node headB = new Node(2);
+        headB.setNext(new Node(4));
+
+        Node merged = LinkedListUtils.merge(headA, headB);
+        Assert.assertThat(merged.getData(), Matchers.is(1));
+        Assert.assertThat(merged.getNext().getData(), Matchers.is(2));
+        Assert.assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
+        Assert.assertThat(merged.getNext().getNext().getNext().getData(), Matchers.is(4));
     }
 }
