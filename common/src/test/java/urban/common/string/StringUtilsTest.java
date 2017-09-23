@@ -1,7 +1,6 @@
 package urban.common.string;
 
 import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -67,8 +66,8 @@ public class StringUtilsTest {
 
     @Test
     public void shouldReverseWords() {
-        Assert.assertThat(StringUtils.reverseWords("the eagle has landed"), Matchers.equalTo("landed has eagle the"));
-        Assert.assertThat(StringUtils.reverseWords("find you will pain only go you recordings security the into if"), Matchers.equalTo("if into the security recordings you go only pain will you find"));
+        assertThat(StringUtils.reverseWords("the eagle has landed"), Matchers.equalTo("landed has eagle the"));
+        assertThat(StringUtils.reverseWords("find you will pain only go you recordings security the into if"), Matchers.equalTo("if into the security recordings you go only pain will you find"));
     }
 
 
