@@ -1,7 +1,6 @@
 package urban.common.data_structure.linkedlist;
 
 import org.hamcrest.Matchers;
-import org.junit.Assert;
 import org.junit.Test;
 import urban.common.data_structure.Element;
 
@@ -11,7 +10,7 @@ import static org.junit.Assert.*;
 public class LinkedListUtilsTest {
 
     public void shouldCreateInstance() {
-        Assert.assertNotNull(new LinkedListUtils());
+        assertNotNull(new LinkedListUtils());
     }
 
     @Test
@@ -22,9 +21,9 @@ public class LinkedListUtilsTest {
         linkedList.addAtEnd(new Element("c"));
 
         LinkedListNode reverse = LinkedListUtils.reverse(linkedList);
-        Assert.assertEquals(reverse.getElement().getName(), "c");
-        Assert.assertEquals(reverse.getNext().getElement().getName(), "b");
-        Assert.assertEquals(reverse.getNext().getNext().getElement().getName(), "a");
+        assertEquals(reverse.getElement().getName(), "c");
+        assertEquals(reverse.getNext().getElement().getName(), "b");
+        assertEquals(reverse.getNext().getNext().getElement().getName(), "a");
     }
 
     @Test
@@ -94,9 +93,9 @@ public class LinkedListUtilsTest {
         Node headB = null;
 
         Node merged = LinkedListUtils.merge(headA, headB);
-        Assert.assertThat(merged.getData(), Matchers.is(1));
-        Assert.assertThat(merged.getNext().getData(), Matchers.is(2));
-        Assert.assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
+        assertThat(merged.getData(), Matchers.is(1));
+        assertThat(merged.getNext().getData(), Matchers.is(2));
+        assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
     }
 
     @Test
@@ -109,9 +108,9 @@ public class LinkedListUtilsTest {
         headB.setNext(node);
 
         Node merged = LinkedListUtils.merge(headA, headB);
-        Assert.assertThat(merged.getData(), Matchers.is(1));
-        Assert.assertThat(merged.getNext().getData(), Matchers.is(2));
-        Assert.assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
+        assertThat(merged.getData(), Matchers.is(1));
+        assertThat(merged.getNext().getData(), Matchers.is(2));
+        assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
     }
 
     @Test
@@ -123,9 +122,9 @@ public class LinkedListUtilsTest {
         headB.setNext(new Node(4));
 
         Node merged = LinkedListUtils.merge(headA, headB);
-        Assert.assertThat(merged.getData(), Matchers.is(1));
-        Assert.assertThat(merged.getNext().getData(), Matchers.is(2));
-        Assert.assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
-        Assert.assertThat(merged.getNext().getNext().getNext().getData(), Matchers.is(4));
+        assertThat(merged.getData(), Matchers.is(1));
+        assertThat(merged.getNext().getData(), Matchers.is(2));
+        assertThat(merged.getNext().getNext().getData(), Matchers.is(3));
+        assertThat(merged.getNext().getNext().getNext().getData(), Matchers.is(4));
     }
 }
