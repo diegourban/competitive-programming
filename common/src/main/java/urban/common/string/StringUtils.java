@@ -128,7 +128,7 @@ public class StringUtils {
     }
 
     public static boolean isAnagram(String a, String b) {
-        if(a.length() != b.length()) {
+        if (a.length() != b.length()) {
             return false;
         }
 
@@ -185,16 +185,18 @@ public class StringUtils {
         return new String(messageChars);
     }
 
-    private static void reverseCharacters(char[] messageChars, int startIndex, int endIndex) {
-        // walk towards the middle, from both sides
-        while (startIndex < endIndex) {
+    private static void reverseCharacters(final char[] messageChars, final int startIndex, final int endIndex) {
+        int startIndexCopy = startIndex;
+        int endIndexCopy = endIndex;
 
+        // walk towards the middle, from both sides
+        while (startIndexCopy < endIndexCopy) {
             // swap the front char and back char
-            char temp = messageChars[startIndex];
-            messageChars[startIndex] = messageChars[endIndex];
-            messageChars[endIndex] = temp;
-            startIndex++;
-            endIndex--;
+            char temp = messageChars[startIndexCopy];
+            messageChars[startIndexCopy] = messageChars[endIndexCopy];
+            messageChars[endIndexCopy] = temp;
+            startIndexCopy++;
+            endIndexCopy--;
         }
     }
 }
