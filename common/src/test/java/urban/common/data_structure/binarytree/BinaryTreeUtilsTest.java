@@ -62,8 +62,36 @@ public class BinaryTreeUtilsTest {
         btn.insertLeft(6);
 
         assertThat(BinaryTreeUtils.isSuperBalanced(rootNode), Matchers.is(true));
+    }
 
+    @Test
+    public void shouldNotConsiderBinarySearchTree() {
+        final BinaryTreeNode rootNode = new BinaryTreeNode(50);
 
+        BinaryTreeNode btn = rootNode.insertRight(80);
+        btn.insertRight(90);
+        btn.insertLeft(70);
+
+        btn = rootNode.insertLeft(30);
+        btn.insertRight(60);
+        btn.insertLeft(20);
+
+        assertThat(BinaryTreeUtils.isBinarySearchTree(rootNode), Matchers.is(false));
+    }
+
+    @Test
+    public void shouldConsiderBinarySearchTree() {
+        final BinaryTreeNode rootNode = new BinaryTreeNode(50);
+
+        BinaryTreeNode btn = rootNode.insertRight(80);
+        btn.insertRight(90);
+        btn.insertLeft(70);
+
+        btn = rootNode.insertLeft(30);
+        btn.insertRight(40);
+        btn.insertLeft(20);
+
+        assertThat(BinaryTreeUtils.isBinarySearchTree(rootNode), Matchers.is(true));
     }
 
 }

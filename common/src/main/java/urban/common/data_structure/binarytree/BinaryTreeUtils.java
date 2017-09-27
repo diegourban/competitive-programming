@@ -133,4 +133,70 @@ public class BinaryTreeUtils {
             this.depth = depth;
         }
     }
+
+    /**
+     * Check if a binary tree is a valid binary search tree.
+     * <p>
+     * A binary search tree is a binary tree in which, for each node:
+     * 1 - The node's value is greater than all values in the left subtree.
+     * 2 - The node's value is less than all values in the right subtree.
+     * <p>
+     * Solution: We do a depth-first walk through the tree, testing each node for validity as we go.
+     * A given node is valid if it's greater than all the ancestral nodes it's in the right sub-tree of and less than all the ancestral nodes it's in the left-subtree of.
+     * Instead of keeping track of each ancestor to check these inequalities, we just check the largest number it must be greater than (its lowerBound) and the smallest number it must be less than (its upperBound)
+     * <p>
+     * Complexity: O(n) time and O(n) space.
+     * The time cost is easy: for valid binary search trees, we’ll have to check all n nodes.
+     * Space is a little more complicated. Because we’re doing a depth first search, nodeAndBoundsStack will hold at most dd nodes where dd is the depth of the tree (the number of levels in the tree from the root node down to the lowest node). So we could say our space cost is O(d).
+     * But we can also relate d to n. In a balanced tree, d is \log_{2}{n}.
+     * And the more unbalanced the tree gets, the closer d gets to n.
+     *
+     * @param root the tree root
+     * @return true if the binary tree is a valid binary search tree, false otherwise.
+     */
+    public static boolean isBinarySearchTree(BinaryTreeNode root) {
+        // start at the root, with an arbitrarily low lower bound
+        // and an arbitrarily high upper bound
+        Stack<NodeBounds> nodeAndBoundsStack = new Stack<>();
+        nodeAndBoundsStack.push(new NodeBounds(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+
+        // depth-first traversal
+        while (!nodeAndBoundsStack.empty()) {
+            NodeBounds nb = nodeAndBoundsStack.pop();
+            BinaryTreeNode node = nb.node;
+            int lowerBound = nb.lowerBound;
+            int upperBound = nb.upperBound;
+
+            // if this node is invalid, we return false right away
+            if (node.value <= lowerBound || node.value >= upperBound) {
+                return false;
+            }
+
+            if (node.left != null) {
+                // this node must be less than the current node
+                nodeAndBoundsStack.push(new NodeBounds(node.left, lowerBound, node.value));
+            }
+            if (node.right != null) {
+                // this node must be greater than the current node
+                nodeAndBoundsStack.push(new NodeBounds(node.right, node.value, upperBound));
+            }
+        }
+
+        // if none of the nodes were invalid, return true
+        // (at this point we have checked all nodes)
+        return true;
+    }
+
+    private static class NodeBounds {
+
+        private final BinaryTreeNode node;
+        private final int lowerBound;
+        private final int upperBound;
+
+        private NodeBounds(final BinaryTreeNode node, final int lowerBound, final int upperBound) {
+            this.node = node;
+            this.lowerBound = lowerBound;
+            this.upperBound = upperBound;
+        }
+    }
 }
