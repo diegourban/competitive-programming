@@ -65,6 +65,15 @@ public class StringUtils {
         return true;
     }
 
+    /**
+     * The approach is to check that each character appears an even number of times, allowing for only one characters to appear an odd number of times (a middle character). This is enough to determine if a permutation of the input string is a palindrome.
+     * <p>
+     * Complexity: O(n) time, since we're making one iteration through the n characters in the string.
+     * Our unpairedCharacters hash set is the only thing taking up non-constant space. We could say our space cost is O(n) as well, since the set of unique characters is less than or equal to n.
+     *
+     * @param theString the string to check
+     * @return true if there is a palindrome permutation
+     */
     public static boolean hasPalindromePermutation(String theString) {
         // track characters we've seen an odd number of times
         Set<Character> unpairedCharacters = new HashSet<Character>();
