@@ -70,5 +70,17 @@ public class StringUtilsTest {
         assertThat(StringUtils.reverseWords("find you will pain only go you recordings security the into if"), Matchers.equalTo("if into the security recordings you go only pain will you find"));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldNotFindClosingParenthesis() {
+        StringUtils.getClosingParenthesis("a(bc", 2);
+    }
+
+    @Test
+    public void shouldFindClosingParenthesis() {
+        assertThat(StringUtils.getClosingParenthesis("()", 0), Matchers.equalTo(1));
+        assertThat(StringUtils.getClosingParenthesis("(())", 0), Matchers.equalTo(3));
+        assertThat(StringUtils.getClosingParenthesis("a(b(c)d)e", 1), Matchers.equalTo(7));
+    }
+
 
 }

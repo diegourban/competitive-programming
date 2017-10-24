@@ -208,4 +208,24 @@ public class StringUtils {
             endIndexCopy--;
         }
     }
+
+    public static int getClosingParenthesis(final String sentence, final int openingParenthesisIndex) {
+        int openNestedParenthesis = 0;
+
+        for(int position = openingParenthesisIndex + 1; position < sentence.length(); position++) {
+            char c = sentence.charAt(position);
+
+            if(c == '(') {
+                openNestedParenthesis++;
+            } else if(c == ')') {
+                if(openNestedParenthesis == 0) {
+                    return position;
+                } else {
+                    openNestedParenthesis--;
+                }
+            }
+        }
+
+        throw new IllegalArgumentException("No closing parenthesis :(");
+    }
 }
