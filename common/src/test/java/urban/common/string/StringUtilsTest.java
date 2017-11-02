@@ -3,6 +3,8 @@ package urban.common.string;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
+import java.util.Set;
+
 import static org.junit.Assert.*;
 
 public class StringUtilsTest {
@@ -82,5 +84,9 @@ public class StringUtilsTest {
         assertThat(StringUtils.getClosingParenthesis("a(b(c)d)e", 1), Matchers.equalTo(7));
     }
 
+    @Test
+    public void shouldFindPermutations() {
+        assertThat(StringUtils.getPermutations("ABC"), Matchers.hasItems("ABC", "CAB", "BAC", "ACB", "BCA", "CBA"));
+    }
 
 }
