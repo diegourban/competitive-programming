@@ -98,4 +98,52 @@ public class GeometryTest {
         assertFalse(Geometry.isRectangleTriangle(6, 9, 10));
         assertFalse(Geometry.isRectangleTriangle(6, 8, 11));
     }
+
+    @Test
+    public void shouldHandlePartiallyOverlap() {
+        Geometry.Rectangle r1 = new Geometry.Rectangle(5,5,10,10);
+        Geometry.Rectangle r2 = new Geometry.Rectangle(7,7,10,10);
+
+        Geometry.Rectangle rectangularOverlap = Geometry.findRectangularOverlap(r1, r2);
+        assertEquals(rectangularOverlap.getLeftX(), 7);
+        assertEquals(rectangularOverlap.getBottomY(), 7);
+        assertEquals(rectangularOverlap.getWidth(), 8);
+        assertEquals(rectangularOverlap.getHeight(), 8);
+    }
+
+    @Test
+    public void shouldHandleContained() {
+        Geometry.Rectangle r1 = new Geometry.Rectangle(1,1,10,10);
+        Geometry.Rectangle r2 = new Geometry.Rectangle(2,2,3,3);
+
+        Geometry.Rectangle rectangularOverlap = Geometry.findRectangularOverlap(r1, r2);
+        assertEquals(rectangularOverlap.getLeftX(), 2);
+        assertEquals(rectangularOverlap.getBottomY(), 2);
+        assertEquals(rectangularOverlap.getWidth(), 3);
+        assertEquals(rectangularOverlap.getHeight(), 3);
+    }
+
+    @Test
+    public void shouldHandleNoOverlap() {
+        Geometry.Rectangle r1 = new Geometry.Rectangle(1,1,3,3);
+        Geometry.Rectangle r2 = new Geometry.Rectangle(5,5,3,3);
+
+        Geometry.Rectangle rectangularOverlap = Geometry.findRectangularOverlap(r1, r2);
+        assertEquals(rectangularOverlap.getLeftX(), 0);
+        assertEquals(rectangularOverlap.getBottomY(), 0);
+        assertEquals(rectangularOverlap.getWidth(), 0);
+        assertEquals(rectangularOverlap.getHeight(), 0);
+    }
+
+    @Test
+    public void shouldHandleTouching() {
+        Geometry.Rectangle r1 = new Geometry.Rectangle(1,1,1,1);
+        Geometry.Rectangle r2 = new Geometry.Rectangle(2,2,1,1);
+
+        Geometry.Rectangle rectangularOverlap = Geometry.findRectangularOverlap(r1, r2);
+        assertEquals(rectangularOverlap.getLeftX(), 0);
+        assertEquals(rectangularOverlap.getBottomY(), 0);
+        assertEquals(rectangularOverlap.getWidth(), 0);
+        assertEquals(rectangularOverlap.getHeight(), 0);
+    }
 }
