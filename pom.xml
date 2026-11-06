@@ -10,7 +10,7 @@
 
     <name>Algorithms</name>
     <description>Algorithms and data structures library, with worked problems organised by topic.</description>
-    <url>https://github.com/diegourban/algorithms</url>
+    <url>https://github.com/diegourban/algorithms-java</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
