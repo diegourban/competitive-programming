@@ -73,4 +73,44 @@ class VectorTest {
         assertThat(vector.size()).isEqualTo(99);
         assertThat(vector.get(0)).isEqualTo(new Element("Element 1"));
     }
+
+    @Test
+    void shouldAddAtPositionEqualToSizeAsLast() {
+        final Vector vector = new Vector();
+        vector.add(new Element("Joao"));
+
+        vector.add(1, new Element("Jose"));
+
+        assertThat(vector.size()).isEqualTo(2);
+        assertThat(vector.get(1)).isEqualTo(new Element("Jose"));
+    }
+
+    @Test
+    void shouldAddAtPositionZeroOfEmptyVector() {
+        final Vector vector = new Vector();
+
+        vector.add(0, new Element("Joao"));
+
+        assertThat(vector.size()).isEqualTo(1);
+        assertThat(vector.get(0)).isEqualTo(new Element("Joao"));
+    }
+
+    @Test
+    void shouldRejectRemovingAMissingPosition() {
+        final Vector vector = new Vector();
+        vector.add(new Element("Joao"));
+        vector.add(new Element("Jose"));
+
+        assertThatIllegalArgumentException().isThrownBy(() -> vector.remove(5));
+        assertThatIllegalArgumentException().isThrownBy(() -> vector.remove(-1));
+        assertThat(vector.size()).isEqualTo(2);
+    }
+
+    @Test
+    void shouldRejectRemovingFromEmptyVector() {
+        final Vector vector = new Vector();
+
+        assertThatIllegalArgumentException().isThrownBy(() -> vector.remove(0));
+        assertThat(vector.size()).isZero();
+    }
 }
