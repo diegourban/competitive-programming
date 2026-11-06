@@ -1,0 +1,19 @@
+package io.github.diegourban.algorithms.math;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+class TriangleTypeTest {
+
+    @ParameterizedTest
+    @CsvSource({
+            "EQUILATERAL, Equilatero",
+            "ISOSCELES, Isoceles",
+            "ESCALENE, Escaleno"
+    })
+    void exposesDisplayName(TriangleType type, String expectedName) {
+        assertThat(type.getName()).isEqualTo(expectedName);
+    }
+}

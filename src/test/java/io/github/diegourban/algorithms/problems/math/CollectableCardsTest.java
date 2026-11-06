@@ -1,0 +1,59 @@
+package io.github.diegourban.algorithms.problems.math;
+
+import io.github.diegourban.algorithms.io.Reader;
+import io.github.diegourban.algorithms.math.Algebra;
+import io.github.diegourban.algorithms.testing.SampleLoader;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+/**
+ * Collectable Cards — beecrowd (formerly URI Online Judge) 1028.
+ * <p>
+ * https://judge.beecrowd.com/en/problems/view/1028
+ * <p>
+ * The largest equal-size piles that split both decks evenly have gcd(f1, f2) cards. Euclid's
+ * algorithm, O(log min(f1, f2)).
+ */
+class CollectableCardsTest {
+
+    private static final SampleLoader SAMPLES = new SampleLoader("problems/math/collectable-cards");
+
+    static long solve(int f1, int f2) {
+        return Algebra.gcdLoop(f1, f2);
+    }
+
+    static String run(InputStream in) throws IOException {
+        var reader = new Reader(in);
+        var tests = reader.nextInt();
+        var out = new StringBuilder();
+        for (var i = 0; i < tests; i++) {
+            out.append(solve(reader.nextInt(), reader.nextInt())).append('\n');
+        }
+        return out.toString();
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "8, 12, 4",
+            "9, 27, 9",
+            "259, 111, 37",
+            "1, 1, 1",
+            "7, 13, 1",
+            "1000, 1000, 1000",
+    })
+    void largestPileSizeIsTheGcd(int f1, int f2, long expected) {
+        assertThat(solve(f1, f2)).isEqualTo(expected);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"uri", "udebug"})
+    void matchesSample(String name) throws IOException {
+        assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
+    }
+}
