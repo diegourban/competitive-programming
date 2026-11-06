@@ -1,6 +1,6 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.Algebra;
+import io.github.diegourban.algorithms.math.NumberTheory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PrimesInNumbersTest {
 
     static String solve(int n) {
-        var counts = Algebra.primeFactorsList(n).stream()
+        var counts = NumberTheory.primeFactorsList(n).stream()
                 .collect(Collectors.groupingBy(Function.identity(), TreeMap::new, Collectors.counting()));
         var result = new StringBuilder();
         counts.forEach((prime, k) -> {

@@ -1,6 +1,6 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.Algebra;
+import io.github.diegourban.algorithms.math.NumberTheory;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -21,7 +21,7 @@ class CommonDenominatorsTest {
         if (fractions.length == 0) {
             return "";
         }
-        var lcm = Algebra.lcm(Arrays.stream(fractions).mapToLong(f -> f[1]).toArray());
+        var lcm = NumberTheory.lcm(Arrays.stream(fractions).mapToLong(f -> f[1]).toArray());
         var result = new StringBuilder();
         for (var f : fractions) {
             result.append('(').append(f[0] * (lcm / f[1])).append(',').append(lcm).append(')');

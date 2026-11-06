@@ -1,6 +1,6 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.Algebra;
+import io.github.diegourban.algorithms.math.NumberTheory;
 import org.junit.jupiter.api.Test;
 
 import java.util.TreeMap;
@@ -20,7 +20,7 @@ class SumByFactorsTest {
     static String solve(int[] numbers) {
         var sums = new TreeMap<Integer, Integer>();
         for (var number : numbers) {
-            for (var prime : Algebra.primeFactorsSet(Math.abs(number))) {
+            for (var prime : NumberTheory.primeFactorsSet(Math.abs(number))) {
                 sums.merge(prime, number, Integer::sum);
             }
         }

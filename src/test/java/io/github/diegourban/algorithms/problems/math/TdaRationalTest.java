@@ -1,6 +1,6 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.Algebra;
+import io.github.diegourban.algorithms.math.NumberTheory;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,7 +32,7 @@ class TdaRationalTest {
             case '/' -> new Fraction(a.numerator() * b.denominator(), b.numerator() * a.denominator());
             default -> throw new IllegalArgumentException("Invalid operator: " + operator);
         };
-        var gcd = (int) Algebra.gcdLoop(Math.abs(raw.numerator()), Math.abs(raw.denominator()));
+        var gcd = (int) NumberTheory.gcdLoop(Math.abs(raw.numerator()), Math.abs(raw.denominator()));
         return new Result(raw, new Fraction(raw.numerator() / gcd, raw.denominator() / gcd));
     }
 
