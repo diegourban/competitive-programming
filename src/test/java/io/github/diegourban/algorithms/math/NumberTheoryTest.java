@@ -11,11 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NumberTheoryTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new NumberTheory()).isNotNull();
-    }
-
-    @Test
     void shouldFindLeastCommonMultiplesOfTwoNumbers() {
         assertThat(NumberTheory.lcm(1, 2)).isEqualTo(2);
         assertThat(NumberTheory.lcm(2, 3)).isEqualTo(6);

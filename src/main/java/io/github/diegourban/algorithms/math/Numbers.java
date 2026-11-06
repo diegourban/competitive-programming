@@ -2,6 +2,9 @@ package io.github.diegourban.algorithms.math;
 
 public class Numbers {
 
+    private Numbers() {
+    }
+
     /**
      * Checks if a number contains a digit
      *

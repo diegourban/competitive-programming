@@ -4,6 +4,9 @@ import java.util.*;
 
 public class StringUtils {
 
+    private StringUtils() {
+    }
+
     public static boolean isPalindrome(String theString) {
         if (theString == null || theString.isEmpty()) {
             return false;

@@ -9,11 +9,6 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 class StringUtilsTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new StringUtils()).isNotNull();
-    }
-
-    @Test
     void shouldConsiderPalindrome() {
         assertThat(StringUtils.isPalindrome("a")).isTrue();
         assertThat(StringUtils.isPalindrome("aa")).isTrue();

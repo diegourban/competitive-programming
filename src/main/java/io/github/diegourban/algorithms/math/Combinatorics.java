@@ -4,6 +4,9 @@ import java.math.BigInteger;
 
 public class Combinatorics {
 
+    private Combinatorics() {
+    }
+
     /**
      * Pascal's Triangle
      * <p>

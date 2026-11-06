@@ -8,11 +8,6 @@ import org.junit.jupiter.api.Test;
 class GeometryTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new Geometry()).isNotNull();
-    }
-
-    @Test
     void shouldCalculateDistance() {
         assertThat(Geometry.distance(-2, 1, 1, 5)).isCloseTo(5.0, within(0.1));
     }

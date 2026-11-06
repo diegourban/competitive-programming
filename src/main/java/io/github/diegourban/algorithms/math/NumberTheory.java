@@ -7,6 +7,9 @@ import java.util.*;
  */
 public class NumberTheory {
 
+    private NumberTheory() {
+    }
+
     /**
      * Least common multiple (lcm) of two numbers.
      *

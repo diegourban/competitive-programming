@@ -10,11 +10,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CombinatoricsTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new Combinatorics()).isNotNull();
-    }
-
-    @Test
     void shouldCalculateBinomialCoefficient() {
         // invalid inputs
         assertThat(Combinatorics.binomialCoefficient(0, -1)).isEqualTo(new BigInteger("0"));
