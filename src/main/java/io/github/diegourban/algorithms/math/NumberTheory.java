@@ -55,14 +55,14 @@ public final class NumberTheory {
      * @return The greatest common divisor of two numbers.
      */
     public static long gcdLoop(final long a, final long b) {
-        long gcd = a;
-        long bNumber = b;
-        while (bNumber > 0) {
-            final long temp = bNumber;
-            bNumber = gcd % bNumber;
-            gcd = temp;
+        long dividend = a;
+        long divisor = b;
+        while (divisor > 0) {
+            final long temp = divisor;
+            divisor = dividend % divisor;
+            dividend = temp;
         }
-        return gcd;
+        return dividend;
     }
 
     /**

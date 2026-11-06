@@ -23,7 +23,7 @@ public class Vector {
      * @param element the element to append
      */
     public void add(final Element element) {
-        this.guaranteesSpace();
+        this.ensureCapacity();
 
         this.elements[this.totalElements] = element;
         this.totalElements++;
@@ -42,7 +42,7 @@ public class Vector {
             throw new IllegalArgumentException("Invalid position");
         }
 
-        this.guaranteesSpace();
+        this.ensureCapacity();
         for (int i = this.totalElements - 1; i >= position; i--) {
             this.elements[i + 1] = this.elements[i];
         }
@@ -115,7 +115,7 @@ public class Vector {
         return this.totalElements;
     }
 
-    private void guaranteesSpace() {
+    private void ensureCapacity() {
         if (this.totalElements == this.elements.length) {
             final Element[] newElements = new Element[this.elements.length * 2];
             for (int i = 0; i < this.elements.length; i++) {

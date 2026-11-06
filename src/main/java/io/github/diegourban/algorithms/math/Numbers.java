@@ -17,18 +17,18 @@ public final class Numbers {
      * @return {@code true} if the number contains the digit, {@code false} otherwise
      */
     public static boolean containsDigit(final long number, final long digit) {
-        long thisNumber = number >= 0 ? number : -number;
-        long thisDigit;
+        long remaining = number >= 0 ? number : -number;
+        long lastDigit;
 
-        if (thisNumber == 0) {
+        if (remaining == 0) {
             return digit == 0;
         }
 
         // take the last digit, then chop it off, until no digits are left
-        while (thisNumber != 0) {
-            thisDigit = thisNumber % 10;
-            thisNumber = thisNumber / 10;
-            if (thisDigit == digit) {
+        while (remaining != 0) {
+            lastDigit = remaining % 10;
+            remaining = remaining / 10;
+            if (lastDigit == digit) {
                 return true;
             }
         }
@@ -48,20 +48,20 @@ public final class Numbers {
      *     times, {@code false} otherwise
      */
     public static boolean containsRepeatingDigits(final long number, final int times) {
-        long theNumber = number;
-        Long old = null;
-        int reps = 0;
+        long remaining = number;
+        Long previousDigit = null;
+        int runLength = 0;
 
-        while (theNumber > 0) {
-            final Long n = theNumber % 10;
-            theNumber /= 10;
-            if (n.equals(old)) {
-                if (++reps == times) {
+        while (remaining > 0) {
+            final Long digit = remaining % 10;
+            remaining /= 10;
+            if (digit.equals(previousDigit)) {
+                if (++runLength == times) {
                     return true;
                 }
             } else {
-                old = n;
-                reps = 1;
+                previousDigit = digit;
+                runLength = 1;
             }
         }
 

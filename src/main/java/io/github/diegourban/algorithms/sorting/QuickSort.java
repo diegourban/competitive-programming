@@ -32,18 +32,18 @@ public class QuickSort implements Sorter {
     }
 
     private int partition(final int[] items, final int start, final int end) {
-        int minorsFound = start;
+        int boundary = start;
 
         final int pivot = items[end - 1];
         for (int current = start; current < end - 1; current++) {
             final int currentItem = items[current];
             if (currentItem <= pivot) {
-                swap(items, current, minorsFound);
-                minorsFound++;
+                swap(items, current, boundary);
+                boundary++;
             }
         }
-        swap(items, end - 1, minorsFound);
-        return minorsFound;
+        swap(items, end - 1, boundary);
+        return boundary;
     }
 
     private void swap(final int[] items, final int from, final int to) {

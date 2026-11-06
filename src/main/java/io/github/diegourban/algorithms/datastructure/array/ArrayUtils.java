@@ -9,7 +9,7 @@ public final class ArrayUtils {
 
     private ArrayUtils() {}
 
-    private static final Random rand = new Random();
+    private static final Random RANDOM = new Random();
 
     /**
      * Function for doing an in-place (Fisher–Yates) shuffle of an array.
@@ -22,33 +22,33 @@ public final class ArrayUtils {
      * <p>
      * Arrays with zero or one element are left unchanged.
      *
-     * @param theArray the array to shuffle; modified in place
+     * @param values the array to shuffle; modified in place
      */
-    public static void shuffle(final int[] theArray) {
+    public static void shuffle(final int[] values) {
         // if it's 1 or 0 items, just return
-        if (theArray.length <= 1) {
+        if (values.length <= 1) {
             return;
         }
 
         // walk through from beginning to end
-        for (int indexWeAreChoosingFor = 0; indexWeAreChoosingFor < theArray.length - 1; indexWeAreChoosingFor++) {
+        for (int targetIndex = 0; targetIndex < values.length - 1; targetIndex++) {
 
             // choose a random not-yet-placed item to place there
             // (could also be the item currently in that spot)
             // must be an item AFTER the current item, because the stuff
             // before has all already been placed
-            final int randomChoiceIndex = getRandom(indexWeAreChoosingFor, theArray.length - 1);
+            final int randomChoiceIndex = randomBetweenInclusive(targetIndex, values.length - 1);
 
             // place our random choice in the spot by swapping
-            if (randomChoiceIndex != indexWeAreChoosingFor) {
-                final int valueAtIndexWeChoseFor = theArray[indexWeAreChoosingFor];
-                theArray[indexWeAreChoosingFor] = theArray[randomChoiceIndex];
-                theArray[randomChoiceIndex] = valueAtIndexWeChoseFor;
+            if (randomChoiceIndex != targetIndex) {
+                final int displacedValue = values[targetIndex];
+                values[targetIndex] = values[randomChoiceIndex];
+                values[randomChoiceIndex] = displacedValue;
             }
         }
     }
 
-    private static int getRandom(final int floor, final int ceiling) {
-        return rand.nextInt((ceiling - floor) + 1) + floor;
+    private static int randomBetweenInclusive(final int min, final int max) {
+        return RANDOM.nextInt((max - min) + 1) + min;
     }
 }

@@ -22,21 +22,21 @@ public class SelectionSort implements Sorter {
      */
     private void sort(final int[] items, final int totalElements) {
         for (int current = 0; current < totalElements - 1; current++) {
-            final int smallerIndex = findSmallerIndex(items, current, totalElements);
+            final int smallestIndex = findSmallestIndex(items, current, totalElements);
             final Integer currentItem = items[current];
-            final Integer smallerItem = items[smallerIndex];
-            items[current] = smallerItem;
-            items[smallerIndex] = currentItem;
+            final Integer smallestItem = items[smallestIndex];
+            items[current] = smallestItem;
+            items[smallestIndex] = currentItem;
         }
     }
 
-    private int findSmallerIndex(final int[] items, final int begin, final int end) {
-        int smallerIndex = begin;
+    private int findSmallestIndex(final int[] items, final int begin, final int end) {
+        int smallestIndex = begin;
         for (int i = begin; i < end; i++) {
-            if (items[i] < items[smallerIndex]) {
-                smallerIndex = i;
+            if (items[i] < items[smallestIndex]) {
+                smallestIndex = i;
             }
         }
-        return smallerIndex;
+        return smallestIndex;
     }
 }
