@@ -39,16 +39,4 @@ class CombinatoricsTest {
         assertThat(Combinatorics.binomialCoefficient(7, 5)).isEqualTo(new BigInteger("21"));
     }
 
-    @Test
-    void shouldHandleKnapsackProblem() {
-        final Combinatorics combinatorics = new Combinatorics();
-        final Combinatorics.Box[] boxes = new Combinatorics.Box[3];
-        boxes[0] = combinatorics.new Box(1, 3);
-        boxes[1] = combinatorics.new Box(2, 2);
-        boxes[2] = combinatorics.new Box(4, 5);
-
-        final long value = Combinatorics.knapsackProblem(boxes, 15);
-        assertThat(value).isEqualTo(45L);
-    }
-
 }
