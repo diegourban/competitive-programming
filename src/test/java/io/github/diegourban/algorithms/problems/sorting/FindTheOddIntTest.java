@@ -19,7 +19,7 @@ class FindTheOddIntTest {
 
     static int solve(int[] numbers) {
         var sorted = numbers.clone();
-        new MergeSort().sort(sorted, 0, sorted.length);
+        new MergeSort().sort(sorted);
         var runStart = 0;
         for (var i = 1; i <= sorted.length; i++) {
             if (i == sorted.length || sorted[i] != sorted[runStart]) {

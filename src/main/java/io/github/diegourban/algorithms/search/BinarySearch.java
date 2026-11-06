@@ -6,6 +6,17 @@ package io.github.diegourban.algorithms.search;
 public class BinarySearch {
 
     /**
+     * Finds an element in an ordered list
+     *
+     * @param sorted an ordered list of items to find
+     * @param key    the element to find
+     * @return the index of the element, -1 otherwise
+     */
+    public static int indexOf(final int[] sorted, final int key) {
+        return find(sorted, 0, sorted.length - 1, key);
+    }
+
+    /**
      * Finds an element in a list
      * <p>
      * Complexity: O(log n) time and O(1) space
@@ -16,7 +27,7 @@ public class BinarySearch {
      * @param element the element to find
      * @return the index of the element, -1 otherwise
      */
-    public int find(final int[] items, final int from, final int to, final int element) {
+    private static int find(final int[] items, final int from, final int to, final int element) {
         if(from > to) {
             return -1;
         }

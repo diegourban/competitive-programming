@@ -3,7 +3,12 @@ package io.github.diegourban.algorithms.sorting;
 /**
  * Merge sort algorithm
  */
-public class MergeSort {
+public class MergeSort implements Sorter {
+
+    @Override
+    public void sort(final int[] items) {
+        sort(items, 0, items.length);
+    }
 
     /**
      * Sorts the items from begin to end
@@ -12,7 +17,7 @@ public class MergeSort {
      * @param begin begin
      * @param end end
      */
-    public void sort(final int[] items, final int begin, final int end) {
+    private void sort(final int[] items, final int begin, final int end) {
         final int total = end - begin;
         if(total > 1) {
             final int middle = (begin + end) / 2;

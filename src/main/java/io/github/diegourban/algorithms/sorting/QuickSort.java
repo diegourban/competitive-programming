@@ -3,7 +3,12 @@ package io.github.diegourban.algorithms.sorting;
 /**
  * Quick sort algorithm
  */
-public class QuickSort {
+public class QuickSort implements Sorter {
+
+    @Override
+    public void sort(final int[] items) {
+        sort(items, 0, items.length);
+    }
 
     /**
      * Sort the items from start to end
@@ -12,20 +17,20 @@ public class QuickSort {
      * @param start from
      * @param end end
      */
-    public void sort(final int[] items, final int start, final int end) {
+    private void sort(final int[] items, final int start, final int end) {
         final int totalElements = end - start;
         if(totalElements > 1) {
-            final int pivotPosition = partition(items, end);
+            final int pivotPosition = partition(items, start, end);
             sort(items, start, pivotPosition);
             sort(items, pivotPosition + 1, end);
         }
     }
 
-    private int partition(final int[] items, final int end) {
-        int minorsFound = 0;
+    private int partition(final int[] items, final int start, final int end) {
+        int minorsFound = start;
 
         final int pivot = items[end - 1];
-        for(int current = 0; current < end - 1; current++) {
+        for(int current = start; current < end - 1; current++) {
             final int currentItem = items[current];
             if(currentItem <= pivot) {
                 swap(items, current, minorsFound);
