@@ -41,11 +41,23 @@ public final class ArrayUtils {
 
             // place our random choice in the spot by swapping
             if (randomChoiceIndex != targetIndex) {
-                final int displacedValue = values[targetIndex];
-                values[targetIndex] = values[randomChoiceIndex];
-                values[randomChoiceIndex] = displacedValue;
+                swap(values, targetIndex, randomChoiceIndex);
             }
         }
+    }
+
+    /**
+     * Swaps two positions of an array in place.
+     *
+     * @param values the array
+     * @param i the first position
+     * @param j the second position
+     * @throws ArrayIndexOutOfBoundsException if either position is outside the array
+     */
+    public static void swap(final int[] values, final int i, final int j) {
+        final int value = values[i];
+        values[i] = values[j];
+        values[j] = value;
     }
 
     private static int randomBetweenInclusive(final int min, final int max) {

@@ -26,4 +26,15 @@ class ArrayUtilsTest {
         final Integer[] what = Arrays.stream(array).boxed().toArray(Integer[]::new);
         assertThat(what).containsExactlyInAnyOrder(1, 2, 3, 4, 5);
     }
+
+    @Test
+    void shouldSwapTwoPositions() {
+        final int[] values = {1, 2, 3};
+
+        ArrayUtils.swap(values, 0, 2);
+        assertThat(values).containsExactly(3, 2, 1);
+
+        ArrayUtils.swap(values, 1, 1);
+        assertThat(values).containsExactly(3, 2, 1);
+    }
 }

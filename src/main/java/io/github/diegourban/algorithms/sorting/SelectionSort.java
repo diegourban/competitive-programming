@@ -1,5 +1,7 @@
 package io.github.diegourban.algorithms.sorting;
 
+import io.github.diegourban.algorithms.datastructure.array.ArrayUtils;
+
 /**
  * Selection Sort algorithm: repeatedly swaps the smallest remaining element into place; O(n²) time in
  * every case and O(1) extra space.
@@ -23,10 +25,7 @@ public class SelectionSort implements Sorter {
     private void sort(final int[] items, final int totalElements) {
         for (int current = 0; current < totalElements - 1; current++) {
             final int smallestIndex = findSmallestIndex(items, current, totalElements);
-            final Integer currentItem = items[current];
-            final Integer smallestItem = items[smallestIndex];
-            items[current] = smallestItem;
-            items[smallestIndex] = currentItem;
+            ArrayUtils.swap(items, current, smallestIndex);
         }
     }
 
