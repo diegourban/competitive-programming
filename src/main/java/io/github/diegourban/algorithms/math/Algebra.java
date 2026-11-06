@@ -84,7 +84,7 @@ public class Algebra {
         }
 
         int i = 5;
-        while (i * i <= n) {
+        while (i <= n / i) {
             if (n % i == 0 || n % (i + 2) == 0) {
                 return false;
             }

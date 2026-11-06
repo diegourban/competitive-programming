@@ -1,6 +1,7 @@
 package io.github.diegourban.algorithms.math;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -79,6 +80,13 @@ class AlgebraTest {
         assertThat(Algebra.isPrime(43)).isTrue();
         assertThat(Algebra.isPrime(47)).isTrue();
         assertThat(Algebra.isPrime(7919)).isTrue();
+    }
+
+    @Test
+    @Timeout(1)
+    void shouldHandlePrimalityNearIntegerMaxValue() {
+        assertThat(Algebra.isPrime(Integer.MAX_VALUE)).isTrue(); // 2^31 - 1 is a Mersenne prime
+        assertThat(Algebra.isPrime(46337 * 46337)).isFalse(); // square of the largest prime below sqrt(MAX_VALUE)
     }
 
     @Test
