@@ -18,7 +18,7 @@ Requires Java 25. Maven comes with the wrapper.
 
 ```
 src/main/java/io/github/diegourban/algorithms/
-  datastructure/   array, binarytree, graph, linkedlist, queue, set, stack, trie, vector
+  datastructure/   array (shuffle), binarytree, linkedlist, queue, set, stack, vector
   io/              Reader: fast tokenising stdin reader for judge-style input
   math/            Algebra (gcd, lcm, primes, factorisation), Combinatorics, Geometry, Numbers, Statistics
   search/          BinarySearch
@@ -35,11 +35,11 @@ src/test/java/io/github/diegourban/algorithms/
 
 Each problem is one test class, `problems/<topic>/<Name>Test.java`:
 
-- The Javadoc gives the title, the source (beecrowd/URI, Codewars, SPOJ, Interview Cake) and a link, plus a line on the approach and its complexity.
+- The Javadoc gives the title, the source (beecrowd/URI, Codewars, SPOJ, Interview Cake, HackerRank) and a link, plus a line on the approach and its complexity.
 - `static solve(...)` is a pure function on typed inputs, and the unit tests call it directly.
 - Problems with judge sample files also have a `static String run(InputStream)` adapter (`Reader` → `solve` → judge-formatted output). A parameterised test replays every `.in`/`.out` pair from `src/test/resources/problems/<topic>/<name>/` through it.
 
-Topics: `bit`, `datastructure.{array,map,set,stack}`, `greedy`, `math`, `recursion`, `search`, `simulation`, `sorting`, `string`.
+Topics: `bit`, `datastructure.{array,graph,linkedlist,map,queue,set,stack,tree,trie}`, `dp`, `greedy`, `math`, `recursion`, `search`, `simulation`, `sorting`, `string`.
 
 A problem's id is `<topic>/<kebab-name>` (e.g. `math/prime-generator`), the same in the resource folder and in any future `algorithms-<language>` sibling repo, so problems and their sample files port across languages one to one. This repo is the source of truth for the problem catalogue.
 
