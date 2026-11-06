@@ -55,17 +55,16 @@ public class LinkedList {
     /**
      * Inserts an element at the given position, shifting later elements one position back.
      * <p>
-     * If the list is empty the element is added regardless of {@code position}. If {@code position} equals
-     * {@link #size()} the element is appended. Otherwise the element is linked after the node at
-     * {@code position - 1}, so inserting at position {@code 0} of a non-empty list is not supported.
+     * If the list is empty the element is added regardless of {@code position}. Position {@code 0} inserts at the
+     * start and {@link #size()} appends; otherwise the element is linked after the node at {@code position - 1}.
      *
-     * @param position the position for the new element, from {@code 1} to {@link #size()} on a non-empty list
+     * @param position the position for the new element, from {@code 0} to {@link #size()}
      * @param element the element to insert
-     * @throws IllegalArgumentException if the list is not empty and {@code position - 1} is not an occupied position
-     *     (including {@code position == 0})
+     * @throws IllegalArgumentException if the list is not empty and {@code position} is negative or greater than
+     *     {@link #size()}
      */
     public void add(final int position, final Element element) {
-        if (this.totalElements == 0) {
+        if (this.totalElements == 0 || position == 0) {
             addAtStart(element);
         } else if (position == this.totalElements) {
             addAtEnd(element);
@@ -132,14 +131,20 @@ public class LinkedList {
 
         if (this.totalElements == 0) {
             this.last = null;
+        } else {
+            this.first.setPrevious(null);
         }
     }
 
     /**
-     * Removes the last element. Unlike {@link #removeFromStart()}, calling this on an empty list fails with a
-     * {@code NullPointerException} rather than an {@code IllegalStateException}.
+     * Removes the last element.
+     *
+     * @throws IllegalStateException if the list is empty
      */
     public void removeFromEnd() {
+        if (this.totalElements == 0) {
+            throw new IllegalStateException("Lista vazia");
+        }
         if (this.totalElements == 1) {
             this.removeFromStart();
         } else {
@@ -155,14 +160,10 @@ public class LinkedList {
      * <p>
      * Position {@code 0} delegates to {@link #removeFromStart()} and position {@code size() - 1} to
      * {@link #removeFromEnd()}; any other position unlinks the node after {@code position - 1}.
-     * <p>
-     * Positions are not fully validated: on a non-empty list, {@code position == size()} fails with a
-     * {@code NullPointerException}, as does {@code -1} on an empty list.
      *
      * @param position the zero-based position, from {@code 0} to {@code size() - 1}
-     * @throws IllegalStateException if {@code position} is {@code 0} and the list is empty
-     * @throws IllegalArgumentException if {@code position} is negative or greater than {@link #size()}, except
-     *     {@code -1} on an empty list
+     * @throws IllegalStateException if the list is empty and {@code position} is {@code 0} or {@code -1}
+     * @throws IllegalArgumentException if {@code position} is otherwise not an occupied position
      */
     public void remove(final int position) {
         if (position == 0) {
@@ -170,6 +171,9 @@ public class LinkedList {
         } else if (position == totalElements - 1) {
             this.removeFromEnd();
         } else {
+            if (!positionOccupied(position)) {
+                throw new IllegalArgumentException("Posição inexistente");
+            }
             final LinkedListNode previous = this.getNode(position - 1);
             final LinkedListNode current = previous.getNext();
             final LinkedListNode next = current.getNext();

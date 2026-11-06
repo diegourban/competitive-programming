@@ -195,4 +195,41 @@ class LinkedListTest {
     void shouldPrintEmptyList() {
         assertThat(new LinkedList()).hasToString("[]");
     }
+
+    @Test
+    void shouldAddAtPositionZeroOfNonEmptyList() {
+        final LinkedList linkedList = new LinkedList();
+        linkedList.addAtEnd(new Element("paulo"));
+        linkedList.addAtEnd(new Element("josé"));
+
+        linkedList.add(0, new Element("diego"));
+
+        assertThat(linkedList).hasToString("[diego,paulo,josé,]");
+        assertThat(linkedList.getFirst().getNext().getPrevious().getElement()).isEqualTo(new Element("diego"));
+    }
+
+    @Test
+    void shouldRejectRemovingFromEndOfEmptyList() {
+        assertThatIllegalStateException().isThrownBy(() -> new LinkedList().removeFromEnd());
+    }
+
+    @Test
+    void shouldRejectRemovingAMissingPosition() {
+        final LinkedList linkedList = new LinkedList();
+        linkedList.addAtEnd(new Element("diego"));
+
+        assertThatIllegalArgumentException().isThrownBy(() -> linkedList.remove(1));
+        assertThat(linkedList.size()).isEqualTo(1);
+    }
+
+    @Test
+    void shouldUnlinkTheRemovedNodeFromTheNewFirst() {
+        final LinkedList linkedList = new LinkedList();
+        linkedList.addAtEnd(new Element("diego"));
+        linkedList.addAtEnd(new Element("paulo"));
+
+        linkedList.removeFromStart();
+
+        assertThat(linkedList.getFirst().getPrevious()).isNull();
+    }
 }
