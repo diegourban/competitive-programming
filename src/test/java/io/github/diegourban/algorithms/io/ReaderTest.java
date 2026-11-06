@@ -499,4 +499,13 @@ class ReaderTest {
 
         assertThat(day).isEqualTo(5);
     }
+
+    @Test
+    void shouldEndLinesAtCarriageReturnsAndSkipBlankOnes() throws Exception {
+        final Reader reader = new Reader(new java.io.ByteArrayInputStream("first\r\nsecond\r\r\nthird".getBytes()));
+
+        assertThat(reader.readLine()).isEqualTo("first");
+        assertThat(reader.readLine()).isEqualTo("second");
+        assertThat(reader.readLine()).isEqualTo("third");
+    }
 }
