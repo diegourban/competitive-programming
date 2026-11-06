@@ -83,10 +83,10 @@ public class Sequences {
         }
 
         final double phi = (1 + Math.sqrt(5)) / 2;
-        BigDecimal sqrt5 = new BigDecimal(Math.sqrt(5));
+        BigDecimal sqrt5 = BigDecimal.valueOf(Math.sqrt(5));
 
-        BigDecimal pow = new BigDecimal(Math.pow(phi, n));
-        BigDecimal powInvrt = new BigDecimal(Math.pow(-phi, -n));
+        BigDecimal pow = BigDecimal.valueOf(Math.pow(phi, n));
+        BigDecimal powInvrt = BigDecimal.valueOf(Math.pow(-phi, -n));
         return pow.subtract(powInvrt).divide(sqrt5, RoundingMode.HALF_UP).toBigInteger();
     }
 
