@@ -13,10 +13,10 @@ import net.jqwik.api.Property;
 class BinarySearchPropertyTest {
 
     @Property
-    void agreesWithTheJdk(@ForAll int[] items, @ForAll int key) {
+    void agreesWithTheJdk(@ForAll final int[] items, @ForAll final int key) {
         Arrays.sort(items);
 
-        var index = BinarySearch.indexOf(items, key);
+        final var index = BinarySearch.indexOf(items, key);
 
         if (Arrays.binarySearch(items, key) >= 0) {
             assertThat(items[index]).isEqualTo(key);
@@ -26,10 +26,10 @@ class BinarySearchPropertyTest {
     }
 
     @Property
-    void findsEveryElementThatIsPresent(@ForAll int[] items) {
+    void findsEveryElementThatIsPresent(@ForAll final int[] items) {
         Arrays.sort(items);
 
-        for (var item : items) {
+        for (final var item : items) {
             assertThat(items[BinarySearch.indexOf(items, item)]).isEqualTo(item);
         }
     }

@@ -14,26 +14,26 @@ import net.jqwik.api.constraints.IntRange;
 class SequencesPropertyTest {
 
     @Property(generation = GenerationMode.EXHAUSTIVE)
-    void fibonacciIsExactUpTo46(@ForAll @IntRange(min = 0, max = 46) int n) {
+    void fibonacciIsExactUpTo46(@ForAll @IntRange(min = 0, max = 46) final int n) {
         assertThat(BigInteger.valueOf(Sequences.fibonacci(n))).isEqualTo(exactFibonacci(n));
     }
 
     @Property(generation = GenerationMode.EXHAUSTIVE)
-    void simpleBinetFormulaRoundsToTheExactValueUpTo67(@ForAll @IntRange(min = 0, max = 67) int n) {
+    void simpleBinetFormulaRoundsToTheExactValueUpTo67(@ForAll @IntRange(min = 0, max = 67) final int n) {
         assertThat(BigInteger.valueOf(Math.round(Sequences.fibonacciSimpleBinetFormula(n))))
                 .isEqualTo(exactFibonacci(n));
     }
 
     @Property(generation = GenerationMode.EXHAUSTIVE)
-    void binetFormulaIsExactUpTo71(@ForAll @IntRange(min = 0, max = 71) int n) {
+    void binetFormulaIsExactUpTo71(@ForAll @IntRange(min = 0, max = 71) final int n) {
         assertThat(Sequences.fibonacciBinetFormula(n)).isEqualTo(exactFibonacci(n));
     }
 
-    private static BigInteger exactFibonacci(int n) {
+    private static BigInteger exactFibonacci(final int n) {
         var previous = BigInteger.ZERO;
         var current = BigInteger.ONE;
         for (var i = 0; i < n; i++) {
-            var next = previous.add(current);
+            final var next = previous.add(current);
             previous = current;
             current = next;
         }

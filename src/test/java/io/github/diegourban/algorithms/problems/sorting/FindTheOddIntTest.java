@@ -17,8 +17,8 @@ import org.junit.jupiter.api.Test;
  */
 class FindTheOddIntTest {
 
-    static int solve(int[] numbers) {
-        var sorted = numbers.clone();
+    static int solve(final int[] numbers) {
+        final var sorted = numbers.clone();
         new MergeSort().sort(sorted);
         var runStart = 0;
         for (var i = 1; i <= sorted.length; i++) {
@@ -61,7 +61,7 @@ class FindTheOddIntTest {
 
     @Test
     void doesNotMutateInput() {
-        var numbers = new int[] {3, 1, 3};
+        final var numbers = new int[] {3, 1, 3};
         solve(numbers);
         assertThat(numbers).containsExactly(3, 1, 3);
     }

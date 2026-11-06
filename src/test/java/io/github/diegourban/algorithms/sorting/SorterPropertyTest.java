@@ -20,8 +20,8 @@ class SorterPropertyTest {
     }
 
     @Property
-    void agreesWithTheJdk(@ForAll("sorters") Sorter sorter, @ForAll int[] items) {
-        var expected = items.clone();
+    void agreesWithTheJdk(@ForAll("sorters") final Sorter sorter, @ForAll final int[] items) {
+        final var expected = items.clone();
         Arrays.sort(expected);
 
         sorter.sort(items);

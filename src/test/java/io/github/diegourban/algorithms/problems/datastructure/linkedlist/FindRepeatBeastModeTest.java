@@ -15,8 +15,8 @@ import org.junit.jupiter.api.Test;
  */
 class FindRepeatBeastModeTest {
 
-    static int solve(int[] numbers) {
-        var head = numbers.length;
+    static int solve(final int[] numbers) {
+        final var head = numbers.length;
 
         var positionInCycle = head;
         for (var step = 0; step < numbers.length - 1; step++) {
@@ -42,7 +42,7 @@ class FindRepeatBeastModeTest {
         return behind;
     }
 
-    private static int next(int[] numbers, int position) {
+    private static int next(final int[] numbers, final int position) {
         return numbers[position - 1];
     }
 

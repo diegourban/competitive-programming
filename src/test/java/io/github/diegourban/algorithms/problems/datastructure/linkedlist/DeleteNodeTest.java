@@ -17,8 +17,8 @@ import org.junit.jupiter.api.Test;
  */
 class DeleteNodeTest {
 
-    static void solve(LinkedListNode nodeToDelete) {
-        var next = nodeToDelete.getNext();
+    static void solve(final LinkedListNode nodeToDelete) {
+        final var next = nodeToDelete.getNext();
         if (next == null) {
             throw new IllegalArgumentException("Can't delete the last node with this method!");
         }
@@ -28,9 +28,9 @@ class DeleteNodeTest {
 
     @Test
     void deletesAMiddleNode() {
-        var a = new LinkedListNode(new Element("A"));
-        var b = new LinkedListNode(new Element("B"));
-        var c = new LinkedListNode(new Element("C"));
+        final var a = new LinkedListNode(new Element("A"));
+        final var b = new LinkedListNode(new Element("B"));
+        final var c = new LinkedListNode(new Element("C"));
         a.setNext(b);
         b.setNext(c);
 
@@ -42,7 +42,7 @@ class DeleteNodeTest {
 
     @Test
     void lastNodeCannotBeDeleted() {
-        var a = new LinkedListNode(new Element("A"));
+        final var a = new LinkedListNode(new Element("A"));
 
         assertThatIllegalArgumentException().isThrownBy(() -> solve(a));
     }

@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
  */
 class PermutationPalindromeTest {
 
-    static boolean solve(String text) {
-        var unpaired = new HashSet<Character>();
-        for (var c : text.toCharArray()) {
+    static boolean solve(final String text) {
+        final var unpaired = new HashSet<Character>();
+        for (final var c : text.toCharArray()) {
             if (!unpaired.remove(c)) {
                 unpaired.add(c);
             }

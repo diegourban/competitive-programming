@@ -22,15 +22,15 @@ import org.junit.jupiter.api.Test;
  */
 class PrimeGeneratorTest {
 
-    static List<Integer> solve(int m, int n) {
-        var low = Math.max(m, 2);
-        var primes = new ArrayList<Integer>();
+    static List<Integer> solve(final int m, final int n) {
+        final var low = Math.max(m, 2);
+        final var primes = new ArrayList<Integer>();
         if (low > n) {
             return primes;
         }
-        var limit = (int) Math.sqrt(n);
-        var composite = new boolean[limit + 1];
-        var segment = new boolean[n - low + 1];
+        final var limit = (int) Math.sqrt(n);
+        final var composite = new boolean[limit + 1];
+        final var segment = new boolean[n - low + 1];
         for (var p = 2; p <= limit; p++) {
             if (composite[p]) {
                 continue;
@@ -38,7 +38,7 @@ class PrimeGeneratorTest {
             for (var multiple = (long) p * p; multiple <= limit; multiple += p) {
                 composite[(int) multiple] = true;
             }
-            var first = Math.max((long) p * p, (low + p - 1L) / p * p);
+            final var first = Math.max((long) p * p, (low + p - 1L) / p * p);
             for (var multiple = first; multiple <= n; multiple += p) {
                 segment[(int) (multiple - low)] = true;
             }
@@ -51,15 +51,15 @@ class PrimeGeneratorTest {
         return primes;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var t = reader.nextInt();
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var t = reader.nextInt();
+        final var out = new StringBuilder();
         for (var i = 0; i < t; i++) {
             if (i > 0) {
                 out.append('\n');
             }
-            for (var prime : solve(reader.nextInt(), reader.nextInt())) {
+            for (final var prime : solve(reader.nextInt(), reader.nextInt())) {
                 out.append(prime).append('\n');
             }
         }
@@ -68,7 +68,7 @@ class PrimeGeneratorTest {
 
     private final SampleLoader samples = new SampleLoader("problems/math/prime-generator");
 
-    private static InputStream input(String text) {
+    private static InputStream input(final String text) {
         return new ByteArrayInputStream(text.getBytes(StandardCharsets.UTF_8));
     }
 

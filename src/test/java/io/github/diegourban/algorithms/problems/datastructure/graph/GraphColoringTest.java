@@ -23,28 +23,28 @@ class GraphColoringTest {
         private final Set<GraphNode> neighbors = new HashSet<>();
         private String color;
 
-        private GraphNode(String label) {
+        private GraphNode(final String label) {
             this.label = label;
         }
 
-        private void connect(GraphNode other) {
+        private void connect(final GraphNode other) {
             neighbors.add(other);
             other.neighbors.add(this);
         }
     }
 
-    static void solve(List<GraphNode> graph, List<String> colors) {
-        for (var node : graph) {
+    static void solve(final List<GraphNode> graph, final List<String> colors) {
+        for (final var node : graph) {
             if (node.neighbors.contains(node)) {
                 throw new IllegalArgumentException("Legal coloring impossible for node with loop: " + node.label);
             }
-            var illegalColors = new HashSet<String>();
-            for (var neighbor : node.neighbors) {
+            final var illegalColors = new HashSet<String>();
+            for (final var neighbor : node.neighbors) {
                 if (neighbor.color != null) {
                     illegalColors.add(neighbor.color);
                 }
             }
-            for (var color : colors) {
+            for (final var color : colors) {
                 if (!illegalColors.contains(color)) {
                     node.color = color;
                     break;
@@ -55,26 +55,27 @@ class GraphColoringTest {
 
     @Test
     void colorsAPathWithoutNeighborClashes() {
-        var a = new GraphNode("a");
-        var b = new GraphNode("b");
-        var c = new GraphNode("c");
+        final var a = new GraphNode("a");
+        final var b = new GraphNode("b");
+        final var c = new GraphNode("c");
         a.connect(b);
         b.connect(c);
-        var colors = List.of("red", "green", "blue");
+        final var colors = List.of("red", "green", "blue");
 
         solve(List.of(a, b, c), colors);
 
         assertThat(b.color).isIn(colors);
-        var remaining = colors.stream().filter(color -> !color.equals(b.color)).toList();
+        final var remaining =
+                colors.stream().filter(color -> !color.equals(b.color)).toList();
         assertThat(a.color).isIn(remaining);
         assertThat(c.color).isIn(remaining);
     }
 
     @Test
     void colorsATriangleWithThreeDistinctColors() {
-        var a = new GraphNode("a");
-        var b = new GraphNode("b");
-        var c = new GraphNode("c");
+        final var a = new GraphNode("a");
+        final var b = new GraphNode("b");
+        final var c = new GraphNode("c");
         a.connect(b);
         b.connect(c);
         c.connect(a);
@@ -86,7 +87,7 @@ class GraphColoringTest {
 
     @Test
     void nodeWithLoopCannotBeColored() {
-        var a = new GraphNode("a");
+        final var a = new GraphNode("a");
         a.neighbors.add(a);
 
         assertThatIllegalArgumentException().isThrownBy(() -> solve(List.of(a), List.of("red", "green")));

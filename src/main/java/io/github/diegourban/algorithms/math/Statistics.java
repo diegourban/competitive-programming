@@ -2,7 +2,7 @@ package io.github.diegourban.algorithms.math;
 
 import java.util.Arrays;
 
-public class Statistics {
+public final class Statistics {
 
     private Statistics() {}
 
@@ -13,13 +13,13 @@ public class Statistics {
      * @param data
      * @return
      */
-    public static double mean(double[] data) {
+    public static double mean(final double[] data) {
         if (data.length == 0) {
             return 0.0;
         }
 
         double sum = 0.0;
-        for (double value : data) {
+        for (final double value : data) {
             sum += value;
         }
 
@@ -32,7 +32,7 @@ public class Statistics {
      * @param data
      * @return
      */
-    public static double median(double[] data) {
+    public static double median(final double[] data) {
         Arrays.sort(data);
 
         final int middle = data.length / 2;
@@ -50,7 +50,7 @@ public class Statistics {
      * @param data
      * @return
      */
-    public static double mode(double[] data) {
+    public static double mode(final double[] data) {
         double maxValue = 0;
         int maxCount = 0;
 
@@ -75,11 +75,11 @@ public class Statistics {
      * @param data
      * @return the Average Absolute Deviation from data
      */
-    public static double meanAbsoluteDeviation(double[] data) {
-        double mean = mean(data);
+    public static double meanAbsoluteDeviation(final double[] data) {
+        final double mean = mean(data);
 
         double sum = 0;
-        for (double value : data) {
+        for (final double value : data) {
             sum += Math.abs(value - mean);
         }
 

@@ -16,14 +16,14 @@ public class Reader {
     private final byte[] buffer;
     private int bufferPointer, bytesRead;
 
-    public Reader(InputStream input) {
+    public Reader(final InputStream input) {
         din = new DataInputStream(input);
         buffer = new byte[BUFFER_SIZE];
         bufferPointer = bytesRead = 0;
     }
 
     public String readLine() throws IOException {
-        byte[] buf = new byte[10000]; // line length
+        final byte[] buf = new byte[10000]; // line length
         int cnt = 0;
         int c = 0;
 
@@ -47,7 +47,7 @@ public class Reader {
             c = read();
         }
 
-        boolean neg = (c == '-');
+        final boolean neg = (c == '-');
         if (neg) {
             c = read();
         }
@@ -81,7 +81,7 @@ public class Reader {
             c = read();
         }
 
-        boolean neg = (c == '-');
+        final boolean neg = (c == '-');
         if (neg) {
             c = read();
         }
@@ -106,7 +106,7 @@ public class Reader {
             c = read();
         }
 
-        boolean neg = (c == '-');
+        final boolean neg = (c == '-');
         if (neg) {
             c = read();
         }
@@ -128,7 +128,7 @@ public class Reader {
         return ret;
     }
 
-    public void skip(int n) throws IOException {
+    public void skip(final int n) throws IOException {
         for (int i = 0; i < n; i++) {
             read();
         }

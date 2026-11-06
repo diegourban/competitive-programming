@@ -2,7 +2,7 @@ package io.github.diegourban.algorithms.math;
 
 import java.math.BigInteger;
 
-public class Combinatorics {
+public final class Combinatorics {
 
     private Combinatorics() {}
 
@@ -22,7 +22,7 @@ public class Combinatorics {
      * @param m the column number (0-indexed)
      * @return
      */
-    public static BigInteger binomialCoefficient(int n, int m) {
+    public static BigInteger binomialCoefficient(final int n, final int m) {
         if (m < 0 || m > n) {
             return new BigInteger("0");
         }
@@ -35,7 +35,7 @@ public class Combinatorics {
             return new BigInteger(String.valueOf(n));
         }
 
-        BigInteger[] binomials = new BigInteger[n + 1];
+        final BigInteger[] binomials = new BigInteger[n + 1];
         binomials[0] = new BigInteger("1");
         for (int i = 1; i <= n; i++) {
             binomials[i] = new BigInteger("1");

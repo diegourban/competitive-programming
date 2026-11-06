@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Number theory: greatest common divisor, least common multiple, primality and prime factorisation.
  */
-public class NumberTheory {
+public final class NumberTheory {
 
     private NumberTheory() {}
 
@@ -16,7 +16,7 @@ public class NumberTheory {
      * @param b
      * @return The least common multiple of two numbers.
      */
-    public static long lcm(long a, long b) {
+    public static long lcm(final long a, final long b) {
         return a * (b / gcdLoop(a, b));
     }
 
@@ -26,7 +26,7 @@ public class NumberTheory {
      * @param input array of numbers
      * @return The least common multiple of an array of numbers.
      */
-    public static long lcm(long[] input) {
+    public static long lcm(final long[] input) {
         long result = input[0];
         for (int i = 1; i < input.length; i++) result = lcm(result, input[i]);
         return result;
@@ -46,7 +46,7 @@ public class NumberTheory {
         long gcd = a;
         long bNumber = b;
         while (bNumber > 0) {
-            long temp = bNumber;
+            final long temp = bNumber;
             bNumber = gcd % bNumber; // % is remainder
             gcd = temp;
         }
@@ -63,7 +63,7 @@ public class NumberTheory {
      * @param b
      * @return The greatest common divisor of two numbers.
      */
-    public static long gcdRecursive(long a, long b) {
+    public static long gcdRecursive(final long a, final long b) {
         return b == 0 ? a : gcdRecursive(b, a % b);
     }
 
@@ -75,7 +75,7 @@ public class NumberTheory {
      * @param n
      * @return true if the number n is prime, false otherwise
      */
-    public static boolean isPrime(int n) {
+    public static boolean isPrime(final int n) {
         if (n <= 1) {
             return false;
         } else if (n <= 3) {
@@ -101,8 +101,8 @@ public class NumberTheory {
      * @param number
      * @return The list of prime factors of a number.
      */
-    public static List<Integer> primeFactorsList(int number) {
-        List<Integer> factors = new ArrayList<>();
+    public static List<Integer> primeFactorsList(final int number) {
+        final List<Integer> factors = new ArrayList<>();
         fillPrimeFactors(number, factors);
         return factors;
     }
@@ -113,8 +113,8 @@ public class NumberTheory {
      * @param number
      * @return The set of prime factors of a number.
      */
-    public static Set<Integer> primeFactorsSet(int number) {
-        Set<Integer> factors = new HashSet<>();
+    public static Set<Integer> primeFactorsSet(final int number) {
+        final Set<Integer> factors = new HashSet<>();
         fillPrimeFactors(number, factors);
         return factors;
     }
@@ -125,7 +125,7 @@ public class NumberTheory {
      * @param number  the number to extract the prime factors
      * @param factors the collection to fill with the prime factors
      */
-    private static void fillPrimeFactors(int number, Collection<Integer> factors) {
+    private static void fillPrimeFactors(final int number, final Collection<Integer> factors) {
         int n = number;
         for (int i = 2; i <= n / i; i++) {
             while (n % i == 0) {

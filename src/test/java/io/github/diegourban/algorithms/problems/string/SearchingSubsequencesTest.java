@@ -26,7 +26,7 @@ class SearchingSubsequencesTest {
     /** {@code count} occurrences, the last one starting at 1-based {@code lastPosition} (0 when none). */
     record Occurrences(int count, int lastPosition) {}
 
-    static Occurrences solve(String pattern, String text) {
+    static Occurrences solve(final String pattern, final String text) {
         var count = 0;
         var last = -1;
         for (var i = text.indexOf(pattern); i != -1; i = text.indexOf(pattern, i + 1)) {
@@ -36,13 +36,13 @@ class SearchingSubsequencesTest {
         return new Occurrences(count, last + 1);
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var out = new StringBuilder();
         var caseNumber = 0;
         while (true) {
-            String pattern;
-            String text;
+            final String pattern;
+            final String text;
             try {
                 pattern = reader.readLine();
                 text = reader.readLine();
@@ -52,7 +52,7 @@ class SearchingSubsequencesTest {
             if (pattern.isEmpty() || text.isEmpty()) {
                 break;
             }
-            var result = solve(pattern, text);
+            final var result = solve(pattern, text);
             out.append("Caso #").append(++caseNumber).append(":\n");
             if (result.count() == 0) {
                 out.append("Nao existe subsequencia\n");
@@ -79,7 +79,7 @@ class SearchingSubsequencesTest {
 
     @Test
     void patternEqualToText() {
-        var number = "1" + "0".repeat(32);
+        final var number = "1" + "0".repeat(32);
         assertThat(solve(number, number)).isEqualTo(new Occurrences(1, 1));
     }
 
@@ -91,7 +91,7 @@ class SearchingSubsequencesTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }

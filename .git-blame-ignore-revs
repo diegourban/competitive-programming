@@ -3,3 +3,6 @@
 
 # Reformat all Java sources with palantir-java-format
 f490a4f2627cc093ad2cfa4ba93809556254e7de
+
+# Add final to parameters, locals, fields and static-only classes
+5c6d4e98af79d60fc12d93bbfba6b9dac8406b8f

@@ -14,15 +14,15 @@ import org.junit.jupiter.api.Test;
  */
 class FindRotationPointTest {
 
-    static int solve(String[] words) {
-        var firstWord = words[0];
+    static int solve(final String[] words) {
+        final var firstWord = words[0];
         if (firstWord.compareTo(words[words.length - 1]) <= 0) {
             return 0; // not rotated (or a single word): the first word is already the earliest
         }
         var floorIndex = 0;
         var ceilingIndex = words.length - 1;
         while (floorIndex + 1 < ceilingIndex) {
-            var guessIndex = floorIndex + (ceilingIndex - floorIndex) / 2;
+            final var guessIndex = floorIndex + (ceilingIndex - floorIndex) / 2;
             if (words[guessIndex].compareTo(firstWord) >= 0) {
                 floorIndex = guessIndex;
             } else {

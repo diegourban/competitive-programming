@@ -16,14 +16,14 @@ import org.junit.jupiter.api.Test;
  */
 class SumByFactorsTest {
 
-    static String solve(int[] numbers) {
-        var sums = new TreeMap<Integer, Integer>();
-        for (var number : numbers) {
-            for (var prime : NumberTheory.primeFactorsSet(Math.abs(number))) {
+    static String solve(final int[] numbers) {
+        final var sums = new TreeMap<Integer, Integer>();
+        for (final var number : numbers) {
+            for (final var prime : NumberTheory.primeFactorsSet(Math.abs(number))) {
                 sums.merge(prime, number, Integer::sum);
             }
         }
-        var result = new StringBuilder();
+        final var result = new StringBuilder();
         sums.forEach((prime, sum) ->
                 result.append('(').append(prime).append(' ').append(sum).append(')'));
         return result.toString();

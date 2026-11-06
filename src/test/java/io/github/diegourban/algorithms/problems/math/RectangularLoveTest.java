@@ -21,18 +21,19 @@ class RectangularLoveTest {
 
     private static final Rectangle NO_OVERLAP = new Rectangle(0, 0, 0, 0);
 
-    static Rectangle solve(Rectangle rect1, Rectangle rect2) {
-        var xOverlap = findRangeOverlap(rect1.leftX(), rect1.width(), rect2.leftX(), rect2.width());
-        var yOverlap = findRangeOverlap(rect1.bottomY(), rect1.height(), rect2.bottomY(), rect2.height());
+    static Rectangle solve(final Rectangle rect1, final Rectangle rect2) {
+        final var xOverlap = findRangeOverlap(rect1.leftX(), rect1.width(), rect2.leftX(), rect2.width());
+        final var yOverlap = findRangeOverlap(rect1.bottomY(), rect1.height(), rect2.bottomY(), rect2.height());
         if (xOverlap.length() == 0 || yOverlap.length() == 0) {
             return NO_OVERLAP;
         }
         return new Rectangle(xOverlap.startPoint(), yOverlap.startPoint(), xOverlap.length(), yOverlap.length());
     }
 
-    private static RangeOverlap findRangeOverlap(int point1, int length1, int point2, int length2) {
-        var highestStartPoint = Math.max(point1, point2);
-        var lowestEndPoint = Math.min(point1 + length1, point2 + length2);
+    private static RangeOverlap findRangeOverlap(
+            final int point1, final int length1, final int point2, final int length2) {
+        final var highestStartPoint = Math.max(point1, point2);
+        final var lowestEndPoint = Math.min(point1 + length1, point2 + length2);
         if (highestStartPoint >= lowestEndPoint) {
             return new RangeOverlap(0, 0);
         }

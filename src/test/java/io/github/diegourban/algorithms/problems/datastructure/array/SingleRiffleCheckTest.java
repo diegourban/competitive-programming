@@ -14,10 +14,10 @@ import org.junit.jupiter.api.Test;
  */
 class SingleRiffleCheckTest {
 
-    static boolean solve(int[] half1, int[] half2, int[] deck) {
+    static boolean solve(final int[] half1, final int[] half2, final int[] deck) {
         var i1 = 0;
         var i2 = 0;
-        for (var card : deck) {
+        for (final var card : deck) {
             if (i1 < half1.length && card == half1[i1]) {
                 i1++;
             } else if (i2 < half2.length && card == half2[i2]) {

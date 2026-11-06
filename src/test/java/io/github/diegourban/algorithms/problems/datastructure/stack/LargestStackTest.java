@@ -21,7 +21,7 @@ class LargestStackTest {
         private final Deque<Integer> stack = new ArrayDeque<>();
         private final Deque<Integer> maxesStack = new ArrayDeque<>();
 
-        void push(int item) {
+        void push(final int item) {
             stack.push(item);
             if (maxesStack.isEmpty() || item >= maxesStack.peek()) {
                 maxesStack.push(item);
@@ -29,7 +29,7 @@ class LargestStackTest {
         }
 
         int pop() {
-            int item = stack.pop();
+            final int item = stack.pop();
             if (item == maxesStack.peek()) {
                 maxesStack.pop();
             }
@@ -43,7 +43,7 @@ class LargestStackTest {
 
     @Test
     void popsWhatWasPushed() {
-        var stack = new MaxStack();
+        final var stack = new MaxStack();
         stack.push(1);
 
         assertThat(stack.pop()).isEqualTo(1);
@@ -51,7 +51,7 @@ class LargestStackTest {
 
     @Test
     void popsInLastInFirstOutOrder() {
-        var stack = new MaxStack();
+        final var stack = new MaxStack();
         stack.push(3);
         stack.push(1);
         stack.push(2);
@@ -63,7 +63,7 @@ class LargestStackTest {
 
     @Test
     void getMaxReturnsTheLargestItem() {
-        var stack = new MaxStack();
+        final var stack = new MaxStack();
         stack.push(1);
         stack.push(10);
         stack.push(3);
@@ -73,7 +73,7 @@ class LargestStackTest {
 
     @Test
     void getMaxTracksPopsIncludingDuplicateMaxima() {
-        var stack = new MaxStack();
+        final var stack = new MaxStack();
         stack.push(5);
         stack.push(7);
         stack.push(7);

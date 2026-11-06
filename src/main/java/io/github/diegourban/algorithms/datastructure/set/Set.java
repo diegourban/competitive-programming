@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Set {
 
-    private List<LinkedList<String>> table = new LinkedList<LinkedList<String>>();
+    private final List<LinkedList<String>> table = new LinkedList<LinkedList<String>>();
 
     public Set() {
         for (int i = 0; i < 26; i++) {
@@ -13,28 +13,28 @@ public class Set {
         }
     }
 
-    public void add(String word) {
+    public void add(final String word) {
         if (!contains(word)) {
-            int index = calculateTableIndex(word);
-            List<String> list = this.table.get(index);
+            final int index = calculateTableIndex(word);
+            final List<String> list = this.table.get(index);
             list.add(word);
         }
     }
 
-    public void remove(String word) {
+    public void remove(final String word) {
         if (contains(word)) {
-            int index = calculateTableIndex(word);
-            List<String> list = this.table.get(index);
+            final int index = calculateTableIndex(word);
+            final List<String> list = this.table.get(index);
             list.remove(word);
         }
     }
 
-    private boolean contains(String word) {
-        int index = calculateTableIndex(word);
+    private boolean contains(final String word) {
+        final int index = calculateTableIndex(word);
         return this.table.get(index).contains(word);
     }
 
-    private int calculateTableIndex(String word) {
+    private int calculateTableIndex(final String word) {
         return word.toLowerCase().charAt(0) % 26;
     }
 

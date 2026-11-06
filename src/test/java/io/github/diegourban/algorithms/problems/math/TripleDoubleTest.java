@@ -17,9 +17,9 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class TripleDoubleTest {
 
-    static int solve(long num1, long num2) {
-        var a = Long.toString(num1);
-        var b = Long.toString(num2);
+    static int solve(final long num1, final long num2) {
+        final var a = Long.toString(num1);
+        final var b = Long.toString(num2);
         return IntStream.rangeClosed(0, 9)
                         .mapToObj(Integer::toString)
                         .anyMatch(d -> a.contains(d.repeat(3)) && b.contains(d.repeat(2)))
@@ -37,7 +37,7 @@ class TripleDoubleTest {
         "111, 22, 0",
         "1112, 122, 0",
     })
-    void requiresTripleAndDoubleOfTheSameDigit(long num1, long num2, int expected) {
+    void requiresTripleAndDoubleOfTheSameDigit(final long num1, final long num2, final int expected) {
         assertThat(solve(num1, num2)).isEqualTo(expected);
     }
 }

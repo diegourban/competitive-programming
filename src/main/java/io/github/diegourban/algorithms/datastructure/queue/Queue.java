@@ -7,7 +7,7 @@ public class Queue {
 
     private final LinkedList<Element> elements = new LinkedList<>();
 
-    public void add(Element element) {
+    public void add(final Element element) {
         this.elements.add(element);
     }
 

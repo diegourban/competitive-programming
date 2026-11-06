@@ -18,8 +18,8 @@ class RomanNumeralsTest {
     private static final int[] VALUES = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     private static final String[] SYMBOLS = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
-    static String solve(int n) {
-        var roman = new StringBuilder();
+    static String solve(final int n) {
+        final var roman = new StringBuilder();
         var remaining = n;
         for (var i = 0; i < VALUES.length; i++) {
             while (remaining >= VALUES[i]) {
@@ -45,7 +45,7 @@ class RomanNumeralsTest {
         "444, CDXLIV",
         "999, CMXCIX",
     })
-    void convertsToRoman(int n, String expected) {
+    void convertsToRoman(final int n, final String expected) {
         assertThat(solve(n)).isEqualTo(expected);
     }
 }

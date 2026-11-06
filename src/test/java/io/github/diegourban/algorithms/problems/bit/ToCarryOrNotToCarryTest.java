@@ -22,16 +22,16 @@ class ToCarryOrNotToCarryTest {
 
     private static final SampleLoader SAMPLES = new SampleLoader("problems/bit/to-carry-or-not-to-carry");
 
-    static long solve(long a, long b) {
+    static long solve(final long a, final long b) {
         return a ^ b;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var out = new StringBuilder();
         while (true) {
-            long a;
-            long b;
+            final long a;
+            final long b;
             try {
                 a = reader.nextLong();
                 b = reader.nextLong();
@@ -62,7 +62,7 @@ class ToCarryOrNotToCarryTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"udebug"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }

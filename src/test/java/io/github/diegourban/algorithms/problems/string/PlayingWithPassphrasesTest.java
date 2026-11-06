@@ -13,13 +13,13 @@ import org.junit.jupiter.api.Test;
  */
 class PlayingWithPassphrasesTest {
 
-    static String solve(String text, int shift) {
-        var out = new StringBuilder(text.length());
+    static String solve(final String text, final int shift) {
+        final var out = new StringBuilder(text.length());
         for (var i = 0; i < text.length(); i++) {
-            var c = text.charAt(i);
+            final var c = text.charAt(i);
             if (Character.isLetter(c)) {
-                var base = Character.isUpperCase(c) ? 'A' : 'a';
-                var shifted = (char) (base + (c - base + shift) % 26);
+                final var base = Character.isUpperCase(c) ? 'A' : 'a';
+                final var shifted = (char) (base + (c - base + shift) % 26);
                 out.append(i % 2 == 0 ? Character.toUpperCase(shifted) : Character.toLowerCase(shifted));
             } else if (Character.isDigit(c)) {
                 out.append((char) ('9' - c + '0'));

@@ -22,9 +22,9 @@ class ContractRevisionTest {
 
     private static final SampleLoader SAMPLES = new SampleLoader("problems/string/contract-revision");
 
-    static String solve(char faultyDigit, String number) {
-        var kept = new StringBuilder(number.length());
-        for (var c : number.toCharArray()) {
+    static String solve(final char faultyDigit, final String number) {
+        final var kept = new StringBuilder(number.length());
+        for (final var c : number.toCharArray()) {
             if (c != faultyDigit && !(c == '0' && kept.isEmpty())) {
                 kept.append(c);
             }
@@ -32,11 +32,11 @@ class ContractRevisionTest {
         return kept.isEmpty() ? "0" : kept.toString();
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var out = new StringBuilder();
         for (var line = reader.readLine(); !line.equals("0 0"); line = reader.readLine()) {
-            var parts = line.trim().split("\\s+");
+            final var parts = line.trim().split("\\s+");
             out.append(solve(parts[0].charAt(0), parts[1])).append('\n');
         }
         return out.toString();
@@ -70,7 +70,7 @@ class ContractRevisionTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }

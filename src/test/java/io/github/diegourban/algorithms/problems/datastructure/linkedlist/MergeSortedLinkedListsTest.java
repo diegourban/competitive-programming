@@ -20,13 +20,13 @@ class MergeSortedLinkedListsTest {
         private final int data;
         private Node next;
 
-        private Node(int data) {
+        private Node(final int data) {
             this.data = data;
         }
     }
 
-    static Node solve(Node headA, Node headB) {
-        var sentinel = new Node(0);
+    static Node solve(final Node headA, final Node headB) {
+        final var sentinel = new Node(0);
         var tail = sentinel;
         var a = headA;
         var b = headB;
@@ -44,18 +44,18 @@ class MergeSortedLinkedListsTest {
         return sentinel.next;
     }
 
-    private static Node list(int... values) {
-        var sentinel = new Node(0);
+    private static Node list(final int... values) {
+        final var sentinel = new Node(0);
         var tail = sentinel;
-        for (var value : values) {
+        for (final var value : values) {
             tail.next = new Node(value);
             tail = tail.next;
         }
         return sentinel.next;
     }
 
-    private static List<Integer> values(Node head) {
-        var values = new ArrayList<Integer>();
+    private static List<Integer> values(final Node head) {
+        final var values = new ArrayList<Integer>();
         for (var node = head; node != null; node = node.next) {
             values.add(node.data);
         }

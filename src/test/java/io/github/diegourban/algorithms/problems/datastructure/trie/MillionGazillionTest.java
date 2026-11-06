@@ -23,10 +23,10 @@ class MillionGazillionTest {
         private final Node root = new Node();
 
         /** Adds {@code word} and returns {@code true} if it was not already present. */
-        boolean checkPresentAndAdd(String word) {
+        boolean checkPresentAndAdd(final String word) {
             var current = root;
             var isNewWord = false;
-            for (var character : word.toCharArray()) {
+            for (final var character : word.toCharArray()) {
                 if (!current.children.containsKey(character)) {
                     isNewWord = true;
                 }

@@ -23,14 +23,14 @@ class CollectableCardsTest {
 
     private static final SampleLoader SAMPLES = new SampleLoader("problems/math/collectable-cards");
 
-    static long solve(int f1, int f2) {
+    static long solve(final int f1, final int f2) {
         return NumberTheory.gcdLoop(f1, f2);
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var tests = reader.nextInt();
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var tests = reader.nextInt();
+        final var out = new StringBuilder();
         for (var i = 0; i < tests; i++) {
             out.append(solve(reader.nextInt(), reader.nextInt())).append('\n');
         }
@@ -46,13 +46,13 @@ class CollectableCardsTest {
         "7, 13, 1",
         "1000, 1000, 1000",
     })
-    void largestPileSizeIsTheGcd(int f1, int f2, long expected) {
+    void largestPileSizeIsTheGcd(final int f1, final int f2, final long expected) {
         assertThat(solve(f1, f2)).isEqualTo(expected);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }

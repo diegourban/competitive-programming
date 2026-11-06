@@ -15,12 +15,12 @@ public final class SampleLoader {
 
     private final String resourceDir;
 
-    public SampleLoader(String resourceDir) {
+    public SampleLoader(final String resourceDir) {
         this.resourceDir = resourceDir.endsWith("/") ? resourceDir : resourceDir + "/";
     }
 
-    public String loadAsString(String fileName) {
-        var path = resourceDir + fileName;
+    public String loadAsString(final String fileName) {
+        final var path = resourceDir + fileName;
         try (var in = SampleLoader.class.getClassLoader().getResourceAsStream(path)) {
             if (in == null) {
                 throw new IllegalArgumentException("Sample not found on classpath: " + path);
@@ -31,7 +31,7 @@ public final class SampleLoader {
         }
     }
 
-    public InputStream loadAsInputStream(String fileName) {
+    public InputStream loadAsInputStream(final String fileName) {
         return new ByteArrayInputStream(loadAsString(fileName).getBytes(StandardCharsets.UTF_8));
     }
 }

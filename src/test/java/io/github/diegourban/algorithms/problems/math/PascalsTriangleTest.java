@@ -18,7 +18,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class PascalsTriangleTest {
 
-    static long solve(int n) {
+    static long solve(final int n) {
         return (1L << n) - 1;
     }
 
@@ -30,14 +30,14 @@ class PascalsTriangleTest {
         "31, 2147483647",
         "50, 1125899906842623",
     })
-    void sumOfFirstRows(int n, long expected) {
+    void sumOfFirstRows(final int n, final long expected) {
         assertThat(solve(n)).isEqualTo(expected);
     }
 
     @Test
     void closedFormMatchesSummingTheBinomialCoefficients() {
         for (var n = 1; n <= 20; n++) {
-            var sum = IntStream.range(0, n)
+            final var sum = IntStream.range(0, n)
                     .boxed()
                     .flatMap(row ->
                             IntStream.rangeClosed(0, row).mapToObj(k -> Combinatorics.binomialCoefficient(row, k)))

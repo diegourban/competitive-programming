@@ -22,7 +22,7 @@ class OneTwoThreeTest {
 
     private static final SampleLoader SAMPLES = new SampleLoader("problems/string/one-two-three");
 
-    static int solve(String word) {
+    static int solve(final String word) {
         if (hammingDistance(word, "one") <= 1) {
             return 1;
         }
@@ -32,7 +32,7 @@ class OneTwoThreeTest {
         return 3;
     }
 
-    private static int hammingDistance(String a, String b) {
+    private static int hammingDistance(final String a, final String b) {
         if (a.length() != b.length()) {
             return Integer.MAX_VALUE;
         }
@@ -45,10 +45,10 @@ class OneTwoThreeTest {
         return distance;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var n = reader.nextInt();
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var n = reader.nextInt();
+        final var out = new StringBuilder();
         for (var i = 0; i < n; i++) {
             out.append(solve(reader.readLine().trim())).append('\n');
         }
@@ -75,7 +75,7 @@ class OneTwoThreeTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }

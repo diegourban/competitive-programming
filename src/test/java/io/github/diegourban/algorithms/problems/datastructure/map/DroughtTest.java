@@ -37,31 +37,31 @@ class DroughtTest {
      */
     record City(SortedMap<Integer, Integer> residentsByConsumption, BigDecimal averageConsumption) {}
 
-    static City solve(List<Property> properties) {
-        var residentsByConsumption = new TreeMap<Integer, Integer>();
+    static City solve(final List<Property> properties) {
+        final var residentsByConsumption = new TreeMap<Integer, Integer>();
         var totalResidents = 0L;
         var totalConsumption = 0L;
-        for (var property : properties) {
+        for (final var property : properties) {
             totalResidents += property.residents();
             totalConsumption += property.consumption();
             residentsByConsumption.merge(
                     property.consumption() / property.residents(), property.residents(), Integer::sum);
         }
-        var average =
+        final var average =
                 BigDecimal.valueOf(totalConsumption).divide(BigDecimal.valueOf(totalResidents), 2, RoundingMode.DOWN);
         return new City(residentsByConsumption, average);
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var cities = new ArrayList<String>();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var cities = new ArrayList<String>();
         for (var n = reader.nextInt(); n != 0; n = reader.nextInt()) {
-            var properties = new ArrayList<Property>(n);
+            final var properties = new ArrayList<Property>(n);
             for (var i = 0; i < n; i++) {
                 properties.add(new Property(reader.nextInt(), reader.nextInt()));
             }
-            var city = solve(properties);
-            var groups = city.residentsByConsumption().entrySet().stream()
+            final var city = solve(properties);
+            final var groups = city.residentsByConsumption().entrySet().stream()
                     .map(e -> e.getValue() + "-" + e.getKey())
                     .collect(Collectors.joining(" "));
             cities.add("""
@@ -76,7 +76,7 @@ class DroughtTest {
 
     @Test
     void groupsResidentsByPerCapitaConsumption() {
-        var city = solve(List.of(new Property(3, 22), new Property(2, 11), new Property(3, 39)));
+        final var city = solve(List.of(new Property(3, 22), new Property(2, 11), new Property(3, 39)));
 
         assertThat(city.residentsByConsumption()).containsExactly(entry(5, 2), entry(7, 3), entry(13, 3));
         assertThat(city.averageConsumption()).isEqualByComparingTo("9.00");
@@ -84,14 +84,14 @@ class DroughtTest {
 
     @Test
     void mergesPropertiesWithSamePerCapitaConsumption() {
-        var city = solve(List.of(new Property(1, 10), new Property(2, 20), new Property(3, 30)));
+        final var city = solve(List.of(new Property(1, 10), new Property(2, 20), new Property(3, 30)));
 
         assertThat(city.residentsByConsumption()).containsExactly(entry(10, 6));
     }
 
     @Test
     void truncatesAverageInsteadOfRounding() {
-        var city = solve(List.of(
+        final var city = solve(List.of(
                 new Property(1, 25),
                 new Property(2, 20),
                 new Property(3, 31),
@@ -104,7 +104,7 @@ class DroughtTest {
 
     @Test
     void keepsTrailingZeroOfExactAverage() {
-        var city = solve(List.of(new Property(10, 156)));
+        final var city = solve(List.of(new Property(10, 156)));
 
         assertThat(city.averageConsumption().toPlainString()).isEqualTo("15.60");
         assertThat(city.residentsByConsumption()).containsExactly(Map.entry(15, 10));
@@ -112,8 +112,8 @@ class DroughtTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
-        var samples = new SampleLoader("problems/datastructure/map/drought");
+    void matchesSample(final String name) throws IOException {
+        final var samples = new SampleLoader("problems/datastructure/map/drought");
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo(samples.loadAsString(name + ".out"));
     }
 }

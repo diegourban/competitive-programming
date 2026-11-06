@@ -22,21 +22,21 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class NumberFrequencyTest {
 
-    static SortedMap<Integer, Integer> solve(int[] numbers) {
-        var frequency = new TreeMap<Integer, Integer>();
-        for (var x : numbers) {
+    static SortedMap<Integer, Integer> solve(final int[] numbers) {
+        final var frequency = new TreeMap<Integer, Integer>();
+        for (final var x : numbers) {
             frequency.merge(x, 1, Integer::sum);
         }
         return frequency;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var numbers = new int[reader.nextInt()];
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var numbers = new int[reader.nextInt()];
         for (var i = 0; i < numbers.length; i++) {
             numbers[i] = reader.nextInt();
         }
-        var out = new StringBuilder();
+        final var out = new StringBuilder();
         solve(numbers)
                 .forEach((x, count) ->
                         out.append(x).append(" aparece ").append(count).append(" vez(es)\n"));
@@ -61,8 +61,8 @@ class NumberFrequencyTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
-        var samples = new SampleLoader("problems/datastructure/map/number-frequency");
+    void matchesSample(final String name) throws IOException {
+        final var samples = new SampleLoader("problems/datastructure/map/number-frequency");
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo(samples.loadAsString(name + ".out"));
     }
 }

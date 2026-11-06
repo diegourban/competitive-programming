@@ -30,6 +30,8 @@
         <jacoco-maven-plugin.version>0.8.16</jacoco-maven-plugin.version>
         <spotless-maven-plugin.version>3.11.0</spotless-maven-plugin.version>
         <palantir-java-format.version>2.103.0</palantir-java-format.version>
+        <maven-pmd-plugin.version>3.28.0</maven-pmd-plugin.version>
+        <pmd.version>7.29.0</pmd.version>
     </properties>
 
     <dependencyManagement>
@@ -107,6 +109,37 @@
                         <removeUnusedImports/>
                     </java>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven-pmd-plugin.version}</version>
+                <configuration>
+                    <rulesets>
+                        <ruleset>config/pmd/final-modifiers.xml</ruleset>
+                    </rulesets>
+                    <includeTests>true</includeTests>
+                    <printFailingErrors>true</printFailingErrors>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.sourceforge.pmd</groupId>
+                        <artifactId>pmd-core</artifactId>
+                        <version>${pmd.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.sourceforge.pmd</groupId>
+                        <artifactId>pmd-java</artifactId>
+                        <version>${pmd.version}</version>
+                    </dependency>
+                </dependencies>
                 <executions>
                     <execution>
                         <goals>

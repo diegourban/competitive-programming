@@ -21,8 +21,8 @@ public class InsertionSort implements Sorter {
             int analysis = current;
 
             while (analysis > 0 && items[analysis] < items[analysis - 1]) {
-                Integer analysisItem = items[analysis];
-                Integer previousItem = items[analysis - 1];
+                final Integer analysisItem = items[analysis];
+                final Integer previousItem = items[analysis - 1];
                 items[analysis] = previousItem;
                 items[analysis - 1] = analysisItem;
                 analysis--;

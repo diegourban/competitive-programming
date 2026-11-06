@@ -14,10 +14,10 @@ import org.junit.jupiter.api.Test;
  */
 class EqualSidesOfAnArrayTest {
 
-    static int solve(int[] arr) {
+    static int solve(final int[] arr) {
         for (var i = 0; i < arr.length; i++) {
-            var leftSum = Arrays.stream(arr, 0, i).sum();
-            var rightSum = Arrays.stream(arr, i + 1, arr.length).sum();
+            final var leftSum = Arrays.stream(arr, 0, i).sum();
+            final var rightSum = Arrays.stream(arr, i + 1, arr.length).sum();
             if (leftSum == rightSum) {
                 return i;
             }

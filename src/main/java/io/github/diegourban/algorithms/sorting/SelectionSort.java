@@ -19,8 +19,8 @@ public class SelectionSort implements Sorter {
     private void sort(final int[] items, final int totalElements) {
         for (int current = 0; current < totalElements - 1; current++) {
             final int smallerIndex = findSmallerIndex(items, current, totalElements);
-            Integer currentItem = items[current];
-            Integer smallerItem = items[smallerIndex];
+            final Integer currentItem = items[current];
+            final Integer smallerItem = items[smallerIndex];
             items[current] = smallerItem;
             items[smallerIndex] = currentItem;
         }

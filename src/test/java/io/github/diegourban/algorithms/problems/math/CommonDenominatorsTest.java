@@ -16,13 +16,14 @@ import org.junit.jupiter.api.Test;
  */
 class CommonDenominatorsTest {
 
-    static String solve(long[][] fractions) {
+    static String solve(final long[][] fractions) {
         if (fractions.length == 0) {
             return "";
         }
-        var lcm = NumberTheory.lcm(Arrays.stream(fractions).mapToLong(f -> f[1]).toArray());
-        var result = new StringBuilder();
-        for (var f : fractions) {
+        final var lcm =
+                NumberTheory.lcm(Arrays.stream(fractions).mapToLong(f -> f[1]).toArray());
+        final var result = new StringBuilder();
+        for (final var f : fractions) {
             result.append('(')
                     .append(f[0] * (lcm / f[1]))
                     .append(',')

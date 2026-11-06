@@ -2,11 +2,11 @@ package io.github.diegourban.algorithms.datastructure.array;
 
 import java.util.Random;
 
-public class ArrayUtils {
+public final class ArrayUtils {
 
     private ArrayUtils() {}
 
-    private static Random rand = new Random();
+    private static final Random rand = new Random();
 
     /**
      * Function for doing an in-place ↴ shuffle of an array.
@@ -19,7 +19,7 @@ public class ArrayUtils {
      *
      * @param theArray the array to shuffle
      */
-    public static void shuffle(int[] theArray) {
+    public static void shuffle(final int[] theArray) {
         // if it's 1 or 0 items, just return
         if (theArray.length <= 1) {
             return;
@@ -32,18 +32,18 @@ public class ArrayUtils {
             // (could also be the item currently in that spot)
             // must be an item AFTER the current item, because the stuff
             // before has all already been placed
-            int randomChoiceIndex = getRandom(indexWeAreChoosingFor, theArray.length - 1);
+            final int randomChoiceIndex = getRandom(indexWeAreChoosingFor, theArray.length - 1);
 
             // place our random choice in the spot by swapping
             if (randomChoiceIndex != indexWeAreChoosingFor) {
-                int valueAtIndexWeChoseFor = theArray[indexWeAreChoosingFor];
+                final int valueAtIndexWeChoseFor = theArray[indexWeAreChoosingFor];
                 theArray[indexWeAreChoosingFor] = theArray[randomChoiceIndex];
                 theArray[randomChoiceIndex] = valueAtIndexWeChoseFor;
             }
         }
     }
 
-    private static int getRandom(int floor, int ceiling) {
+    private static int getRandom(final int floor, final int ceiling) {
         return rand.nextInt((ceiling - floor) + 1) + floor;
     }
 }

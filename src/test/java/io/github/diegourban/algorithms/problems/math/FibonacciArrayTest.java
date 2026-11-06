@@ -15,11 +15,11 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class FibonacciArrayTest {
 
-    static long solve(int n) {
+    static long solve(final int n) {
         var previous = 0L;
         var current = 1L;
         for (var i = 0; i < n; i++) {
-            var next = previous + current;
+            final var next = previous + current;
             previous = current;
             current = next;
         }
@@ -37,7 +37,7 @@ class FibonacciArrayTest {
         "47, 2971215073",
         "60, 1548008755920",
     })
-    void nthFibonacci(int n, long expected) {
+    void nthFibonacci(final int n, final long expected) {
         assertThat(solve(n)).isEqualTo(expected);
     }
 }

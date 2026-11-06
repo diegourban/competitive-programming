@@ -27,8 +27,8 @@ class TwoBillsTest {
 
     private final SampleLoader samples = new SampleLoader("problems/search/two-bills");
 
-    static boolean solve(int price, int paid) {
-        var change = paid - price;
+    static boolean solve(final int price, final int paid) {
+        final var change = paid - price;
         for (var i = 0; i < BILLS.length; i++) {
             for (var j = i; j < BILLS.length; j++) {
                 if (BILLS[i] + BILLS[j] == change) {
@@ -39,9 +39,9 @@ class TwoBillsTest {
         return false;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var out = new StringBuilder();
         for (int price = reader.nextInt(), paid = reader.nextInt();
                 price != 0 || paid != 0;
                 price = reader.nextInt(), paid = reader.nextInt()) {
@@ -58,7 +58,7 @@ class TwoBillsTest {
         "1, 5",
         "0, 200",
     })
-    void changeMadeOfTwoBillsIsPossible(int price, int paid) {
+    void changeMadeOfTwoBillsIsPossible(final int price, final int paid) {
         assertThat(solve(price, paid)).isTrue();
     }
 
@@ -71,7 +71,7 @@ class TwoBillsTest {
         "5, 5",
         "0, 201",
     })
-    void otherChangeIsImpossible(int price, int paid) {
+    void otherChangeIsImpossible(final int price, final int paid) {
         assertThat(solve(price, paid)).isFalse();
     }
 
@@ -83,7 +83,7 @@ class TwoBillsTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void samples(String name) throws IOException {
+    void samples(final String name) throws IOException {
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo(samples.loadAsString(name + ".out"));
     }
 }

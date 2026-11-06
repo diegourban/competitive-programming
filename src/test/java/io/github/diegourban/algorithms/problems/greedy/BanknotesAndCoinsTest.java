@@ -24,20 +24,21 @@ class BanknotesAndCoinsTest {
     /** Counts per denomination, aligned with {@link #BANKNOTE_CENTS} and {@link #COIN_CENTS}. */
     record Breakdown(List<Integer> banknotes, List<Integer> coins) {}
 
-    static int toCents(String amount) {
+    static int toCents(final String amount) {
         return new BigDecimal(amount).movePointRight(2).intValueExact();
     }
 
-    static Breakdown solve(int cents) {
-        var remaining = new int[] {cents};
-        var banknotes =
+    static Breakdown solve(final int cents) {
+        final var remaining = new int[] {cents};
+        final var banknotes =
                 BANKNOTE_CENTS.stream().map(value -> take(remaining, value)).toList();
-        var coins = COIN_CENTS.stream().map(value -> take(remaining, value)).toList();
+        final var coins =
+                COIN_CENTS.stream().map(value -> take(remaining, value)).toList();
         return new Breakdown(banknotes, coins);
     }
 
-    private static int take(int[] remaining, int value) {
-        var count = remaining[0] / value;
+    private static int take(final int[] remaining, final int value) {
+        final var count = remaining[0] / value;
         remaining[0] %= value;
         return count;
     }
@@ -50,7 +51,7 @@ class BanknotesAndCoinsTest {
         "0.01, 1",
         "1000000.00, 100000000",
     })
-    void parsesAmountToCentsExactly(String amount, int cents) {
+    void parsesAmountToCentsExactly(final String amount, final int cents) {
         assertThat(toCents(amount)).isEqualTo(cents);
     }
 

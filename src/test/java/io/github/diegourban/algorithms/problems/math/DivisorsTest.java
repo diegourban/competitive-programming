@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
  */
 class DivisorsTest {
 
-    static List<Integer> solve(int n) {
-        var small = new ArrayList<Integer>();
-        var large = new ArrayList<Integer>();
+    static List<Integer> solve(final int n) {
+        final var small = new ArrayList<Integer>();
+        final var large = new ArrayList<Integer>();
         for (var d = 1; (long) d * d <= n; d++) {
             if (n % d == 0) {
                 small.add(d);

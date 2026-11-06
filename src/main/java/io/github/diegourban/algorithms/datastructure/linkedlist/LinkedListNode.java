@@ -22,7 +22,7 @@ public class LinkedListNode {
         return element;
     }
 
-    public void setElement(Element element) {
+    public void setElement(final Element element) {
         this.element = element;
     }
 
@@ -30,7 +30,7 @@ public class LinkedListNode {
         return next;
     }
 
-    public void setNext(LinkedListNode next) {
+    public void setNext(final LinkedListNode next) {
         this.next = next;
     }
 
@@ -38,7 +38,7 @@ public class LinkedListNode {
         return previous;
     }
 
-    public void setPrevious(LinkedListNode previous) {
+    public void setPrevious(final LinkedListNode previous) {
         this.previous = previous;
     }
 }

@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  */
 class LargestDifferenceTest {
 
-    static int solve(int[] data) {
+    static int solve(final int[] data) {
         var largest = 0;
         for (var i = 0; i < data.length; i++) {
             for (var j = data.length - 1; j > i; j--) {

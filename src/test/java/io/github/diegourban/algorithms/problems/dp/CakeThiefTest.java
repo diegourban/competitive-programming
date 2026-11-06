@@ -24,16 +24,16 @@ class CakeThiefTest {
         }
     }
 
-    static long solve(Box[] boxes, int capacity) {
-        var maxValuesAtCapacities = new long[capacity + 1];
+    static long solve(final Box[] boxes, final int capacity) {
+        final var maxValuesAtCapacities = new long[capacity + 1];
         for (var currentCapacity = 0; currentCapacity <= capacity; currentCapacity++) {
             var currentMaxValue = 0L;
-            for (var box : boxes) {
+            for (final var box : boxes) {
                 if (box.weight() == 0 && box.value() != 0) {
                     throw new InfinityException();
                 }
                 if (box.weight() <= currentCapacity) {
-                    var maxValueUsingBox = box.value() + maxValuesAtCapacities[currentCapacity - box.weight()];
+                    final var maxValueUsingBox = box.value() + maxValuesAtCapacities[currentCapacity - box.weight()];
                     currentMaxValue = Math.max(maxValueUsingBox, currentMaxValue);
                 }
             }
@@ -44,14 +44,14 @@ class CakeThiefTest {
 
     @Test
     void takesAsManyOfTheBestBoxesAsFit() {
-        var boxes = new Box[] {new Box(1, 3), new Box(2, 2), new Box(4, 5)};
+        final var boxes = new Box[] {new Box(1, 3), new Box(2, 2), new Box(4, 5)};
 
         assertThat(solve(boxes, 15)).isEqualTo(45L);
     }
 
     @Test
     void weightlessValuableBoxIsInfinite() {
-        var boxes = new Box[] {new Box(0, 1), new Box(2, 2)};
+        final var boxes = new Box[] {new Box(0, 1), new Box(2, 2)};
 
         assertThatExceptionOfType(InfinityException.class).isThrownBy(() -> solve(boxes, 5));
     }
