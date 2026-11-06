@@ -508,4 +508,13 @@ class ReaderTest {
         assertThat(reader.readLine()).isEqualTo("second");
         assertThat(reader.readLine()).isEqualTo("third");
     }
+
+    @Test
+    void shouldReadLinesLongerThanTheInitialBuffer() throws Exception {
+        final String longLine = "x".repeat(20_000);
+        final Reader reader = new Reader(new java.io.ByteArrayInputStream((longLine + "\nnext").getBytes()));
+
+        assertThat(reader.readLine()).isEqualTo(longLine);
+        assertThat(reader.readLine()).isEqualTo("next");
+    }
 }

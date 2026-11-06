@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 
 /**
  * Fast, buffered reader of ASCII tokens and lines from an {@link InputStream}, for competitive programming.
@@ -21,9 +22,11 @@ import java.io.InputStream;
 public class Reader {
 
     private static final int BUFFER_SIZE = 1 << 16;
+    private static final int INITIAL_LINE_CAPACITY = 64;
     private DataInputStream input;
     private final byte[] buffer;
-    private int bufferPointer, bytesRead;
+    private int bufferPointer;
+    private int bytesRead;
 
     /**
      * Creates a reader over the given stream. Nothing is read until the first read method is called.
@@ -33,23 +36,20 @@ public class Reader {
     public Reader(final InputStream input) {
         this.input = new DataInputStream(input);
         buffer = new byte[BUFFER_SIZE];
-        bufferPointer = bytesRead = 0;
     }
 
     /**
      * Reads the next non-empty line.
      * <p>
      * Leading {@code '\n'} and {@code '\r'} bytes are skipped, so blank lines are never returned; the line ends at
-     * the next {@code '\n'} or {@code '\r'}, which is consumed but not included. Lines longer than 10,000 bytes are
-     * not supported.
+     * the next {@code '\n'} or {@code '\r'}, which is consumed but not included.
      *
      * @return the line without its terminator; the remaining text, or an empty string, if the input ends first
      * @throws EOFException if a previous read already reached the end of the input
-     * @throws ArrayIndexOutOfBoundsException if the line is longer than 10,000 bytes
      * @throws IOException if the underlying stream fails
      */
     public String readLine() throws IOException {
-        final byte[] line = new byte[10000]; // line length
+        byte[] line = new byte[INITIAL_LINE_CAPACITY];
         int length = 0;
         int nextByte = 0;
 
@@ -59,6 +59,9 @@ public class Reader {
                     continue;
                 }
                 break;
+            }
+            if (length == line.length) {
+                line = Arrays.copyOf(line, line.length * 2);
             }
             line[length++] = (byte) nextByte;
         }
@@ -77,11 +80,7 @@ public class Reader {
      */
     public int nextInt() throws IOException {
         int result = 0;
-        byte nextByte = read();
-
-        while (nextByte <= ' ') {
-            nextByte = read();
-        }
+        byte nextByte = skipWhitespace();
 
         final boolean negative = (nextByte == '-');
         if (negative) {
@@ -107,11 +106,7 @@ public class Reader {
      * @throws IOException if the underlying stream fails
      */
     public char nextChar() throws IOException {
-        byte nextByte = read();
-
-        while (nextByte <= ' ') {
-            nextByte = read();
-        }
+        final byte nextByte = skipWhitespace();
 
         return (char) nextByte;
     }
@@ -127,11 +122,7 @@ public class Reader {
      */
     public long nextLong() throws IOException {
         long result = 0;
-        byte nextByte = read();
-
-        while (nextByte <= ' ') {
-            nextByte = read();
-        }
+        byte nextByte = skipWhitespace();
 
         final boolean negative = (nextByte == '-');
         if (negative) {
@@ -162,11 +153,7 @@ public class Reader {
     public double nextDouble() throws IOException {
         double result = 0;
         double div = 1;
-        byte nextByte = read();
-
-        while (nextByte <= ' ') {
-            nextByte = read();
-        }
+        byte nextByte = skipWhitespace();
 
         final boolean negative = (nextByte == '-');
         if (negative) {
@@ -204,10 +191,19 @@ public class Reader {
     }
 
     private void fillBuffer() throws IOException {
-        bytesRead = input.read(buffer, bufferPointer = 0, BUFFER_SIZE);
+        bufferPointer = 0;
+        bytesRead = input.read(buffer, 0, BUFFER_SIZE);
         if (isEOF()) {
             buffer[0] = -1;
         }
+    }
+
+    private byte skipWhitespace() throws IOException {
+        byte nextByte = read();
+        while (nextByte <= ' ') {
+            nextByte = read();
+        }
+        return nextByte;
     }
 
     private byte read() throws IOException {
