@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.sorting;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.stream.Stream;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * Example-based checks run against every {@link Sorter}; {@link SorterPropertyTest} covers random inputs.

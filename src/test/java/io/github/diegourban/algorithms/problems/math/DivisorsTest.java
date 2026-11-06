@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Divisors I — beecrowd (formerly URI Online Judge) 1157.

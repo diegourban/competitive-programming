@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.datastructure.vector;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.datastructure.Element;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class VectorTest {
 
@@ -26,7 +26,7 @@ class VectorTest {
 
         vector.remove(1);
 
-        for(int i = 0; i < 300; i++) {
+        for (int i = 0; i < 300; i++) {
             Element e = new Element("Element " + i);
             vector.add(e);
         }

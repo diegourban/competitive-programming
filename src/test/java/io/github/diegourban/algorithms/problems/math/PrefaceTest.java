@@ -1,11 +1,11 @@
 package io.github.diegourban.algorithms.problems.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 /**
  * Preface — beecrowd (formerly URI Online Judge) 1837.
@@ -17,8 +17,7 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
  */
 class PrefaceTest {
 
-    record Division(int quotient, int remainder) {
-    }
+    record Division(int quotient, int remainder) {}
 
     static Division solve(int a, int b) {
         if (b == 0) {
@@ -30,14 +29,14 @@ class PrefaceTest {
 
     @ParameterizedTest
     @CsvSource({
-            "7, 3, 2, 1",
-            "-7, -3, 3, 2",
-            "-736, 539, -2, 342",
-            "62, -59, -1, 3",
-            "999, 999, 1, 0",
-            "-1000, -1000, 1, 0",
-            "-6, 3, -2, 0",
-            "0, -5, 0, 0",
+        "7, 3, 2, 1",
+        "-7, -3, 3, 2",
+        "-736, 539, -2, 342",
+        "62, -59, -1, 3",
+        "999, 999, 1, 0",
+        "-1000, -1000, 1, 0",
+        "-6, 3, -2, 0",
+        "0, -5, 0, 0",
     })
     void remainderIsNeverNegative(int a, int b, int quotient, int remainder) {
         assertThat(solve(a, b)).isEqualTo(new Division(quotient, remainder));

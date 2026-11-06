@@ -1,15 +1,14 @@
 package io.github.diegourban.algorithms.problems.datastructure.stack;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
+import java.io.IOException;
+import java.io.InputStream;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Diamonds and Sand — beecrowd (formerly URI Online Judge) 1069.

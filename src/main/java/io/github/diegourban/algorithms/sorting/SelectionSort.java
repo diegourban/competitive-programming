@@ -17,7 +17,7 @@ public class SelectionSort implements Sorter {
      * @param totalElements total elements
      */
     private void sort(final int[] items, final int totalElements) {
-        for(int current = 0; current < totalElements - 1; current++) {
+        for (int current = 0; current < totalElements - 1; current++) {
             final int smallerIndex = findSmallerIndex(items, current, totalElements);
             Integer currentItem = items[current];
             Integer smallerItem = items[smallerIndex];
@@ -28,8 +28,8 @@ public class SelectionSort implements Sorter {
 
     private int findSmallerIndex(final int[] items, final int begin, final int end) {
         int smallerIndex = begin;
-        for(int i = begin; i < end; i++) {
-            if(items[i] < items[smallerIndex]) {
+        for (int i = begin; i < end; i++) {
+            if (items[i] < items[smallerIndex]) {
                 smallerIndex = i;
             }
         }

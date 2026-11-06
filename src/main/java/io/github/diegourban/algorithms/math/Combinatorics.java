@@ -4,8 +4,7 @@ import java.math.BigInteger;
 
 public class Combinatorics {
 
-    private Combinatorics() {
-    }
+    private Combinatorics() {}
 
     /**
      * Pascal's Triangle
@@ -47,5 +46,4 @@ public class Combinatorics {
 
         return binomials[m];
     }
-
 }

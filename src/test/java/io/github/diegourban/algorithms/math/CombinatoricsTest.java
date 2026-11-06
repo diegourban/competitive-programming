@@ -1,11 +1,9 @@
 package io.github.diegourban.algorithms.math;
 
-
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigInteger;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 class CombinatoricsTest {
 
@@ -33,5 +31,4 @@ class CombinatoricsTest {
         assertThat(Combinatorics.binomialCoefficient(7, 4)).isEqualTo(new BigInteger("35"));
         assertThat(Combinatorics.binomialCoefficient(7, 5)).isEqualTo(new BigInteger("21"));
     }
-
 }

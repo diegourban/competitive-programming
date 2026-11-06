@@ -1,12 +1,11 @@
 package io.github.diegourban.algorithms.math;
 
-import org.junit.jupiter.api.Test;
-
-import java.math.BigInteger;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.assertj.core.api.Assertions.within;
+
+import java.math.BigInteger;
+import org.junit.jupiter.api.Test;
 
 class SequencesTest {
 

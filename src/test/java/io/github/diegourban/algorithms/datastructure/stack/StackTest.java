@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.datastructure.stack;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.datastructure.Element;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class StackTest {
 

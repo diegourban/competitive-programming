@@ -1,14 +1,13 @@
 package io.github.diegourban.algorithms.io;
 
-import io.github.diegourban.algorithms.testing.SampleBuilder;
-import org.junit.jupiter.api.Test;
-
-import java.io.EOFException;
-import java.io.InputStream;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.assertj.core.api.Assertions.within;
+
+import io.github.diegourban.algorithms.testing.SampleBuilder;
+import java.io.EOFException;
+import java.io.InputStream;
+import org.junit.jupiter.api.Test;
 
 class ReaderTest {
 
@@ -40,17 +39,21 @@ class ReaderTest {
     @Test
     void shouldReadUntilEOF() throws Exception {
         String[] inputs = {"first line", "second line", "last line"};
-        InputStream input = new SampleBuilder().appendln(inputs[0]).appendln(inputs[1]).append(inputs[2]).buildAsInputStream();
+        InputStream input = new SampleBuilder()
+                .appendln(inputs[0])
+                .appendln(inputs[1])
+                .append(inputs[2])
+                .buildAsInputStream();
 
         Reader reader = new Reader(input);
         int i = 0;
-        while(true) {
+        while (true) {
             try {
                 String line = reader.readLine();
                 assertThat(line).isEqualTo(inputs[i]);
                 i++;
-            } catch(EOFException ex) {
-               break;
+            } catch (EOFException ex) {
+                break;
             }
         }
         reader.close();
@@ -81,7 +84,9 @@ class ReaderTest {
 
     @Test
     void shouldReadTwoLines() throws Exception {
-        InputStream input = new SampleBuilder().appendln("this is a line").appendln("this is another line")
+        InputStream input = new SampleBuilder()
+                .appendln("this is a line")
+                .appendln("this is another line")
                 .buildAsInputStream();
 
         Reader reader = new Reader(input);
@@ -95,7 +100,8 @@ class ReaderTest {
 
     @Test
     void shouldJumpEmptyLines() throws Exception {
-        InputStream input = new SampleBuilder().appendln("").appendln("this is a line").buildAsInputStream();
+        InputStream input =
+                new SampleBuilder().appendln("").appendln("this is a line").buildAsInputStream();
 
         Reader reader = new Reader(input);
         String line = reader.readLine();
@@ -314,7 +320,8 @@ class ReaderTest {
 
     @Test
     void shouldReadChainOfPositiveAndNegativeDoubles() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-1.23 98.7 -8.8 7.4 -9 7").buildAsInputStream();
+        InputStream input =
+                new SampleBuilder().appendln("-1.23 98.7 -8.8 7.4 -9 7").buildAsInputStream();
 
         Reader reader = new Reader(input);
         double first = reader.nextDouble();
@@ -380,7 +387,9 @@ class ReaderTest {
 
     @Test
     void shouldReadLongsWithSpacesAndLineBreaks() throws Exception {
-        InputStream input = new SampleBuilder().appendln("6546546565    -4326757896").appendln("786676767")
+        InputStream input = new SampleBuilder()
+                .appendln("6546546565    -4326757896")
+                .appendln("786676767")
                 .buildAsInputStream();
 
         Reader reader = new Reader(input);
@@ -488,5 +497,4 @@ class ReaderTest {
 
         assertThat(day).isEqualTo(5);
     }
-
 }

@@ -1,16 +1,15 @@
 package io.github.diegourban.algorithms.datastructure.array;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 class ArrayUtilsTest {
 
     @Test
     void shouldNotShuffleSmallArray() {
-        int[] array = new int[]{1};
+        int[] array = new int[] {1};
         ArrayUtils.shuffle(array);
         assertThat(array).hasSize(1);
 
@@ -20,7 +19,7 @@ class ArrayUtilsTest {
 
     @Test
     void shouldShuffle() {
-        int[] array = new int[]{1, 2, 3, 4, 5};
+        int[] array = new int[] {1, 2, 3, 4, 5};
         ArrayUtils.shuffle(array);
         assertThat(array).hasSize(5);
 

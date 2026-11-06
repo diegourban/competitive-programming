@@ -1,9 +1,8 @@
 package io.github.diegourban.algorithms.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class NumbersTest {
 
@@ -22,8 +21,8 @@ class NumbersTest {
 
     @Test
     void shouldConvertNumberToArray() {
-        assertThat(Numbers.toArray(123)).containsExactly(new int[]{3, 2, 1});
-        assertThat(Numbers.toArray(321)).containsExactly(new int[]{1, 2, 3});
+        assertThat(Numbers.toArray(123)).containsExactly(new int[] {3, 2, 1});
+        assertThat(Numbers.toArray(321)).containsExactly(new int[] {1, 2, 3});
     }
 
     @Test

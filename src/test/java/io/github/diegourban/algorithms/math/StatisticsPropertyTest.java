@@ -1,20 +1,20 @@
 package io.github.diegourban.algorithms.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.within;
+
+import java.util.Arrays;
+import java.util.List;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.DoubleRange;
 import net.jqwik.api.constraints.Size;
 
-import java.util.Arrays;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.within;
-
 class StatisticsPropertyTest {
 
     @Property
-    void meanLiesBetweenMinAndMax(@ForAll @Size(min = 1, max = 50) List<@DoubleRange(min = -1e6, max = 1e6) Double> values) {
+    void meanLiesBetweenMinAndMax(
+            @ForAll @Size(min = 1, max = 50) List<@DoubleRange(min = -1e6, max = 1e6) Double> values) {
         var data = values.stream().mapToDouble(Double::doubleValue).toArray();
         var min = Arrays.stream(data).min().orElseThrow();
         var max = Arrays.stream(data).max().orElseThrow();
@@ -23,7 +23,8 @@ class StatisticsPropertyTest {
     }
 
     @Property
-    void medianIsTheMiddleOfTheSortedData(@ForAll @Size(min = 1, max = 50) List<@DoubleRange(min = -1e6, max = 1e6) Double> values) {
+    void medianIsTheMiddleOfTheSortedData(
+            @ForAll @Size(min = 1, max = 50) List<@DoubleRange(min = -1e6, max = 1e6) Double> values) {
         var data = values.stream().mapToDouble(Double::doubleValue).toArray();
         var sorted = data.clone();
         Arrays.sort(sorted);

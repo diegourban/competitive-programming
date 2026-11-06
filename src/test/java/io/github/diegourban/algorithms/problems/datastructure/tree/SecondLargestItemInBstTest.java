@@ -1,10 +1,10 @@
 package io.github.diegourban.algorithms.problems.datastructure.tree;
 
-import io.github.diegourban.algorithms.datastructure.binarytree.BinaryTreeNode;
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
+import io.github.diegourban.algorithms.datastructure.binarytree.BinaryTreeNode;
+import org.junit.jupiter.api.Test;
 
 /**
  * Find The Second Largest Item In A Binary Search Tree — Interview Cake.

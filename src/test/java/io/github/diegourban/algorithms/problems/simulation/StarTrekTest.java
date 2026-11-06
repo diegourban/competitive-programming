@@ -1,16 +1,15 @@
 package io.github.diegourban.algorithms.problems.simulation;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Star Trek — beecrowd (formerly URI Online Judge) 1973.
@@ -25,8 +24,7 @@ class StarTrekTest {
 
     private final SampleLoader samples = new SampleLoader("problems/simulation/star-trek");
 
-    record Raid(int starsAttacked, long sheepLeft) {
-    }
+    record Raid(int starsAttacked, long sheepLeft) {}
 
     static Raid solve(int[] sheep) {
         var left = sheep.clone();
@@ -61,43 +59,43 @@ class StarTrekTest {
 
     @Test
     void singleStarWithOneSheep() {
-        assertThat(solve(new int[]{1})).isEqualTo(new Raid(1, 0));
+        assertThat(solve(new int[] {1})).isEqualTo(new Raid(1, 0));
     }
 
     @Test
     void allOddStarsAreAttackedOnceOnTheWayOut() {
-        assertThat(solve(new int[]{1, 1, 1, 1, 1})).isEqualTo(new Raid(5, 0));
-        assertThat(solve(new int[]{3, 3, 3, 3, 3})).isEqualTo(new Raid(5, 10));
+        assertThat(solve(new int[] {1, 1, 1, 1, 1})).isEqualTo(new Raid(5, 0));
+        assertThat(solve(new int[] {3, 3, 3, 3, 3})).isEqualTo(new Raid(5, 10));
     }
 
     @Test
     void evenStarTurnsKirkBackAndEveryStarBehindIsRobbedAgain() {
-        assertThat(solve(new int[]{1, 1, 2, 1, 1})).isEqualTo(new Raid(3, 3));
-        assertThat(solve(new int[]{3, 3, 2, 3, 3})).isEqualTo(new Raid(3, 9));
+        assertThat(solve(new int[] {1, 1, 2, 1, 1})).isEqualTo(new Raid(3, 3));
+        assertThat(solve(new int[] {3, 3, 2, 3, 3})).isEqualTo(new Raid(3, 9));
     }
 
     @Test
     void evenLastStarTurnsKirkBack() {
-        assertThat(solve(new int[]{1, 1, 1, 1, 2})).isEqualTo(new Raid(5, 1));
-        assertThat(solve(new int[]{3, 3, 3, 3, 2})).isEqualTo(new Raid(5, 5));
+        assertThat(solve(new int[] {1, 1, 1, 1, 2})).isEqualTo(new Raid(5, 1));
+        assertThat(solve(new int[] {3, 3, 3, 3, 2})).isEqualTo(new Raid(5, 5));
     }
 
     @Test
     void emptyStarIsEvenAndHasNothingToSteal() {
-        assertThat(solve(new int[]{3, 0, 5})).isEqualTo(new Raid(2, 6));
+        assertThat(solve(new int[] {3, 0, 5})).isEqualTo(new Raid(2, 6));
     }
 
     @Test
     void judgeSamples() {
-        assertThat(solve(new int[]{1, 3, 5, 7, 11, 13, 17, 19})).isEqualTo(new Raid(8, 68));
-        assertThat(solve(new int[]{1, 3, 5, 7, 11, 13, 16, 19})).isEqualTo(new Raid(7, 63));
+        assertThat(solve(new int[] {1, 3, 5, 7, 11, 13, 17, 19})).isEqualTo(new Raid(8, 68));
+        assertThat(solve(new int[] {1, 3, 5, 7, 11, 13, 16, 19})).isEqualTo(new Raid(7, 63));
     }
 
     @ParameterizedTest
     @CsvSource({
-            "max, 10000 99990000",
-            "max2, 16000 15999968000",
-            "max3, 8000 15999968002",
+        "max, 10000 99990000",
+        "max2, 16000 15999968000",
+        "max3, 8000 15999968002",
     })
     void maxSamples(String name, String expected) throws IOException {
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo(expected + "\n");

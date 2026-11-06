@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.problems.bit;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Delta Bits — Codewars (5 kyu).
@@ -18,15 +18,15 @@ class DeltaBitsTest {
 
     @ParameterizedTest
     @CsvSource({
-            "0, 0, 0",
-            "0, 1, 1",
-            "0, 3, 2",
-            "0, 7, 3",
-            "0, 10, 2",
-            "31, 14, 2",
-            "31, 31, 0",
-            "7, 17, 3",
-            "330274332, 199260599, 19",
+        "0, 0, 0",
+        "0, 1, 1",
+        "0, 3, 2",
+        "0, 7, 3",
+        "0, 10, 2",
+        "31, 14, 2",
+        "31, 31, 0",
+        "7, 17, 3",
+        "330274332, 199260599, 19",
     })
     void countsDifferingBits(int a, int b, int expected) {
         assertThat(solve(a, b)).isEqualTo(expected);

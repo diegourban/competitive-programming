@@ -1,13 +1,12 @@
 package io.github.diegourban.algorithms.problems.greedy;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Banknotes and Coins — beecrowd (formerly URI Online Judge) 1021.
@@ -23,16 +22,16 @@ class BanknotesAndCoinsTest {
     static final List<Integer> COIN_CENTS = List.of(100, 50, 25, 10, 5, 1);
 
     /** Counts per denomination, aligned with {@link #BANKNOTE_CENTS} and {@link #COIN_CENTS}. */
-    record Breakdown(List<Integer> banknotes, List<Integer> coins) {
-    }
+    record Breakdown(List<Integer> banknotes, List<Integer> coins) {}
 
     static int toCents(String amount) {
         return new BigDecimal(amount).movePointRight(2).intValueExact();
     }
 
     static Breakdown solve(int cents) {
-        var remaining = new int[]{cents};
-        var banknotes = BANKNOTE_CENTS.stream().map(value -> take(remaining, value)).toList();
+        var remaining = new int[] {cents};
+        var banknotes =
+                BANKNOTE_CENTS.stream().map(value -> take(remaining, value)).toList();
         var coins = COIN_CENTS.stream().map(value -> take(remaining, value)).toList();
         return new Breakdown(banknotes, coins);
     }
@@ -45,11 +44,11 @@ class BanknotesAndCoinsTest {
 
     @ParameterizedTest
     @CsvSource({
-            "576.73, 57673",
-            "4.00, 400",
-            "91.01, 9101",
-            "0.01, 1",
-            "1000000.00, 100000000",
+        "576.73, 57673",
+        "4.00, 400",
+        "91.01, 9101",
+        "0.01, 1",
+        "1000000.00, 100000000",
     })
     void parsesAmountToCentsExactly(String amount, int cents) {
         assertThat(toCents(amount)).isEqualTo(cents);
@@ -87,7 +86,6 @@ class BanknotesAndCoinsTest {
 
     @Test
     void zeroNeedsNothing() {
-        assertThat(solve(0))
-                .isEqualTo(new Breakdown(List.of(0, 0, 0, 0, 0, 0), List.of(0, 0, 0, 0, 0, 0)));
+        assertThat(solve(0)).isEqualTo(new Breakdown(List.of(0, 0, 0, 0, 0, 0), List.of(0, 0, 0, 0, 0, 0)));
     }
 }

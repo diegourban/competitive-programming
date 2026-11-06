@@ -1,7 +1,6 @@
 package io.github.diegourban.algorithms.datastructure.stack;
 
 import io.github.diegourban.algorithms.datastructure.Element;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Stack {
     }
 
     public Element pop() {
-        return this.elements.remove(this.elements.size() - 1 );
+        return this.elements.remove(this.elements.size() - 1);
     }
 
     public boolean empty() {

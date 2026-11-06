@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.problems.datastructure.map;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.entry;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -16,9 +15,9 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.entry;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Drought — beecrowd (formerly URI Online Judge) 1023.
@@ -30,15 +29,13 @@ import static org.assertj.core.api.Assertions.entry;
  */
 class DroughtTest {
 
-    record Property(int residents, int consumption) {
-    }
+    record Property(int residents, int consumption) {}
 
     /**
      * @param residentsByConsumption residents per per-capita consumption, ascending by consumption
      * @param averageConsumption     total consumption over total residents, truncated to 2 decimals
      */
-    record City(SortedMap<Integer, Integer> residentsByConsumption, BigDecimal averageConsumption) {
-    }
+    record City(SortedMap<Integer, Integer> residentsByConsumption, BigDecimal averageConsumption) {}
 
     static City solve(List<Property> properties) {
         var residentsByConsumption = new TreeMap<Integer, Integer>();
@@ -47,10 +44,11 @@ class DroughtTest {
         for (var property : properties) {
             totalResidents += property.residents();
             totalConsumption += property.consumption();
-            residentsByConsumption.merge(property.consumption() / property.residents(), property.residents(), Integer::sum);
+            residentsByConsumption.merge(
+                    property.consumption() / property.residents(), property.residents(), Integer::sum);
         }
-        var average = BigDecimal.valueOf(totalConsumption)
-                .divide(BigDecimal.valueOf(totalResidents), 2, RoundingMode.DOWN);
+        var average =
+                BigDecimal.valueOf(totalConsumption).divide(BigDecimal.valueOf(totalResidents), 2, RoundingMode.DOWN);
         return new City(residentsByConsumption, average);
     }
 
@@ -70,7 +68,8 @@ class DroughtTest {
                     Cidade# %d:
                     %s
                     Consumo medio: %s m3.
-                    """.formatted(cities.size() + 1, groups, city.averageConsumption().toPlainString()));
+                    """.formatted(
+                            cities.size() + 1, groups, city.averageConsumption().toPlainString()));
         }
         return String.join("\n", cities);
     }
@@ -92,8 +91,12 @@ class DroughtTest {
 
     @Test
     void truncatesAverageInsteadOfRounding() {
-        var city = solve(List.of(new Property(1, 25), new Property(2, 20), new Property(3, 31),
-                new Property(2, 40), new Property(6, 70)));
+        var city = solve(List.of(
+                new Property(1, 25),
+                new Property(2, 20),
+                new Property(3, 31),
+                new Property(2, 40),
+                new Property(6, 70)));
 
         // 186 / 14 = 13.2857...
         assertThat(city.averageConsumption()).isEqualByComparingTo("13.28");

@@ -1,10 +1,9 @@
 package io.github.diegourban.algorithms.problems.datastructure.stack;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayDeque;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Bracket Validator — Interview Cake.
@@ -26,7 +25,7 @@ class BracketValidatorTest {
                         return false;
                     }
                 }
-                default -> { }
+                default -> {}
             }
         }
         return openers.isEmpty();

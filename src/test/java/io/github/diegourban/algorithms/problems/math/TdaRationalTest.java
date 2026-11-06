@@ -1,10 +1,10 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.NumberTheory;
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
+import io.github.diegourban.algorithms.math.NumberTheory;
+import org.junit.jupiter.api.Test;
 
 /**
  * TDA Rational — beecrowd (formerly URI Online Judge) 1022.
@@ -16,18 +16,20 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
  */
 class TdaRationalTest {
 
-    record Fraction(int numerator, int denominator) {
-    }
+    record Fraction(int numerator, int denominator) {}
 
-    record Result(Fraction raw, Fraction simplified) {
-    }
+    record Result(Fraction raw, Fraction simplified) {}
 
     static Result solve(Fraction a, char operator, Fraction b) {
         var raw = switch (operator) {
-            case '+' -> new Fraction(a.numerator() * b.denominator() + b.numerator() * a.denominator(),
-                    a.denominator() * b.denominator());
-            case '-' -> new Fraction(a.numerator() * b.denominator() - b.numerator() * a.denominator(),
-                    a.denominator() * b.denominator());
+            case '+' ->
+                new Fraction(
+                        a.numerator() * b.denominator() + b.numerator() * a.denominator(),
+                        a.denominator() * b.denominator());
+            case '-' ->
+                new Fraction(
+                        a.numerator() * b.denominator() - b.numerator() * a.denominator(),
+                        a.denominator() * b.denominator());
             case '*' -> new Fraction(a.numerator() * b.numerator(), a.denominator() * b.denominator());
             case '/' -> new Fraction(a.numerator() * b.denominator(), b.numerator() * a.denominator());
             default -> throw new IllegalArgumentException("Invalid operator: " + operator);

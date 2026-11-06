@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.NumberTheory;
-import org.junit.jupiter.api.Test;
-
-import java.util.TreeMap;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import io.github.diegourban.algorithms.math.NumberTheory;
+import java.util.TreeMap;
+import org.junit.jupiter.api.Test;
 
 /**
  * Sum by Factors — Codewars (4 kyu).
@@ -25,22 +24,23 @@ class SumByFactorsTest {
             }
         }
         var result = new StringBuilder();
-        sums.forEach((prime, sum) -> result.append('(').append(prime).append(' ').append(sum).append(')'));
+        sums.forEach((prime, sum) ->
+                result.append('(').append(prime).append(' ').append(sum).append(')'));
         return result.toString();
     }
 
     @Test
     void sumsEachPrimeFactorInAscendingOrder() {
-        assertThat(solve(new int[]{12, 15})).isEqualTo("(2 12)(3 27)(5 15)");
+        assertThat(solve(new int[] {12, 15})).isEqualTo("(2 12)(3 27)(5 15)");
     }
 
     @Test
     void negativeNumbersContributeTheirSignedValue() {
-        assertThat(solve(new int[]{15, 30, -45})).isEqualTo("(2 30)(3 0)(5 0)");
+        assertThat(solve(new int[] {15, 30, -45})).isEqualTo("(2 30)(3 0)(5 0)");
     }
 
     @Test
     void emptyListGivesEmptyString() {
-        assertThat(solve(new int[]{})).isEmpty();
+        assertThat(solve(new int[] {})).isEmpty();
     }
 }

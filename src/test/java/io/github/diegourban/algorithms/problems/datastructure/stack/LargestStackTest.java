@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.problems.datastructure.stack;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Largest Stack — Interview Cake.

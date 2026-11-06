@@ -1,7 +1,6 @@
 package io.github.diegourban.algorithms.datastructure.vector;
 
 import io.github.diegourban.algorithms.datastructure.Element;
-
 import java.util.Arrays;
 
 public class Vector {
@@ -17,13 +16,13 @@ public class Vector {
     }
 
     public void add(final int position, final Element element) {
-        if(!isPositionValid(position)) {
+        if (!isPositionValid(position)) {
             throw new IllegalArgumentException("Invalid position");
         }
 
         this.guaranteesSpace();
-        for(int i = this.totalElements - 1; i >= position; i--) {
-            this.elements[i+1] = this.elements[i];
+        for (int i = this.totalElements - 1; i >= position; i--) {
+            this.elements[i + 1] = this.elements[i];
         }
         this.elements[position] = element;
         this.totalElements++;
@@ -34,7 +33,7 @@ public class Vector {
     }
 
     public Element get(final int position) {
-        if(!positionOccupied(position)) {
+        if (!positionOccupied(position)) {
             throw new IllegalArgumentException("Invalid position");
         }
         return this.elements[position];
@@ -45,16 +44,16 @@ public class Vector {
     }
 
     public void remove(final int position) {
-        for(int i = position; i < this.totalElements; i++) {
-            this.elements[i] = this.elements[i+1];
+        for (int i = position; i < this.totalElements; i++) {
+            this.elements[i] = this.elements[i + 1];
         }
         totalElements--;
         this.elements[this.totalElements] = null;
     }
 
     public boolean contains(final Element element) {
-        for(int i = 0; i < this.totalElements; i++) {
-            if(element.equals(this.elements[i])) {
+        for (int i = 0; i < this.totalElements; i++) {
+            if (element.equals(this.elements[i])) {
                 return true;
             }
         }
@@ -67,9 +66,9 @@ public class Vector {
     }
 
     private void guaranteesSpace() {
-        if(this.totalElements == this.elements.length) {
+        if (this.totalElements == this.elements.length) {
             Element[] newElements = new Element[this.elements.length * 2];
-            for(int i = 0; i < this.elements.length; i++) {
+            for (int i = 0; i < this.elements.length; i++) {
                 newElements[i] = this.elements[i];
             }
             this.elements = newElements;
@@ -78,8 +77,6 @@ public class Vector {
 
     @Override
     public String toString() {
-        return "Vector{" +
-                "elements=" + Arrays.toString(elements) +
-                '}';
+        return "Vector{" + "elements=" + Arrays.toString(elements) + '}';
     }
 }

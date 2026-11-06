@@ -4,8 +4,7 @@ import java.util.Random;
 
 public class ArrayUtils {
 
-    private ArrayUtils() {
-    }
+    private ArrayUtils() {}
 
     private static Random rand = new Random();
 
@@ -27,8 +26,7 @@ public class ArrayUtils {
         }
 
         // walk through from beginning to end
-        for (int indexWeAreChoosingFor = 0;
-             indexWeAreChoosingFor < theArray.length - 1; indexWeAreChoosingFor++) {
+        for (int indexWeAreChoosingFor = 0; indexWeAreChoosingFor < theArray.length - 1; indexWeAreChoosingFor++) {
 
             // choose a random not-yet-placed item to place there
             // (could also be the item currently in that spot)

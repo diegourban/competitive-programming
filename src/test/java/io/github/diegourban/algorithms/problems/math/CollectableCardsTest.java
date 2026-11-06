@@ -1,16 +1,15 @@
 package io.github.diegourban.algorithms.problems.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.math.NumberTheory;
 import io.github.diegourban.algorithms.testing.SampleLoader;
+import java.io.IOException;
+import java.io.InputStream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Collectable Cards — beecrowd (formerly URI Online Judge) 1028.
@@ -40,12 +39,12 @@ class CollectableCardsTest {
 
     @ParameterizedTest
     @CsvSource({
-            "8, 12, 4",
-            "9, 27, 9",
-            "259, 111, 37",
-            "1, 1, 1",
-            "7, 13, 1",
-            "1000, 1000, 1000",
+        "8, 12, 4",
+        "9, 27, 9",
+        "259, 111, 37",
+        "1, 1, 1",
+        "7, 13, 1",
+        "1000, 1000, 1000",
     })
     void largestPileSizeIsTheGcd(int f1, int f2, long expected) {
         assertThat(solve(f1, f2)).isEqualTo(expected);

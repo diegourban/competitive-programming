@@ -1,8 +1,8 @@
 package io.github.diegourban.algorithms.problems.datastructure.linkedlist;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Find Repeat, Space Edition BEAST MODE — Interview Cake.
@@ -24,7 +24,9 @@ class FindRepeatBeastModeTest {
         }
 
         var cycleLength = 1;
-        for (var position = next(numbers, positionInCycle); position != positionInCycle; position = next(numbers, position)) {
+        for (var position = next(numbers, positionInCycle);
+                position != positionInCycle;
+                position = next(numbers, position)) {
             cycleLength++;
         }
 
@@ -46,31 +48,31 @@ class FindRepeatBeastModeTest {
 
     @Test
     void smallestInputsRepeatOne() {
-        assertThat(solve(new int[]{1, 1})).isOne();
-        assertThat(solve(new int[]{1, 1, 1})).isOne();
+        assertThat(solve(new int[] {1, 1})).isOne();
+        assertThat(solve(new int[] {1, 1, 1})).isOne();
     }
 
     @Test
     void findsAdjacentRepeatAnywhereInTheRange() {
-        assertThat(solve(new int[]{1, 1, 2, 3, 4, 5, 6, 7, 8, 9})).isOne();
-        assertThat(solve(new int[]{1, 2, 2, 3, 4, 5, 6, 7, 8, 9})).isEqualTo(2);
-        assertThat(solve(new int[]{1, 2, 3, 3, 4, 5, 6, 7, 8, 9})).isEqualTo(3);
-        assertThat(solve(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 8, 9})).isEqualTo(4);
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 5, 6, 7, 8, 9})).isEqualTo(5);
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 6, 6, 7, 8, 9})).isEqualTo(6);
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 6, 7, 7, 8, 9})).isEqualTo(7);
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 8, 9})).isEqualTo(8);
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 9})).isEqualTo(9);
+        assertThat(solve(new int[] {1, 1, 2, 3, 4, 5, 6, 7, 8, 9})).isOne();
+        assertThat(solve(new int[] {1, 2, 2, 3, 4, 5, 6, 7, 8, 9})).isEqualTo(2);
+        assertThat(solve(new int[] {1, 2, 3, 3, 4, 5, 6, 7, 8, 9})).isEqualTo(3);
+        assertThat(solve(new int[] {1, 2, 3, 4, 4, 5, 6, 7, 8, 9})).isEqualTo(4);
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 5, 6, 7, 8, 9})).isEqualTo(5);
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 6, 6, 7, 8, 9})).isEqualTo(6);
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 6, 7, 7, 8, 9})).isEqualTo(7);
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 8, 9})).isEqualTo(8);
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 9})).isEqualTo(9);
     }
 
     @Test
     void findsRepeatRegardlessOfPosition() {
-        assertThat(solve(new int[]{1, 2, 1, 3, 4, 5, 6, 7, 8})).isOne();
-        assertThat(solve(new int[]{1, 2, 3, 1, 4, 5, 6, 7, 8})).isOne();
-        assertThat(solve(new int[]{1, 2, 3, 4, 1, 5, 6, 7, 8})).isOne();
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 1, 6, 7, 8})).isOne();
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 6, 1, 7, 8})).isOne();
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 6, 7, 1, 8})).isOne();
-        assertThat(solve(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 1})).isOne();
+        assertThat(solve(new int[] {1, 2, 1, 3, 4, 5, 6, 7, 8})).isOne();
+        assertThat(solve(new int[] {1, 2, 3, 1, 4, 5, 6, 7, 8})).isOne();
+        assertThat(solve(new int[] {1, 2, 3, 4, 1, 5, 6, 7, 8})).isOne();
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 1, 6, 7, 8})).isOne();
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 6, 1, 7, 8})).isOne();
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 6, 7, 1, 8})).isOne();
+        assertThat(solve(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 1})).isOne();
     }
 }

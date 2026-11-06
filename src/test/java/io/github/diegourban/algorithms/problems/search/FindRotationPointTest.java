@@ -1,8 +1,8 @@
 package io.github.diegourban.algorithms.problems.search;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Find Rotation Point — Interview Cake.
@@ -34,34 +34,45 @@ class FindRotationPointTest {
 
     @Test
     void findsRotationPointInSingleLetterWords() {
-        assertThat(solve(new String[]{"k", "v", "a", "b", "c", "d", "e", "g", "i"})).isEqualTo(2);
+        assertThat(solve(new String[] {"k", "v", "a", "b", "c", "d", "e", "g", "i"}))
+                .isEqualTo(2);
     }
 
     @Test
     void findsRotationPointInDictionaryWords() {
-        assertThat(solve(new String[]{
-                "ptolemaic", "retrograde", "supplant", "undulate", "xenoepist",
-                "asymptote", "babka", "banoffee", "engender", "karpatka", "othellolagkage"
-        })).isEqualTo(5);
+        assertThat(solve(new String[] {
+                    "ptolemaic",
+                    "retrograde",
+                    "supplant",
+                    "undulate",
+                    "xenoepist",
+                    "asymptote",
+                    "babka",
+                    "banoffee",
+                    "engender",
+                    "karpatka",
+                    "othellolagkage"
+                }))
+                .isEqualTo(5);
     }
 
     @Test
     void findsRotationPointRightAfterTheFirstWord() {
-        assertThat(solve(new String[]{"z", "a", "b", "c", "d"})).isOne();
+        assertThat(solve(new String[] {"z", "a", "b", "c", "d"})).isOne();
     }
 
     @Test
     void unrotatedListStartsAtZero() {
-        assertThat(solve(new String[]{"a", "b", "c", "d"})).isZero();
+        assertThat(solve(new String[] {"a", "b", "c", "d"})).isZero();
     }
 
     @Test
     void singleWordStartsAtZero() {
-        assertThat(solve(new String[]{"a"})).isZero();
+        assertThat(solve(new String[] {"a"})).isZero();
     }
 
     @Test
     void findsRotationPointAtTheEnd() {
-        assertThat(solve(new String[]{"b", "c", "d", "a"})).isEqualTo(3);
+        assertThat(solve(new String[] {"b", "c", "d", "a"})).isEqualTo(3);
     }
 }

@@ -1,8 +1,8 @@
 package io.github.diegourban.algorithms.problems.datastructure.array;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Largest Difference in Increasing Indexes — Codewars (5 kyu).
@@ -29,29 +29,29 @@ class LargestDifferenceTest {
 
     @Test
     void singleElementHasNoDifference() {
-        assertThat(solve(new int[]{0})).isZero();
+        assertThat(solve(new int[] {0})).isZero();
     }
 
     @Test
     void strictlyDecreasingHasNoDifference() {
-        assertThat(solve(new int[]{2, 1})).isZero();
-        assertThat(solve(new int[]{3, 2, 1})).isZero();
+        assertThat(solve(new int[] {2, 1})).isZero();
+        assertThat(solve(new int[] {3, 2, 1})).isZero();
     }
 
     @Test
     void equalValuesCount() {
-        assertThat(solve(new int[]{1, 1})).isEqualTo(1);
-        assertThat(solve(new int[]{1, 1, 1})).isEqualTo(2);
+        assertThat(solve(new int[] {1, 1})).isEqualTo(1);
+        assertThat(solve(new int[] {1, 1, 1})).isEqualTo(2);
     }
 
     @Test
     void increasingPairSpansTheArray() {
-        assertThat(solve(new int[]{1, 2})).isEqualTo(1);
-        assertThat(solve(new int[]{1, 1, 3})).isEqualTo(2);
+        assertThat(solve(new int[] {1, 2})).isEqualTo(1);
+        assertThat(solve(new int[] {1, 1, 3})).isEqualTo(2);
     }
 
     @Test
     void findsWidestPairInMixedData() {
-        assertThat(solve(new int[]{9, 4, 1, 10, 3, 4, 0, -1, -2})).isEqualTo(4);
+        assertThat(solve(new int[] {9, 4, 1, 10, 3, 4, 0, -1, -2})).isEqualTo(4);
     }
 }

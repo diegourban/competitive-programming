@@ -14,7 +14,7 @@ public class Element {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj == null) {
+        if (obj == null) {
             return false;
         }
         Element other = (Element) obj;

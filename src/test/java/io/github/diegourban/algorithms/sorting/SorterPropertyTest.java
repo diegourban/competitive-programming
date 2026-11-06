@@ -1,14 +1,13 @@
 package io.github.diegourban.algorithms.sorting;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Arrays;
 import net.jqwik.api.Arbitraries;
 import net.jqwik.api.Arbitrary;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.Provide;
-
-import java.util.Arrays;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Every {@link Sorter} must agree with {@link Arrays#sort(int[])} on any input.

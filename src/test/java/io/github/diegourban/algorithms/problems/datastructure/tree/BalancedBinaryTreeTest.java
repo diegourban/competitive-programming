@@ -1,12 +1,11 @@
 package io.github.diegourban.algorithms.problems.datastructure.tree;
 
-import io.github.diegourban.algorithms.datastructure.binarytree.BinaryTreeNode;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import io.github.diegourban.algorithms.datastructure.binarytree.BinaryTreeNode;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Balanced Binary Tree — Interview Cake.
@@ -18,8 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class BalancedBinaryTreeTest {
 
-    private record NodeDepth(BinaryTreeNode node, int depth) {
-    }
+    private record NodeDepth(BinaryTreeNode node, int depth) {}
 
     static boolean solve(BinaryTreeNode root) {
         if (root == null) {

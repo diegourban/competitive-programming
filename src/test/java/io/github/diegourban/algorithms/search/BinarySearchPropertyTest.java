@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.search;
 
-import net.jqwik.api.ForAll;
-import net.jqwik.api.Property;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
 
 /**
  * {@link BinarySearch#indexOf(int[], int)} must agree with {@link Arrays#binarySearch(int[], int)} on whether the key

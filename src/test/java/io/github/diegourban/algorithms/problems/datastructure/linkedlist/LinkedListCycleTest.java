@@ -1,10 +1,10 @@
 package io.github.diegourban.algorithms.problems.datastructure.linkedlist;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.datastructure.Element;
 import io.github.diegourban.algorithms.datastructure.linkedlist.LinkedListNode;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Does This Linked List Have A Cycle? — Interview Cake.

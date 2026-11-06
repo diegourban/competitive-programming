@@ -1,18 +1,17 @@
 package io.github.diegourban.algorithms.problems.datastructure.map;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.entry;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.SortedMap;
 import java.util.TreeMap;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.entry;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Number Frequence — beecrowd (formerly URI Online Judge) 1171.
@@ -38,24 +37,26 @@ class NumberFrequencyTest {
             numbers[i] = reader.nextInt();
         }
         var out = new StringBuilder();
-        solve(numbers).forEach((x, count) -> out.append(x).append(" aparece ").append(count).append(" vez(es)\n"));
+        solve(numbers)
+                .forEach((x, count) ->
+                        out.append(x).append(" aparece ").append(count).append(" vez(es)\n"));
         return out.toString();
     }
 
     @Test
     void countsOccurrencesInAscendingOrder() {
-        assertThat(solve(new int[]{8, 10, 8, 260, 4, 10, 10}))
+        assertThat(solve(new int[] {8, 10, 8, 260, 4, 10, 10}))
                 .containsExactly(entry(4, 1), entry(8, 2), entry(10, 3), entry(260, 1));
     }
 
     @Test
     void singleValue() {
-        assertThat(solve(new int[]{5})).containsExactly(entry(5, 1));
+        assertThat(solve(new int[] {5})).containsExactly(entry(5, 1));
     }
 
     @Test
     void emptyInputHasNoFrequencies() {
-        assertThat(solve(new int[]{})).isEmpty();
+        assertThat(solve(new int[] {})).isEmpty();
     }
 
     @ParameterizedTest

@@ -1,11 +1,11 @@
 package io.github.diegourban.algorithms.problems.datastructure.linkedlist;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
 import io.github.diegourban.algorithms.datastructure.Element;
 import io.github.diegourban.algorithms.datastructure.linkedlist.LinkedListNode;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 /**
  * Delete Node — Interview Cake.

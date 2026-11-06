@@ -1,17 +1,16 @@
 package io.github.diegourban.algorithms.string;
 
-import net.jqwik.api.ForAll;
-import net.jqwik.api.Property;
-import net.jqwik.api.constraints.AlphaChars;
-import net.jqwik.api.constraints.NotEmpty;
-import net.jqwik.api.constraints.StringLength;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.util.stream.Collectors;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
+import net.jqwik.api.constraints.AlphaChars;
+import net.jqwik.api.constraints.NotEmpty;
+import net.jqwik.api.constraints.StringLength;
 
 /**
  * Inputs are ASCII letters: both methods compare {@code char} by {@code char}, so the properties check their logic
@@ -27,8 +26,8 @@ class StringUtilsPropertyTest {
     }
 
     @Property
-    void mirroredStringsArePalindromes(@ForAll @AlphaChars @NotEmpty @StringLength(max = 20) String s,
-                                       @ForAll @AlphaChars char middle) {
+    void mirroredStringsArePalindromes(
+            @ForAll @AlphaChars @NotEmpty @StringLength(max = 20) String s, @ForAll @AlphaChars char middle) {
         var reversed = new StringBuilder(s).reverse().toString();
 
         assertThat(StringUtils.isPalindrome(s + reversed)).isTrue();
@@ -42,12 +41,13 @@ class StringUtilsPropertyTest {
         var shuffled = chars.stream().map(String::valueOf).collect(Collectors.joining());
 
         assertThat(StringUtils.isAnagram(s, shuffled)).isTrue();
-        assertThat(StringUtils.isAnagram(s.toUpperCase(), shuffled.toLowerCase())).isTrue();
+        assertThat(StringUtils.isAnagram(s.toUpperCase(), shuffled.toLowerCase()))
+                .isTrue();
     }
 
     @Property
-    void isAnagramAgreesWithLetterCounts(@ForAll @AlphaChars @StringLength(max = 6) String a,
-                                         @ForAll @AlphaChars @StringLength(max = 6) String b) {
+    void isAnagramAgreesWithLetterCounts(
+            @ForAll @AlphaChars @StringLength(max = 6) String a, @ForAll @AlphaChars @StringLength(max = 6) String b) {
         assertThat(StringUtils.isAnagram(a, b)).isEqualTo(letterCounts(a).equals(letterCounts(b)));
     }
 

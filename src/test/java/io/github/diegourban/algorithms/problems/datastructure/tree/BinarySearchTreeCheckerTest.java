@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.problems.datastructure.tree;
 
-import io.github.diegourban.algorithms.datastructure.binarytree.BinaryTreeNode;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayDeque;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import io.github.diegourban.algorithms.datastructure.binarytree.BinaryTreeNode;
+import java.util.ArrayDeque;
+import org.junit.jupiter.api.Test;
 
 /**
  * Binary Search Tree Checker — Interview Cake.
@@ -17,8 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class BinarySearchTreeCheckerTest {
 
-    private record NodeBounds(BinaryTreeNode node, long lower, long upper) {
-    }
+    private record NodeBounds(BinaryTreeNode node, long lower, long upper) {}
 
     static boolean solve(BinaryTreeNode root) {
         if (root == null) {

@@ -8,13 +8,13 @@ public class Set {
     private List<LinkedList<String>> table = new LinkedList<LinkedList<String>>();
 
     public Set() {
-        for(int i = 0; i < 26; i++) {
+        for (int i = 0; i < 26; i++) {
             this.table.add(new LinkedList<String>());
         }
     }
 
     public void add(String word) {
-        if(!contains(word)) {
+        if (!contains(word)) {
             int index = calculateTableIndex(word);
             List<String> list = this.table.get(index);
             list.add(word);
@@ -22,7 +22,7 @@ public class Set {
     }
 
     public void remove(String word) {
-        if(contains(word)) {
+        if (contains(word)) {
             int index = calculateTableIndex(word);
             List<String> list = this.table.get(index);
             list.remove(word);

@@ -1,18 +1,17 @@
 package io.github.diegourban.algorithms.problems.search;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Two Bills — beecrowd (formerly URI Online Judge) 2140.
@@ -43,8 +42,9 @@ class TwoBillsTest {
     static String run(InputStream in) throws IOException {
         var reader = new Reader(in);
         var out = new StringBuilder();
-        for (int price = reader.nextInt(), paid = reader.nextInt(); price != 0 || paid != 0;
-             price = reader.nextInt(), paid = reader.nextInt()) {
+        for (int price = reader.nextInt(), paid = reader.nextInt();
+                price != 0 || paid != 0;
+                price = reader.nextInt(), paid = reader.nextInt()) {
             out.append(solve(price, paid) ? "possible" : "impossible").append('\n');
         }
         return out.toString();
@@ -52,11 +52,11 @@ class TwoBillsTest {
 
     @ParameterizedTest
     @CsvSource({
-            "11, 23",
-            "500, 650",
-            "9948, 9963",
-            "1, 5",
-            "0, 200",
+        "11, 23",
+        "500, 650",
+        "9948, 9963",
+        "1, 5",
+        "0, 200",
     })
     void changeMadeOfTwoBillsIsPossible(int price, int paid) {
         assertThat(solve(price, paid)).isTrue();
@@ -64,12 +64,12 @@ class TwoBillsTest {
 
     @ParameterizedTest
     @CsvSource({
-            "100, 600",
-            "1, 2",
-            "1, 3",
-            "1, 7",
-            "5, 5",
-            "0, 201",
+        "100, 600",
+        "1, 2",
+        "1, 3",
+        "1, 7",
+        "5, 5",
+        "0, 201",
     })
     void otherChangeIsImpossible(int price, int paid) {
         assertThat(solve(price, paid)).isFalse();
@@ -77,7 +77,8 @@ class TwoBillsTest {
 
     @Test
     void zeroZeroEndsTheInput() throws IOException {
-        assertThat(run(new ByteArrayInputStream("0 0\n".getBytes(StandardCharsets.UTF_8)))).isEmpty();
+        assertThat(run(new ByteArrayInputStream("0 0\n".getBytes(StandardCharsets.UTF_8))))
+                .isEmpty();
     }
 
     @ParameterizedTest

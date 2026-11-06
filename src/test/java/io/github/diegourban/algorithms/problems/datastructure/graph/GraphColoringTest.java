@@ -1,13 +1,12 @@
 package io.github.diegourban.algorithms.problems.datastructure.graph;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import org.junit.jupiter.api.Test;
 
 /**
  * Graph Coloring — Interview Cake.

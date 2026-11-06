@@ -1,8 +1,8 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Rectangular Love — Interview Cake.
@@ -15,11 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class RectangularLoveTest {
 
     /** {@code (leftX, bottomY)} is the bottom-left corner. */
-    record Rectangle(int leftX, int bottomY, int width, int height) {
-    }
+    record Rectangle(int leftX, int bottomY, int width, int height) {}
 
-    private record RangeOverlap(int startPoint, int length) {
-    }
+    private record RangeOverlap(int startPoint, int length) {}
 
     private static final Rectangle NO_OVERLAP = new Rectangle(0, 0, 0, 0);
 

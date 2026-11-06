@@ -5,8 +5,7 @@ package io.github.diegourban.algorithms.search;
  */
 public class BinarySearch {
 
-    private BinarySearch() {
-    }
+    private BinarySearch() {}
 
     /**
      * Finds an element in an ordered list
@@ -31,17 +30,17 @@ public class BinarySearch {
      * @return the index of the element, -1 otherwise
      */
     private static int find(final int[] items, final int from, final int to, final int element) {
-        if(from > to) {
+        if (from > to) {
             return -1;
         }
 
         final int middle = (from + to) / 2;
         final int middleItem = items[middle];
 
-        if(element == middleItem) {
+        if (element == middleItem) {
             return middle;
         }
-        if(element < middleItem) {
+        if (element < middleItem) {
             return find(items, from, middle - 1, element);
         }
         return find(items, middle + 1, to, element);

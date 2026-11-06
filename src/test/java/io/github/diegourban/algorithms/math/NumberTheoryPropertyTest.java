@@ -1,15 +1,14 @@
 package io.github.diegourban.algorithms.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.HashSet;
+import java.util.List;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
 import net.jqwik.api.constraints.LongRange;
 import net.jqwik.api.constraints.Size;
-
-import java.util.HashSet;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class NumberTheoryPropertyTest {
 
@@ -27,13 +26,14 @@ class NumberTheoryPropertyTest {
     }
 
     @Property
-    void lcmTimesGcdIsTheProduct(@ForAll @LongRange(min = 1, max = 1_000_000) long a,
-                                 @ForAll @LongRange(min = 1, max = 1_000_000) long b) {
+    void lcmTimesGcdIsTheProduct(
+            @ForAll @LongRange(min = 1, max = 1_000_000) long a, @ForAll @LongRange(min = 1, max = 1_000_000) long b) {
         assertThat(NumberTheory.lcm(a, b) * NumberTheory.gcdLoop(a, b)).isEqualTo(a * b);
     }
 
     @Property
-    void lcmOfAListIsAMultipleOfEveryElement(@ForAll @Size(min = 1, max = 6) List<@LongRange(min = 1, max = 1_000) Long> numbers) {
+    void lcmOfAListIsAMultipleOfEveryElement(
+            @ForAll @Size(min = 1, max = 6) List<@LongRange(min = 1, max = 1_000) Long> numbers) {
         var lcm = NumberTheory.lcm(numbers.stream().mapToLong(Long::longValue).toArray());
 
         assertThat(numbers).allSatisfy(n -> assertThat(lcm % n).isZero());
@@ -48,8 +48,10 @@ class NumberTheoryPropertyTest {
     void primeFactorsMultiplyBackToTheNumber(@ForAll @IntRange(min = 2, max = 10_000_000) int n) {
         var factors = NumberTheory.primeFactorsList(n);
 
-        assertThat(factors.stream().mapToLong(Integer::longValue).reduce(1, (x, y) -> x * y)).isEqualTo(n);
-        assertThat(factors).allSatisfy(f -> assertThat(isPrimeByTrialDivision(f)).isTrue());
+        assertThat(factors.stream().mapToLong(Integer::longValue).reduce(1, (x, y) -> x * y))
+                .isEqualTo(n);
+        assertThat(factors)
+                .allSatisfy(f -> assertThat(isPrimeByTrialDivision(f)).isTrue());
         assertThat(factors).isSorted();
     }
 
