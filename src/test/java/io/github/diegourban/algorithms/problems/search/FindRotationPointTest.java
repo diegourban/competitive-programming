@@ -16,6 +16,9 @@ class FindRotationPointTest {
 
     static int solve(String[] words) {
         var firstWord = words[0];
+        if (firstWord.compareTo(words[words.length - 1]) <= 0) {
+            return 0; // not rotated (or a single word): the first word is already the earliest
+        }
         var floorIndex = 0;
         var ceilingIndex = words.length - 1;
         while (floorIndex + 1 < ceilingIndex) {
@@ -45,6 +48,16 @@ class FindRotationPointTest {
     @Test
     void findsRotationPointRightAfterTheFirstWord() {
         assertThat(solve(new String[]{"z", "a", "b", "c", "d"})).isOne();
+    }
+
+    @Test
+    void unrotatedListStartsAtZero() {
+        assertThat(solve(new String[]{"a", "b", "c", "d"})).isZero();
+    }
+
+    @Test
+    void singleWordStartsAtZero() {
+        assertThat(solve(new String[]{"a"})).isZero();
     }
 
     @Test
