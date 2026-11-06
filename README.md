@@ -1,7 +1,7 @@
-# Algorithms
-[![build](https://github.com/diegourban/competitive-programming/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/diegourban/competitive-programming/actions/workflows/build.yml)
-[![codecov](https://codecov.io/gh/diegourban/competitive-programming/branch/master/graph/badge.svg)](https://codecov.io/gh/diegourban/competitive-programming)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1d28104f2eb44f99a3cc3bfd7be501e1)](https://app.codacy.com/gh/diegourban/competitive-programming/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+# algorithms-java
+[![build](https://github.com/diegourban/algorithms-java/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/diegourban/algorithms-java/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/diegourban/algorithms-java/branch/master/graph/badge.svg)](https://codecov.io/gh/diegourban/algorithms-java)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1d28104f2eb44f99a3cc3bfd7be501e1)](https://app.codacy.com/gh/diegourban/algorithms-java/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 A small Java library of algorithms and data structures, plus worked problems organised by topic that show them in use.
 
@@ -41,4 +41,6 @@ Each problem is one test class, `problems/<topic>/<Name>Test.java`:
 
 Topics: `bit`, `datastructure.{array,map,set,stack}`, `greedy`, `math`, `recursion`, `search`, `simulation`, `sorting`, `string`.
 
-The original per-judge solutions (URI Online Judge, Codewars, SPOJ) are preserved at the git tag [`archive/judges-2018`](https://github.com/diegourban/competitive-programming/tree/archive/judges-2018).
+A problem's id is `<topic>/<kebab-name>` (e.g. `math/prime-generator`), the same in the resource folder and in any future `algorithms-<language>` sibling repo, so problems and their sample files port across languages one to one. This repo is the source of truth for the problem catalogue.
+
+The original per-judge solutions (URI Online Judge, Codewars, SPOJ) are preserved at the git tag [`archive/judges-2018`](https://github.com/diegourban/algorithms-java/tree/archive/judges-2018).
