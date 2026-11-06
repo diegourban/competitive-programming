@@ -10,7 +10,8 @@ A small Java library of algorithms and data structures, plus worked problems org
 Requires Java 25. Maven comes with the wrapper.
 
 ```sh
-./mvnw verify          # compile, run all tests, write coverage to target/site/jacoco
+./mvnw verify          # format check, compile, run all tests, write coverage to target/site/jacoco
+./mvnw spotless:apply  # format the sources (palantir-java-format)
 ./mvnw install         # make io.github.diegourban:algorithms available to other local projects
 ```
 

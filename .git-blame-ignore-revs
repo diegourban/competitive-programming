@@ -1,0 +1,5 @@
+# Bulk formatting commits; hide them from `git blame` (GitHub honours this file).
+# Locally: git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# Reformat all Java sources with palantir-java-format
+f490a4f2627cc093ad2cfa4ba93809556254e7de
