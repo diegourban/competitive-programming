@@ -9,7 +9,9 @@ import java.util.Arrays;
  */
 public class Vector {
 
-    private Element[] elements = new Element[100];
+    private static final int INITIAL_CAPACITY = 100;
+
+    private Element[] elements = new Element[INITIAL_CAPACITY];
     private int totalElements = 0;
 
     /** Creates an empty vector with capacity 100. */
@@ -21,26 +23,26 @@ public class Vector {
      * @param element the element to append
      */
     public void add(final Element element) {
-        this.guaranteesSpace();
+        this.ensureCapacity();
 
         this.elements[this.totalElements] = element;
         this.totalElements++;
     }
 
     /**
-     * Inserts an element at an occupied position, shifting it and later elements one position back. Only occupied
-     * positions are accepted, so this cannot append (use {@link #add(Element)}) or insert into an empty vector.
+     * Inserts an element at the given position, shifting it and later elements one position back. Position
+     * {@link #size()} appends.
      *
-     * @param position the zero-based position, from {@code 0} to {@code size() - 1}
+     * @param position the zero-based position, from {@code 0} to {@link #size()}
      * @param element the element to insert
-     * @throws IllegalArgumentException if {@code position} is negative or not less than {@link #size()}
+     * @throws IllegalArgumentException if {@code position} is negative or greater than {@link #size()}
      */
     public void add(final int position, final Element element) {
         if (!isPositionValid(position)) {
             throw new IllegalArgumentException("Invalid position");
         }
 
-        this.guaranteesSpace();
+        this.ensureCapacity();
         for (int i = this.totalElements - 1; i >= position; i--) {
             this.elements[i + 1] = this.elements[i];
         }
@@ -49,7 +51,7 @@ public class Vector {
     }
 
     private boolean isPositionValid(final int position) {
-        return position >= 0 && position < totalElements;
+        return position >= 0 && position <= totalElements;
     }
 
     /**
@@ -72,13 +74,14 @@ public class Vector {
 
     /**
      * Removes the element at the given position, shifting later elements one position forward.
-     * <p>
-     * The position is not validated: a position not less than {@link #size()} removes the last element instead, and
-     * a negative position, or any call on an empty vector, fails with an {@code ArrayIndexOutOfBoundsException}.
      *
      * @param position the zero-based position, from {@code 0} to {@code size() - 1}
+     * @throws IllegalArgumentException if {@code position} is negative or not less than {@link #size()}
      */
     public void remove(final int position) {
+        if (!positionOccupied(position)) {
+            throw new IllegalArgumentException("Invalid position");
+        }
         for (int i = position; i < this.totalElements - 1; i++) {
             this.elements[i] = this.elements[i + 1];
         }
@@ -112,7 +115,7 @@ public class Vector {
         return this.totalElements;
     }
 
-    private void guaranteesSpace() {
+    private void ensureCapacity() {
         if (this.totalElements == this.elements.length) {
             final Element[] newElements = new Element[this.elements.length * 2];
             for (int i = 0; i < this.elements.length; i++) {

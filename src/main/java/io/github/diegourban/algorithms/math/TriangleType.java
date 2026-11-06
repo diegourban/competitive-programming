@@ -6,11 +6,11 @@ package io.github.diegourban.algorithms.math;
  */
 public enum TriangleType {
     /** All three sides are equal. */
-    EQUILATERAL("Equilatero"),
+    EQUILATERAL("Equilateral"),
     /** No two sides are equal (scalene). */
-    ESCALENE("Escaleno"),
+    ESCALENE("Scalene"),
     /** Exactly two sides are equal. */
-    ISOSCELES("Isoceles");
+    ISOSCELES("Isosceles");
 
     private final String name;
 
@@ -21,7 +21,7 @@ public enum TriangleType {
     /**
      * Returns the display name of this type, in Portuguese.
      *
-     * @return the display name, such as {@code "Equilatero"}
+     * @return the display name, such as {@code "Equilateral"}
      */
     public String getName() {
         return name;

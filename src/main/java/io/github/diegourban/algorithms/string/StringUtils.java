@@ -15,23 +15,23 @@ public final class StringUtils {
      * The comparison is exact, character by character: case, spaces and punctuation all count, so {@code "Aba"} is
      * not a palindrome. Runs in O(n) time.
      *
-     * @param theString the string to check
+     * @param text the string to check
      * @return {@code true} if the string is a palindrome; {@code false} otherwise, including for {@code null} and the
      *     empty string
      */
-    public static boolean isPalindrome(final String theString) {
-        if (theString == null || theString.isEmpty()) {
+    public static boolean isPalindrome(final String text) {
+        if (text == null || text.isEmpty()) {
             return false;
         }
 
-        if (theString.length() == 1) {
+        if (text.length() == 1) {
             return true;
         }
 
-        for (int i = 0; i < theString.length() / 2; i++) {
-            final char c1 = theString.charAt(i);
-            final char c2 = theString.charAt(theString.length() - i - 1);
-            if (c1 != c2) {
+        for (int i = 0; i < text.length() / 2; i++) {
+            final char fromStart = text.charAt(i);
+            final char fromEnd = text.charAt(text.length() - i - 1);
+            if (fromStart != fromEnd) {
                 return false;
             }
         }
@@ -41,8 +41,8 @@ public final class StringUtils {
     /**
      * Checks if two strings are anagrams: the same characters, each the same number of times, in any order.
      * <p>
-     * The comparison ignores case (both strings are lower-cased first) but counts spaces and punctuation. Runs in
-     * O(n log n) time by sorting the characters of both strings.
+     * The comparison ignores case (both strings are lower-cased first, independently of the default locale) but
+     * counts spaces and punctuation. Runs in O(n log n) time by sorting the characters of both strings.
      *
      * @param a the first string; must not be {@code null}
      * @param b the second string; must not be {@code null}
@@ -54,13 +54,13 @@ public final class StringUtils {
             return false;
         }
 
-        final char[] arrA = sort(a);
-        final char[] arrB = sort(b);
-        return Arrays.equals(arrA, arrB);
+        final char[] sortedA = sortedLowerCaseChars(a);
+        final char[] sortedB = sortedLowerCaseChars(b);
+        return Arrays.equals(sortedA, sortedB);
     }
 
-    private static char[] sort(final String original) {
-        final char[] chars = original.toLowerCase().toCharArray();
+    private static char[] sortedLowerCaseChars(final String text) {
+        final char[] chars = text.toLowerCase(Locale.ROOT).toCharArray();
         Arrays.sort(chars); // Dual-Pivot Quicksort, O(n log(n))
         return chars;
     }

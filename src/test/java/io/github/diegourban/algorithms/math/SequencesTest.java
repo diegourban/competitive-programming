@@ -51,6 +51,6 @@ class SequencesTest {
     void shouldRejectNegativeFibonacciIndex() {
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> Sequences.fibonacci(-1))
-                .withMessage("Index was negative. No such thing as a negative index in a series.");
+                .withMessage("n must be non-negative: -1");
     }
 }

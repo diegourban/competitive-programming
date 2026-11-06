@@ -23,7 +23,6 @@ public final class Geometry {
      * @return the distance between the two points
      */
     public static double distance(final int x1, final int y1, final int x2, final int y2) {
-        // return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
         return Math.hypot(x1 - x2, y1 - y2);
     }
 
@@ -115,21 +114,21 @@ public final class Geometry {
      *     two are, {@link TriangleType#ESCALENE} otherwise
      */
     public static TriangleType checkTriangleType(final double a, final double b, final double c) {
-        final double[] array = new double[3];
-        array[0] = a;
-        array[1] = b;
-        array[2] = c;
-        Arrays.sort(array);
+        final double[] sortedSides = new double[3];
+        sortedSides[0] = a;
+        sortedSides[1] = b;
+        sortedSides[2] = c;
+        Arrays.sort(sortedSides);
 
-        final double min = array[0];
-        final double med = array[1];
-        final double max = array[2];
+        final double shortest = sortedSides[0];
+        final double middle = sortedSides[1];
+        final double longest = sortedSides[2];
 
-        if (max == med && med == min) {
+        if (longest == middle && middle == shortest) {
             return TriangleType.EQUILATERAL;
         }
 
-        if (max == med || med == min) {
+        if (longest == middle || middle == shortest) {
             return TriangleType.ISOSCELES;
         }
 
@@ -149,19 +148,19 @@ public final class Geometry {
      * @return {@code true} if the sides satisfy the Pythagorean theorem, {@code false} otherwise
      */
     public static boolean isRectangleTriangle(final double a, final double b, final double c) {
-        final double[] array = new double[3];
-        array[0] = a;
-        array[1] = b;
-        array[2] = c;
-        Arrays.sort(array);
+        final double[] sortedSides = new double[3];
+        sortedSides[0] = a;
+        sortedSides[1] = b;
+        sortedSides[2] = c;
+        Arrays.sort(sortedSides);
 
-        final double min = array[0];
-        final double med = array[1];
-        final double max = array[2];
+        final double shortest = sortedSides[0];
+        final double middle = sortedSides[1];
+        final double longest = sortedSides[2];
 
-        final double maxSquared = max * max;
-        final double medSquared = med * med;
-        final double minSquared = min * min;
+        final double maxSquared = longest * longest;
+        final double medSquared = middle * middle;
+        final double minSquared = shortest * shortest;
 
         return maxSquared == medSquared + minSquared;
     }

@@ -33,40 +33,40 @@ public class MergeSort implements Sorter {
     private void merge(final int[] items, final int begin, final int middle, final int end) {
         final int[] result = new int[end - begin];
 
-        int current = 0;
+        int resultIndex = 0;
         int currentLeft = begin;
         int currentRight = middle;
 
         while (currentLeft < middle && currentRight < end) {
-            final int firstValue = items[currentLeft];
-            final int secondValue = items[currentRight];
+            final int leftValue = items[currentLeft];
+            final int rightValue = items[currentRight];
 
-            if (firstValue < secondValue) {
-                result[current] = firstValue;
+            if (leftValue < rightValue) {
+                result[resultIndex] = leftValue;
                 currentLeft++;
             } else {
-                result[current] = secondValue;
+                result[resultIndex] = rightValue;
                 currentRight++;
             }
 
-            current++;
+            resultIndex++;
         }
 
         // remaining values on the left side
         while (currentLeft < middle) {
-            result[current] = items[currentLeft];
+            result[resultIndex] = items[currentLeft];
             currentLeft++;
-            current++;
+            resultIndex++;
         }
 
         // remaining values on the right side
         while (currentRight < end) {
-            result[current] = items[currentRight];
+            result[resultIndex] = items[currentRight];
             currentRight++;
-            current++;
+            resultIndex++;
         }
 
-        for (int count = 0; count < current; count++) {
+        for (int count = 0; count < resultIndex; count++) {
             items[begin + count] = result[count];
         }
     }

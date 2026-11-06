@@ -12,16 +12,19 @@ public final class NumberTheory {
     /**
      * Least common multiple (lcm) of two numbers.
      * <p>
-     * Computed as {@code a * (b / gcdLoop(a, b))}; intended for positive numbers. The result overflows silently if it
-     * does not fit in a {@code long}.
+     * Computed as {@code a * (b / gcdLoop(a, b))}; intended for non-negative numbers. If either number is {@code 0}
+     * the result is {@code 0}.
      *
      * @param a the first number
      * @param b the second number
      * @return The least common multiple of two numbers.
-     * @throws ArithmeticException if both {@code a} and {@code b} are zero
+     * @throws ArithmeticException if the result does not fit in a {@code long}
      */
     public static long lcm(final long a, final long b) {
-        return a * (b / gcdLoop(a, b));
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        return Math.multiplyExact(a, b / gcdLoop(a, b));
     }
 
     /**
@@ -39,7 +42,7 @@ public final class NumberTheory {
     }
 
     /**
-     * Greatest common divisor (gdc) of two numbers using while strategy.
+     * Greatest common divisor (gcd) of two numbers using while strategy.
      * <p>
      * Also known as greatest common factor (gcf), highest common factor (hcf),
      * greatest common measure (gcm) or highest common divisor
@@ -52,18 +55,18 @@ public final class NumberTheory {
      * @return The greatest common divisor of two numbers.
      */
     public static long gcdLoop(final long a, final long b) {
-        long gcd = a;
-        long bNumber = b;
-        while (bNumber > 0) {
-            final long temp = bNumber;
-            bNumber = gcd % bNumber; // % is remainder
-            gcd = temp;
+        long dividend = a;
+        long divisor = b;
+        while (divisor > 0) {
+            final long temp = divisor;
+            divisor = dividend % divisor;
+            dividend = temp;
         }
-        return gcd;
+        return dividend;
     }
 
     /**
-     * Greatest common divisor (gdc) of two numbers using recursive strategy.
+     * Greatest common divisor (gcd) of two numbers using recursive strategy.
      * <p>
      * Also known as greatest common factor (gcf), highest common factor (hcf),
      * greatest common measure (gcm) or highest common divisor
@@ -98,6 +101,7 @@ public final class NumberTheory {
             return false;
         }
 
+        // every prime above 3 has the form 6k ± 1, so only i and i + 2 need checking per step of 6
         int i = 5;
         while (i <= n / i) {
             if (n % i == 0 || n % (i + 2) == 0) {

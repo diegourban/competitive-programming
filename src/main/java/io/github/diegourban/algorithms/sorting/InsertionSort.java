@@ -22,14 +22,14 @@ public class InsertionSort implements Sorter {
      */
     private void sort(final int[] items, final int totalElements) {
         for (int current = 1; current < totalElements; current++) {
-            int analysis = current;
+            int position = current;
 
-            while (analysis > 0 && items[analysis] < items[analysis - 1]) {
-                final Integer analysisItem = items[analysis];
-                final Integer previousItem = items[analysis - 1];
-                items[analysis] = previousItem;
-                items[analysis - 1] = analysisItem;
-                analysis--;
+            while (position > 0 && items[position] < items[position - 1]) {
+                final Integer itemBeingInserted = items[position];
+                final Integer previousItem = items[position - 1];
+                items[position] = previousItem;
+                items[position - 1] = itemBeingInserted;
+                position--;
             }
         }
     }

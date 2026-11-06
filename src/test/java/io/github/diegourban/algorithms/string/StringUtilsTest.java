@@ -24,4 +24,15 @@ class StringUtilsTest {
         assertThat(StringUtils.isPalindrome("ab")).isFalse();
         assertThat(StringUtils.isPalindrome("abb")).isFalse();
     }
+
+    @Test
+    void shouldCompareAnagramsIndependentlyOfTheDefaultLocale() {
+        final java.util.Locale original = java.util.Locale.getDefault();
+        java.util.Locale.setDefault(java.util.Locale.forLanguageTag("tr-TR"));
+        try {
+            assertThat(StringUtils.isAnagram("TITLE", "title")).isTrue();
+        } finally {
+            java.util.Locale.setDefault(original);
+        }
+    }
 }

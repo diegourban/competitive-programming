@@ -7,6 +7,9 @@ package io.github.diegourban.algorithms.math;
  */
 public final class Measurement {
 
+    private static final double KILOMETERS_PER_MILE = 1.609344;
+    private static final double MILES_PER_KILOMETER = 0.621371;
+
     private Measurement() {}
 
     /**
@@ -16,7 +19,7 @@ public final class Measurement {
      * @return the amount of miles converted to kilometers
      */
     public static double milesToKilometers(final double miles) {
-        return miles * 1.609344;
+        return miles * KILOMETERS_PER_MILE;
     }
 
     /**
@@ -26,6 +29,6 @@ public final class Measurement {
      * @return the amount of kilometers converted to miles
      */
     public static double kilometersToMiles(final double kilometers) {
-        return kilometers * 0.621371;
+        return kilometers * MILES_PER_KILOMETER;
     }
 }

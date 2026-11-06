@@ -1,6 +1,7 @@
 package io.github.diegourban.algorithms.math;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.assertj.core.api.Assertions.within;
 
 import org.junit.jupiter.api.Test;
@@ -46,5 +47,15 @@ class StatisticsTest {
     void shouldCalculateAverageAbsoluteDeviation() {
         assertThat(Statistics.meanAbsoluteDeviation(new double[] {2, 2, 3, 4, 14}))
                 .isCloseTo(3.6, within(0.1));
+    }
+
+    @Test
+    void shouldRejectEmptyDataForMedianAndDeviation() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> Statistics.median(new double[] {}))
+                .withMessage("data must not be empty");
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> Statistics.meanAbsoluteDeviation(new double[] {}))
+                .withMessage("data must not be empty");
     }
 }

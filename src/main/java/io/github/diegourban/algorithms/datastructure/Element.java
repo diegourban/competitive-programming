@@ -26,20 +26,28 @@ public class Element {
     }
 
     /**
-     * Compares this element with another by name. The argument is cast without a type check, so passing an object
-     * that is not an {@code Element} fails with a {@code ClassCastException}. {@code hashCode} is not overridden.
+     * Compares this element with another by name.
      *
-     * @param obj the object to compare with; must be an {@code Element} or {@code null}
-     * @return {@code true} if {@code obj} is an element with an equal name, {@code false} if {@code obj} is
-     *     {@code null}
+     * @param obj the object to compare with
+     * @return {@code true} if {@code obj} is an element with an equal name, {@code false} otherwise (including
+     *     {@code null} and objects of other types)
      */
     @Override
     public boolean equals(final Object obj) {
-        if (obj == null) {
+        if (!(obj instanceof final Element other)) {
             return false;
         }
-        final Element other = (Element) obj;
         return other.getName().equals(this.getName());
+    }
+
+    /**
+     * Returns a hash code consistent with {@link #equals(Object)}: elements with equal names hash alike.
+     *
+     * @return the hash code of the name
+     */
+    @Override
+    public int hashCode() {
+        return this.getName().hashCode();
     }
 
     /**

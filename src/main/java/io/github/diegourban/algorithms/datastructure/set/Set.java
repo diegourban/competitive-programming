@@ -10,20 +10,22 @@ import java.util.List;
  */
 public class Set {
 
+    private static final int BUCKET_COUNT = 26;
+
     private final List<LinkedList<String>> table = new LinkedList<LinkedList<String>>();
 
     /** Creates an empty set with 26 empty buckets. */
     public Set() {
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < BUCKET_COUNT; i++) {
             this.table.add(new LinkedList<String>());
         }
     }
 
     /**
-     * Adds a word if it is not already present; duplicates are ignored. Comparison is case-sensitive. An empty
-     * string fails with a {@code StringIndexOutOfBoundsException}.
+     * Adds a word if it is not already present; duplicates are ignored. Comparison is case-sensitive.
      *
      * @param word the word to add
+     * @throws IllegalArgumentException if {@code word} is empty
      */
     public void add(final String word) {
         if (!contains(word)) {
@@ -34,10 +36,10 @@ public class Set {
     }
 
     /**
-     * Removes a word if present; otherwise does nothing. An empty string fails with a
-     * {@code StringIndexOutOfBoundsException}.
+     * Removes a word if present; otherwise does nothing.
      *
      * @param word the word to remove
+     * @throws IllegalArgumentException if {@code word} is empty
      */
     public void remove(final String word) {
         if (contains(word)) {
@@ -53,7 +55,10 @@ public class Set {
     }
 
     private int calculateTableIndex(final String word) {
-        return word.toLowerCase().charAt(0) % 26;
+        if (word.isEmpty()) {
+            throw new IllegalArgumentException("word must not be empty");
+        }
+        return word.toLowerCase().charAt(0) % BUCKET_COUNT;
     }
 
     /**

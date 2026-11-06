@@ -19,7 +19,7 @@ class SequencesPropertyTest {
     }
 
     @Property(generation = GenerationMode.EXHAUSTIVE)
-    void simpleBinetFormulaRoundsToTheExactValueUpTo67(@ForAll @IntRange(min = 0, max = 67) final int n) {
+    void simpleBinetFormulaRoundsToTheExactValueUpTo70(@ForAll @IntRange(min = 0, max = 70) final int n) {
         assertThat(BigInteger.valueOf(Math.round(Sequences.fibonacciSimpleBinetFormula(n))))
                 .isEqualTo(exactFibonacci(n));
     }

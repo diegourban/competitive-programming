@@ -20,8 +20,8 @@ import java.io.InputStream;
  */
 public class Reader {
 
-    private final int BUFFER_SIZE = 1 << 16;
-    private DataInputStream din;
+    private static final int BUFFER_SIZE = 1 << 16;
+    private DataInputStream input;
     private final byte[] buffer;
     private int bufferPointer, bytesRead;
 
@@ -31,7 +31,7 @@ public class Reader {
      * @param input the stream to read from; it is closed by {@link #close()}
      */
     public Reader(final InputStream input) {
-        din = new DataInputStream(input);
+        this.input = new DataInputStream(input);
         buffer = new byte[BUFFER_SIZE];
         bufferPointer = bytesRead = 0;
     }
@@ -49,20 +49,20 @@ public class Reader {
      * @throws IOException if the underlying stream fails
      */
     public String readLine() throws IOException {
-        final byte[] buf = new byte[10000]; // line length
-        int cnt = 0;
-        int c = 0;
+        final byte[] line = new byte[10000]; // line length
+        int length = 0;
+        int nextByte = 0;
 
-        while ((c = read()) != -1) {
-            if (c == '\n' || c == '\r') {
-                if (cnt == 0) {
+        while ((nextByte = read()) != -1) {
+            if (nextByte == '\n' || nextByte == '\r') {
+                if (length == 0) {
                     continue;
                 }
                 break;
             }
-            buf[cnt++] = (byte) c;
+            line[length++] = (byte) nextByte;
         }
-        return new String(buf, 0, cnt);
+        return new String(line, 0, length);
     }
 
     /**
@@ -76,27 +76,27 @@ public class Reader {
      * @throws IOException if the underlying stream fails
      */
     public int nextInt() throws IOException {
-        int ret = 0;
-        byte c = read();
+        int result = 0;
+        byte nextByte = read();
 
-        while (c <= ' ') {
-            c = read();
+        while (nextByte <= ' ') {
+            nextByte = read();
         }
 
-        final boolean neg = (c == '-');
-        if (neg) {
-            c = read();
+        final boolean negative = (nextByte == '-');
+        if (negative) {
+            nextByte = read();
         }
 
         do {
-            ret = ret * 10 + c - '0';
-        } while ((c = read()) >= '0' && c <= '9');
+            result = result * 10 + nextByte - '0';
+        } while ((nextByte = read()) >= '0' && nextByte <= '9');
 
-        if (neg) {
-            return -ret;
+        if (negative) {
+            return -result;
         }
 
-        return ret;
+        return result;
     }
 
     /**
@@ -107,13 +107,13 @@ public class Reader {
      * @throws IOException if the underlying stream fails
      */
     public char nextChar() throws IOException {
-        byte c = read();
+        byte nextByte = read();
 
-        while (c <= ' ') {
-            c = read();
+        while (nextByte <= ' ') {
+            nextByte = read();
         }
 
-        return (char) c;
+        return (char) nextByte;
     }
 
     /**
@@ -126,27 +126,27 @@ public class Reader {
      * @throws IOException if the underlying stream fails
      */
     public long nextLong() throws IOException {
-        long ret = 0;
-        byte c = read();
+        long result = 0;
+        byte nextByte = read();
 
-        while (c <= ' ') {
-            c = read();
+        while (nextByte <= ' ') {
+            nextByte = read();
         }
 
-        final boolean neg = (c == '-');
-        if (neg) {
-            c = read();
+        final boolean negative = (nextByte == '-');
+        if (negative) {
+            nextByte = read();
         }
 
         do {
-            ret = ret * 10 + c - '0';
-        } while ((c = read()) >= '0' && c <= '9');
+            result = result * 10 + nextByte - '0';
+        } while ((nextByte = read()) >= '0' && nextByte <= '9');
 
-        if (neg) {
-            return -ret;
+        if (negative) {
+            return -result;
         }
 
-        return ret;
+        return result;
     }
 
     /**
@@ -160,34 +160,34 @@ public class Reader {
      * @throws IOException if the underlying stream fails
      */
     public double nextDouble() throws IOException {
-        double ret = 0;
+        double result = 0;
         double div = 1;
-        byte c = read();
+        byte nextByte = read();
 
-        while (c <= ' ') {
-            c = read();
+        while (nextByte <= ' ') {
+            nextByte = read();
         }
 
-        final boolean neg = (c == '-');
-        if (neg) {
-            c = read();
+        final boolean negative = (nextByte == '-');
+        if (negative) {
+            nextByte = read();
         }
 
         do {
-            ret = ret * 10 + c - '0';
-        } while ((c = read()) >= '0' && c <= '9');
+            result = result * 10 + nextByte - '0';
+        } while ((nextByte = read()) >= '0' && nextByte <= '9');
 
-        if (c == '.') {
-            while ((c = read()) >= '0' && c <= '9') {
-                ret += (c - '0') / (div *= 10);
+        if (nextByte == '.') {
+            while ((nextByte = read()) >= '0' && nextByte <= '9') {
+                result += (nextByte - '0') / (div *= 10);
             }
         }
 
-        if (neg) {
-            return -ret;
+        if (negative) {
+            return -result;
         }
 
-        return ret;
+        return result;
     }
 
     /**
@@ -204,7 +204,7 @@ public class Reader {
     }
 
     private void fillBuffer() throws IOException {
-        bytesRead = din.read(buffer, bufferPointer = 0, BUFFER_SIZE);
+        bytesRead = input.read(buffer, bufferPointer = 0, BUFFER_SIZE);
         if (isEOF()) {
             buffer[0] = -1;
         }
@@ -231,9 +231,9 @@ public class Reader {
      * @throws IOException if closing the underlying stream fails
      */
     public void close() throws IOException {
-        if (din != null) {
-            din.close();
-            din = null;
+        if (input != null) {
+            input.close();
+            input = null;
         }
     }
 
@@ -243,6 +243,6 @@ public class Reader {
      * @return {@code true} if this reader is closed, {@code false} otherwise
      */
     public boolean isClosed() {
-        return din == null;
+        return input == null;
     }
 }

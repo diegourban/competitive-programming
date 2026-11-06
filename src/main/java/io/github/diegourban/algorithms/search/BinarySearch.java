@@ -21,15 +21,15 @@ public final class BinarySearch {
     /**
      * Finds an element in a list
      * <p>
-     * Complexity: O(log n) time and O(1) space
+     * Complexity: O(log n) time and O(log n) space for the recursion
      *
      * @param items an ordered list of items to find
      * @param from the index to find from in the list
      * @param to the index to find to in the list
-     * @param element the element to find
+     * @param key the element to find
      * @return the index of the element, -1 otherwise
      */
-    private static int find(final int[] items, final int from, final int to, final int element) {
+    private static int find(final int[] items, final int from, final int to, final int key) {
         if (from > to) {
             return -1;
         }
@@ -37,12 +37,12 @@ public final class BinarySearch {
         final int middle = (from + to) / 2;
         final int middleItem = items[middle];
 
-        if (element == middleItem) {
+        if (key == middleItem) {
             return middle;
         }
-        if (element < middleItem) {
-            return find(items, from, middle - 1, element);
+        if (key < middleItem) {
+            return find(items, from, middle - 1, key);
         }
-        return find(items, middle + 1, to, element);
+        return find(items, middle + 1, to, key);
     }
 }
