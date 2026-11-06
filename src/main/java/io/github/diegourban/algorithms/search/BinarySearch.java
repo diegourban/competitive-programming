@@ -34,7 +34,7 @@ public final class BinarySearch {
             return -1;
         }
 
-        final int middle = (from + to) / 2;
+        final int middle = from + (to - from) / 2; // (from + to) / 2 could overflow
         final int middleItem = items[middle];
 
         if (key == middleItem) {

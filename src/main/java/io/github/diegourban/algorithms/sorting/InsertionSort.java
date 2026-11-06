@@ -1,5 +1,7 @@
 package io.github.diegourban.algorithms.sorting;
 
+import io.github.diegourban.algorithms.datastructure.array.ArrayUtils;
+
 /**
  * Insertion Sort Algorithm: moves each element left past larger ones until it is in place;
  * O(n²) time (O(n) on already sorted input) and O(1) extra space.
@@ -25,10 +27,7 @@ public class InsertionSort implements Sorter {
             int position = current;
 
             while (position > 0 && items[position] < items[position - 1]) {
-                final Integer itemBeingInserted = items[position];
-                final Integer previousItem = items[position - 1];
-                items[position] = previousItem;
-                items[position - 1] = itemBeingInserted;
+                ArrayUtils.swap(items, position, position - 1);
                 position--;
             }
         }

@@ -4,14 +4,10 @@ import java.util.Arrays;
 
 /**
  * Plane and solid geometry: distances, circles, polygons, cylinders and triangles.
- * <p>
- * The circle and cylinder methods approximate pi as {@code 3.14}, not {@link Math#PI}.
  */
 public final class Geometry {
 
     private Geometry() {}
-
-    private static final double SIMPLE_PI = 3.14;
 
     /**
      * Calculates the distance between two bi-dimensional points using the Pythagorean theorem.
@@ -27,17 +23,17 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the area of a circle from its radius, using pi = 3.14
+     * Calculates the area of a circle from its radius
      *
      * @param radius the radius of the circle
      * @return the area of the circle
      */
     public static double areaOfCircleFromRadius(final double radius) {
-        return SIMPLE_PI * (radius * radius);
+        return Math.PI * (radius * radius);
     }
 
     /**
-     * Calculates the area of a circle from its diameter, using pi = 3.14
+     * Calculates the area of a circle from its diameter
      *
      * @param diameter the diameter of the circle
      * @return the area of the circle
@@ -58,13 +54,13 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the radius of a circle from its area, using pi = 3.14
+     * Calculates the radius of a circle from its area
      *
      * @param area the area of the circle
      * @return the radius of the circle
      */
     public static double radiusOfCircleFromArea(final double area) {
-        return Math.sqrt(area / SIMPLE_PI);
+        return Math.sqrt(area / Math.PI);
     }
 
     /**
@@ -78,14 +74,14 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the height of a cylinder based on its volume and base radius, using pi = 3.14
+     * Calculates the height of a cylinder based on its volume and base radius
      *
      * @param volume     the cylinder volume
      * @param baseRadius the cylinder base radius
      * @return the height of the cylinder
      */
     public static double heightOfCylinder(final double volume, final double baseRadius) {
-        return volume / (SIMPLE_PI * baseRadius * baseRadius);
+        return volume / (Math.PI * baseRadius * baseRadius);
     }
 
     /**
@@ -111,14 +107,10 @@ public final class Geometry {
      * @param b side b
      * @param c side c
      * @return {@link TriangleType#EQUILATERAL} if all three sides are equal, {@link TriangleType#ISOSCELES} if exactly
-     *     two are, {@link TriangleType#ESCALENE} otherwise
+     *     two are, {@link TriangleType#SCALENE} otherwise
      */
-    public static TriangleType checkTriangleType(final double a, final double b, final double c) {
-        final double[] sortedSides = new double[3];
-        sortedSides[0] = a;
-        sortedSides[1] = b;
-        sortedSides[2] = c;
-        Arrays.sort(sortedSides);
+    public static TriangleType classifyTriangle(final double a, final double b, final double c) {
+        final double[] sortedSides = sortedSides(a, b, c);
 
         final double shortest = sortedSides[0];
         final double middle = sortedSides[1];
@@ -132,7 +124,7 @@ public final class Geometry {
             return TriangleType.ISOSCELES;
         }
 
-        return TriangleType.ESCALENE;
+        return TriangleType.SCALENE;
     }
 
     /**
@@ -147,12 +139,8 @@ public final class Geometry {
      * @param c side c
      * @return {@code true} if the sides satisfy the Pythagorean theorem, {@code false} otherwise
      */
-    public static boolean isRectangleTriangle(final double a, final double b, final double c) {
-        final double[] sortedSides = new double[3];
-        sortedSides[0] = a;
-        sortedSides[1] = b;
-        sortedSides[2] = c;
-        Arrays.sort(sortedSides);
+    public static boolean isRightTriangle(final double a, final double b, final double c) {
+        final double[] sortedSides = sortedSides(a, b, c);
 
         final double shortest = sortedSides[0];
         final double middle = sortedSides[1];
@@ -163,5 +151,11 @@ public final class Geometry {
         final double minSquared = shortest * shortest;
 
         return maxSquared == medSquared + minSquared;
+    }
+
+    private static double[] sortedSides(final double a, final double b, final double c) {
+        final double[] sides = {a, b, c};
+        Arrays.sort(sides);
+        return sides;
     }
 }

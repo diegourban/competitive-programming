@@ -64,7 +64,7 @@ public final class Sequences {
      * @param n the nth number in the Fibonacci sequence to calculate
      * @return an approximation of the nth Fibonacci number
      */
-    public static double fibonacciSimpleBinetFormula(final int n) {
+    public static double fibonacciBinetApproximate(final int n) {
         if (n == 0) {
             return 0;
         }
@@ -96,7 +96,9 @@ public final class Sequences {
         final BigDecimal sqrt5 = BigDecimal.valueOf(SQRT_5);
 
         final BigDecimal pow = BigDecimal.valueOf(Math.pow(GOLDEN_RATIO, n));
-        final BigDecimal powInvrt = BigDecimal.valueOf(Math.pow(-GOLDEN_RATIO, -n));
-        return pow.subtract(powInvrt).divide(sqrt5, RoundingMode.HALF_UP).toBigInteger();
+        final BigDecimal negativePhiPower = BigDecimal.valueOf(Math.pow(-GOLDEN_RATIO, -n));
+        return pow.subtract(negativePhiPower)
+                .divide(sqrt5, RoundingMode.HALF_UP)
+                .toBigInteger();
     }
 }

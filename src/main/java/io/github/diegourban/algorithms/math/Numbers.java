@@ -77,62 +77,55 @@ public final class Numbers {
      * @param number the number to convert
      * @return an array with each digit of the number, in reverse order
      */
-    public static int[] toArray(final long number) {
-        long theNumber = number;
+    public static int[] toReversedDigits(final long number) {
+        long remaining = number;
 
-        final int length = Long.toString(theNumber).length() - (theNumber < 0 ? 1 : 0);
-        final int[] array = new int[length];
+        final int length = Long.toString(remaining).length() - (remaining < 0 ? 1 : 0);
+        final int[] digits = new int[length];
 
         for (int index = 0; index < length; index++) {
-            array[index] = Math.abs((int) (theNumber % 10));
-            theNumber /= 10;
+            digits[index] = Math.abs((int) (remaining % 10));
+            remaining /= 10;
         }
 
-        return array;
+        return digits;
     }
 
     /**
      * Find the length of the int using divide and conquer
      * <p>
-     * A negative number counts the digits of its absolute value: {@code length(-123)} is {@code 3}.
+     * A negative number counts the digits of its absolute value: {@code digitCount(-123)} is {@code 3}.
      *
      * @param number some number
      * @return the number of decimal digits of the number, from 1 to 10
      */
-    public static int length(final int number) {
+    public static int digitCount(final int number) {
         if (number < 0) {
-            return number == Integer.MIN_VALUE ? 10 : length(-number);
+            return number == Integer.MIN_VALUE ? 10 : digitCount(-number);
         }
         if (number < 100000) {
             // 5 or less
             if (number < 100) {
                 // 1 or 2
-                if (number < 10) return 1;
-                else return 2;
-            } else {
-                // 3 or 4 or 5
-                if (number < 1000) return 3;
-                else {
-                    // 4 or 5
-                    if (number < 10000) return 4;
-                    else return 5;
-                }
+                return number < 10 ? 1 : 2;
             }
-        } else {
-            // 6 or more
-            if (number < 10000000) {
-                // 6 or 7
-                if (number < 1000000) return 6;
-                else return 7;
-            } else {
-                // 8 to 10
-                if (number < 100000000) return 8;
-                else {
-                    // 9 or 10
-                    if (number < 1000000000) return 9;
-                    else return 10;
-                }
+            // 3, 4 or 5
+            if (number < 1000) {
+                return 3;
             }
+            // 4 or 5
+            return number < 10000 ? 4 : 5;
         }
+        // 6 or more
+        if (number < 10000000) {
+            // 6 or 7
+            return number < 1000000 ? 6 : 7;
+        }
+        // 8 to 10
+        if (number < 100000000) {
+            return 8;
+        }
+        // 9 or 10
+        return number < 1000000000 ? 9 : 10;
     }
 }

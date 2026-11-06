@@ -32,24 +32,24 @@ public final class Statistics {
     /**
      * The median is the value separating the higher half of a data sample from the lower half.
      * <p>
-     * Note: {@code data} is sorted in place, so the caller's array is modified. Pass a copy to keep the original
-     * order.
+     * Sorts a copy of {@code data}, so the caller's array is left unchanged (O(n) extra space).
      *
-     * @param data the values; must not be empty, and is sorted ascending as a side effect
+     * @param data the values; must not be empty
      * @return the middle value for an odd number of values, or the mean of the two middle values for an even number
      * @throws IllegalArgumentException if {@code data} is empty
      */
     public static double median(final double[] data) {
         requireNotEmpty(data);
-        Arrays.sort(data);
+        final double[] sorted = data.clone();
+        Arrays.sort(sorted);
 
-        final int middle = data.length / 2;
+        final int middle = sorted.length / 2;
 
-        if (data.length % 2 == 1) {
-            return data[middle];
+        if (sorted.length % 2 == 1) {
+            return sorted[middle];
         }
 
-        return (data[middle - 1] + data[middle]) / 2.0;
+        return (sorted[middle - 1] + sorted[middle]) / 2.0;
     }
 
     /**
@@ -68,7 +68,9 @@ public final class Statistics {
         for (int i = 0; i < data.length; ++i) {
             int count = 0;
             for (int j = 0; j < data.length; ++j) {
-                if (data[j] == data[i]) ++count;
+                if (data[j] == data[i]) {
+                    ++count;
+                }
             }
             if (count > maxCount) {
                 maxCount = count;

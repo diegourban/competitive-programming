@@ -72,7 +72,7 @@ public class LinkedList {
             final LinkedListNode previous = this.getNode(position - 1);
             final LinkedListNode next = previous.getNext();
 
-            final LinkedListNode newNode = new LinkedListNode(element, previous.getNext());
+            final LinkedListNode newNode = new LinkedListNode(element, next);
             newNode.setPrevious(previous);
             previous.setNext(newNode);
             next.setPrevious(newNode);
@@ -211,8 +211,8 @@ public class LinkedList {
     }
 
     /**
-     * Returns the element names in order, each followed by a comma, inside brackets, for example {@code "[a,b,]"};
-     * an empty list gives {@code "[]"}.
+     * Returns the element names in order, separated by commas, inside brackets, for example {@code "[a,b]"}; an
+     * empty list gives {@code "[]"}.
      *
      * @return the string form of the list
      */
@@ -225,8 +225,10 @@ public class LinkedList {
 
         final StringBuilder sb = new StringBuilder("[");
         for (int i = 0; i < this.totalElements; i++) {
+            if (i > 0) {
+                sb.append(",");
+            }
             sb.append(current.getElement().getName());
-            sb.append(",");
             current = current.getNext();
         }
         sb.append("]");

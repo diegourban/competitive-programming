@@ -58,4 +58,12 @@ class StatisticsTest {
                 .isThrownBy(() -> Statistics.meanAbsoluteDeviation(new double[] {}))
                 .withMessage("data must not be empty");
     }
+
+    @Test
+    void shouldNotReorderTheDataPassedToMedian() {
+        final double[] data = {3, 1, 2};
+
+        assertThat(Statistics.median(data)).isEqualTo(2.0);
+        assertThat(data).containsExactly(3, 1, 2);
+    }
 }

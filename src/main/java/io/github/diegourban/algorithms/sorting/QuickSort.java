@@ -1,5 +1,7 @@
 package io.github.diegourban.algorithms.sorting;
 
+import io.github.diegourban.algorithms.datastructure.array.ArrayUtils;
+
 /**
  * Quick sort algorithm: partitions around the last element (Lomuto scheme) and recurses on both sides;
  * O(n log n) average and O(n²) worst-case time (for example on already sorted input), O(log n) average and O(n)
@@ -38,17 +40,11 @@ public class QuickSort implements Sorter {
         for (int current = start; current < end - 1; current++) {
             final int currentItem = items[current];
             if (currentItem <= pivot) {
-                swap(items, current, boundary);
+                ArrayUtils.swap(items, current, boundary);
                 boundary++;
             }
         }
-        swap(items, end - 1, boundary);
+        ArrayUtils.swap(items, end - 1, boundary);
         return boundary;
-    }
-
-    private void swap(final int[] items, final int from, final int to) {
-        final int temp = items[from];
-        items[from] = items[to];
-        items[to] = temp;
     }
 }

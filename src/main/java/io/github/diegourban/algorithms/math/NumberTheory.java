@@ -37,7 +37,9 @@ public final class NumberTheory {
      */
     public static long lcm(final long[] input) {
         long result = input[0];
-        for (int i = 1; i < input.length; i++) result = lcm(result, input[i]);
+        for (int i = 1; i < input.length; i++) {
+            result = lcm(result, input[i]);
+        }
         return result;
     }
 

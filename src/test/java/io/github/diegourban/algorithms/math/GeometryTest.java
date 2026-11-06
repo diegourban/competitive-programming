@@ -63,34 +63,42 @@ class GeometryTest {
 
     @Test
     void shouldConsiderAsEquilateralTriangle() {
-        assertThat(Geometry.checkTriangleType(6, 6, 6)).isEqualTo(TriangleType.EQUILATERAL);
-        assertThat(Geometry.checkTriangleType(2.2, 2.2, 2.2)).isEqualTo(TriangleType.EQUILATERAL);
-        assertThat(Geometry.checkTriangleType(1, 1, 1)).isEqualTo(TriangleType.EQUILATERAL);
+        assertThat(Geometry.classifyTriangle(6, 6, 6)).isEqualTo(TriangleType.EQUILATERAL);
+        assertThat(Geometry.classifyTriangle(2.2, 2.2, 2.2)).isEqualTo(TriangleType.EQUILATERAL);
+        assertThat(Geometry.classifyTriangle(1, 1, 1)).isEqualTo(TriangleType.EQUILATERAL);
     }
 
     @Test
     void shouldConsiderAsIsoscelesTriangle() {
-        assertThat(Geometry.checkTriangleType(6, 6, 7)).isEqualTo(TriangleType.ISOSCELES);
-        assertThat(Geometry.checkTriangleType(2.2, 2.1, 2.2)).isEqualTo(TriangleType.ISOSCELES);
-        assertThat(Geometry.checkTriangleType(2, 1, 1)).isEqualTo(TriangleType.ISOSCELES);
+        assertThat(Geometry.classifyTriangle(6, 6, 7)).isEqualTo(TriangleType.ISOSCELES);
+        assertThat(Geometry.classifyTriangle(2.2, 2.1, 2.2)).isEqualTo(TriangleType.ISOSCELES);
+        assertThat(Geometry.classifyTriangle(2, 1, 1)).isEqualTo(TriangleType.ISOSCELES);
     }
 
     @Test
     void shouldConsiderAsEscaleneTriangle() {
-        assertThat(Geometry.checkTriangleType(6, 7, 8)).isEqualTo(TriangleType.ESCALENE);
-        assertThat(Geometry.checkTriangleType(2.2, 2.3, 2.4)).isEqualTo(TriangleType.ESCALENE);
-        assertThat(Geometry.checkTriangleType(3, 2, 1)).isEqualTo(TriangleType.ESCALENE);
+        assertThat(Geometry.classifyTriangle(6, 7, 8)).isEqualTo(TriangleType.SCALENE);
+        assertThat(Geometry.classifyTriangle(2.2, 2.3, 2.4)).isEqualTo(TriangleType.SCALENE);
+        assertThat(Geometry.classifyTriangle(3, 2, 1)).isEqualTo(TriangleType.SCALENE);
     }
 
     @Test
     void shouldConsiderValidRectangleTriangle() {
-        assertThat(Geometry.isRectangleTriangle(6, 8, 10)).isTrue();
+        assertThat(Geometry.isRightTriangle(6, 8, 10)).isTrue();
     }
 
     @Test
     void shouldConsiderInvalidRectangleTriangle() {
-        assertThat(Geometry.isRectangleTriangle(7, 8, 10)).isFalse();
-        assertThat(Geometry.isRectangleTriangle(6, 9, 10)).isFalse();
-        assertThat(Geometry.isRectangleTriangle(6, 8, 11)).isFalse();
+        assertThat(Geometry.isRightTriangle(7, 8, 10)).isFalse();
+        assertThat(Geometry.isRightTriangle(6, 9, 10)).isFalse();
+        assertThat(Geometry.isRightTriangle(6, 8, 11)).isFalse();
+    }
+
+    @Test
+    void shouldUseThePreciseValueOfPi() {
+        assertThat(Geometry.areaOfCircleFromRadius(1)).isCloseTo(Math.PI, within(1e-12));
+        assertThat(Geometry.areaOfCircleFromDiameter(2)).isCloseTo(Math.PI, within(1e-12));
+        assertThat(Geometry.radiusOfCircleFromArea(Math.PI)).isCloseTo(1, within(1e-12));
+        assertThat(Geometry.heightOfCylinder(Math.PI, 1)).isCloseTo(1, within(1e-12));
     }
 }
