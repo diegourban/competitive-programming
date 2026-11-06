@@ -1,6 +1,7 @@
 package io.github.diegourban.algorithms.datastructure.set;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import org.junit.jupiter.api.Test;
 
@@ -52,5 +53,13 @@ class SetTest {
         assertThat(set)
                 .hasToString(
                         "[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [Diego], [], [], []]");
+    }
+
+    @Test
+    void shouldRejectAnEmptyWord() {
+        final Set set = new Set();
+
+        assertThatIllegalArgumentException().isThrownBy(() -> set.add("")).withMessage("word must not be empty");
+        assertThatIllegalArgumentException().isThrownBy(() -> set.remove("")).withMessage("word must not be empty");
     }
 }

@@ -20,10 +20,10 @@ public class Set {
     }
 
     /**
-     * Adds a word if it is not already present; duplicates are ignored. Comparison is case-sensitive. An empty
-     * string fails with a {@code StringIndexOutOfBoundsException}.
+     * Adds a word if it is not already present; duplicates are ignored. Comparison is case-sensitive.
      *
      * @param word the word to add
+     * @throws IllegalArgumentException if {@code word} is empty
      */
     public void add(final String word) {
         if (!contains(word)) {
@@ -34,10 +34,10 @@ public class Set {
     }
 
     /**
-     * Removes a word if present; otherwise does nothing. An empty string fails with a
-     * {@code StringIndexOutOfBoundsException}.
+     * Removes a word if present; otherwise does nothing.
      *
      * @param word the word to remove
+     * @throws IllegalArgumentException if {@code word} is empty
      */
     public void remove(final String word) {
         if (contains(word)) {
@@ -53,6 +53,9 @@ public class Set {
     }
 
     private int calculateTableIndex(final String word) {
+        if (word.isEmpty()) {
+            throw new IllegalArgumentException("word must not be empty");
+        }
         return word.toLowerCase().charAt(0) % 26;
     }
 

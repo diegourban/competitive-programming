@@ -21,4 +21,16 @@ class ElementTest {
     void shouldPrintItsName() {
         assertThat(new Element("diego")).hasToString("diego");
     }
+
+    @Test
+    void shouldNotEqualAnObjectOfAnotherType() {
+        assertThat(new Element("diego")).isNotEqualTo("diego");
+    }
+
+    @Test
+    void shouldHashEqualElementsAlike() {
+        assertThat(new Element("diego")).hasSameHashCodeAs(new Element("diego"));
+        assertThat(new java.util.HashSet<>(java.util.List.of(new Element("diego"))))
+                .contains(new Element("diego"));
+    }
 }
