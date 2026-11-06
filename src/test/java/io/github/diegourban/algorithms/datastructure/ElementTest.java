@@ -14,7 +14,7 @@ class ElementTest {
 
     @Test
     void shouldNotEqualNull() {
-        assertThat(new Element("diego").equals(null)).isFalse();
+        assertThat(new Element("diego")).isNotEqualTo(null);
     }
 
     @Test
