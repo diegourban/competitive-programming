@@ -9,11 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ArrayUtilsTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new ArrayUtils()).isNotNull();
-    }
-
-    @Test
     void shouldNotShuffleSmallArray() {
         int[] array = new int[]{1};
         ArrayUtils.shuffle(array);

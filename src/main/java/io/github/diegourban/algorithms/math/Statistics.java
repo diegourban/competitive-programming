@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Statistics {
 
+    private Statistics() {
+    }
+
     /**
      * An average is the sum of a list of numbers divided by the number of
      * numbers in the list.

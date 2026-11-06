@@ -8,11 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NumbersTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new Numbers()).isNotNull();
-    }
-
-    @Test
     void shouldHandleContainsDigit() {
         assertThat(Numbers.containsDigit(124, 4)).isTrue();
         assertThat(Numbers.containsDigit(124, 3)).isFalse();

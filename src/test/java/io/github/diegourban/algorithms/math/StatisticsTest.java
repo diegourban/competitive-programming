@@ -9,11 +9,6 @@ import static org.assertj.core.api.Assertions.within;
 class StatisticsTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new Statistics()).isNotNull();
-    }
-
-    @Test
     void shouldCalculateMean() {
         assertThat(Statistics.mean(new double[]{})).isCloseTo(0.0, within(0.1));
         assertThat(Statistics.mean(new double[]{1})).isCloseTo(1.0, within(0.1));

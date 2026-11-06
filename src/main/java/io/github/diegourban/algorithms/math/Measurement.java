@@ -2,6 +2,9 @@ package io.github.diegourban.algorithms.math;
 
 public class Measurement {
 
+    private Measurement() {
+    }
+
     /**
      * Converts miles to kilometers
      *

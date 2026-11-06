@@ -5,6 +5,9 @@ package io.github.diegourban.algorithms.search;
  */
 public class BinarySearch {
 
+    private BinarySearch() {
+    }
+
     /**
      * Finds an element in an ordered list
      *

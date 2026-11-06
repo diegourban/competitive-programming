@@ -4,6 +4,9 @@ import java.util.Random;
 
 public class ArrayUtils {
 
+    private ArrayUtils() {
+    }
+
     private static Random rand = new Random();
 
     /**

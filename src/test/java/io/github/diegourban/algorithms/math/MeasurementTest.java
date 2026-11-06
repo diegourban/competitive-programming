@@ -8,11 +8,6 @@ import static org.assertj.core.api.Assertions.within;
 class MeasurementTest {
 
     @Test
-    void shouldCreateInstance() {
-        assertThat(new Measurement()).isNotNull();
-    }
-
-    @Test
     void shouldConvertMilesToKilometers() {
         assertThat(Measurement.milesToKilometers(1)).isCloseTo(1.609344, within(0.1));
         assertThat(Measurement.milesToKilometers(2)).isCloseTo(3.218688, within(0.1));

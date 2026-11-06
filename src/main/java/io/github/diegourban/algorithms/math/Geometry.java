@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 public class Geometry {
 
+    private Geometry() {
+    }
+
     private static final double SIMPLE_PI = 3.14;
 
     /**
