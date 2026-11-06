@@ -44,7 +44,7 @@ public class Vector {
     }
 
     public void remove(final int position) {
-        for (int i = position; i < this.totalElements; i++) {
+        for (int i = position; i < this.totalElements - 1; i++) {
             this.elements[i] = this.elements[i + 1];
         }
         totalElements--;

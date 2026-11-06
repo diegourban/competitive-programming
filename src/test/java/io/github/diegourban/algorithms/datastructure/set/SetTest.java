@@ -31,4 +31,26 @@ class SetTest {
                 .hasToString(
                         "[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [Zuleika], [], [], [], [Diego], [], [], []]");
     }
+
+    @Test
+    void shouldIgnoreDuplicates() {
+        Set set = new Set();
+        set.add("Diego");
+        set.add("Diego");
+
+        assertThat(set)
+                .hasToString(
+                        "[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [Diego], [], [], []]");
+    }
+
+    @Test
+    void shouldIgnoreRemovingAMissingWord() {
+        Set set = new Set();
+        set.add("Diego");
+        set.remove("Daniel");
+
+        assertThat(set)
+                .hasToString(
+                        "[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [Diego], [], [], []]");
+    }
 }
