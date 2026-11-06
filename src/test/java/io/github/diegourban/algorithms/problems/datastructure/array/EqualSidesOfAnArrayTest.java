@@ -11,12 +11,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * First index whose left and right sums are equal, or -1. Recomputes both sums for every index:
  * O(n²) time. An O(n) alternative keeps a running left sum against {@code total - left - arr[i]}
- * (prefix sums). As in the original solution, index 0 is never considered.
+ * (prefix sums). An empty side sums to 0, so the first and last indexes are valid answers too.
  */
 class EqualSidesOfAnArrayTest {
 
     static int solve(int[] arr) {
-        for (var i = 1; i < arr.length; i++) {
+        for (var i = 0; i < arr.length; i++) {
             var leftSum = Arrays.stream(arr, 0, i).sum();
             var rightSum = Arrays.stream(arr, i + 1, arr.length).sum();
             if (leftSum == rightSum) {
@@ -50,6 +50,16 @@ class EqualSidesOfAnArrayTest {
     @Test
     void balancesAsymmetricSidesWithEqualSums() {
         assertThat(solve(new int[]{20, 30, 3, 48, 2})).isEqualTo(2);
+    }
+
+    @Test
+    void firstIndexBalancesWhenTheRestSumsToZero() {
+        assertThat(solve(new int[]{20, 10, -80, 10, 10, 15, 35})).isEqualTo(0);
+    }
+
+    @Test
+    void lastIndexBalancesWhenTheRestSumsToZero() {
+        assertThat(solve(new int[]{1, -1, 5})).isEqualTo(2);
     }
 
     @Test
