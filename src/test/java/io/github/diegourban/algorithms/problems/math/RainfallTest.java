@@ -1,12 +1,11 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.Statistics;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.within;
+
+import io.github.diegourban.algorithms.math.Statistics;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
 
 /**
  * Rainfall — Codewars (6 kyu).
@@ -16,8 +15,7 @@ import static org.assertj.core.api.Assertions.within;
  */
 class RainfallTest {
 
-    record Rainfall(double mean, double variance) {
-    }
+    record Rainfall(double mean, double variance) {}
 
     static final Rainfall UNKNOWN = new Rainfall(-1, -1);
 
@@ -30,7 +28,10 @@ class RainfallTest {
                             .mapToDouble(month -> Double.parseDouble(month.split(" ")[1]))
                             .toArray();
                     var mean = Statistics.mean(values);
-                    var variance = Arrays.stream(values).map(v -> (v - mean) * (v - mean)).average().orElseThrow();
+                    var variance = Arrays.stream(values)
+                            .map(v -> (v - mean) * (v - mean))
+                            .average()
+                            .orElseThrow();
                     return new Rainfall(mean, variance);
                 })
                 .orElse(UNKNOWN);

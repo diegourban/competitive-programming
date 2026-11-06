@@ -2,8 +2,7 @@ package io.github.diegourban.algorithms.math;
 
 public class Numbers {
 
-    private Numbers() {
-    }
+    private Numbers() {}
 
     /**
      * Checks if a number contains a digit
@@ -18,7 +17,9 @@ public class Numbers {
 
         while (thisNumber != 0) {
             thisDigit = thisNumber % 10; // Always equal to the last digit of thisNumber
-            thisNumber = thisNumber / 10; // Always equal to thisNumber with the last digit chopped off, or 0 if thisNumber is less than 10
+            thisNumber = thisNumber
+                    / 10; // Always equal to thisNumber with the last digit chopped off, or 0 if thisNumber is less than
+            // 10
             if (thisDigit == digit) {
                 return true;
             }
@@ -82,47 +83,36 @@ public class Numbers {
      * @return the length of the number
      */
     public static int length(int number) {
-        if (number < 100000){
+        if (number < 100000) {
             // 5 or less
-            if (number < 100){
+            if (number < 100) {
                 // 1 or 2
-                if (number < 10)
-                    return 1;
-                else
-                    return 2;
-            }else{
+                if (number < 10) return 1;
+                else return 2;
+            } else {
                 // 3 or 4 or 5
-                if (number < 1000)
-                    return 3;
-                else{
+                if (number < 1000) return 3;
+                else {
                     // 4 or 5
-                    if (number < 10000)
-                        return 4;
-                    else
-                        return 5;
+                    if (number < 10000) return 4;
+                    else return 5;
                 }
             }
         } else {
             // 6 or more
             if (number < 10000000) {
                 // 6 or 7
-                if (number < 1000000)
-                    return 6;
-                else
-                    return 7;
+                if (number < 1000000) return 6;
+                else return 7;
             } else {
                 // 8 to 10
-                if (number < 100000000)
-                    return 8;
+                if (number < 100000000) return 8;
                 else {
                     // 9 or 10
-                    if (number < 1000000000)
-                        return 9;
-                    else
-                        return 10;
+                    if (number < 1000000000) return 9;
+                    else return 10;
                 }
             }
         }
     }
-
 }

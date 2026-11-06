@@ -1,15 +1,14 @@
 package io.github.diegourban.algorithms.problems.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
+import java.io.IOException;
+import java.io.InputStream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Queen — beecrowd (formerly URI Online Judge) 1087.
@@ -50,14 +49,14 @@ class QueenTest {
 
     @ParameterizedTest
     @CsvSource({
-            "4, 4, 6, 2, 1",
-            "3, 5, 3, 5, 0",
-            "5, 5, 4, 3, 2",
-            "1, 1, 1, 8, 1",
-            "1, 1, 8, 1, 1",
-            "1, 1, 8, 8, 1",
-            "1, 8, 8, 1, 1",
-            "1, 1, 2, 3, 2",
+        "4, 4, 6, 2, 1",
+        "3, 5, 3, 5, 0",
+        "5, 5, 4, 3, 2",
+        "1, 1, 1, 8, 1",
+        "1, 1, 8, 1, 1",
+        "1, 1, 8, 8, 1",
+        "1, 8, 8, 1, 1",
+        "1, 1, 2, 3, 2",
     })
     void minimumMoves(int x1, int y1, int x2, int y2, int expected) {
         assertThat(solve(x1, y1, x2, y2)).isEqualTo(expected);

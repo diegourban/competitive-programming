@@ -1,16 +1,15 @@
 package io.github.diegourban.algorithms.problems.datastructure.stack;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Parenthesis Balance I — beecrowd (formerly URI Online Judge) 1068.
@@ -32,7 +31,7 @@ class ParenthesisBalanceTest {
                         return false;
                     }
                 }
-                default -> { }
+                default -> {}
             }
         }
         return depth == 0;

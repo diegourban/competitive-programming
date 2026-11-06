@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.problems.dp;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * The Cake Thief — Interview Cake.
@@ -16,8 +16,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
  */
 class CakeThiefTest {
 
-    record Box(int weight, int value) {
-    }
+    record Box(int weight, int value) {}
 
     static class InfinityException extends RuntimeException {
         InfinityException() {
@@ -45,14 +44,14 @@ class CakeThiefTest {
 
     @Test
     void takesAsManyOfTheBestBoxesAsFit() {
-        var boxes = new Box[]{new Box(1, 3), new Box(2, 2), new Box(4, 5)};
+        var boxes = new Box[] {new Box(1, 3), new Box(2, 2), new Box(4, 5)};
 
         assertThat(solve(boxes, 15)).isEqualTo(45L);
     }
 
     @Test
     void weightlessValuableBoxIsInfinite() {
-        var boxes = new Box[]{new Box(0, 1), new Box(2, 2)};
+        var boxes = new Box[] {new Box(0, 1), new Box(2, 2)};
 
         assertThatExceptionOfType(InfinityException.class).isThrownBy(() -> solve(boxes, 5));
     }

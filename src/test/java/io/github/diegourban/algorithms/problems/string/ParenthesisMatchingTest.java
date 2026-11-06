@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.problems.string;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Parenthesis Matching — Interview Cake.
@@ -26,7 +26,7 @@ class ParenthesisMatchingTest {
                     }
                     openNested--;
                 }
-                default -> { }
+                default -> {}
             }
         }
         throw new IllegalArgumentException("No closing parenthesis :(");

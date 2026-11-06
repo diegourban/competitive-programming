@@ -1,13 +1,12 @@
 package io.github.diegourban.algorithms.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.math.BigInteger;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.GenerationMode;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
-
-import java.math.BigInteger;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Checks each Fibonacci variant against an exact reference, over the range its Javadoc says it supports.
@@ -21,7 +20,8 @@ class SequencesPropertyTest {
 
     @Property(generation = GenerationMode.EXHAUSTIVE)
     void simpleBinetFormulaRoundsToTheExactValueUpTo67(@ForAll @IntRange(min = 0, max = 67) int n) {
-        assertThat(BigInteger.valueOf(Math.round(Sequences.fibonacciSimpleBinetFormula(n)))).isEqualTo(exactFibonacci(n));
+        assertThat(BigInteger.valueOf(Math.round(Sequences.fibonacciSimpleBinetFormula(n))))
+                .isEqualTo(exactFibonacci(n));
     }
 
     @Property(generation = GenerationMode.EXHAUSTIVE)

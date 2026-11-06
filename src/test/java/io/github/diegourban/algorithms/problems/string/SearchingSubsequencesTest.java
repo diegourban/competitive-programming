@@ -1,16 +1,15 @@
 package io.github.diegourban.algorithms.problems.string;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Searching Subsequences — beecrowd (formerly URI Online Judge) 2126.
@@ -25,8 +24,7 @@ class SearchingSubsequencesTest {
     private static final SampleLoader SAMPLES = new SampleLoader("problems/string/searching-subsequences");
 
     /** {@code count} occurrences, the last one starting at 1-based {@code lastPosition} (0 when none). */
-    record Occurrences(int count, int lastPosition) {
-    }
+    record Occurrences(int count, int lastPosition) {}
 
     static Occurrences solve(String pattern, String text) {
         var count = 0;

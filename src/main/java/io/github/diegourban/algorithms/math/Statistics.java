@@ -4,8 +4,7 @@ import java.util.Arrays;
 
 public class Statistics {
 
-    private Statistics() {
-    }
+    private Statistics() {}
 
     /**
      * An average is the sum of a list of numbers divided by the number of
@@ -58,8 +57,7 @@ public class Statistics {
         for (int i = 0; i < data.length; ++i) {
             int count = 0;
             for (int j = 0; j < data.length; ++j) {
-                if (data[j] == data[i])
-                    ++count;
+                if (data[j] == data[i]) ++count;
             }
             if (count > maxCount) {
                 maxCount = count;
@@ -87,5 +85,4 @@ public class Statistics {
 
         return sum / data.length;
     }
-
 }

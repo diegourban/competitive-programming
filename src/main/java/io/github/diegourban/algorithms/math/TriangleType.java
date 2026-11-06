@@ -1,7 +1,9 @@
 package io.github.diegourban.algorithms.math;
 
 public enum TriangleType {
-    EQUILATERAL("Equilatero"), ESCALENE("Escaleno"), ISOSCELES("Isoceles");
+    EQUILATERAL("Equilatero"),
+    ESCALENE("Escaleno"),
+    ISOSCELES("Isoceles");
 
     private String name;
 

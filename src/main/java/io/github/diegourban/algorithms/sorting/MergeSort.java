@@ -19,7 +19,7 @@ public class MergeSort implements Sorter {
      */
     private void sort(final int[] items, final int begin, final int end) {
         final int total = end - begin;
-        if(total > 1) {
+        if (total > 1) {
             final int middle = (begin + end) / 2;
             sort(items, begin, middle);
             sort(items, middle, end);
@@ -34,11 +34,11 @@ public class MergeSort implements Sorter {
         int currentLeft = begin;
         int currentRight = middle;
 
-        while(currentLeft < middle && currentRight < end) {
+        while (currentLeft < middle && currentRight < end) {
             final int firstValue = items[currentLeft];
             final int secondValue = items[currentRight];
 
-            if(firstValue < secondValue) {
+            if (firstValue < secondValue) {
                 result[current] = firstValue;
                 currentLeft++;
             } else {
@@ -50,22 +50,21 @@ public class MergeSort implements Sorter {
         }
 
         // remaining values on the left side
-        while(currentLeft < middle) {
+        while (currentLeft < middle) {
             result[current] = items[currentLeft];
             currentLeft++;
             current++;
         }
 
         // remaining values on the right side
-        while(currentRight < end) {
+        while (currentRight < end) {
             result[current] = items[currentRight];
             currentRight++;
             current++;
         }
 
-        for(int count = 0; count < current; count++) {
+        for (int count = 0; count < current; count++) {
             items[begin + count] = result[count];
         }
     }
-
 }

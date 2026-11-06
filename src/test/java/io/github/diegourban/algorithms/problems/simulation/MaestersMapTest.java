@@ -1,17 +1,16 @@
 package io.github.diegourban.algorithms.problems.simulation;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * Maester's Map — beecrowd (formerly URI Online Judge) 1855.
@@ -77,10 +76,7 @@ class MaestersMapTest {
 
     @Test
     void followsArrowsToTheChest() {
-        assertThat(solve(List.of(
-                ">..v",
-                "....",
-                "*..<"))).isTrue();
+        assertThat(solve(List.of(">..v", "....", "*..<"))).isTrue();
     }
 
     @Test
@@ -90,10 +86,7 @@ class MaestersMapTest {
 
     @Test
     void reusingAnArrowIsALoop() {
-        assertThat(solve(List.of(
-                ">.....v",
-                ".......",
-                "^.....<"))).isFalse();
+        assertThat(solve(List.of(">.....v", ".......", "^.....<"))).isFalse();
     }
 
     @Test
@@ -103,19 +96,21 @@ class MaestersMapTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {
-            "sampleFindChest1", "sampleFindChest2", "sampleFindChest3",
-            "sampleFindChest4", "sampleFindChest5", "sampleFindChest6",
-    })
+    @ValueSource(
+            strings = {
+                "sampleFindChest1", "sampleFindChest2", "sampleFindChest3",
+                "sampleFindChest4", "sampleFindChest5", "sampleFindChest6",
+            })
     void samplesThatReachTheChest(String name) throws IOException {
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo("*\n");
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {
-            "sampleLoop1", "sampleLoop2", "sampleLoop3", "sampleLoop4",
-            "sampleOutOfBounds1", "sampleOutOfBounds2", "sampleOutOfBounds3", "sampleOutOfBounds4",
-    })
+    @ValueSource(
+            strings = {
+                "sampleLoop1", "sampleLoop2", "sampleLoop3", "sampleLoop4",
+                "sampleOutOfBounds1", "sampleOutOfBounds2", "sampleOutOfBounds3", "sampleOutOfBounds4",
+            })
     void samplesThatLoopOrLeaveTheMap(String name) throws IOException {
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo("!\n");
     }

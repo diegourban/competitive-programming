@@ -1,14 +1,13 @@
 package io.github.diegourban.algorithms.problems.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.math.Combinatorics;
+import java.math.BigInteger;
+import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import java.math.BigInteger;
-import java.util.stream.IntStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Pascal's Triangle — beecrowd (formerly URI Online Judge) 2232.
@@ -25,11 +24,11 @@ class PascalsTriangleTest {
 
     @ParameterizedTest
     @CsvSource({
-            "1, 1",
-            "2, 3",
-            "5, 31",
-            "31, 2147483647",
-            "50, 1125899906842623",
+        "1, 1",
+        "2, 3",
+        "5, 31",
+        "31, 2147483647",
+        "50, 1125899906842623",
     })
     void sumOfFirstRows(int n, long expected) {
         assertThat(solve(n)).isEqualTo(expected);
@@ -40,7 +39,8 @@ class PascalsTriangleTest {
         for (var n = 1; n <= 20; n++) {
             var sum = IntStream.range(0, n)
                     .boxed()
-                    .flatMap(row -> IntStream.rangeClosed(0, row).mapToObj(k -> Combinatorics.binomialCoefficient(row, k)))
+                    .flatMap(row ->
+                            IntStream.rangeClosed(0, row).mapToObj(k -> Combinatorics.binomialCoefficient(row, k)))
                     .reduce(BigInteger.ZERO, BigInteger::add);
             assertThat(solve(n)).as("n = %d", n).isEqualTo(sum.longValueExact());
         }

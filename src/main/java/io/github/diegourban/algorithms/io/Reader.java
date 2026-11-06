@@ -142,7 +142,7 @@ public class Reader {
     }
 
     private byte read() throws IOException {
-        if(isEOF()) {
+        if (isEOF()) {
             throw new EOFException();
         }
         if (bufferPointer == bytesRead) {
@@ -166,5 +166,4 @@ public class Reader {
     public boolean isClosed() {
         return din == null;
     }
-
 }

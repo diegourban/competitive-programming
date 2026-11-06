@@ -1,10 +1,8 @@
 package io.github.diegourban.algorithms.string;
 
-import org.junit.jupiter.api.Test;
-
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+
+import org.junit.jupiter.api.Test;
 
 class StringUtilsTest {
 
@@ -26,5 +24,4 @@ class StringUtilsTest {
         assertThat(StringUtils.isPalindrome("ab")).isFalse();
         assertThat(StringUtils.isPalindrome("abb")).isFalse();
     }
-
 }

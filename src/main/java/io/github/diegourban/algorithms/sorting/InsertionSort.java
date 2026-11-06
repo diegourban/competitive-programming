@@ -17,10 +17,10 @@ public class InsertionSort implements Sorter {
      * @param totalElements total elements
      */
     private void sort(final int[] items, final int totalElements) {
-        for(int current = 1; current < totalElements; current++) {
+        for (int current = 1; current < totalElements; current++) {
             int analysis = current;
 
-            while(analysis > 0 && items[analysis] < items[analysis - 1]) {
+            while (analysis > 0 && items[analysis] < items[analysis - 1]) {
                 Integer analysisItem = items[analysis];
                 Integer previousItem = items[analysis - 1];
                 items[analysis] = previousItem;

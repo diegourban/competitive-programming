@@ -7,8 +7,7 @@ import java.util.*;
  */
 public class NumberTheory {
 
-    private NumberTheory() {
-    }
+    private NumberTheory() {}
 
     /**
      * Least common multiple (lcm) of two numbers.
@@ -29,8 +28,7 @@ public class NumberTheory {
      */
     public static long lcm(long[] input) {
         long result = input[0];
-        for (int i = 1; i < input.length; i++)
-            result = lcm(result, input[i]);
+        for (int i = 1; i < input.length; i++) result = lcm(result, input[i]);
         return result;
     }
 
@@ -139,5 +137,4 @@ public class NumberTheory {
             factors.add(n);
         }
     }
-
 }

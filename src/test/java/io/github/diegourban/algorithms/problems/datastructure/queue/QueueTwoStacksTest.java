@@ -1,13 +1,12 @@
 package io.github.diegourban.algorithms.problems.datastructure.queue;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.NoSuchElementException;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import org.junit.jupiter.api.Test;
 
 /**
  * Queue Two Stacks — Interview Cake.

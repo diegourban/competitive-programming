@@ -1,17 +1,16 @@
 package io.github.diegourban.algorithms.problems.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Prime Generator — SPOJ PRIME1.
@@ -75,8 +74,9 @@ class PrimeGeneratorTest {
 
     @Test
     void primesUpToOneHundred() {
-        assertThat(solve(1, 100)).containsExactly(
-                2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97);
+        assertThat(solve(1, 100))
+                .containsExactly(
+                        2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97);
     }
 
     @Test

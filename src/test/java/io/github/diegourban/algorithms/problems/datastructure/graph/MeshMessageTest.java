@@ -1,15 +1,14 @@
 package io.github.diegourban.algorithms.problems.datastructure.graph;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import org.junit.jupiter.api.Test;
 
 /**
  * MeshMessage — Interview Cake.
@@ -59,14 +58,14 @@ class MeshMessageTest {
 
     @Test
     void unknownSenderIsRejected() {
-        var graph = Map.of("Foo", new String[]{"A", "B"});
+        var graph = Map.of("Foo", new String[] {"A", "B"});
 
         assertThatIllegalArgumentException().isThrownBy(() -> solve(graph, "Bar", "Baz"));
     }
 
     @Test
     void unknownRecipientIsRejected() {
-        var graph = Map.of("Foo", new String[]{"A", "B"});
+        var graph = Map.of("Foo", new String[] {"A", "B"});
 
         assertThatIllegalArgumentException().isThrownBy(() -> solve(graph, "Foo", "Baz"));
     }
@@ -74,10 +73,10 @@ class MeshMessageTest {
     @Test
     void disconnectedRecipientHasNoPath() {
         var graph = Map.of(
-                "Foo", new String[]{"Bar"},
-                "Bar", new String[]{"Foo"},
-                "Baz", new String[]{"Asdf"},
-                "Asdf", new String[]{"Baz"});
+                "Foo", new String[] {"Bar"},
+                "Bar", new String[] {"Foo"},
+                "Baz", new String[] {"Asdf"},
+                "Asdf", new String[] {"Baz"});
 
         assertThat(solve(graph, "Foo", "Asdf")).isNull();
     }
@@ -85,10 +84,10 @@ class MeshMessageTest {
     @Test
     void loopsDoNotPreventTermination() {
         var graph = Map.of(
-                "Foo", new String[]{"Asdf", "Bar"},
-                "Asdf", new String[]{"Foo", "Bar"},
-                "Bar", new String[]{"Foo", "Asdf", "Baz"},
-                "Baz", new String[]{"Bar"});
+                "Foo", new String[] {"Asdf", "Bar"},
+                "Asdf", new String[] {"Foo", "Bar"},
+                "Bar", new String[] {"Foo", "Asdf", "Baz"},
+                "Baz", new String[] {"Bar"});
 
         assertThat(solve(graph, "Foo", "Baz")).containsExactly("Foo", "Bar", "Baz");
     }
@@ -96,20 +95,20 @@ class MeshMessageTest {
     @Test
     void findsShortestRoute() {
         var graph = Map.of(
-                "Min", new String[]{"William", "Jayden"},
-                "William", new String[]{"Min"},
-                "Jayden", new String[]{"Min", "Amelia", "Ren"},
-                "Ren", new String[]{"Jayden"},
-                "Amelia", new String[]{"Jayden", "Adam", "Miguel"},
-                "Adam", new String[]{"Amelia", "Miguel"},
-                "Miguel", new String[]{"Amelia", "Adam"});
+                "Min", new String[] {"William", "Jayden"},
+                "William", new String[] {"Min"},
+                "Jayden", new String[] {"Min", "Amelia", "Ren"},
+                "Ren", new String[] {"Jayden"},
+                "Amelia", new String[] {"Jayden", "Adam", "Miguel"},
+                "Adam", new String[] {"Amelia", "Miguel"},
+                "Miguel", new String[] {"Amelia", "Adam"});
 
         assertThat(solve(graph, "Min", "Adam")).containsExactly("Min", "Jayden", "Amelia", "Adam");
     }
 
     @Test
     void senderIsRecipient() {
-        var graph = Map.of("Foo", new String[]{});
+        var graph = Map.of("Foo", new String[] {});
 
         assertThat(solve(graph, "Foo", "Foo")).containsExactly("Foo");
     }

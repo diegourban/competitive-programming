@@ -1,10 +1,10 @@
 package io.github.diegourban.algorithms.testing;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class SampleBuilderTest {
 
@@ -57,7 +57,12 @@ class SampleBuilderTest {
 
     @Test
     void shouldAppendAllTypes() {
-        String sample = this.sampleBuilder.append(123).append(9.9).append(9876543210L).append("bla bla").build();
+        String sample = this.sampleBuilder
+                .append(123)
+                .append(9.9)
+                .append(9876543210L)
+                .append("bla bla")
+                .build();
         assertThat(sample).isEqualTo("123 9.9 9876543210 bla bla");
     }
 
@@ -79,7 +84,8 @@ class SampleBuilderTest {
 
     @Test
     void shouldAppendTwoLongLines() {
-        String sample = this.sampleBuilder.appendln(123987123987L).append(1122334455L).build();
+        String sample =
+                this.sampleBuilder.appendln(123987123987L).append(1122334455L).build();
 
         String expected = "123987123987" + System.lineSeparator() + "1122334455";
         assertThat(sample).isEqualTo(expected);
@@ -111,10 +117,15 @@ class SampleBuilderTest {
 
     @Test
     void shouldAppendFourLinesOneTypeEach() {
-        String sample = this.sampleBuilder.appendln(123).appendln(987654321L).appendln(99.99).appendln("end").build();
+        String sample = this.sampleBuilder
+                .appendln(123)
+                .appendln(987654321L)
+                .appendln(99.99)
+                .appendln("end")
+                .build();
 
-        String expected = "123" + System.lineSeparator() + "987654321" + System.lineSeparator() + "99.99" + System.lineSeparator() + "end" + System.lineSeparator();
+        String expected = "123" + System.lineSeparator() + "987654321" + System.lineSeparator() + "99.99"
+                + System.lineSeparator() + "end" + System.lineSeparator();
         assertThat(sample).isEqualTo(expected);
     }
-
 }

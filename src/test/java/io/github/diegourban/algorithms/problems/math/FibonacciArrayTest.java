@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.problems.math;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Fibonacci Array — beecrowd (formerly URI Online Judge) 1176.
@@ -28,14 +28,14 @@ class FibonacciArrayTest {
 
     @ParameterizedTest
     @CsvSource({
-            "0, 0",
-            "1, 1",
-            "2, 1",
-            "4, 3",
-            "10, 55",
-            "46, 1836311903",
-            "47, 2971215073",
-            "60, 1548008755920",
+        "0, 0",
+        "1, 1",
+        "2, 1",
+        "4, 3",
+        "10, 55",
+        "46, 1836311903",
+        "47, 2971215073",
+        "60, 1548008755920",
     })
     void nthFibonacci(int n, long expected) {
         assertThat(solve(n)).isEqualTo(expected);

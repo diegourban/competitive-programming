@@ -1,10 +1,9 @@
 package io.github.diegourban.algorithms.problems.datastructure.set;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashSet;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Inflight Entertainment — Interview Cake.
@@ -29,22 +28,22 @@ class InflightEntertainmentTest {
 
     @Test
     void twoMoviesOfTheSameLengthFillTheFlight() {
-        assertThat(solve(new int[]{1, 1}, 2)).isTrue();
+        assertThat(solve(new int[] {1, 1}, 2)).isTrue();
     }
 
     @Test
     void twoDifferentMoviesFillTheFlight() {
-        assertThat(solve(new int[]{1, 1, 2}, 3)).isTrue();
+        assertThat(solve(new int[] {1, 1, 2}, 3)).isTrue();
     }
 
     @Test
     void noPairAddsUpToTheFlight() {
-        assertThat(solve(new int[]{1, 1}, 3)).isFalse();
-        assertThat(solve(new int[]{2, 3}, 2)).isFalse();
+        assertThat(solve(new int[] {1, 1}, 3)).isFalse();
+        assertThat(solve(new int[] {2, 3}, 2)).isFalse();
     }
 
     @Test
     void sameMovieCannotBeWatchedTwice() {
-        assertThat(solve(new int[]{2, 3}, 4)).isFalse();
+        assertThat(solve(new int[] {2, 3}, 4)).isFalse();
     }
 }

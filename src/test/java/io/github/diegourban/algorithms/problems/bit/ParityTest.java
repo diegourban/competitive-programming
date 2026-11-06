@@ -1,8 +1,8 @@
 package io.github.diegourban.algorithms.problems.bit;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Parity — beecrowd (formerly URI Online Judge) 2176.
@@ -41,7 +41,8 @@ class ParityTest {
 
     @Test
     void handlesHundredBits() {
-        var bits = "0101011001101010011001010101001010101010101010101011010010101010101011010110101010000101010101010101";
+        var bits =
+                "0101011001101010011001010101001010101010101010101011010010101010101011010110101010000101010101010101";
         assertThat(solve(bits)).isEqualTo(bits + "1");
     }
 }

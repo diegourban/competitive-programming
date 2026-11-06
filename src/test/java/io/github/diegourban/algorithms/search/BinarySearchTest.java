@@ -1,8 +1,8 @@
 package io.github.diegourban.algorithms.search;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.jupiter.api.Test;
 
 class BinarySearchTest {
 
@@ -26,7 +26,8 @@ class BinarySearchTest {
 
     @Test
     void returnsMinusOneForAMissingKey() {
-        assertThat(BinarySearch.indexOf(new int[]{1, 2, 3, 5, 6, 7, 8, 9, 10}, 4)).isEqualTo(-1);
+        assertThat(BinarySearch.indexOf(new int[] {1, 2, 3, 5, 6, 7, 8, 9, 10}, 4))
+                .isEqualTo(-1);
     }
 
     @Test
@@ -37,6 +38,6 @@ class BinarySearchTest {
 
     @Test
     void returnsMinusOneForAnEmptyArray() {
-        assertThat(BinarySearch.indexOf(new int[]{}, 1)).isEqualTo(-1);
+        assertThat(BinarySearch.indexOf(new int[] {}, 1)).isEqualTo(-1);
     }
 }

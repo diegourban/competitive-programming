@@ -1,10 +1,9 @@
 package io.github.diegourban.algorithms.problems.datastructure.set;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashSet;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 /**
  * Permutation Palindrome — Interview Cake.

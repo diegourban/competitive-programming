@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.testing;
 
-import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+
+import org.junit.jupiter.api.Test;
 
 class SampleLoaderTest {
 
@@ -38,7 +38,8 @@ class SampleLoaderTest {
 
     @Test
     void shouldAcceptTrailingSlash() {
-        assertThat(new SampleLoader("testing/sample-loader/").loadAsString("sample.out")).startsWith("1");
+        assertThat(new SampleLoader("testing/sample-loader/").loadAsString("sample.out"))
+                .startsWith("1");
     }
 
     @Test

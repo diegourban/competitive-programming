@@ -76,5 +76,4 @@ public class SampleBuilder {
     private void trim() {
         this.stringBuilder.deleteCharAt(this.stringBuilder.length() - 1);
     }
-
 }

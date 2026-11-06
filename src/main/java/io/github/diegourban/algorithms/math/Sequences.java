@@ -9,8 +9,7 @@ import java.math.RoundingMode;
  */
 public class Sequences {
 
-    private Sequences() {
-    }
+    private Sequences() {}
 
     /**
      * Calculates the nth Fibonacci number.
@@ -33,9 +32,9 @@ public class Sequences {
 
         // we'll be building the fibonacci series from the bottom up
         // so we'll need to track the previous 2 numbers at each step
-        int prevPrev = 0;   // 0th fibonacci
-        int prev = 1;       // 1st fibonacci
-        int current = 0;    // Declare and initialize current
+        int prevPrev = 0; // 0th fibonacci
+        int prev = 1; // 1st fibonacci
+        int current = 0; // Declare and initialize current
 
         for (int i = 1; i < n; i++) {
 
@@ -92,5 +91,4 @@ public class Sequences {
         BigDecimal powInvrt = BigDecimal.valueOf(Math.pow(-phi, -n));
         return pow.subtract(powInvrt).divide(sqrt5, RoundingMode.HALF_UP).toBigInteger();
     }
-
 }

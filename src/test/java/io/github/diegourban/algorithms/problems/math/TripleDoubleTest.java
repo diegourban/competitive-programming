@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.stream.IntStream;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Triple trouble — Codewars (6 kyu).
@@ -22,19 +21,21 @@ class TripleDoubleTest {
         var a = Long.toString(num1);
         var b = Long.toString(num2);
         return IntStream.rangeClosed(0, 9)
-                .mapToObj(Integer::toString)
-                .anyMatch(d -> a.contains(d.repeat(3)) && b.contains(d.repeat(2))) ? 1 : 0;
+                        .mapToObj(Integer::toString)
+                        .anyMatch(d -> a.contains(d.repeat(3)) && b.contains(d.repeat(2)))
+                ? 1
+                : 0;
     }
 
     @ParameterizedTest
     @CsvSource({
-            "451999277, 41177722899, 1",
-            "1222345, 12345, 0",
-            "12345, 12345, 0",
-            "666789, 12345667, 1",
-            "10560002, 100, 1",
-            "111, 22, 0",
-            "1112, 122, 0",
+        "451999277, 41177722899, 1",
+        "1222345, 12345, 0",
+        "12345, 12345, 0",
+        "666789, 12345667, 1",
+        "10560002, 100, 1",
+        "111, 22, 0",
+        "1112, 122, 0",
     })
     void requiresTripleAndDoubleOfTheSameDigit(long num1, long num2, int expected) {
         assertThat(solve(num1, num2)).isEqualTo(expected);

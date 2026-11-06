@@ -1,7 +1,6 @@
 package io.github.diegourban.algorithms.datastructure.queue;
 
 import io.github.diegourban.algorithms.datastructure.Element;
-
 import java.util.LinkedList;
 
 public class Queue {

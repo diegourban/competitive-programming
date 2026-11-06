@@ -2,8 +2,7 @@ package io.github.diegourban.algorithms.math;
 
 public class Measurement {
 
-    private Measurement() {
-    }
+    private Measurement() {}
 
     /**
      * Converts miles to kilometers
@@ -24,5 +23,4 @@ public class Measurement {
     public static double kilometersToMiles(double kilometers) {
         return kilometers * 0.621371;
     }
-
 }

@@ -1,12 +1,11 @@
 package io.github.diegourban.algorithms.math;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Timeout;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import java.util.Set;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 class NumberTheoryTest {
 
@@ -24,9 +23,9 @@ class NumberTheoryTest {
 
     @Test
     void shouldFindLeastCommonMultiplesOfList() {
-        assertThat(NumberTheory.lcm(new long[]{1, 2, 3})).isEqualTo(6);
-        assertThat(NumberTheory.lcm(new long[]{2, 4, 6})).isEqualTo(12);
-        assertThat(NumberTheory.lcm(new long[]{7, 11, 13})).isEqualTo(1001);
+        assertThat(NumberTheory.lcm(new long[] {1, 2, 3})).isEqualTo(6);
+        assertThat(NumberTheory.lcm(new long[] {2, 4, 6})).isEqualTo(12);
+        assertThat(NumberTheory.lcm(new long[] {7, 11, 13})).isEqualTo(1001);
     }
 
     @Test
@@ -149,26 +148,18 @@ class NumberTheoryTest {
     @Test
     void shouldCreateSetOfPrimeFactorsOfEvenNumber() {
         Set<Integer> primeFactors = NumberTheory.primeFactorsSet(12);
-        assertThat(primeFactors)
-                .hasSize(2)
-                .contains(2)
-                .contains(3);
+        assertThat(primeFactors).hasSize(2).contains(2).contains(3);
     }
 
     @Test
     void shouldCreateSetOfPrimeFactorsOfOddNumber() {
         Set<Integer> primeFactors = NumberTheory.primeFactorsSet(49);
-        assertThat(primeFactors)
-                .hasSize(1)
-                .contains(7);
+        assertThat(primeFactors).hasSize(1).contains(7);
     }
 
     @Test
     void shouldCreateSetOfPrimeFactorsOfPrimeNumber() {
         Set<Integer> primeFactors = NumberTheory.primeFactorsSet(7);
-        assertThat(primeFactors)
-                .hasSize(1)
-                .contains(7);
+        assertThat(primeFactors).hasSize(1).contains(7);
     }
-
 }

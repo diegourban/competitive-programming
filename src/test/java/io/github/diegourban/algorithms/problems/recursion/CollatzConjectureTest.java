@@ -1,9 +1,9 @@
 package io.github.diegourban.algorithms.problems.recursion;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Collatz Conjecture — Codewars (7 kyu).
@@ -22,13 +22,7 @@ class CollatzConjectureTest {
 
     @ParameterizedTest
     @CsvSource({
-            "1, 1",
-            "2, 2",
-            "3, 8",
-            "30, 19",
-            "27, 112",
-            "100, 26",
-            "103, 88",
+        "1, 1", "2, 2", "3, 8", "30, 19", "27, 112", "100, 26", "103, 88",
     })
     void countsSequenceLength(long x, long expected) {
         assertThat(solve(x)).isEqualTo(expected);

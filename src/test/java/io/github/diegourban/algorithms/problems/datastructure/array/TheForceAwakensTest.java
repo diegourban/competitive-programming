@@ -1,16 +1,15 @@
 package io.github.diegourban.algorithms.problems.datastructure.array;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.github.diegourban.algorithms.io.Reader;
 import io.github.diegourban.algorithms.testing.SampleLoader;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /**
  * The Force Awakens — beecrowd (formerly URI Online Judge) 2163.
@@ -26,8 +25,7 @@ class TheForceAwakensTest {
     private static final int GUARD = 7;
 
     /** A 1-based terrain position. */
-    record Position(int row, int column) {
-    }
+    record Position(int row, int column) {}
 
     static Optional<Position> solve(int[][] terrain) {
         for (var i = 1; i < terrain.length - 1; i++) {
@@ -68,9 +66,9 @@ class TheForceAwakensTest {
     @Test
     void findsTheGuardedLightsaber() {
         int[][] terrain = {
-                {7, 7, 7, 1},
-                {7, 42, 7, 1},
-                {7, 7, 7, 1},
+            {7, 7, 7, 1},
+            {7, 42, 7, 1},
+            {7, 7, 7, 1},
         };
         assertThat(solve(terrain)).contains(new Position(2, 2));
     }
@@ -78,9 +76,9 @@ class TheForceAwakensTest {
     @Test
     void ignoresLightsaberMissingAGuard() {
         int[][] terrain = {
-                {7, 7, 7},
-                {7, 42, 7},
-                {7, 7, 0},
+            {7, 7, 7},
+            {7, 42, 7},
+            {7, 7, 0},
         };
         assertThat(solve(terrain)).isEmpty();
     }
@@ -88,9 +86,9 @@ class TheForceAwakensTest {
     @Test
     void ignoresLightsaberOnTheBorder() {
         int[][] terrain = {
-                {42, 7, 7},
-                {7, 7, 7},
-                {7, 7, 7},
+            {42, 7, 7},
+            {7, 7, 7},
+            {7, 7, 7},
         };
         assertThat(solve(terrain)).isEmpty();
     }
@@ -98,9 +96,9 @@ class TheForceAwakensTest {
     @Test
     void skipsUnguardedCandidateAndFindsTheNextOne() {
         int[][] terrain = {
-                {7, 7, 7, 7, 7},
-                {0, 42, 7, 42, 7},
-                {7, 7, 7, 7, 7},
+            {7, 7, 7, 7, 7},
+            {0, 42, 7, 42, 7},
+            {7, 7, 7, 7, 7},
         };
         assertThat(solve(terrain)).contains(new Position(2, 4));
     }

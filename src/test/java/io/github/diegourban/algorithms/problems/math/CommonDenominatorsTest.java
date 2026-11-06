@@ -1,11 +1,10 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.NumberTheory;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-
 import static org.assertj.core.api.Assertions.assertThat;
+
+import io.github.diegourban.algorithms.math.NumberTheory;
+import java.util.Arrays;
+import org.junit.jupiter.api.Test;
 
 /**
  * Common Denominators — Codewars (5 kyu).
@@ -24,23 +23,27 @@ class CommonDenominatorsTest {
         var lcm = NumberTheory.lcm(Arrays.stream(fractions).mapToLong(f -> f[1]).toArray());
         var result = new StringBuilder();
         for (var f : fractions) {
-            result.append('(').append(f[0] * (lcm / f[1])).append(',').append(lcm).append(')');
+            result.append('(')
+                    .append(f[0] * (lcm / f[1]))
+                    .append(',')
+                    .append(lcm)
+                    .append(')');
         }
         return result.toString();
     }
 
     @Test
     void emptyListGivesEmptyString() {
-        assertThat(solve(new long[][]{})).isEmpty();
+        assertThat(solve(new long[][] {})).isEmpty();
     }
 
     @Test
     void unitFractions() {
-        assertThat(solve(new long[][]{{1, 2}, {1, 3}, {1, 4}})).isEqualTo("(6,12)(4,12)(3,12)");
+        assertThat(solve(new long[][] {{1, 2}, {1, 3}, {1, 4}})).isEqualTo("(6,12)(4,12)(3,12)");
     }
 
     @Test
     void coprimeDenominators() {
-        assertThat(solve(new long[][]{{1, 130}, {1, 131}, {1, 4}})).isEqualTo("(262,34060)(260,34060)(8515,34060)");
+        assertThat(solve(new long[][] {{1, 130}, {1, 131}, {1, 4}})).isEqualTo("(262,34060)(260,34060)(8515,34060)");
     }
 }
