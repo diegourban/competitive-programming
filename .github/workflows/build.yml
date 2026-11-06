@@ -24,9 +24,11 @@ jobs:
         run: ./mvnw --batch-mode --no-transfer-progress verify
 
       - name: Upload coverage to Codecov
+        # Dependabot PRs get no repository secrets, so CODECOV_TOKEN is empty there.
+        if: github.actor != 'dependabot[bot]'
         uses: codecov/codecov-action@v7
         with:
           files: target/site/jacoco/jacoco.xml
           disable_search: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: false
+          fail_ci_if_error: true
