@@ -96,9 +96,8 @@ public class LinkedList {
             LinkedListNode previous = this.last.getPrevious();
             previous.setNext(null);
             this.last = previous;
+            this.totalElements--;
         }
-
-        this.totalElements--;
     }
 
     public void remove(final int position) {
