@@ -112,3 +112,4 @@ triage-*.md
 
 # jqwik failure database (replays previously failing samples locally)
 .jqwik-database
+findings.md
