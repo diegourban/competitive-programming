@@ -5,11 +5,11 @@ import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 
 import org.junit.jupiter.api.Test;
 
-class SetTest {
+class WordSetTest {
 
     @Test
     void shouldAdd() {
-        final Set set = new Set();
+        final WordSet set = new WordSet();
         set.add("Diego");
         set.add("André");
         set.add("Zuleika");
@@ -20,7 +20,7 @@ class SetTest {
 
     @Test
     void shouldRemove() {
-        final Set set = new Set();
+        final WordSet set = new WordSet();
         set.add("Diego");
         set.add("André");
         set.add("Zuleika");
@@ -35,7 +35,7 @@ class SetTest {
 
     @Test
     void shouldIgnoreDuplicates() {
-        final Set set = new Set();
+        final WordSet set = new WordSet();
         set.add("Diego");
         set.add("Diego");
 
@@ -46,7 +46,7 @@ class SetTest {
 
     @Test
     void shouldIgnoreRemovingAMissingWord() {
-        final Set set = new Set();
+        final WordSet set = new WordSet();
         set.add("Diego");
         set.remove("Daniel");
 
@@ -57,7 +57,7 @@ class SetTest {
 
     @Test
     void shouldRejectAnEmptyWord() {
-        final Set set = new Set();
+        final WordSet set = new WordSet();
 
         assertThatIllegalArgumentException().isThrownBy(() -> set.add("")).withMessage("word must not be empty");
         assertThatIllegalArgumentException().isThrownBy(() -> set.remove("")).withMessage("word must not be empty");

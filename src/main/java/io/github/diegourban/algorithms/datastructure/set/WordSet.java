@@ -8,16 +8,16 @@ import java.util.List;
  * the character code of its lower-cased first character modulo 26, so buckets do not line up with alphabetical
  * order ({@code 'a'} goes to bucket 19).
  */
-public class Set {
+public class WordSet {
 
     private static final int BUCKET_COUNT = 26;
 
-    private final List<LinkedList<String>> table = new LinkedList<LinkedList<String>>();
+    private final List<LinkedList<String>> buckets = new LinkedList<LinkedList<String>>();
 
     /** Creates an empty set with 26 empty buckets. */
-    public Set() {
+    public WordSet() {
         for (int i = 0; i < BUCKET_COUNT; i++) {
-            this.table.add(new LinkedList<String>());
+            this.buckets.add(new LinkedList<String>());
         }
     }
 
@@ -30,8 +30,8 @@ public class Set {
     public void add(final String word) {
         if (!contains(word)) {
             final int index = calculateTableIndex(word);
-            final List<String> list = this.table.get(index);
-            list.add(word);
+            final List<String> bucket = this.buckets.get(index);
+            bucket.add(word);
         }
     }
 
@@ -44,14 +44,14 @@ public class Set {
     public void remove(final String word) {
         if (contains(word)) {
             final int index = calculateTableIndex(word);
-            final List<String> list = this.table.get(index);
-            list.remove(word);
+            final List<String> bucket = this.buckets.get(index);
+            bucket.remove(word);
         }
     }
 
     private boolean contains(final String word) {
         final int index = calculateTableIndex(word);
-        return this.table.get(index).contains(word);
+        return this.buckets.get(index).contains(word);
     }
 
     private int calculateTableIndex(final String word) {
@@ -65,10 +65,10 @@ public class Set {
      * Returns all 26 buckets in index order, each in {@link java.util.AbstractCollection#toString()} format, for
      * example {@code "[[], [], ..., [apple], ...]"}.
      *
-     * @return the string form of the bucket table
+     * @return the string form of the bucket buckets
      */
     @Override
     public String toString() {
-        return this.table.toString();
+        return this.buckets.toString();
     }
 }

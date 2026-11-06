@@ -77,31 +77,31 @@ public final class Numbers {
      * @param number the number to convert
      * @return an array with each digit of the number, in reverse order
      */
-    public static int[] toArray(final long number) {
-        long theNumber = number;
+    public static int[] toReversedDigits(final long number) {
+        long remaining = number;
 
-        final int length = Long.toString(theNumber).length() - (theNumber < 0 ? 1 : 0);
-        final int[] array = new int[length];
+        final int length = Long.toString(remaining).length() - (remaining < 0 ? 1 : 0);
+        final int[] digits = new int[length];
 
         for (int index = 0; index < length; index++) {
-            array[index] = Math.abs((int) (theNumber % 10));
-            theNumber /= 10;
+            digits[index] = Math.abs((int) (remaining % 10));
+            remaining /= 10;
         }
 
-        return array;
+        return digits;
     }
 
     /**
      * Find the length of the int using divide and conquer
      * <p>
-     * A negative number counts the digits of its absolute value: {@code length(-123)} is {@code 3}.
+     * A negative number counts the digits of its absolute value: {@code digitCount(-123)} is {@code 3}.
      *
      * @param number some number
      * @return the number of decimal digits of the number, from 1 to 10
      */
-    public static int length(final int number) {
+    public static int digitCount(final int number) {
         if (number < 0) {
-            return number == Integer.MIN_VALUE ? 10 : length(-number);
+            return number == Integer.MIN_VALUE ? 10 : digitCount(-number);
         }
         if (number < 100000) {
             // 5 or less

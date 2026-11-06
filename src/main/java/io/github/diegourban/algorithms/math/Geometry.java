@@ -107,9 +107,9 @@ public final class Geometry {
      * @param b side b
      * @param c side c
      * @return {@link TriangleType#EQUILATERAL} if all three sides are equal, {@link TriangleType#ISOSCELES} if exactly
-     *     two are, {@link TriangleType#ESCALENE} otherwise
+     *     two are, {@link TriangleType#SCALENE} otherwise
      */
-    public static TriangleType checkTriangleType(final double a, final double b, final double c) {
+    public static TriangleType classifyTriangle(final double a, final double b, final double c) {
         final double[] sortedSides = new double[3];
         sortedSides[0] = a;
         sortedSides[1] = b;
@@ -128,7 +128,7 @@ public final class Geometry {
             return TriangleType.ISOSCELES;
         }
 
-        return TriangleType.ESCALENE;
+        return TriangleType.SCALENE;
     }
 
     /**
@@ -143,7 +143,7 @@ public final class Geometry {
      * @param c side c
      * @return {@code true} if the sides satisfy the Pythagorean theorem, {@code false} otherwise
      */
-    public static boolean isRectangleTriangle(final double a, final double b, final double c) {
+    public static boolean isRightTriangle(final double a, final double b, final double c) {
         final double[] sortedSides = new double[3];
         sortedSides[0] = a;
         sortedSides[1] = b;

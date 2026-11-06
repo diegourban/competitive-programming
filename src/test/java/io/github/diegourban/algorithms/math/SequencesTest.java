@@ -23,15 +23,15 @@ class SequencesTest {
 
     @Test
     void shouldCalculateFibonacciWithSimpleBinetFormula() {
-        assertThat(Sequences.fibonacciSimpleBinetFormula(0)).isCloseTo(0, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(1)).isCloseTo(1, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(2)).isCloseTo(1, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(3)).isCloseTo(2, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(4)).isCloseTo(3, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(5)).isCloseTo(5, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(11)).isCloseTo(89, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(50)).isCloseTo(12586269025d, within(0.1));
-        assertThat(Sequences.fibonacciSimpleBinetFormula(67)).isCloseTo(44945570212853d, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(0)).isCloseTo(0, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(1)).isCloseTo(1, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(2)).isCloseTo(1, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(3)).isCloseTo(2, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(4)).isCloseTo(3, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(5)).isCloseTo(5, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(11)).isCloseTo(89, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(50)).isCloseTo(12586269025d, within(0.1));
+        assertThat(Sequences.fibonacciBinetApproximate(67)).isCloseTo(44945570212853d, within(0.1));
     }
 
     @Test
