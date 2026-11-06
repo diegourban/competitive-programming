@@ -87,7 +87,7 @@ public class LinkedList {
 
     private LinkedListNode getNode(final int position) {
         if (!positionOccupied(position)) {
-            throw new IllegalArgumentException("Posição inexistente");
+            throw new IllegalArgumentException("Invalid position: " + position);
         }
         LinkedListNode current = this.first;
         for (int i = 0; i < position; i++) {
@@ -123,7 +123,7 @@ public class LinkedList {
      */
     public void removeFromStart() {
         if (this.totalElements == 0) {
-            throw new IllegalStateException("Lista vazia");
+            throw new IllegalStateException("List is empty");
         }
 
         this.first = this.first.getNext();
@@ -143,7 +143,7 @@ public class LinkedList {
      */
     public void removeFromEnd() {
         if (this.totalElements == 0) {
-            throw new IllegalStateException("Lista vazia");
+            throw new IllegalStateException("List is empty");
         }
         if (this.totalElements == 1) {
             this.removeFromStart();
@@ -172,7 +172,7 @@ public class LinkedList {
             this.removeFromEnd();
         } else {
             if (!positionOccupied(position)) {
-                throw new IllegalArgumentException("Posição inexistente");
+                throw new IllegalArgumentException("Invalid position: " + position);
             }
             final LinkedListNode previous = this.getNode(position - 1);
             final LinkedListNode current = previous.getNext();

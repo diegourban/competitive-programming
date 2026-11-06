@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 class TriangleTypeTest {
 
     @ParameterizedTest
-    @CsvSource({"EQUILATERAL, Equilatero", "ISOSCELES, Isoceles", "ESCALENE, Escaleno"})
+    @CsvSource({"EQUILATERAL, Equilateral", "ISOSCELES, Isosceles", "ESCALENE, Scalene"})
     void exposesDisplayName(final TriangleType type, final String expectedName) {
         assertThat(type.getName()).isEqualTo(expectedName);
     }

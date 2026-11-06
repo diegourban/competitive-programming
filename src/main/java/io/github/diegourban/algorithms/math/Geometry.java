@@ -23,7 +23,6 @@ public final class Geometry {
      * @return the distance between the two points
      */
     public static double distance(final int x1, final int y1, final int x2, final int y2) {
-        // return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
         return Math.hypot(x1 - x2, y1 - y2);
     }
 

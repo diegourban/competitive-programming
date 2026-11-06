@@ -21,7 +21,7 @@ public final class BinarySearch {
     /**
      * Finds an element in a list
      * <p>
-     * Complexity: O(log n) time and O(1) space
+     * Complexity: O(log n) time and O(log n) space for the recursion
      *
      * @param items an ordered list of items to find
      * @param from the index to find from in the list

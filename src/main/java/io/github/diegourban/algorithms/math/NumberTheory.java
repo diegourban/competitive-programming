@@ -42,7 +42,7 @@ public final class NumberTheory {
     }
 
     /**
-     * Greatest common divisor (gdc) of two numbers using while strategy.
+     * Greatest common divisor (gcd) of two numbers using while strategy.
      * <p>
      * Also known as greatest common factor (gcf), highest common factor (hcf),
      * greatest common measure (gcm) or highest common divisor
@@ -59,14 +59,14 @@ public final class NumberTheory {
         long bNumber = b;
         while (bNumber > 0) {
             final long temp = bNumber;
-            bNumber = gcd % bNumber; // % is remainder
+            bNumber = gcd % bNumber;
             gcd = temp;
         }
         return gcd;
     }
 
     /**
-     * Greatest common divisor (gdc) of two numbers using recursive strategy.
+     * Greatest common divisor (gcd) of two numbers using recursive strategy.
      * <p>
      * Also known as greatest common factor (gcf), highest common factor (hcf),
      * greatest common measure (gcm) or highest common divisor
@@ -101,6 +101,7 @@ public final class NumberTheory {
             return false;
         }
 
+        // every prime above 3 has the form 6k ± 1, so only i and i + 2 need checking per step of 6
         int i = 5;
         while (i <= n / i) {
             if (n % i == 0 || n % (i + 2) == 0) {

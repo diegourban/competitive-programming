@@ -12,7 +12,7 @@ public final class ArrayUtils {
     private static final Random rand = new Random();
 
     /**
-     * Function for doing an in-place ↴ shuffle of an array.
+     * Function for doing an in-place (Fisher–Yates) shuffle of an array.
      * <p>
      * Solution: We choose a random item to move to the first index, then we choose a random other item to move to the second index, etc.
      * We "place" an item in an index by swapping it with the item currently at that index.

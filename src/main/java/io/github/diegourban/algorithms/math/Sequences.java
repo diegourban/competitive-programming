@@ -24,9 +24,8 @@ public final class Sequences {
      * @throws IllegalArgumentException if {@code n} is negative
      */
     public static int fibonacci(final int n) {
-        // edge cases:
         if (n < 0) {
-            throw new IllegalArgumentException("Index was negative. No such thing as a negative index in a series.");
+            throw new IllegalArgumentException("n must be non-negative: " + n);
         } else if (n == 0 || n == 1) {
             return n;
         }
@@ -35,7 +34,7 @@ public final class Sequences {
         // so we'll need to track the previous 2 numbers at each step
         int prevPrev = 0; // 0th fibonacci
         int prev = 1; // 1st fibonacci
-        int current = 0; // Declare and initialize current
+        int current = 0;
 
         for (int i = 1; i < n; i++) {
 
@@ -53,11 +52,11 @@ public final class Sequences {
 
     /**
      * Calculates the nth Fibonacci number.
-     * Works with n &lt;= 67
+     * Works with n &lt;= 70
      * <p>
      * Uses Binet's formula in {@code double} arithmetic, so the result is approximate (for example
      * {@code 55.000000000000014} for n = 10). Rounded with {@link Math#round(double)}, it equals the exact value for
-     * 0 &lt;= n &lt;= 67. Negative {@code n} is not rejected and gives a meaningless result.
+     * 0 &lt;= n &lt;= 70. Negative {@code n} is not rejected and gives a meaningless result.
      *
      * @param n the nth number in the Fibonacci sequence to calculate
      * @return an approximation of the nth Fibonacci number

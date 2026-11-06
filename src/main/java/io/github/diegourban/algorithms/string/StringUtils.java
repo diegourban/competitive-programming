@@ -41,8 +41,8 @@ public final class StringUtils {
     /**
      * Checks if two strings are anagrams: the same characters, each the same number of times, in any order.
      * <p>
-     * The comparison ignores case (both strings are lower-cased first, independently of the default locale) but counts spaces and punctuation. Runs in
-     * O(n log n) time by sorting the characters of both strings.
+     * The comparison ignores case (both strings are lower-cased first, independently of the default locale) but
+     * counts spaces and punctuation. Runs in O(n log n) time by sorting the characters of both strings.
      *
      * @param a the first string; must not be {@code null}
      * @param b the second string; must not be {@code null}

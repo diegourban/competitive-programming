@@ -24,11 +24,10 @@ public final class Numbers {
             return digit == 0;
         }
 
+        // take the last digit, then chop it off, until no digits are left
         while (thisNumber != 0) {
-            thisDigit = thisNumber % 10; // Always equal to the last digit of thisNumber
-            thisNumber = thisNumber
-                    / 10; // Always equal to thisNumber with the last digit chopped off, or 0 if thisNumber is less than
-            // 10
+            thisDigit = thisNumber % 10;
+            thisNumber = thisNumber / 10;
             if (thisDigit == digit) {
                 return true;
             }
