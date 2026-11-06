@@ -3,11 +3,23 @@ package io.github.diegourban.algorithms.datastructure.vector;
 import io.github.diegourban.algorithms.datastructure.Element;
 import java.util.Arrays;
 
+/**
+ * A growable list of {@link Element}s backed by an array that starts with capacity 100 and doubles when full.
+ * Positions are zero-based.
+ */
 public class Vector {
 
     private Element[] elements = new Element[100];
     private int totalElements = 0;
 
+    /** Creates an empty vector with capacity 100. */
+    public Vector() {}
+
+    /**
+     * Appends an element, growing the backing array if needed.
+     *
+     * @param element the element to append
+     */
     public void add(final Element element) {
         this.guaranteesSpace();
 
@@ -15,6 +27,14 @@ public class Vector {
         this.totalElements++;
     }
 
+    /**
+     * Inserts an element at an occupied position, shifting it and later elements one position back. Only occupied
+     * positions are accepted, so this cannot append (use {@link #add(Element)}) or insert into an empty vector.
+     *
+     * @param position the zero-based position, from {@code 0} to {@code size() - 1}
+     * @param element the element to insert
+     * @throws IllegalArgumentException if {@code position} is negative or not less than {@link #size()}
+     */
     public void add(final int position, final Element element) {
         if (!isPositionValid(position)) {
             throw new IllegalArgumentException("Invalid position");
@@ -32,6 +52,13 @@ public class Vector {
         return position >= 0 && position < totalElements;
     }
 
+    /**
+     * Returns the element at the given position.
+     *
+     * @param position the zero-based position
+     * @return the element at {@code position}
+     * @throws IllegalArgumentException if {@code position} is negative or not less than {@link #size()}
+     */
     public Element get(final int position) {
         if (!positionOccupied(position)) {
             throw new IllegalArgumentException("Invalid position");
@@ -43,6 +70,14 @@ public class Vector {
         return position >= 0 && position < this.totalElements;
     }
 
+    /**
+     * Removes the element at the given position, shifting later elements one position forward.
+     * <p>
+     * The position is not validated: a position not less than {@link #size()} removes the last element instead, and
+     * a negative position, or any call on an empty vector, fails with an {@code ArrayIndexOutOfBoundsException}.
+     *
+     * @param position the zero-based position, from {@code 0} to {@code size() - 1}
+     */
     public void remove(final int position) {
         for (int i = position; i < this.totalElements - 1; i++) {
             this.elements[i] = this.elements[i + 1];
@@ -51,6 +86,13 @@ public class Vector {
         this.elements[this.totalElements] = null;
     }
 
+    /**
+     * Tells whether the vector holds an element equal to the given one, calling {@code element.equals} on each stored
+     * element.
+     *
+     * @param element the element to look for; must not be {@code null}
+     * @return {@code true} if an equal element is found
+     */
     public boolean contains(final Element element) {
         for (int i = 0; i < this.totalElements; i++) {
             if (element.equals(this.elements[i])) {
@@ -61,6 +103,11 @@ public class Vector {
         return false;
     }
 
+    /**
+     * Returns the number of elements.
+     *
+     * @return the number of elements in the vector
+     */
     public int size() {
         return this.totalElements;
     }
@@ -75,6 +122,12 @@ public class Vector {
         }
     }
 
+    /**
+     * Returns the whole backing array, including the unused {@code null} slots, in the form
+     * {@code "Vector{elements=[a, b, null, ...]}"}.
+     *
+     * @return the string form of the vector
+     */
     @Override
     public String toString() {
         return "Vector{" + "elements=" + Arrays.toString(elements) + '}';
