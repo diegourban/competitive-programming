@@ -10,8 +10,7 @@ public final class Numbers {
     /**
      * Checks if a number contains a digit
      * <p>
-     * The sign of {@code number} is ignored. The number {@code 0} is treated as having no digits, so
-     * {@code containsDigit(0, 0)} returns {@code false}.
+     * The sign of {@code number} is ignored; {@code 0} contains the digit {@code 0}.
      *
      * @param number the number to check
      * @param digit  the digit expected to find in the number
@@ -20,6 +19,10 @@ public final class Numbers {
     public static boolean containsDigit(final long number, final long digit) {
         long thisNumber = number >= 0 ? number : -number;
         long thisDigit;
+
+        if (thisNumber == 0) {
+            return digit == 0;
+        }
 
         while (thisNumber != 0) {
             thisDigit = thisNumber % 10; // Always equal to the last digit of thisNumber
@@ -70,9 +73,7 @@ public final class Numbers {
      * Converts a number to an array of its digits, least significant digit first: {@code 123} becomes
      * {@code [3, 2, 1]}.
      * <p>
-     * Intended for non-negative numbers that fit in an {@code int}: each step truncates the number to {@code int}
-     * before taking the last digit, so larger values give wrong digits, and a negative number gives negative digits
-     * plus an extra trailing {@code 0} for the minus sign.
+     * A negative number gives the digits of its absolute value: {@code -12} becomes {@code [2, 1]}.
      *
      * @param number the number to convert
      * @return an array with each digit of the number, in reverse order
@@ -80,11 +81,11 @@ public final class Numbers {
     public static int[] toArray(final long number) {
         long theNumber = number;
 
-        final int length = Long.toString(theNumber).length();
+        final int length = Long.toString(theNumber).length() - (theNumber < 0 ? 1 : 0);
         final int[] array = new int[length];
 
         for (int index = 0; index < length; index++) {
-            array[index] = (int) theNumber % 10;
+            array[index] = Math.abs((int) (theNumber % 10));
             theNumber /= 10;
         }
 
@@ -94,12 +95,15 @@ public final class Numbers {
     /**
      * Find the length of the int using divide and conquer
      * <p>
-     * Intended for non-negative numbers: any negative number returns 1.
+     * A negative number counts the digits of its absolute value: {@code length(-123)} is {@code 3}.
      *
      * @param number some number
      * @return the number of decimal digits of the number, from 1 to 10
      */
     public static int length(final int number) {
+        if (number < 0) {
+            return number == Integer.MIN_VALUE ? 10 : length(-number);
+        }
         if (number < 100000) {
             // 5 or less
             if (number < 100) {

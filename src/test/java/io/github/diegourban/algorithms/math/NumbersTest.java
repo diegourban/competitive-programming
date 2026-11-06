@@ -38,4 +38,29 @@ class NumbersTest {
         assertThat(Numbers.length(123456789)).isEqualTo(9);
         assertThat(Numbers.length(1234567890)).isEqualTo(10);
     }
+
+    @Test
+    void shouldSplitNumbersBeyondTheIntRangeIntoDigits() {
+        assertThat(Numbers.toArray(12345678901L)).containsExactly(1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1);
+        assertThat(Numbers.toArray(Long.MAX_VALUE)).hasSize(19).startsWith(7, 0, 8);
+    }
+
+    @Test
+    void shouldSplitNegativeNumbersIntoTheDigitsOfTheirAbsoluteValue() {
+        assertThat(Numbers.toArray(-12)).containsExactly(2, 1);
+        assertThat(Numbers.toArray(Long.MIN_VALUE)).hasSize(19).startsWith(8, 0, 8);
+    }
+
+    @Test
+    void shouldFindDigitZeroInZero() {
+        assertThat(Numbers.containsDigit(0, 0)).isTrue();
+        assertThat(Numbers.containsDigit(0, 1)).isFalse();
+    }
+
+    @Test
+    void shouldCountDigitsOfNegativeNumbers() {
+        assertThat(Numbers.length(-123)).isEqualTo(3);
+        assertThat(Numbers.length(-7)).isEqualTo(1);
+        assertThat(Numbers.length(Integer.MIN_VALUE)).isEqualTo(10);
+    }
 }
