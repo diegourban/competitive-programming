@@ -107,3 +107,5 @@ fabric.properties
 
 # Claude session notes
 hot.md
+.claude/worktrees/
+triage-*.md
