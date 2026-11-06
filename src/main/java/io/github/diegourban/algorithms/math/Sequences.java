@@ -13,14 +13,15 @@ public final class Sequences {
 
     /**
      * Calculates the nth Fibonacci number.
-     * Works with n <= 46
+     * Works with n &lt;= 46; larger values overflow {@code int} silently and return a wrong result.
      * <p>
      * Solution: Using a bottom-up approach, starting with the 0th fibonacci number and iteratively computing subsequent numbers until we get to n.
      * <p>
-     * Complexity: N time and O(1) space.
+     * Complexity: O(n) time and O(1) space.
      *
-     * @param n the nth number in the Fibonacci sequence to calculate
+     * @param n the nth number in the Fibonacci sequence to calculate, with {@code fibonacci(0) == 0}
      * @return the nth Fibonacci number
+     * @throws IllegalArgumentException if {@code n} is negative
      */
     public static int fibonacci(final int n) {
         // edge cases:
@@ -52,10 +53,14 @@ public final class Sequences {
 
     /**
      * Calculates the nth Fibonacci number.
-     * Works with n <= 67
+     * Works with n &lt;= 67
+     * <p>
+     * Uses Binet's formula in {@code double} arithmetic, so the result is approximate (for example
+     * {@code 55.000000000000014} for n = 10). Rounded with {@link Math#round(double)}, it equals the exact value for
+     * 0 &lt;= n &lt;= 67. Negative {@code n} is not rejected and gives a meaningless result.
      *
      * @param n the nth number in the Fibonacci sequence to calculate
-     * @return the nth Fibonacci number
+     * @return an approximation of the nth Fibonacci number
      */
     public static double fibonacciSimpleBinetFormula(final int n) {
         if (n == 0) {
@@ -68,7 +73,11 @@ public final class Sequences {
 
     /**
      * Calculates the nth Fibonacci number.
-     * Works with n <= 71
+     * Works with n &lt;= 71
+     * <p>
+     * Uses Binet's formula, with the powers computed in {@code double} and the subtraction and division done in
+     * {@link BigDecimal}. The result is exact for 0 &lt;= n &lt;= 71 and drifts from the true value after that.
+     * Negative {@code n} is not rejected and gives a meaningless result.
      *
      * @param n the nth number in the Fibonacci sequence to calculate
      * @return the nth Fibonacci number

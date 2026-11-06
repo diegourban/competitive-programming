@@ -1,9 +1,12 @@
 package io.github.diegourban.algorithms.sorting;
 
 /**
- * Merge sort algorithm
+ * Merge sort algorithm: recursively sorts each half and merges them; O(n log n) time and O(n) extra space.
  */
 public class MergeSort implements Sorter {
+
+    /** Creates a merge sort. */
+    public MergeSort() {}
 
     @Override
     public void sort(final int[] items) {

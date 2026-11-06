@@ -2,6 +2,9 @@ package io.github.diegourban.algorithms.math;
 
 import java.util.Arrays;
 
+/**
+ * Descriptive statistics over arrays of {@code double}: mean, median, mode and mean absolute deviation.
+ */
 public final class Statistics {
 
     private Statistics() {}
@@ -10,8 +13,8 @@ public final class Statistics {
      * An average is the sum of a list of numbers divided by the number of
      * numbers in the list.
      *
-     * @param data
-     * @return
+     * @param data the values to average
+     * @return the arithmetic mean of {@code data}, or {@code 0.0} if it is empty
      */
     public static double mean(final double[] data) {
         if (data.length == 0) {
@@ -27,10 +30,14 @@ public final class Statistics {
     }
 
     /**
-     * The median is the value separating the higher half of a data sample
+     * The median is the value separating the higher half of a data sample from the lower half.
+     * <p>
+     * Note: {@code data} is sorted in place, so the caller's array is modified. Pass a copy to keep the original
+     * order.
      *
-     * @param data
-     * @return
+     * @param data the values; must not be empty, and is sorted ascending as a side effect
+     * @return the middle value for an odd number of values, or the mean of the two middle values for an even number
+     * @throws ArrayIndexOutOfBoundsException if {@code data} is empty
      */
     public static double median(final double[] data) {
         Arrays.sort(data);
@@ -46,9 +53,12 @@ public final class Statistics {
 
     /**
      * The mode is the value that appears most often in a set of data.
+     * <p>
+     * Values are compared with {@code ==}. Runs in O(n²) time.
      *
-     * @param data
-     * @return
+     * @param data the values
+     * @return the most frequent value; on a tie, the one that appears first in {@code data}; {@code 0.0} if
+     *     {@code data} is empty
      */
     public static double mode(final double[] data) {
         double maxValue = 0;
@@ -70,10 +80,11 @@ public final class Statistics {
 
     /**
      * The average absolute deviation (or mean absolute deviation) of a data set
-     * is the average of the absolute deviations from a central point
+     * is the average of the absolute deviations from a central point; here the central point is the
+     * {@linkplain #mean(double[]) mean}.
      *
-     * @param data
-     * @return the Average Absolute Deviation from data
+     * @param data the values
+     * @return the Average Absolute Deviation from data; {@code NaN} if {@code data} is empty
      */
     public static double meanAbsoluteDeviation(final double[] data) {
         final double mean = mean(data);

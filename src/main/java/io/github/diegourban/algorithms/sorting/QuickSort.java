@@ -1,9 +1,14 @@
 package io.github.diegourban.algorithms.sorting;
 
 /**
- * Quick sort algorithm
+ * Quick sort algorithm: partitions around the last element (Lomuto scheme) and recurses on both sides;
+ * O(n log n) average and O(n²) worst-case time (for example on already sorted input), O(log n) average and O(n)
+ * worst-case stack space.
  */
 public class QuickSort implements Sorter {
+
+    /** Creates a quick sort. */
+    public QuickSort() {}
 
     @Override
     public void sort(final int[] items) {

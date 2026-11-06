@@ -1,9 +1,13 @@
 package io.github.diegourban.algorithms.sorting;
 
 /**
- * Selection Sort algorithm
+ * Selection Sort algorithm: repeatedly swaps the smallest remaining element into place; O(n²) time in
+ * every case and O(1) extra space.
  */
 public class SelectionSort implements Sorter {
+
+    /** Creates a selection sort. */
+    public SelectionSort() {}
 
     @Override
     public void sort(final int[] items) {

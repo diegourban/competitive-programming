@@ -11,10 +11,14 @@ public final class NumberTheory {
 
     /**
      * Least common multiple (lcm) of two numbers.
+     * <p>
+     * Computed as {@code a * (b / gcdLoop(a, b))}; intended for positive numbers. The result overflows silently if it
+     * does not fit in a {@code long}.
      *
-     * @param a
-     * @param b
+     * @param a the first number
+     * @param b the second number
      * @return The least common multiple of two numbers.
+     * @throws ArithmeticException if both {@code a} and {@code b} are zero
      */
     public static long lcm(final long a, final long b) {
         return a * (b / gcdLoop(a, b));
@@ -23,8 +27,10 @@ public final class NumberTheory {
     /**
      * Least common multiple (lcm) of an array of numbers.
      *
-     * @param input array of numbers
-     * @return The least common multiple of an array of numbers.
+     * @param input array of numbers; must not be empty
+     * @return The least common multiple of an array of numbers; the element itself for a one-element array.
+     * @throws ArrayIndexOutOfBoundsException if {@code input} is empty
+     * @see #lcm(long, long)
      */
     public static long lcm(final long[] input) {
         long result = input[0];
@@ -37,9 +43,12 @@ public final class NumberTheory {
      * <p>
      * Also known as greatest common factor (gcf), highest common factor (hcf),
      * greatest common measure (gcm) or highest common divisor
+     * <p>
+     * Correct for non-negative input. The loop only runs while {@code b} is positive, so a negative {@code b}
+     * returns {@code a} unchanged; {@code gcdLoop(a, 0)} returns {@code a}.
      *
-     * @param a
-     * @param b
+     * @param a the first number
+     * @param b the second number
      * @return The greatest common divisor of two numbers.
      */
     public static long gcdLoop(final long a, final long b) {
@@ -58,10 +67,13 @@ public final class NumberTheory {
      * <p>
      * Also known as greatest common factor (gcf), highest common factor (hcf),
      * greatest common measure (gcm) or highest common divisor
+     * <p>
+     * Correct for non-negative input. Negative input is accepted, but the result may be negative (Java's {@code %}
+     * keeps the sign of the dividend), so it can differ in sign from {@link #gcdLoop(long, long)}.
      *
-     * @param a
-     * @param b
-     * @return The greatest common divisor of two numbers.
+     * @param a the first number
+     * @param b the second number
+     * @return The greatest common divisor of two numbers; {@code a} if {@code b} is zero.
      */
     public static long gcdRecursive(final long a, final long b) {
         return b == 0 ? a : gcdRecursive(b, a % b);
@@ -71,9 +83,11 @@ public final class NumberTheory {
      * Checks if a number is prime.
      * <p>
      * Based on https://en.wikipedia.org/wiki/Primality_test
+     * <p>
+     * Trial division by 2, 3 and numbers of the form 6k ± 1 up to the square root of {@code n}: O(√n) time.
      *
-     * @param n
-     * @return true if the number n is prime, false otherwise
+     * @param n the number to test
+     * @return {@code true} if the number n is prime, {@code false} otherwise (including for {@code n <= 1})
      */
     public static boolean isPrime(final int n) {
         if (n <= 1) {
@@ -97,9 +111,12 @@ public final class NumberTheory {
 
     /**
      * Lists the prime factors of a number.
+     * <p>
+     * Uses trial division up to the square root of {@code number}: O(√n) time.
      *
-     * @param number
-     * @return The list of prime factors of a number.
+     * @param number the number to factorise
+     * @return The list of prime factors of a number, in ascending order and repeated by multiplicity (12 gives
+     *     {@code [2, 2, 3]}); empty for numbers below 2.
      */
     public static List<Integer> primeFactorsList(final int number) {
         final List<Integer> factors = new ArrayList<>();
@@ -110,8 +127,10 @@ public final class NumberTheory {
     /**
      * Build the set of prime factors of a number.
      *
-     * @param number
-     * @return The set of prime factors of a number.
+     * @param number the number to factorise
+     * @return The set of distinct prime factors of a number (12 gives {@code {2, 3}}), in no particular order;
+     *     empty for numbers below 2.
+     * @see #primeFactorsList(int)
      */
     public static Set<Integer> primeFactorsSet(final int number) {
         final Set<Integer> factors = new HashSet<>();
