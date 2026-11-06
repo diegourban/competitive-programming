@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigInteger;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.assertj.core.api.Assertions.within;
 
 class SequencesTest {
@@ -45,5 +46,12 @@ class SequencesTest {
         assertThat(Sequences.fibonacciBinetFormula(11)).isEqualTo(new BigInteger("89"));
         assertThat(Sequences.fibonacciBinetFormula(50)).isEqualTo(new BigInteger("12586269025"));
         assertThat(Sequences.fibonacciBinetFormula(71)).isEqualTo(new BigInteger("308061521170129"));
+    }
+
+    @Test
+    void shouldRejectNegativeFibonacciIndex() {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> Sequences.fibonacci(-1))
+                .withMessage("Index was negative. No such thing as a negative index in a series.");
     }
 }

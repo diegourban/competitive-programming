@@ -9,6 +9,9 @@ import java.math.RoundingMode;
  */
 public class Sequences {
 
+    private Sequences() {
+    }
+
     /**
      * Calculates the nth Fibonacci number.
      * Works with n <= 46
