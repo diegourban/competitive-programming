@@ -38,7 +38,7 @@ public class Vector {
      * @throws IllegalArgumentException if {@code position} is negative or greater than {@link #size()}
      */
     public void add(final int position, final Element element) {
-        if (!isPositionValid(position)) {
+        if (!isInsertablePosition(position)) {
             throw new IllegalArgumentException("Invalid position");
         }
 
@@ -50,7 +50,7 @@ public class Vector {
         this.totalElements++;
     }
 
-    private boolean isPositionValid(final int position) {
+    private boolean isInsertablePosition(final int position) {
         return position >= 0 && position <= totalElements;
     }
 
@@ -117,11 +117,7 @@ public class Vector {
 
     private void ensureCapacity() {
         if (this.totalElements == this.elements.length) {
-            final Element[] newElements = new Element[this.elements.length * 2];
-            for (int i = 0; i < this.elements.length; i++) {
-                newElements[i] = this.elements[i];
-            }
-            this.elements = newElements;
+            this.elements = Arrays.copyOf(this.elements, this.elements.length * 2);
         }
     }
 

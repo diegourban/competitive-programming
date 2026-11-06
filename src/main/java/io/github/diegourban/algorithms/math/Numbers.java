@@ -107,32 +107,25 @@ public final class Numbers {
             // 5 or less
             if (number < 100) {
                 // 1 or 2
-                if (number < 10) return 1;
-                else return 2;
-            } else {
-                // 3 or 4 or 5
-                if (number < 1000) return 3;
-                else {
-                    // 4 or 5
-                    if (number < 10000) return 4;
-                    else return 5;
-                }
+                return number < 10 ? 1 : 2;
             }
-        } else {
-            // 6 or more
-            if (number < 10000000) {
-                // 6 or 7
-                if (number < 1000000) return 6;
-                else return 7;
-            } else {
-                // 8 to 10
-                if (number < 100000000) return 8;
-                else {
-                    // 9 or 10
-                    if (number < 1000000000) return 9;
-                    else return 10;
-                }
+            // 3, 4 or 5
+            if (number < 1000) {
+                return 3;
             }
+            // 4 or 5
+            return number < 10000 ? 4 : 5;
         }
+        // 6 or more
+        if (number < 10000000) {
+            // 6 or 7
+            return number < 1000000 ? 6 : 7;
+        }
+        // 8 to 10
+        if (number < 100000000) {
+            return 8;
+        }
+        // 9 or 10
+        return number < 1000000000 ? 9 : 10;
     }
 }

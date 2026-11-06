@@ -110,11 +110,7 @@ public final class Geometry {
      *     two are, {@link TriangleType#SCALENE} otherwise
      */
     public static TriangleType classifyTriangle(final double a, final double b, final double c) {
-        final double[] sortedSides = new double[3];
-        sortedSides[0] = a;
-        sortedSides[1] = b;
-        sortedSides[2] = c;
-        Arrays.sort(sortedSides);
+        final double[] sortedSides = sortedSides(a, b, c);
 
         final double shortest = sortedSides[0];
         final double middle = sortedSides[1];
@@ -144,11 +140,7 @@ public final class Geometry {
      * @return {@code true} if the sides satisfy the Pythagorean theorem, {@code false} otherwise
      */
     public static boolean isRightTriangle(final double a, final double b, final double c) {
-        final double[] sortedSides = new double[3];
-        sortedSides[0] = a;
-        sortedSides[1] = b;
-        sortedSides[2] = c;
-        Arrays.sort(sortedSides);
+        final double[] sortedSides = sortedSides(a, b, c);
 
         final double shortest = sortedSides[0];
         final double middle = sortedSides[1];
@@ -159,5 +151,11 @@ public final class Geometry {
         final double minSquared = shortest * shortest;
 
         return maxSquared == medSquared + minSquared;
+    }
+
+    private static double[] sortedSides(final double a, final double b, final double c) {
+        final double[] sides = {a, b, c};
+        Arrays.sort(sides);
+        return sides;
     }
 }

@@ -1,5 +1,6 @@
 package io.github.diegourban.algorithms.datastructure.set;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,12 +13,12 @@ public class WordSet {
 
     private static final int BUCKET_COUNT = 26;
 
-    private final List<LinkedList<String>> buckets = new LinkedList<LinkedList<String>>();
+    private final List<List<String>> buckets = new ArrayList<>(BUCKET_COUNT);
 
     /** Creates an empty set with 26 empty buckets. */
     public WordSet() {
         for (int i = 0; i < BUCKET_COUNT; i++) {
-            this.buckets.add(new LinkedList<String>());
+            this.buckets.add(new LinkedList<>());
         }
     }
 
@@ -28,9 +29,8 @@ public class WordSet {
      * @throws IllegalArgumentException if {@code word} is empty
      */
     public void add(final String word) {
-        if (!contains(word)) {
-            final int index = calculateTableIndex(word);
-            final List<String> bucket = this.buckets.get(index);
+        final List<String> bucket = bucketFor(word);
+        if (!bucket.contains(word)) {
             bucket.add(word);
         }
     }
@@ -42,16 +42,11 @@ public class WordSet {
      * @throws IllegalArgumentException if {@code word} is empty
      */
     public void remove(final String word) {
-        if (contains(word)) {
-            final int index = calculateTableIndex(word);
-            final List<String> bucket = this.buckets.get(index);
-            bucket.remove(word);
-        }
+        bucketFor(word).remove(word);
     }
 
-    private boolean contains(final String word) {
-        final int index = calculateTableIndex(word);
-        return this.buckets.get(index).contains(word);
+    private List<String> bucketFor(final String word) {
+        return this.buckets.get(calculateTableIndex(word));
     }
 
     private int calculateTableIndex(final String word) {
@@ -65,7 +60,7 @@ public class WordSet {
      * Returns all 26 buckets in index order, each in {@link java.util.AbstractCollection#toString()} format, for
      * example {@code "[[], [], ..., [apple], ...]"}.
      *
-     * @return the string form of the bucket buckets
+     * @return the string form of the buckets
      */
     @Override
     public String toString() {

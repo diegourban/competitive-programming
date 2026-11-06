@@ -68,7 +68,9 @@ public final class Statistics {
         for (int i = 0; i < data.length; ++i) {
             int count = 0;
             for (int j = 0; j < data.length; ++j) {
-                if (data[j] == data[i]) ++count;
+                if (data[j] == data[i]) {
+                    ++count;
+                }
             }
             if (count > maxCount) {
                 maxCount = count;

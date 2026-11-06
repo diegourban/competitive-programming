@@ -72,7 +72,7 @@ public class LinkedList {
             final LinkedListNode previous = this.getNode(position - 1);
             final LinkedListNode next = previous.getNext();
 
-            final LinkedListNode newNode = new LinkedListNode(element, previous.getNext());
+            final LinkedListNode newNode = new LinkedListNode(element, next);
             newNode.setPrevious(previous);
             previous.setNext(newNode);
             next.setPrevious(newNode);
