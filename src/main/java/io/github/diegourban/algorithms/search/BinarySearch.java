@@ -1,35 +1,34 @@
 package io.github.diegourban.algorithms.search;
 
 /**
- * Binary Search algorithm
+ * Binary search over a sorted {@code int[]}.
  */
-public class BinarySearch {
+public final class BinarySearch {
+
+    private BinarySearch() {
+    }
 
     /**
-     * Finds an element in a list
-     * <p>
-     * Complexity: O(log n) time and O(1) space
+     * Finds {@code key} in {@code sorted} by halving the search range: O(log n) time, O(1) space.
      *
-     * @param items an ordered list of items to find
-     * @param from the index to find from in the list
-     * @param to the index to find to in the list
-     * @param element the element to find
-     * @return the index of the element, -1 otherwise
+     * @param sorted values in ascending order
+     * @param key    the value to look for
+     * @return an index holding {@code key} (any one of them if it occurs more than once), or -1 if absent
      */
-    public int find(final int[] items, final int from, final int to, final int element) {
-        if(from > to) {
-            return -1;
+    public static int indexOf(int[] sorted, int key) {
+        var low = 0;
+        var high = sorted.length - 1;
+        while (low <= high) {
+            var middle = (low + high) >>> 1; // unsigned shift: no overflow when low + high > Integer.MAX_VALUE
+            var value = sorted[middle];
+            if (value < key) {
+                low = middle + 1;
+            } else if (value > key) {
+                high = middle - 1;
+            } else {
+                return middle;
+            }
         }
-
-        final int middle = (from + to) / 2;
-        final int middleItem = items[middle];
-
-        if(element == middleItem) {
-            return middle;
-        }
-        if(element < middleItem) {
-            return find(items, from, middle - 1, element);
-        }
-        return find(items, middle + 1, to, element);
+        return -1;
     }
 }

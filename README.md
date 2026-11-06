@@ -21,12 +21,12 @@ src/main/java/io/github/diegourban/algorithms/
   datastructure/   array (shuffle), binarytree, linkedlist, queue, set, stack, vector
   io/              Reader: fast tokenising stdin reader for judge-style input
   math/            Algebra (gcd, lcm, primes, factorisation), Combinatorics, Geometry, Numbers, Statistics
-  search/          BinarySearch
-  sorting/         Insertion, Merge, Quick and Selection sort
+  search/          BinarySearch.indexOf
+  sorting/         Sorter interface: Insertion, Merge, Quick and Selection sort
   string/          StringUtils
 
 src/test/java/io/github/diegourban/algorithms/
-  <same packages>  unit tests for the library
+  <same packages>  unit tests for the library (*PropertyTest: jqwik property-based tests)
   problems/<topic> worked problems (see below)
   testing/         SampleBuilder, SampleLoader: helpers for judge-style tests
 ```
