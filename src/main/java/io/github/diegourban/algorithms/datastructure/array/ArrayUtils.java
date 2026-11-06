@@ -2,6 +2,9 @@ package io.github.diegourban.algorithms.datastructure.array;
 
 import java.util.Random;
 
+/**
+ * Static helper methods for arrays.
+ */
 public final class ArrayUtils {
 
     private ArrayUtils() {}
@@ -16,8 +19,10 @@ public final class ArrayUtils {
      * Crucially, once an item is placed at an index it can't be moved. So for the first index we choose from n items, for the second index we choose from n-1 items, etc
      * <p>
      * Complexity: O(1) space, and O(n) time.
+     * <p>
+     * Arrays with zero or one element are left unchanged.
      *
-     * @param theArray the array to shuffle
+     * @param theArray the array to shuffle; modified in place
      */
     public static void shuffle(final int[] theArray) {
         // if it's 1 or 0 items, just return

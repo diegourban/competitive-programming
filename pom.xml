@@ -149,6 +149,21 @@
                 </executions>
             </plugin>
             <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <!-- Library sources only: every public/protected member needs complete Javadoc. -->
+                        <id>default-compile</id>
+                        <configuration>
+                            <compilerArgs>
+                                <arg>-Xdoclint:all/protected</arg>
+                                <arg>-Werror</arg>
+                            </compilerArgs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>${maven-enforcer-plugin.version}</version>
                 <executions>

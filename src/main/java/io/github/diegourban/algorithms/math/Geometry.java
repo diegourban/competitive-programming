@@ -2,6 +2,11 @@ package io.github.diegourban.algorithms.math;
 
 import java.util.Arrays;
 
+/**
+ * Plane and solid geometry: distances, circles, polygons, cylinders and triangles.
+ * <p>
+ * The circle and cylinder methods approximate pi as {@code 3.14}, not {@link Math#PI}.
+ */
 public final class Geometry {
 
     private Geometry() {}
@@ -23,7 +28,7 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the area of a circle from its radius
+     * Calculates the area of a circle from its radius, using pi = 3.14
      *
      * @param radius the radius of the circle
      * @return the area of the circle
@@ -33,7 +38,7 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the area of a circle from its diameter
+     * Calculates the area of a circle from its diameter, using pi = 3.14
      *
      * @param diameter the diameter of the circle
      * @return the area of the circle
@@ -54,7 +59,7 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the radius of a circle from its area
+     * Calculates the radius of a circle from its area, using pi = 3.14
      *
      * @param area the area of the circle
      * @return the radius of the circle
@@ -64,7 +69,7 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the number of diagonals of an n-sided polygon
+     * Calculates the number of diagonals of an n-sided polygon, {@code sides * (sides - 3) / 2}
      *
      * @param sides the number of sides of the polygon
      * @return the amount of diagonals
@@ -74,7 +79,7 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the height of a cylinder based on its volume and base radius
+     * Calculates the height of a cylinder based on its volume and base radius, using pi = 3.14
      *
      * @param volume     the cylinder volume
      * @param baseRadius the cylinder base radius
@@ -85,17 +90,30 @@ public final class Geometry {
     }
 
     /**
-     * Checks if the sides a, b and c can form a valid triangle
+     * Checks if the sides a, b and c can form a valid triangle: each side must be shorter than the sum of the
+     * other two (strict triangle inequality, so degenerate triangles are rejected)
      *
      * @param a side a
      * @param b side b
      * @param c side c
-     * @return true if the sides form a valid triangle, false otherwise
+     * @return {@code true} if the sides form a valid triangle, {@code false} otherwise
      */
     public static boolean isValidTriangle(final double a, final double b, final double c) {
         return (a + b > c) && (b + c > a) && (a + c > b);
     }
 
+    /**
+     * Classifies a triangle by how many of its sides are equal.
+     * <p>
+     * The sides are compared exactly ({@code ==}) and are not checked to form a valid triangle; use
+     * {@link #isValidTriangle(double, double, double)} first.
+     *
+     * @param a side a
+     * @param b side b
+     * @param c side c
+     * @return {@link TriangleType#EQUILATERAL} if all three sides are equal, {@link TriangleType#ISOSCELES} if exactly
+     *     two are, {@link TriangleType#ESCALENE} otherwise
+     */
     public static TriangleType checkTriangleType(final double a, final double b, final double c) {
         final double[] array = new double[3];
         array[0] = a;
@@ -118,6 +136,18 @@ public final class Geometry {
         return TriangleType.ESCALENE;
     }
 
+    /**
+     * Checks if the sides form a right ("rectangle") triangle, that is if the square of the longest side equals the
+     * sum of the squares of the other two (Pythagorean theorem).
+     * <p>
+     * The comparison is exact ({@code ==}), so sides whose squares are not exactly representable as {@code double},
+     * such as {@code 1, 1, Math.sqrt(2)}, may be rejected. The sides are not checked to form a valid triangle.
+     *
+     * @param a side a
+     * @param b side b
+     * @param c side c
+     * @return {@code true} if the sides satisfy the Pythagorean theorem, {@code false} otherwise
+     */
     public static boolean isRectangleTriangle(final double a, final double b, final double c) {
         final double[] array = new double[3];
         array[0] = a;
