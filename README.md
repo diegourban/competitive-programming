@@ -20,7 +20,7 @@ Requires Java 25. Maven comes with the wrapper.
 src/main/java/io/github/diegourban/algorithms/
   datastructure/   array (shuffle), binarytree, linkedlist, queue, set, stack, vector
   io/              Reader: fast tokenising stdin reader for judge-style input
-  math/            Algebra (gcd, lcm, primes, factorisation), Combinatorics, Geometry, Numbers, Statistics
+  math/            NumberTheory (gcd, lcm, primes, factorisation), Sequences (Fibonacci), Combinatorics, Geometry, Measurement, Numbers, Statistics
   search/          BinarySearch.indexOf
   sorting/         Sorter interface: Insertion, Merge, Quick and Selection sort
   string/          StringUtils

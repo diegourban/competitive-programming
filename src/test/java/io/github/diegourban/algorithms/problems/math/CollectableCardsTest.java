@@ -1,7 +1,7 @@
 package io.github.diegourban.algorithms.problems.math;
 
 import io.github.diegourban.algorithms.io.Reader;
-import io.github.diegourban.algorithms.math.Algebra;
+import io.github.diegourban.algorithms.math.NumberTheory;
 import io.github.diegourban.algorithms.testing.SampleLoader;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -25,7 +25,7 @@ class CollectableCardsTest {
     private static final SampleLoader SAMPLES = new SampleLoader("problems/math/collectable-cards");
 
     static long solve(int f1, int f2) {
-        return Algebra.gcdLoop(f1, f2);
+        return NumberTheory.gcdLoop(f1, f2);
     }
 
     static String run(InputStream in) throws IOException {

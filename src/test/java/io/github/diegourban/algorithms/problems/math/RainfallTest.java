@@ -1,5 +1,6 @@
 package io.github.diegourban.algorithms.problems.math;
 
+import io.github.diegourban.algorithms.math.Statistics;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -11,8 +12,7 @@ import static org.assertj.core.api.Assertions.within;
  * Rainfall — Codewars (6 kyu).
  * <p>
  * Find the town's record line, parse its monthly values and compute the mean and population variance;
- * an unknown town yields -1 for both. O(size of data) time. {@code Statistics.mean} is not reused as it
- * only takes {@code int[]}.
+ * an unknown town yields -1 for both. O(size of data) time. The mean comes from the library's {@link Statistics#mean}.
  */
 class RainfallTest {
 
@@ -29,7 +29,7 @@ class RainfallTest {
                     var values = Arrays.stream(line.substring(town.length() + 1).split(","))
                             .mapToDouble(month -> Double.parseDouble(month.split(" ")[1]))
                             .toArray();
-                    var mean = Arrays.stream(values).average().orElseThrow();
+                    var mean = Statistics.mean(values);
                     var variance = Arrays.stream(values).map(v -> (v - mean) * (v - mean)).average().orElseThrow();
                     return new Rainfall(mean, variance);
                 })

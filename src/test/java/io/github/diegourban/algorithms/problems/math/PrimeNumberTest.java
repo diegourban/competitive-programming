@@ -1,6 +1,6 @@
 package io.github.diegourban.algorithms.problems.math;
 
-import io.github.diegourban.algorithms.math.Algebra;
+import io.github.diegourban.algorithms.math.NumberTheory;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PrimeNumberTest {
 
     static boolean solve(int x) {
-        return Algebra.isPrime(x);
+        return NumberTheory.isPrime(x);
     }
 
     @ParameterizedTest
