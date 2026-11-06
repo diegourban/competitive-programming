@@ -12,16 +12,19 @@ public final class NumberTheory {
     /**
      * Least common multiple (lcm) of two numbers.
      * <p>
-     * Computed as {@code a * (b / gcdLoop(a, b))}; intended for positive numbers. The result overflows silently if it
-     * does not fit in a {@code long}.
+     * Computed as {@code a * (b / gcdLoop(a, b))}; intended for non-negative numbers. If either number is {@code 0}
+     * the result is {@code 0}.
      *
      * @param a the first number
      * @param b the second number
      * @return The least common multiple of two numbers.
-     * @throws ArithmeticException if both {@code a} and {@code b} are zero
+     * @throws ArithmeticException if the result does not fit in a {@code long}
      */
     public static long lcm(final long a, final long b) {
-        return a * (b / gcdLoop(a, b));
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+        return Math.multiplyExact(a, b / gcdLoop(a, b));
     }
 
     /**

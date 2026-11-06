@@ -1,6 +1,7 @@
 package io.github.diegourban.algorithms.math;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 import java.util.List;
 import java.util.Set;
@@ -161,5 +162,18 @@ class NumberTheoryTest {
     void shouldCreateSetOfPrimeFactorsOfPrimeNumber() {
         final Set<Integer> primeFactors = NumberTheory.primeFactorsSet(7);
         assertThat(primeFactors).hasSize(1).contains(7);
+    }
+
+    @Test
+    void shouldReturnZeroForTheLeastCommonMultipleWithZero() {
+        assertThat(NumberTheory.lcm(0, 0)).isZero();
+        assertThat(NumberTheory.lcm(0, 5)).isZero();
+        assertThat(NumberTheory.lcm(5, 0)).isZero();
+    }
+
+    @Test
+    void shouldFailInsteadOfOverflowingTheLeastCommonMultiple() {
+        assertThatExceptionOfType(ArithmeticException.class)
+                .isThrownBy(() -> NumberTheory.lcm(4_000_000_007L, 4_000_000_009L));
     }
 }

@@ -37,9 +37,10 @@ public final class Statistics {
      *
      * @param data the values; must not be empty, and is sorted ascending as a side effect
      * @return the middle value for an odd number of values, or the mean of the two middle values for an even number
-     * @throws ArrayIndexOutOfBoundsException if {@code data} is empty
+     * @throws IllegalArgumentException if {@code data} is empty
      */
     public static double median(final double[] data) {
+        requireNotEmpty(data);
         Arrays.sort(data);
 
         final int middle = data.length / 2;
@@ -84,9 +85,11 @@ public final class Statistics {
      * {@linkplain #mean(double[]) mean}.
      *
      * @param data the values
-     * @return the Average Absolute Deviation from data; {@code NaN} if {@code data} is empty
+     * @return the Average Absolute Deviation from data
+     * @throws IllegalArgumentException if {@code data} is empty
      */
     public static double meanAbsoluteDeviation(final double[] data) {
+        requireNotEmpty(data);
         final double mean = mean(data);
 
         double sum = 0;
@@ -95,5 +98,11 @@ public final class Statistics {
         }
 
         return sum / data.length;
+    }
+
+    private static void requireNotEmpty(final double[] data) {
+        if (data.length == 0) {
+            throw new IllegalArgumentException("data must not be empty");
+        }
     }
 }

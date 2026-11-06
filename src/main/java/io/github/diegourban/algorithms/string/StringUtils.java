@@ -41,7 +41,7 @@ public final class StringUtils {
     /**
      * Checks if two strings are anagrams: the same characters, each the same number of times, in any order.
      * <p>
-     * The comparison ignores case (both strings are lower-cased first) but counts spaces and punctuation. Runs in
+     * The comparison ignores case (both strings are lower-cased first, independently of the default locale) but counts spaces and punctuation. Runs in
      * O(n log n) time by sorting the characters of both strings.
      *
      * @param a the first string; must not be {@code null}
@@ -60,7 +60,7 @@ public final class StringUtils {
     }
 
     private static char[] sort(final String original) {
-        final char[] chars = original.toLowerCase().toCharArray();
+        final char[] chars = original.toLowerCase(Locale.ROOT).toCharArray();
         Arrays.sort(chars); // Dual-Pivot Quicksort, O(n log(n))
         return chars;
     }
