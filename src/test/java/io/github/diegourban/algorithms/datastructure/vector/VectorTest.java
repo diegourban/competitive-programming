@@ -113,4 +113,14 @@ class VectorTest {
         assertThatIllegalArgumentException().isThrownBy(() -> vector.remove(0));
         assertThat(vector.size()).isZero();
     }
+
+    @Test
+    void shouldPrintOnlyTheStoredElements() {
+        final Vector vector = new Vector();
+        vector.add(new Element("Joao"));
+        vector.add(new Element("Jose"));
+
+        assertThat(vector).hasToString("Vector{elements=[Joao, Jose]}");
+        assertThat(new Vector()).hasToString("Vector{elements=[]}");
+    }
 }

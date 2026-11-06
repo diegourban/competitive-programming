@@ -126,13 +126,12 @@ public class Vector {
     }
 
     /**
-     * Returns the whole backing array, including the unused {@code null} slots, in the form
-     * {@code "Vector{elements=[a, b, null, ...]}"}.
+     * Returns the stored elements in order, in the form {@code "Vector{elements=[a, b]}"}.
      *
      * @return the string form of the vector
      */
     @Override
     public String toString() {
-        return "Vector{" + "elements=" + Arrays.toString(elements) + '}';
+        return "Vector{" + "elements=" + Arrays.toString(Arrays.copyOf(elements, totalElements)) + '}';
     }
 }

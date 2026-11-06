@@ -93,4 +93,12 @@ class GeometryTest {
         assertThat(Geometry.isRectangleTriangle(6, 9, 10)).isFalse();
         assertThat(Geometry.isRectangleTriangle(6, 8, 11)).isFalse();
     }
+
+    @Test
+    void shouldUseThePreciseValueOfPi() {
+        assertThat(Geometry.areaOfCircleFromRadius(1)).isCloseTo(Math.PI, within(1e-12));
+        assertThat(Geometry.areaOfCircleFromDiameter(2)).isCloseTo(Math.PI, within(1e-12));
+        assertThat(Geometry.radiusOfCircleFromArea(Math.PI)).isCloseTo(1, within(1e-12));
+        assertThat(Geometry.heightOfCylinder(Math.PI, 1)).isCloseTo(1, within(1e-12));
+    }
 }

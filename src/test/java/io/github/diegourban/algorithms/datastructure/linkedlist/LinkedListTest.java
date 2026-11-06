@@ -121,7 +121,7 @@ class LinkedListTest {
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
 
-        assertThat(linkedList).hasToString("[diego,paulo,josé,]");
+        assertThat(linkedList).hasToString("[diego,paulo,josé]");
     }
 
     @Test
@@ -139,7 +139,7 @@ class LinkedListTest {
         linkedList.addAtEnd(new Element("diego"));
         linkedList.add(1, new Element("paulo"));
 
-        assertThat(linkedList).hasToString("[diego,paulo,]");
+        assertThat(linkedList).hasToString("[diego,paulo]");
     }
 
     @Test
@@ -184,10 +184,10 @@ class LinkedListTest {
         linkedList.addAtEnd(new Element("josé"));
 
         linkedList.remove(0);
-        assertThat(linkedList).hasToString("[paulo,josé,]");
+        assertThat(linkedList).hasToString("[paulo,josé]");
 
         linkedList.remove(1);
-        assertThat(linkedList).hasToString("[paulo,]");
+        assertThat(linkedList).hasToString("[paulo]");
         assertThat(linkedList.size()).isEqualTo(1);
     }
 
@@ -204,7 +204,7 @@ class LinkedListTest {
 
         linkedList.add(0, new Element("diego"));
 
-        assertThat(linkedList).hasToString("[diego,paulo,josé,]");
+        assertThat(linkedList).hasToString("[diego,paulo,josé]");
         assertThat(linkedList.getFirst().getNext().getPrevious().getElement()).isEqualTo(new Element("diego"));
     }
 

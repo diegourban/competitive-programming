@@ -4,14 +4,10 @@ import java.util.Arrays;
 
 /**
  * Plane and solid geometry: distances, circles, polygons, cylinders and triangles.
- * <p>
- * The circle and cylinder methods approximate pi as {@code 3.14}, not {@link Math#PI}.
  */
 public final class Geometry {
 
     private Geometry() {}
-
-    private static final double SIMPLE_PI = 3.14;
 
     /**
      * Calculates the distance between two bi-dimensional points using the Pythagorean theorem.
@@ -27,17 +23,17 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the area of a circle from its radius, using pi = 3.14
+     * Calculates the area of a circle from its radius
      *
      * @param radius the radius of the circle
      * @return the area of the circle
      */
     public static double areaOfCircleFromRadius(final double radius) {
-        return SIMPLE_PI * (radius * radius);
+        return Math.PI * (radius * radius);
     }
 
     /**
-     * Calculates the area of a circle from its diameter, using pi = 3.14
+     * Calculates the area of a circle from its diameter
      *
      * @param diameter the diameter of the circle
      * @return the area of the circle
@@ -58,13 +54,13 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the radius of a circle from its area, using pi = 3.14
+     * Calculates the radius of a circle from its area
      *
      * @param area the area of the circle
      * @return the radius of the circle
      */
     public static double radiusOfCircleFromArea(final double area) {
-        return Math.sqrt(area / SIMPLE_PI);
+        return Math.sqrt(area / Math.PI);
     }
 
     /**
@@ -78,14 +74,14 @@ public final class Geometry {
     }
 
     /**
-     * Calculates the height of a cylinder based on its volume and base radius, using pi = 3.14
+     * Calculates the height of a cylinder based on its volume and base radius
      *
      * @param volume     the cylinder volume
      * @param baseRadius the cylinder base radius
      * @return the height of the cylinder
      */
     public static double heightOfCylinder(final double volume, final double baseRadius) {
-        return volume / (SIMPLE_PI * baseRadius * baseRadius);
+        return volume / (Math.PI * baseRadius * baseRadius);
     }
 
     /**
