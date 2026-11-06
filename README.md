@@ -1,6 +1,7 @@
 # Algorithms
 [![build](https://github.com/diegourban/competitive-programming/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/diegourban/competitive-programming/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/diegourban/competitive-programming/branch/master/graph/badge.svg)](https://codecov.io/gh/diegourban/competitive-programming)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1d28104f2eb44f99a3cc3bfd7be501e1)](https://app.codacy.com/gh/diegourban/competitive-programming/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 A small Java library of algorithms and data structures, plus worked problems organised by topic that show them in use.
 
