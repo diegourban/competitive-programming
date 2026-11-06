@@ -3,7 +3,12 @@ package io.github.diegourban.algorithms.sorting;
 /**
  * Selection Sort algorithm
  */
-public class SelectionSort {
+public class SelectionSort implements Sorter {
+
+    @Override
+    public void sort(final int[] items) {
+        sort(items, items.length);
+    }
 
     /**
      * Sort the items using selection sort algorithm
@@ -11,7 +16,7 @@ public class SelectionSort {
      * @param items items to sort
      * @param totalElements total elements
      */
-    public void sort(final int[] items, final int totalElements) {
+    private void sort(final int[] items, final int totalElements) {
         for(int current = 0; current < totalElements - 1; current++) {
             final int smallerIndex = findSmallerIndex(items, current, totalElements);
             Integer currentItem = items[current];
