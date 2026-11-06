@@ -18,16 +18,16 @@ class BinarySearchTreeCheckerTest {
 
     private record NodeBounds(BinaryTreeNode node, long lower, long upper) {}
 
-    static boolean solve(BinaryTreeNode root) {
+    static boolean solve(final BinaryTreeNode root) {
         if (root == null) {
             return true;
         }
-        var stack = new ArrayDeque<NodeBounds>();
+        final var stack = new ArrayDeque<NodeBounds>();
         stack.push(new NodeBounds(root, Long.MIN_VALUE, Long.MAX_VALUE));
 
         while (!stack.isEmpty()) {
-            var current = stack.pop();
-            var node = current.node();
+            final var current = stack.pop();
+            final var node = current.node();
             if (node.value <= current.lower() || node.value >= current.upper()) {
                 return false;
             }
@@ -43,11 +43,11 @@ class BinarySearchTreeCheckerTest {
 
     @Test
     void descendantViolatingAncestorBoundIsNotABst() {
-        var root = new BinaryTreeNode(50);
-        var eighty = root.insertRight(80);
+        final var root = new BinaryTreeNode(50);
+        final var eighty = root.insertRight(80);
         eighty.insertRight(90);
         eighty.insertLeft(70);
-        var thirty = root.insertLeft(30);
+        final var thirty = root.insertLeft(30);
         thirty.insertRight(60);
         thirty.insertLeft(20);
 
@@ -56,11 +56,11 @@ class BinarySearchTreeCheckerTest {
 
     @Test
     void validTreeIsABst() {
-        var root = new BinaryTreeNode(50);
-        var eighty = root.insertRight(80);
+        final var root = new BinaryTreeNode(50);
+        final var eighty = root.insertRight(80);
         eighty.insertRight(90);
         eighty.insertLeft(70);
-        var thirty = root.insertLeft(30);
+        final var thirty = root.insertLeft(30);
         thirty.insertRight(40);
         thirty.insertLeft(20);
 
@@ -69,7 +69,7 @@ class BinarySearchTreeCheckerTest {
 
     @Test
     void duplicateValueIsNotABst() {
-        var root = new BinaryTreeNode(5);
+        final var root = new BinaryTreeNode(5);
         root.insertLeft(5);
 
         assertThat(solve(root)).isFalse();
@@ -77,7 +77,7 @@ class BinarySearchTreeCheckerTest {
 
     @Test
     void extremeIntValuesAreAllowed() {
-        var root = new BinaryTreeNode(0);
+        final var root = new BinaryTreeNode(0);
         root.insertLeft(Integer.MIN_VALUE);
         root.insertRight(Integer.MAX_VALUE);
 

@@ -18,10 +18,10 @@ class ReaderTest {
 
     @Test
     void shouldHandleEmptyInput() throws Exception {
-        InputStream input = new SampleBuilder().buildAsInputStream();
+        final InputStream input = new SampleBuilder().buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        String empty = reader.readLine();
+        final Reader reader = new Reader(input);
+        final String empty = reader.readLine();
         reader.close();
 
         assertThat(empty).isEmpty();
@@ -29,8 +29,8 @@ class ReaderTest {
 
     @Test
     void shouldHandleEOF() throws Exception {
-        InputStream input = new SampleBuilder().append(1).buildAsInputStream();
-        Reader reader = new Reader(input);
+        final InputStream input = new SampleBuilder().append(1).buildAsInputStream();
+        final Reader reader = new Reader(input);
         reader.nextInt();
 
         assertThatExceptionOfType(EOFException.class).isThrownBy(reader::nextInt);
@@ -38,18 +38,18 @@ class ReaderTest {
 
     @Test
     void shouldReadUntilEOF() throws Exception {
-        String[] inputs = {"first line", "second line", "last line"};
-        InputStream input = new SampleBuilder()
+        final String[] inputs = {"first line", "second line", "last line"};
+        final InputStream input = new SampleBuilder()
                 .appendln(inputs[0])
                 .appendln(inputs[1])
                 .append(inputs[2])
                 .buildAsInputStream();
 
-        Reader reader = new Reader(input);
+        final Reader reader = new Reader(input);
         int i = 0;
         while (true) {
             try {
-                String line = reader.readLine();
+                final String line = reader.readLine();
                 assertThat(line).isEqualTo(inputs[i]);
                 i++;
             } catch (EOFException ex) {
@@ -61,9 +61,9 @@ class ReaderTest {
 
     @Test
     void shouldHandleCloseAlreadyClosedReader() throws Exception {
-        InputStream input = new SampleBuilder().buildAsInputStream();
+        final InputStream input = new SampleBuilder().buildAsInputStream();
 
-        Reader reader = new Reader(input);
+        final Reader reader = new Reader(input);
         assertThat(reader.isClosed()).isFalse();
         reader.close();
         assertThat(reader.isClosed()).isTrue();
@@ -73,10 +73,10 @@ class ReaderTest {
 
     @Test
     void shouldReadOneLine() throws Exception {
-        InputStream input = new SampleBuilder().appendln("this is a line").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("this is a line").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        String line = reader.readLine();
+        final Reader reader = new Reader(input);
+        final String line = reader.readLine();
         reader.close();
 
         assertThat(line).isEqualTo("this is a line");
@@ -84,14 +84,14 @@ class ReaderTest {
 
     @Test
     void shouldReadTwoLines() throws Exception {
-        InputStream input = new SampleBuilder()
+        final InputStream input = new SampleBuilder()
                 .appendln("this is a line")
                 .appendln("this is another line")
                 .buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        String firstLine = reader.readLine();
-        String secondLine = reader.readLine();
+        final Reader reader = new Reader(input);
+        final String firstLine = reader.readLine();
+        final String secondLine = reader.readLine();
         reader.close();
 
         assertThat(firstLine).isEqualTo("this is a line");
@@ -100,11 +100,11 @@ class ReaderTest {
 
     @Test
     void shouldJumpEmptyLines() throws Exception {
-        InputStream input =
+        final InputStream input =
                 new SampleBuilder().appendln("").appendln("this is a line").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        String line = reader.readLine();
+        final Reader reader = new Reader(input);
+        final String line = reader.readLine();
         reader.close();
 
         assertThat(line).isEqualTo("this is a line");
@@ -112,10 +112,10 @@ class ReaderTest {
 
     @Test
     void shouldReadPositiveIntegerUnit() throws Exception {
-        InputStream input = new SampleBuilder().appendln("5").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("5").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int nextInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int nextInt = reader.nextInt();
         reader.close();
 
         assertThat(nextInt).isEqualTo(5);
@@ -123,10 +123,10 @@ class ReaderTest {
 
     @Test
     void shouldReadIntegerAfterSpace() throws Exception {
-        InputStream input = new SampleBuilder().appendln(" 2").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln(" 2").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int nextInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int nextInt = reader.nextInt();
         reader.close();
 
         assertThat(nextInt).isEqualTo(2);
@@ -134,10 +134,10 @@ class ReaderTest {
 
     @Test
     void shouldReadNegativeIntegerUnit() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-4").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("-4").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int nextInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int nextInt = reader.nextInt();
         reader.close();
 
         assertThat(nextInt).isEqualTo(-4);
@@ -145,10 +145,10 @@ class ReaderTest {
 
     @Test
     void shouldReadPositiveIntegerDozen() throws Exception {
-        InputStream input = new SampleBuilder().appendln("16").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("16").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int nextInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int nextInt = reader.nextInt();
         reader.close();
 
         assertThat(nextInt).isEqualTo(16);
@@ -156,10 +156,10 @@ class ReaderTest {
 
     @Test
     void shouldReadNegativeIntegerDozen() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-20").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("-20").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int nextInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int nextInt = reader.nextInt();
         reader.close();
 
         assertThat(nextInt).isEqualTo(-20);
@@ -167,10 +167,10 @@ class ReaderTest {
 
     @Test
     void shouldReadPositiveIntegerHundred() throws Exception {
-        InputStream input = new SampleBuilder().appendln("123").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("123").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int nextInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int nextInt = reader.nextInt();
         reader.close();
 
         assertThat(nextInt).isEqualTo(123);
@@ -178,10 +178,10 @@ class ReaderTest {
 
     @Test
     void shouldReadNegativeIntegerHundred() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-321").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("-321").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int nextInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int nextInt = reader.nextInt();
         reader.close();
 
         assertThat(nextInt).isEqualTo(-321);
@@ -189,15 +189,16 @@ class ReaderTest {
 
     @Test
     void shouldReadChainOfPositiveAndNegativeIntegers() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-123 987 -88 74 -9 7").buildAsInputStream();
+        final InputStream input =
+                new SampleBuilder().appendln("-123 987 -88 74 -9 7").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int first = reader.nextInt();
-        int second = reader.nextInt();
-        int third = reader.nextInt();
-        int fourth = reader.nextInt();
-        int fifth = reader.nextInt();
-        int sixth = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int first = reader.nextInt();
+        final int second = reader.nextInt();
+        final int third = reader.nextInt();
+        final int fourth = reader.nextInt();
+        final int fifth = reader.nextInt();
+        final int sixth = reader.nextInt();
         reader.close();
 
         assertThat(first).isEqualTo(-123);
@@ -210,10 +211,10 @@ class ReaderTest {
 
     @Test
     void shouldReadPositiveDoubleUnit() throws Exception {
-        InputStream input = new SampleBuilder().appendln("1.1").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("1.1").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(1.1, within(0.1));
@@ -221,10 +222,10 @@ class ReaderTest {
 
     @Test
     void shouldReadDoubleAfterSpace() throws Exception {
-        InputStream input = new SampleBuilder().appendln(" 5.6").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln(" 5.6").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double d = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double d = reader.nextDouble();
         reader.close();
 
         assertThat(d).isCloseTo(5.6, within(0.1));
@@ -232,10 +233,10 @@ class ReaderTest {
 
     @Test
     void shouldReadNegativeDoubleUnit() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-2.3").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("-2.3").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(-2.3, within(0.1));
@@ -243,10 +244,10 @@ class ReaderTest {
 
     @Test
     void shouldReadPositiveDoubleDozen() throws Exception {
-        InputStream input = new SampleBuilder().appendln("12.7").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("12.7").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(12.7, within(0.1));
@@ -254,10 +255,10 @@ class ReaderTest {
 
     @Test
     void shouldReadNegativeDoubleDozen() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-99.9").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("-99.9").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(-99.9, within(0.1));
@@ -265,10 +266,10 @@ class ReaderTest {
 
     @Test
     void shouldReadPositiveDoubleHundred() throws Exception {
-        InputStream input = new SampleBuilder().appendln("612.9").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("612.9").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(612.9, within(0.1));
@@ -276,10 +277,10 @@ class ReaderTest {
 
     @Test
     void shouldReadNegativeDoubleHundred() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-193.6").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("-193.6").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(-193.6, within(0.1));
@@ -287,10 +288,10 @@ class ReaderTest {
 
     @Test
     void shouldDoubleWithTwoDecimalPlaces() throws Exception {
-        InputStream input = new SampleBuilder().appendln("5.68").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("5.68").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(5.68, within(0.1));
@@ -298,10 +299,10 @@ class ReaderTest {
 
     @Test
     void shouldDoubleWithThreeDecimalPlaces() throws Exception {
-        InputStream input = new SampleBuilder().appendln("45.771").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("45.771").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(45.771, within(0.1));
@@ -309,10 +310,10 @@ class ReaderTest {
 
     @Test
     void shouldDoubleWithNineDecimalPlaces() throws Exception {
-        InputStream input = new SampleBuilder().appendln("0.123456789").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("0.123456789").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double nextDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double nextDouble = reader.nextDouble();
         reader.close();
 
         assertThat(nextDouble).isCloseTo(0.123456789, within(0.1));
@@ -320,16 +321,16 @@ class ReaderTest {
 
     @Test
     void shouldReadChainOfPositiveAndNegativeDoubles() throws Exception {
-        InputStream input =
+        final InputStream input =
                 new SampleBuilder().appendln("-1.23 98.7 -8.8 7.4 -9 7").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double first = reader.nextDouble();
-        double second = reader.nextDouble();
-        double third = reader.nextDouble();
-        double fourth = reader.nextDouble();
-        double fifth = reader.nextDouble();
-        double sixth = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double first = reader.nextDouble();
+        final double second = reader.nextDouble();
+        final double third = reader.nextDouble();
+        final double fourth = reader.nextDouble();
+        final double fifth = reader.nextDouble();
+        final double sixth = reader.nextDouble();
         reader.close();
 
         assertThat(first).isCloseTo(-1.23, within(0.1));
@@ -342,10 +343,10 @@ class ReaderTest {
 
     @Test
     void shouldReadPositiveLong() throws Exception {
-        InputStream input = new SampleBuilder().appendln("8172368367890").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("8172368367890").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        long nextLong = reader.nextLong();
+        final Reader reader = new Reader(input);
+        final long nextLong = reader.nextLong();
         reader.close();
 
         assertThat(nextLong).isEqualTo(8172368367890L);
@@ -353,10 +354,10 @@ class ReaderTest {
 
     @Test
     void shouldReadNegativeLong() throws Exception {
-        InputStream input = new SampleBuilder().appendln("-123578918902").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("-123578918902").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        long nextLong = reader.nextLong();
+        final Reader reader = new Reader(input);
+        final long nextLong = reader.nextLong();
         reader.close();
 
         assertThat(nextLong).isEqualTo(-123578918902L);
@@ -364,17 +365,17 @@ class ReaderTest {
 
     @Test
     void shouldReadChainOfPositiveAndNegativeLongs() throws Exception {
-        InputStream input = new SampleBuilder()
+        final InputStream input = new SampleBuilder()
                 .appendln("8172368367890 -1789236812893 891723689713 -31723581237 59787712587 -123123123123")
                 .buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        long first = reader.nextLong();
-        long second = reader.nextLong();
-        long third = reader.nextLong();
-        long fourth = reader.nextLong();
-        long fifth = reader.nextLong();
-        long sixth = reader.nextLong();
+        final Reader reader = new Reader(input);
+        final long first = reader.nextLong();
+        final long second = reader.nextLong();
+        final long third = reader.nextLong();
+        final long fourth = reader.nextLong();
+        final long fifth = reader.nextLong();
+        final long sixth = reader.nextLong();
         reader.close();
 
         assertThat(first).isEqualTo(8172368367890L);
@@ -387,15 +388,15 @@ class ReaderTest {
 
     @Test
     void shouldReadLongsWithSpacesAndLineBreaks() throws Exception {
-        InputStream input = new SampleBuilder()
+        final InputStream input = new SampleBuilder()
                 .appendln("6546546565    -4326757896")
                 .appendln("786676767")
                 .buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        long first = reader.nextLong();
-        long second = reader.nextLong();
-        long third = reader.nextLong();
+        final Reader reader = new Reader(input);
+        final long first = reader.nextLong();
+        final long second = reader.nextLong();
+        final long third = reader.nextLong();
         reader.close();
 
         assertThat(first).isEqualTo(6546546565L);
@@ -405,10 +406,10 @@ class ReaderTest {
 
     @Test
     void shouldReadChar() throws Exception {
-        InputStream input = new SampleBuilder().appendln("a").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("a").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        char nextChar = reader.nextChar();
+        final Reader reader = new Reader(input);
+        final char nextChar = reader.nextChar();
         reader.close();
 
         assertThat(nextChar).isEqualTo('a');
@@ -416,12 +417,12 @@ class ReaderTest {
 
     @Test
     void shouldReadMultipleChars() throws Exception {
-        InputStream input = new SampleBuilder().appendln("a 1 /").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("a 1 /").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        char a = reader.nextChar();
-        char one = reader.nextChar();
-        char slash = reader.nextChar();
+        final Reader reader = new Reader(input);
+        final char a = reader.nextChar();
+        final char one = reader.nextChar();
+        final char slash = reader.nextChar();
         reader.close();
 
         assertThat(a).isEqualTo('a');
@@ -431,14 +432,14 @@ class ReaderTest {
 
     @Test
     void shouldReadIntegersWithOtherCharactersInBetween() throws Exception {
-        InputStream input = new SampleBuilder().appendln("12a34Z56&78/9").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("12a34Z56&78/9").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        int firstInt = reader.nextInt();
-        int secondInt = reader.nextInt();
-        int thirdInt = reader.nextInt();
-        int fourthInt = reader.nextInt();
-        int fifthInt = reader.nextInt();
+        final Reader reader = new Reader(input);
+        final int firstInt = reader.nextInt();
+        final int secondInt = reader.nextInt();
+        final int thirdInt = reader.nextInt();
+        final int fourthInt = reader.nextInt();
+        final int fifthInt = reader.nextInt();
         reader.close();
 
         assertThat(firstInt).isEqualTo(12);
@@ -450,14 +451,14 @@ class ReaderTest {
 
     @Test
     void shouldReadLongsWithOtherCharactersInBetween() throws Exception {
-        InputStream input = new SampleBuilder().appendln("12a34Z56&78/9").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("12a34Z56&78/9").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        long firstLong = reader.nextLong();
-        long secondLong = reader.nextLong();
-        long thirdLong = reader.nextLong();
-        long fourthLong = reader.nextLong();
-        long fifthLong = reader.nextLong();
+        final Reader reader = new Reader(input);
+        final long firstLong = reader.nextLong();
+        final long secondLong = reader.nextLong();
+        final long thirdLong = reader.nextLong();
+        final long fourthLong = reader.nextLong();
+        final long fifthLong = reader.nextLong();
         reader.close();
 
         assertThat(firstLong).isEqualTo(12);
@@ -469,14 +470,15 @@ class ReaderTest {
 
     @Test
     void shouldReadDoublesWithOtherCharactersInBetween() throws Exception {
-        InputStream input = new SampleBuilder().appendln("12a3.4Z56&7.88/9").buildAsInputStream();
+        final InputStream input =
+                new SampleBuilder().appendln("12a3.4Z56&7.88/9").buildAsInputStream();
 
-        Reader reader = new Reader(input);
-        double firstDouble = reader.nextDouble();
-        double secondDouble = reader.nextDouble();
-        double thirdDouble = reader.nextDouble();
-        double fourthDouble = reader.nextDouble();
-        double fifthDouble = reader.nextDouble();
+        final Reader reader = new Reader(input);
+        final double firstDouble = reader.nextDouble();
+        final double secondDouble = reader.nextDouble();
+        final double thirdDouble = reader.nextDouble();
+        final double fourthDouble = reader.nextDouble();
+        final double fifthDouble = reader.nextDouble();
         reader.close();
 
         assertThat(firstDouble).isCloseTo(12, within(0.1));
@@ -488,11 +490,11 @@ class ReaderTest {
 
     @Test
     void shouldSkipNChars() throws Exception {
-        InputStream input = new SampleBuilder().appendln("Dia 5").buildAsInputStream();
+        final InputStream input = new SampleBuilder().appendln("Dia 5").buildAsInputStream();
 
-        Reader reader = new Reader(input);
+        final Reader reader = new Reader(input);
         reader.skip(4);
-        int day = reader.nextInt();
+        final int day = reader.nextInt();
         reader.close();
 
         assertThat(day).isEqualTo(5);

@@ -11,7 +11,7 @@ class LinkedListTest {
 
     @Test
     void shouldAddAtStart() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtStart(new Element("diego"));
         linkedList.addAtStart(new Element("paulo"));
         linkedList.addAtStart(new Element("josé"));
@@ -23,7 +23,7 @@ class LinkedListTest {
 
     @Test
     void shouldAddAtEnd() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
@@ -35,7 +35,7 @@ class LinkedListTest {
 
     @Test
     void shouldAddAtTheMiddle() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.add(1, new Element("josé"));
@@ -47,7 +47,7 @@ class LinkedListTest {
 
     @Test
     void shouldShowSize() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.add(1, new Element("josé"));
@@ -57,7 +57,7 @@ class LinkedListTest {
 
     @Test
     void shouldRemoveFromStart() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
@@ -70,7 +70,7 @@ class LinkedListTest {
 
     @Test
     void shouldRemoveFromEnd() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
@@ -83,7 +83,7 @@ class LinkedListTest {
 
     @Test
     void shouldRemoveFromMiddle() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
@@ -96,7 +96,7 @@ class LinkedListTest {
 
     @Test
     void shouldContainElement() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
@@ -106,7 +106,7 @@ class LinkedListTest {
 
     @Test
     void shouldNotContainElement() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
@@ -116,7 +116,7 @@ class LinkedListTest {
 
     @Test
     void shouldPrint() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));
@@ -126,7 +126,7 @@ class LinkedListTest {
 
     @Test
     void shouldAddAtPositionOfEmptyList() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.add(0, new Element("diego"));
 
         assertThat(linkedList.size()).isEqualTo(1);
@@ -135,7 +135,7 @@ class LinkedListTest {
 
     @Test
     void shouldAddAtPositionEqualToSizeAsLast() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.add(1, new Element("paulo"));
 
@@ -144,7 +144,7 @@ class LinkedListTest {
 
     @Test
     void shouldRejectGettingAMissingPosition() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
 
         assertThatIllegalArgumentException().isThrownBy(() -> linkedList.get(1));
@@ -158,7 +158,7 @@ class LinkedListTest {
 
     @Test
     void shouldBecomeEmptyAfterRemovingTheOnlyElementFromStart() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.removeFromStart();
 
@@ -168,7 +168,7 @@ class LinkedListTest {
 
     @Test
     void shouldBecomeEmptyAfterRemovingTheOnlyElementFromEnd() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.removeFromEnd();
 
@@ -178,7 +178,7 @@ class LinkedListTest {
 
     @Test
     void shouldRemoveFirstAndLastByPosition() {
-        LinkedList linkedList = new LinkedList();
+        final LinkedList linkedList = new LinkedList();
         linkedList.addAtEnd(new Element("diego"));
         linkedList.addAtEnd(new Element("paulo"));
         linkedList.addAtEnd(new Element("josé"));

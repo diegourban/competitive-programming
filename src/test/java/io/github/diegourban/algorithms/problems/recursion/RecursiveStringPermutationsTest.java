@@ -16,14 +16,14 @@ import org.junit.jupiter.api.Test;
  */
 class RecursiveStringPermutationsTest {
 
-    static Set<String> solve(String input) {
+    static Set<String> solve(final String input) {
         if (input.length() <= 1) {
             return Set.of(input);
         }
-        var allButLast = input.substring(0, input.length() - 1);
-        var last = input.charAt(input.length() - 1);
-        var permutations = new HashSet<String>();
-        for (var partial : solve(allButLast)) {
+        final var allButLast = input.substring(0, input.length() - 1);
+        final var last = input.charAt(input.length() - 1);
+        final var permutations = new HashSet<String>();
+        for (final var partial : solve(allButLast)) {
             for (var position = 0; position <= allButLast.length(); position++) {
                 permutations.add(partial.substring(0, position) + last + partial.substring(position));
             }

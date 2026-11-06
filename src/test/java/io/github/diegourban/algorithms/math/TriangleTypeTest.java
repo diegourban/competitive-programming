@@ -9,7 +9,7 @@ class TriangleTypeTest {
 
     @ParameterizedTest
     @CsvSource({"EQUILATERAL, Equilatero", "ISOSCELES, Isoceles", "ESCALENE, Escaleno"})
-    void exposesDisplayName(TriangleType type, String expectedName) {
+    void exposesDisplayName(final TriangleType type, final String expectedName) {
         assertThat(type.getName()).isEqualTo(expectedName);
     }
 }

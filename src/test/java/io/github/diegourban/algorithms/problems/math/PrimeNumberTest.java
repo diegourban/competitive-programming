@@ -15,19 +15,19 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class PrimeNumberTest {
 
-    static boolean solve(int x) {
+    static boolean solve(final int x) {
         return NumberTheory.isPrime(x);
     }
 
     @ParameterizedTest
     @ValueSource(ints = {2, 3, 5, 7, 11, 13, 97, 7919, 9999991})
-    void primes(int x) {
+    void primes(final int x) {
         assertThat(solve(x)).isTrue();
     }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 4, 8, 9, 25, 49, 51, 7917, 10000000})
-    void nonPrimes(int x) {
+    void nonPrimes(final int x) {
         assertThat(solve(x)).isFalse();
     }
 }

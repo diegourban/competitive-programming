@@ -23,7 +23,7 @@ class QueueTwoStacksTest {
         private final Deque<Integer> inStack = new ArrayDeque<>();
         private final Deque<Integer> outStack = new ArrayDeque<>();
 
-        void enqueue(int item) {
+        void enqueue(final int item) {
             inStack.push(item);
         }
 
@@ -42,14 +42,14 @@ class QueueTwoStacksTest {
 
     @Test
     void dequeueOnEmptyQueueFails() {
-        var queue = new QueueTwoStacks();
+        final var queue = new QueueTwoStacks();
 
         assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(queue::dequeue);
     }
 
     @Test
     void dequeuesWhatWasEnqueued() {
-        var queue = new QueueTwoStacks();
+        final var queue = new QueueTwoStacks();
         queue.enqueue(1);
 
         assertThat(queue.dequeue()).isEqualTo(1);
@@ -57,7 +57,7 @@ class QueueTwoStacksTest {
 
     @Test
     void dequeuesInFirstInFirstOutOrder() {
-        var queue = new QueueTwoStacks();
+        final var queue = new QueueTwoStacks();
         queue.enqueue(3);
         queue.enqueue(1);
         queue.enqueue(4);
@@ -69,7 +69,7 @@ class QueueTwoStacksTest {
 
     @Test
     void keepsOrderWhenEnqueuesAndDequeuesInterleave() {
-        var queue = new QueueTwoStacks();
+        final var queue = new QueueTwoStacks();
         queue.enqueue(1);
         queue.enqueue(2);
         assertThat(queue.dequeue()).isEqualTo(1);

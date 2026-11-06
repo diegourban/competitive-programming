@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
  */
 class BracketValidatorTest {
 
-    static boolean solve(String code) {
-        var openers = new ArrayDeque<Character>();
-        for (var c : code.toCharArray()) {
+    static boolean solve(final String code) {
+        final var openers = new ArrayDeque<Character>();
+        for (final var c : code.toCharArray()) {
             switch (c) {
                 case '(', '[', '{' -> openers.push(c);
                 case ')', ']', '}' -> {
@@ -31,7 +31,7 @@ class BracketValidatorTest {
         return openers.isEmpty();
     }
 
-    private static char closerFor(char opener) {
+    private static char closerFor(final char opener) {
         return switch (opener) {
             case '(' -> ')';
             case '[' -> ']';

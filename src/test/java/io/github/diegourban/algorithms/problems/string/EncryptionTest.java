@@ -22,22 +22,22 @@ class EncryptionTest {
 
     private static final SampleLoader SAMPLES = new SampleLoader("problems/string/encryption");
 
-    static String solve(String message) {
-        var shifted = new StringBuilder(message.length());
-        for (var c : message.toCharArray()) {
+    static String solve(final String message) {
+        final var shifted = new StringBuilder(message.length());
+        for (final var c : message.toCharArray()) {
             shifted.append(Character.isLetter(c) ? (char) (c + 3) : c);
         }
-        var chars = shifted.reverse().toString().toCharArray();
+        final var chars = shifted.reverse().toString().toCharArray();
         for (var i = chars.length / 2; i < chars.length; i++) {
             chars[i]--;
         }
         return new String(chars);
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var n = reader.nextInt();
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var n = reader.nextInt();
+        final var out = new StringBuilder();
         for (var i = 0; i < n; i++) {
             out.append(solve(reader.readLine())).append('\n');
         }
@@ -67,7 +67,7 @@ class EncryptionTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }

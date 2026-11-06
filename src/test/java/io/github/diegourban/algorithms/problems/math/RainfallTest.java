@@ -19,16 +19,17 @@ class RainfallTest {
 
     static final Rainfall UNKNOWN = new Rainfall(-1, -1);
 
-    static Rainfall solve(String town, String data) {
+    static Rainfall solve(final String town, final String data) {
         return data.lines()
                 .filter(line -> line.startsWith(town + ":"))
                 .findFirst()
                 .map(line -> {
-                    var values = Arrays.stream(line.substring(town.length() + 1).split(","))
+                    final var values = Arrays.stream(
+                                    line.substring(town.length() + 1).split(","))
                             .mapToDouble(month -> Double.parseDouble(month.split(" ")[1]))
                             .toArray();
-                    var mean = Statistics.mean(values);
-                    var variance = Arrays.stream(values)
+                    final var mean = Statistics.mean(values);
+                    final var variance = Arrays.stream(values)
                             .map(v -> (v - mean) * (v - mean))
                             .average()
                             .orElseThrow();
@@ -51,14 +52,14 @@ class RainfallTest {
 
     @Test
     void london() {
-        var result = solve("London", DATA);
+        final var result = solve("London", DATA);
         assertThat(result.mean()).isCloseTo(51.199999999999996, within(1e-2));
         assertThat(result.variance()).isCloseTo(57.42833333333374, within(1e-2));
     }
 
     @Test
     void beijing() {
-        var result = solve("Beijing", DATA);
+        final var result = solve("Beijing", DATA);
         assertThat(result.mean()).isCloseTo(52.416666666666664, within(1e-2));
         assertThat(result.variance()).isCloseTo(4808.37138888889, within(1e-2));
     }

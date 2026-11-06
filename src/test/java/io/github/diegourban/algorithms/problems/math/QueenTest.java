@@ -22,7 +22,7 @@ class QueenTest {
 
     private static final SampleLoader SAMPLES = new SampleLoader("problems/math/queen");
 
-    static int solve(int x1, int y1, int x2, int y2) {
+    static int solve(final int x1, final int y1, final int x2, final int y2) {
         if (x1 == x2 && y1 == y2) {
             return 0;
         }
@@ -32,14 +32,14 @@ class QueenTest {
         return 2;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var out = new StringBuilder();
         while (true) {
-            var x1 = reader.nextInt();
-            var y1 = reader.nextInt();
-            var x2 = reader.nextInt();
-            var y2 = reader.nextInt();
+            final var x1 = reader.nextInt();
+            final var y1 = reader.nextInt();
+            final var x2 = reader.nextInt();
+            final var y2 = reader.nextInt();
             if (x1 == 0 && y1 == 0 && x2 == 0 && y2 == 0) {
                 return out.toString();
             }
@@ -58,13 +58,13 @@ class QueenTest {
         "1, 8, 8, 1, 1",
         "1, 1, 2, 3, 2",
     })
-    void minimumMoves(int x1, int y1, int x2, int y2, int expected) {
+    void minimumMoves(final int x1, final int y1, final int x2, final int y2, final int expected) {
         assertThat(solve(x1, y1, x2, y2)).isEqualTo(expected);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }

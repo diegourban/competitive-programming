@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class PerfectNumberTest {
 
-    static boolean solve(int x) {
+    static boolean solve(final int x) {
         if (x < 2) {
             return false;
         }
@@ -33,13 +33,13 @@ class PerfectNumberTest {
 
     @ParameterizedTest
     @ValueSource(ints = {6, 28, 496, 8128, 33550336})
-    void perfectNumbers(int x) {
+    void perfectNumbers(final int x) {
         assertThat(solve(x)).isTrue();
     }
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 29, 50, 91, 100000000})
-    void nonPerfectNumbers(int x) {
+    void nonPerfectNumbers(final int x) {
         assertThat(solve(x)).isFalse();
     }
 }

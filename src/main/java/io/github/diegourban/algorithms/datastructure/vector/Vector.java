@@ -67,7 +67,7 @@ public class Vector {
 
     private void guaranteesSpace() {
         if (this.totalElements == this.elements.length) {
-            Element[] newElements = new Element[this.elements.length * 2];
+            final Element[] newElements = new Element[this.elements.length * 2];
             for (int i = 0; i < this.elements.length; i++) {
                 newElements[i] = this.elements[i];
             }

@@ -25,16 +25,16 @@ class MaestersMapTest {
 
     private final SampleLoader samples = new SampleLoader("problems/simulation/maesters-map");
 
-    static boolean solve(List<String> rows) {
-        var height = rows.size();
-        var width = height == 0 ? 0 : rows.getFirst().length();
-        var usedArrows = new boolean[height][width];
+    static boolean solve(final List<String> rows) {
+        final var height = rows.size();
+        final var width = height == 0 ? 0 : rows.getFirst().length();
+        final var usedArrows = new boolean[height][width];
         var row = 0;
         var col = 0;
         var dRow = 0;
         var dCol = 0;
         while (row >= 0 && row < height && col >= 0 && col < width) {
-            var cell = rows.get(row).charAt(col);
+            final var cell = rows.get(row).charAt(col);
             if (cell == '*') {
                 return true;
             }
@@ -63,11 +63,11 @@ class MaestersMapTest {
         return false;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var width = reader.nextInt();
-        var height = reader.nextInt();
-        var rows = new ArrayList<String>(height);
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var width = reader.nextInt();
+        final var height = reader.nextInt();
+        final var rows = new ArrayList<String>(height);
         for (var i = 0; i < height; i++) {
             rows.add(reader.readLine().substring(0, width));
         }
@@ -101,7 +101,7 @@ class MaestersMapTest {
                 "sampleFindChest1", "sampleFindChest2", "sampleFindChest3",
                 "sampleFindChest4", "sampleFindChest5", "sampleFindChest6",
             })
-    void samplesThatReachTheChest(String name) throws IOException {
+    void samplesThatReachTheChest(final String name) throws IOException {
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo("*\n");
     }
 
@@ -111,7 +111,7 @@ class MaestersMapTest {
                 "sampleLoop1", "sampleLoop2", "sampleLoop3", "sampleLoop4",
                 "sampleOutOfBounds1", "sampleOutOfBounds2", "sampleOutOfBounds3", "sampleOutOfBounds4",
             })
-    void samplesThatLoopOrLeaveTheMap(String name) throws IOException {
+    void samplesThatLoopOrLeaveTheMap(final String name) throws IOException {
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo("!\n");
     }
 }

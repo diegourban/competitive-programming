@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
  */
 class LinkedListCycleTest {
 
-    static boolean solve(LinkedListNode first) {
+    static boolean solve(final LinkedListNode first) {
         var slow = first;
         var fast = first;
         while (fast != null && fast.getNext() != null) {
@@ -29,8 +29,8 @@ class LinkedListCycleTest {
         return false;
     }
 
-    private static LinkedListNode[] chain(String... names) {
-        var nodes = new LinkedListNode[names.length];
+    private static LinkedListNode[] chain(final String... names) {
+        final var nodes = new LinkedListNode[names.length];
         for (var i = 0; i < names.length; i++) {
             nodes[i] = new LinkedListNode(new Element(names[i]));
             if (i > 0) {
@@ -42,14 +42,14 @@ class LinkedListCycleTest {
 
     @Test
     void acyclicListHasNoCycle() {
-        var nodes = chain("A", "B", "C");
+        final var nodes = chain("A", "B", "C");
 
         assertThat(solve(nodes[0])).isFalse();
     }
 
     @Test
     void tailPointingAtHeadIsACycle() {
-        var nodes = chain("A", "B", "C");
+        final var nodes = chain("A", "B", "C");
         nodes[2].setNext(nodes[0]);
 
         assertThat(solve(nodes[0])).isTrue();
@@ -57,7 +57,7 @@ class LinkedListCycleTest {
 
     @Test
     void tailPointingInsideIsACycle() {
-        var nodes = chain("A", "B", "C");
+        final var nodes = chain("A", "B", "C");
         nodes[2].setNext(nodes[1]);
 
         assertThat(solve(nodes[0])).isTrue();

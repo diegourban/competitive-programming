@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
  */
 class ParenthesisMatchingTest {
 
-    static int solve(String sentence, int openingParenthesisIndex) {
+    static int solve(final String sentence, final int openingParenthesisIndex) {
         var openNested = 0;
         for (var position = openingParenthesisIndex + 1; position < sentence.length(); position++) {
             switch (sentence.charAt(position)) {

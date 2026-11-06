@@ -10,17 +10,17 @@ class VectorTest {
 
     @Test
     void test() {
-        Element e1 = new Element("Joao");
-        Element e2 = new Element("Jose");
+        final Element e1 = new Element("Joao");
+        final Element e2 = new Element("Jose");
 
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         vector.add(e1);
         vector.add(e2);
 
         assertThat(vector.size()).isEqualTo(2);
         assertThat(vector.contains(e1)).isEqualTo(true);
 
-        Element e3 = new Element("Mario");
+        final Element e3 = new Element("Mario");
         vector.add(1, e3);
         assertThat(vector.contains(e3)).isEqualTo(true);
         assertThat(vector.size()).isEqualTo(3);
@@ -28,7 +28,7 @@ class VectorTest {
         vector.remove(1);
 
         for (int i = 0; i < 300; i++) {
-            Element e = new Element("Element " + i);
+            final Element e = new Element("Element " + i);
             vector.add(e);
         }
         System.out.println(vector);
@@ -36,7 +36,7 @@ class VectorTest {
 
     @Test
     void shouldRejectAddingAtAnInvalidPosition() {
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         vector.add(new Element("Joao"));
 
         assertThatIllegalArgumentException().isThrownBy(() -> vector.add(-1, new Element("Jose")));
@@ -45,7 +45,7 @@ class VectorTest {
 
     @Test
     void shouldRejectGettingAnInvalidPosition() {
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         vector.add(new Element("Joao"));
 
         assertThat(vector.get(0)).isEqualTo(new Element("Joao"));
@@ -55,7 +55,7 @@ class VectorTest {
 
     @Test
     void shouldNotContainAMissingElement() {
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         vector.add(new Element("Joao"));
 
         assertThat(vector.contains(new Element("Mario"))).isFalse();
@@ -63,7 +63,7 @@ class VectorTest {
 
     @Test
     void shouldRemoveFromAFullVector() {
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         for (int i = 0; i < 100; i++) {
             vector.add(new Element("Element " + i));
         }

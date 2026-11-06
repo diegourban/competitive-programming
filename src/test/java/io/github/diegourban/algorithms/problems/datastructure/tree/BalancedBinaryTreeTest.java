@@ -19,18 +19,18 @@ class BalancedBinaryTreeTest {
 
     private record NodeDepth(BinaryTreeNode node, int depth) {}
 
-    static boolean solve(BinaryTreeNode root) {
+    static boolean solve(final BinaryTreeNode root) {
         if (root == null) {
             return true;
         }
-        var depths = new ArrayList<Integer>(3);
-        var nodes = new ArrayDeque<NodeDepth>();
+        final var depths = new ArrayList<Integer>(3);
+        final var nodes = new ArrayDeque<NodeDepth>();
         nodes.push(new NodeDepth(root, 0));
 
         while (!nodes.isEmpty()) {
-            var current = nodes.pop();
-            var node = current.node();
-            var depth = current.depth();
+            final var current = nodes.pop();
+            final var node = current.node();
+            final var depth = current.depth();
 
             if (node.left == null && node.right == null) {
                 if (!depths.contains(depth)) {
@@ -63,8 +63,8 @@ class BalancedBinaryTreeTest {
 
     @Test
     void leavesTwoLevelsApartAreNotSuperBalanced() {
-        var root = new BinaryTreeNode(5);
-        var three = root.insertLeft(3);
+        final var root = new BinaryTreeNode(5);
+        final var three = root.insertLeft(3);
         three.insertLeft(1);
         three.insertRight(4).insertLeft(2);
         root.insertRight(8);
@@ -74,8 +74,8 @@ class BalancedBinaryTreeTest {
 
     @Test
     void leavesAtMostOneLevelApartAreSuperBalanced() {
-        var root = new BinaryTreeNode(5);
-        var three = root.insertLeft(3);
+        final var root = new BinaryTreeNode(5);
+        final var three = root.insertLeft(3);
         three.insertLeft(1);
         three.insertRight(4).insertLeft(2);
         root.insertRight(8).insertLeft(6);

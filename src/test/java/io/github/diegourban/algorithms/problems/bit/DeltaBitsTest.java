@@ -12,7 +12,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class DeltaBitsTest {
 
-    static int solve(int a, int b) {
+    static int solve(final int a, final int b) {
         return Integer.bitCount(a ^ b);
     }
 
@@ -28,7 +28,7 @@ class DeltaBitsTest {
         "7, 17, 3",
         "330274332, 199260599, 19",
     })
-    void countsDifferingBits(int a, int b, int expected) {
+    void countsDifferingBits(final int a, final int b, final int expected) {
         assertThat(solve(a, b)).isEqualTo(expected);
     }
 }

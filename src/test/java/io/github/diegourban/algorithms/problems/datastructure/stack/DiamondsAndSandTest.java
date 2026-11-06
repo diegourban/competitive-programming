@@ -20,10 +20,10 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class DiamondsAndSandTest {
 
-    static int solve(String mine) {
+    static int solve(final String mine) {
         var open = 0;
         var diamonds = 0;
-        for (var c : mine.toCharArray()) {
+        for (final var c : mine.toCharArray()) {
             if (c == '<') {
                 open++;
             } else if (c == '>' && open > 0) {
@@ -34,10 +34,10 @@ class DiamondsAndSandTest {
         return diamonds;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var n = reader.nextInt();
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var n = reader.nextInt();
+        final var out = new StringBuilder();
         for (var i = 0; i < n; i++) {
             out.append(solve(reader.readLine())).append('\n');
         }
@@ -64,8 +64,8 @@ class DiamondsAndSandTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
-        var samples = new SampleLoader("problems/datastructure/stack/diamonds-and-sand");
+    void matchesSample(final String name) throws IOException {
+        final var samples = new SampleLoader("problems/datastructure/stack/diamonds-and-sand");
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo(samples.loadAsString(name + ".out"));
     }
 }

@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
  */
 class SecondLargestItemInBstTest {
 
-    static int solve(BinaryTreeNode root) {
+    static int solve(final BinaryTreeNode root) {
         if (root == null || (root.left == null && root.right == null)) {
             throw new IllegalArgumentException("Tree must have at least 2 nodes");
         }
@@ -32,7 +32,7 @@ class SecondLargestItemInBstTest {
         }
     }
 
-    private static int largest(BinaryTreeNode node) {
+    private static int largest(final BinaryTreeNode node) {
         var current = node;
         while (current.right != null) {
             current = current.right;
@@ -42,13 +42,13 @@ class SecondLargestItemInBstTest {
 
     @Test
     void largestHasALeftSubtree() {
-        var root = new BinaryTreeNode(5);
-        var three = root.insertLeft(3);
+        final var root = new BinaryTreeNode(5);
+        final var three = root.insertLeft(3);
         three.insertLeft(1);
         three.insertRight(4);
-        var eight = root.insertRight(8);
+        final var eight = root.insertRight(8);
         eight.insertLeft(7);
-        var ten = eight.insertRight(12).insertLeft(10);
+        final var ten = eight.insertRight(12).insertLeft(10);
         ten.insertLeft(9);
         ten.insertRight(11);
 
@@ -57,7 +57,7 @@ class SecondLargestItemInBstTest {
 
     @Test
     void parentOfChildlessLargest() {
-        var root = new BinaryTreeNode(5);
+        final var root = new BinaryTreeNode(5);
         root.insertLeft(3);
         root.insertRight(8);
 
@@ -66,7 +66,7 @@ class SecondLargestItemInBstTest {
 
     @Test
     void rootIsLargestWithOnlyLeftSubtree() {
-        var root = new BinaryTreeNode(5);
+        final var root = new BinaryTreeNode(5);
         root.insertLeft(3).insertRight(4);
 
         assertThat(solve(root)).isEqualTo(4);

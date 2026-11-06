@@ -17,10 +17,10 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class PrimesInNumbersTest {
 
-    static String solve(int n) {
-        var counts = NumberTheory.primeFactorsList(n).stream()
+    static String solve(final int n) {
+        final var counts = NumberTheory.primeFactorsList(n).stream()
                 .collect(Collectors.groupingBy(Function.identity(), TreeMap::new, Collectors.counting()));
-        var result = new StringBuilder();
+        final var result = new StringBuilder();
         counts.forEach((prime, k) -> {
             result.append('(').append(prime);
             if (k > 1) {
@@ -48,7 +48,7 @@ class PrimesInNumbersTest {
         "86240, (2**5)(5)(7**2)(11)",
         "7775460, (2**2)(3**3)(5)(7)(11**2)(17)",
     })
-    void decomposesIntoPrimePowers(int n, String expected) {
+    void decomposesIntoPrimePowers(final int n, final String expected) {
         assertThat(solve(n)).isEqualTo(expected);
     }
 }

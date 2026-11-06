@@ -124,7 +124,7 @@ class NumberTheoryTest {
 
     @Test
     void shouldListPrimeFactorsOfEvenNumber() {
-        List<Integer> primeFactors = NumberTheory.primeFactorsList(10);
+        final List<Integer> primeFactors = NumberTheory.primeFactorsList(10);
         assertThat(primeFactors).hasSize(2);
         assertThat(primeFactors.get(0).intValue()).isEqualTo(2);
         assertThat(primeFactors.get(1).intValue()).isEqualTo(5);
@@ -132,7 +132,7 @@ class NumberTheoryTest {
 
     @Test
     void shouldListPrimeFactorsOfOddNumber() {
-        List<Integer> primeFactors = NumberTheory.primeFactorsList(49);
+        final List<Integer> primeFactors = NumberTheory.primeFactorsList(49);
         assertThat(primeFactors).hasSize(2);
         assertThat(primeFactors.get(0).intValue()).isEqualTo(7);
         assertThat(primeFactors.get(1).intValue()).isEqualTo(7);
@@ -140,26 +140,26 @@ class NumberTheoryTest {
 
     @Test
     void shouldListPrimeFactorsOfPrimeNumber() {
-        List<Integer> primeFactors = NumberTheory.primeFactorsList(13);
+        final List<Integer> primeFactors = NumberTheory.primeFactorsList(13);
         assertThat(primeFactors).hasSize(1);
         assertThat(primeFactors.get(0).intValue()).isEqualTo(13);
     }
 
     @Test
     void shouldCreateSetOfPrimeFactorsOfEvenNumber() {
-        Set<Integer> primeFactors = NumberTheory.primeFactorsSet(12);
+        final Set<Integer> primeFactors = NumberTheory.primeFactorsSet(12);
         assertThat(primeFactors).hasSize(2).contains(2).contains(3);
     }
 
     @Test
     void shouldCreateSetOfPrimeFactorsOfOddNumber() {
-        Set<Integer> primeFactors = NumberTheory.primeFactorsSet(49);
+        final Set<Integer> primeFactors = NumberTheory.primeFactorsSet(49);
         assertThat(primeFactors).hasSize(1).contains(7);
     }
 
     @Test
     void shouldCreateSetOfPrimeFactorsOfPrimeNumber() {
-        Set<Integer> primeFactors = NumberTheory.primeFactorsSet(7);
+        final Set<Integer> primeFactors = NumberTheory.primeFactorsSet(7);
         assertThat(primeFactors).hasSize(1).contains(7);
     }
 }

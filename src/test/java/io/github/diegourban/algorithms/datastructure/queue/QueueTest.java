@@ -23,7 +23,7 @@ class QueueTest {
         queue.add(new Element("diego"));
         queue.add(new Element("leonardo"));
         queue.add(new Element("urban"));
-        Element removed = queue.poll();
+        final Element removed = queue.poll();
 
         assertThat(removed.getName()).isEqualTo("diego");
         assertThat(queue).hasToString("[leonardo, urban]");

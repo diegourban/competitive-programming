@@ -18,11 +18,11 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class SquareRootOfTwoTest {
 
-    static double solve(int n) {
+    static double solve(final int n) {
         return 1 + tail(n);
     }
 
-    private static double tail(int n) {
+    private static double tail(final int n) {
         return n == 0 ? 0 : 1 / (2 + tail(n - 1));
     }
 
@@ -33,13 +33,13 @@ class SquareRootOfTwoTest {
         "5, 1.4142857143",
         "100, 1.4142135624",
     })
-    void approximatesSquareRootOfTwoToTenDecimals(int n, String expected) {
+    void approximatesSquareRootOfTwoToTenDecimals(final int n, final String expected) {
         assertThat(String.format(Locale.ROOT, "%.10f", solve(n))).isEqualTo(expected);
     }
 
     @ParameterizedTest
     @ValueSource(ints = {20, 100})
-    void convergesToSquareRootOfTwo(int n) {
+    void convergesToSquareRootOfTwo(final int n) {
         assertThat(solve(n)).isCloseTo(Math.sqrt(2), offset(1e-12));
     }
 }

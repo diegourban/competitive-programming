@@ -17,11 +17,11 @@ import org.junit.jupiter.api.Test;
  */
 class ReverseLinkedListTest {
 
-    static LinkedListNode solve(LinkedList list) {
+    static LinkedListNode solve(final LinkedList list) {
         LinkedListNode previous = null;
         var current = list.getFirst();
         while (current != null) {
-            var next = current.getNext();
+            final var next = current.getNext();
             current.setNext(previous);
             previous = current;
             current = next;
@@ -31,12 +31,12 @@ class ReverseLinkedListTest {
 
     @Test
     void reversesTheList() {
-        var list = new LinkedList();
+        final var list = new LinkedList();
         list.addAtEnd(new Element("a"));
         list.addAtEnd(new Element("b"));
         list.addAtEnd(new Element("c"));
 
-        var head = solve(list);
+        final var head = solve(list);
 
         assertThat(head.getElement().getName()).isEqualTo("c");
         assertThat(head.getNext().getElement().getName()).isEqualTo("b");

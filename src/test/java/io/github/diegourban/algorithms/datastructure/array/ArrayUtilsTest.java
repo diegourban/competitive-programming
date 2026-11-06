@@ -9,21 +9,21 @@ class ArrayUtilsTest {
 
     @Test
     void shouldNotShuffleSmallArray() {
-        int[] array = new int[] {1};
+        final int[] array = new int[] {1};
         ArrayUtils.shuffle(array);
         assertThat(array).hasSize(1);
 
-        Integer[] what = Arrays.stream(array).boxed().toArray(Integer[]::new);
+        final Integer[] what = Arrays.stream(array).boxed().toArray(Integer[]::new);
         assertThat(what).containsExactlyInAnyOrder(1);
     }
 
     @Test
     void shouldShuffle() {
-        int[] array = new int[] {1, 2, 3, 4, 5};
+        final int[] array = new int[] {1, 2, 3, 4, 5};
         ArrayUtils.shuffle(array);
         assertThat(array).hasSize(5);
 
-        Integer[] what = Arrays.stream(array).boxed().toArray(Integer[]::new);
+        final Integer[] what = Arrays.stream(array).boxed().toArray(Integer[]::new);
         assertThat(what).containsExactlyInAnyOrder(1, 2, 3, 4, 5);
     }
 }

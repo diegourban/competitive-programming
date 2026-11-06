@@ -3,7 +3,7 @@ package io.github.diegourban.algorithms.search;
 /**
  * Binary Search algorithm
  */
-public class BinarySearch {
+public final class BinarySearch {
 
     private BinarySearch() {}
 

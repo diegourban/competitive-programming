@@ -21,7 +21,7 @@ class MorseTest {
         "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
     };
 
-    static String solve(String code) {
+    static String solve(final String code) {
         return Arrays.stream(code.split("\\.{7}"))
                 .map(word -> Arrays.stream(word.split("\\.{3}"))
                         .map(letter -> String.valueOf(decode(letter)))
@@ -29,8 +29,8 @@ class MorseTest {
                 .collect(Collectors.joining(" "));
     }
 
-    private static char decode(String letter) {
-        var morse = Arrays.stream(letter.split("\\."))
+    private static char decode(final String letter) {
+        final var morse = Arrays.stream(letter.split("\\."))
                 .map(signal -> signal.equals("=") ? "." : "-")
                 .collect(Collectors.joining());
         return (char) ('a' + Arrays.asList(MORSE).indexOf(morse));

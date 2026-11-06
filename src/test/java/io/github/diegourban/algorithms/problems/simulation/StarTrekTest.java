@@ -26,20 +26,20 @@ class StarTrekTest {
 
     record Raid(int starsAttacked, long sheepLeft) {}
 
-    static Raid solve(int[] sheep) {
-        var left = sheep.clone();
-        var attacked = new boolean[left.length];
+    static Raid solve(final int[] sheep) {
+        final var left = sheep.clone();
+        final var attacked = new boolean[left.length];
         var star = 0;
         while (star >= 0 && star < left.length) {
             attacked[star] = true;
-            var odd = left[star] % 2 == 1;
+            final var odd = left[star] % 2 == 1;
             if (left[star] > 0) {
                 left[star]--;
             }
             star += odd ? 1 : -1;
         }
         var starsAttacked = 0;
-        for (var a : attacked) {
+        for (final var a : attacked) {
             if (a) {
                 starsAttacked++;
             }
@@ -47,13 +47,13 @@ class StarTrekTest {
         return new Raid(starsAttacked, Arrays.stream(left).asLongStream().sum());
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var sheep = new int[reader.nextInt()];
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var sheep = new int[reader.nextInt()];
         for (var i = 0; i < sheep.length; i++) {
             sheep[i] = reader.nextInt();
         }
-        var raid = solve(sheep);
+        final var raid = solve(sheep);
         return raid.starsAttacked() + " " + raid.sheepLeft() + "\n";
     }
 
@@ -97,7 +97,7 @@ class StarTrekTest {
         "max2, 16000 15999968000",
         "max3, 8000 15999968002",
     })
-    void maxSamples(String name, String expected) throws IOException {
+    void maxSamples(final String name, final String expected) throws IOException {
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo(expected + "\n");
     }
 }

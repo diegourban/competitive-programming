@@ -5,9 +5,9 @@ public enum TriangleType {
     ESCALENE("Escaleno"),
     ISOSCELES("Isoceles");
 
-    private String name;
+    private final String name;
 
-    private TriangleType(String name) {
+    private TriangleType(final String name) {
         this.name = name;
     }
 

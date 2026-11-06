@@ -13,9 +13,9 @@ import org.junit.jupiter.api.Test;
  */
 class FindUniqueIdTest {
 
-    static int solve(int[] ids) {
+    static int solve(final int[] ids) {
         var unique = 0;
-        for (var id : ids) {
+        for (final var id : ids) {
             unique ^= id;
         }
         return unique;

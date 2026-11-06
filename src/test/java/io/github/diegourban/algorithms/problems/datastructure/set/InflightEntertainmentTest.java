@@ -15,9 +15,9 @@ import org.junit.jupiter.api.Test;
  */
 class InflightEntertainmentTest {
 
-    static boolean solve(int[] movieLengths, int flightLength) {
-        var lengthsSeen = new HashSet<Integer>();
-        for (var firstLength : movieLengths) {
+    static boolean solve(final int[] movieLengths, final int flightLength) {
+        final var lengthsSeen = new HashSet<Integer>();
+        for (final var firstLength : movieLengths) {
             if (lengthsSeen.contains(flightLength - firstLength)) {
                 return true;
             }

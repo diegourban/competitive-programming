@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
  */
 class ParityTest {
 
-    static String solve(String bits) {
-        var ones = bits.chars().filter(c -> c == '1').count();
+    static String solve(final String bits) {
+        final var ones = bits.chars().filter(c -> c == '1').count();
         return bits + (ones % 2 == 0 ? '0' : '1');
     }
 
@@ -41,7 +41,7 @@ class ParityTest {
 
     @Test
     void handlesHundredBits() {
-        var bits =
+        final var bits =
                 "0101011001101010011001010101001010101010101010101011010010101010101011010110101010000101010101010101";
         assertThat(solve(bits)).isEqualTo(bits + "1");
     }

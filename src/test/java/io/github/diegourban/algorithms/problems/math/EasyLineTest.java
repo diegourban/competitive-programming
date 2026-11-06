@@ -15,7 +15,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class EasyLineTest {
 
-    static BigInteger solve(int n) {
+    static BigInteger solve(final int n) {
         return Combinatorics.binomialCoefficient(2 * n, n);
     }
 
@@ -34,7 +34,7 @@ class EasyLineTest {
         "19, 35345263800",
         "50, 100891344545564193334812497256",
     })
-    void sumsSquaresOfPascalRow(int n, BigInteger expected) {
+    void sumsSquaresOfPascalRow(final int n, final BigInteger expected) {
         assertThat(solve(n)).isEqualTo(expected);
     }
 }

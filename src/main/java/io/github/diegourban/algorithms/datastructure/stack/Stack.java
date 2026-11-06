@@ -8,7 +8,7 @@ public class Stack {
 
     private final List<Element> elements = new LinkedList<>();
 
-    public void push(Element element) {
+    public void push(final Element element) {
         this.elements.add(element);
     }
 

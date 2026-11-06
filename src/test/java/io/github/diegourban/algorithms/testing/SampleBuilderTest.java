@@ -27,37 +27,37 @@ class SampleBuilderTest {
 
     @Test
     void shouldBuildEmptyString() {
-        String sample = this.sampleBuilder.build();
+        final String sample = this.sampleBuilder.build();
         assertThat(sample).isEmpty();
     }
 
     @Test
     void shouldAppendInteger() {
-        String sample = this.sampleBuilder.append(7).build();
+        final String sample = this.sampleBuilder.append(7).build();
         assertThat(sample).isEqualTo("7");
     }
 
     @Test
     void shouldAppendDouble() {
-        String sample = this.sampleBuilder.append(1.2).build();
+        final String sample = this.sampleBuilder.append(1.2).build();
         assertThat(sample).isEqualTo("1.2");
     }
 
     @Test
     void shouldAppendLong() {
-        String sample = this.sampleBuilder.append(123456789L).build();
+        final String sample = this.sampleBuilder.append(123456789L).build();
         assertThat(sample).isEqualTo("123456789");
     }
 
     @Test
     void shouldAppendString() {
-        String sample = this.sampleBuilder.append("uyag s67a sdt1").build();
+        final String sample = this.sampleBuilder.append("uyag s67a sdt1").build();
         assertThat(sample).isEqualTo("uyag s67a sdt1");
     }
 
     @Test
     void shouldAppendAllTypes() {
-        String sample = this.sampleBuilder
+        final String sample = this.sampleBuilder
                 .append(123)
                 .append(9.9)
                 .append(9876543210L)
@@ -68,63 +68,65 @@ class SampleBuilderTest {
 
     @Test
     void shouldAppendTwoIntegerLines() {
-        String sample = this.sampleBuilder.appendln(786).append(1).build();
+        final String sample = this.sampleBuilder.appendln(786).append(1).build();
 
-        String expected = "786" + System.lineSeparator() + "1";
+        final String expected = "786" + System.lineSeparator() + "1";
         assertThat(sample).isEqualTo(expected);
     }
 
     @Test
     void shouldAppendTwoDoubleLines() {
-        String sample = this.sampleBuilder.appendln(2.34).append(.1).build();
+        final String sample = this.sampleBuilder.appendln(2.34).append(.1).build();
 
-        String expected = "2.34" + System.lineSeparator() + "0.1";
+        final String expected = "2.34" + System.lineSeparator() + "0.1";
         assertThat(sample).isEqualTo(expected);
     }
 
     @Test
     void shouldAppendTwoLongLines() {
-        String sample =
+        final String sample =
                 this.sampleBuilder.appendln(123987123987L).append(1122334455L).build();
 
-        String expected = "123987123987" + System.lineSeparator() + "1122334455";
+        final String expected = "123987123987" + System.lineSeparator() + "1122334455";
         assertThat(sample).isEqualTo(expected);
     }
 
     @Test
     void shouldAppendTwoStringLines() {
-        String sample = this.sampleBuilder.appendln("abc").append("zz1").build();
+        final String sample = this.sampleBuilder.appendln("abc").append("zz1").build();
 
-        String expected = "abc" + System.lineSeparator() + "zz1";
+        final String expected = "abc" + System.lineSeparator() + "zz1";
         assertThat(sample).isEqualTo(expected);
     }
 
     @Test
     void shouldAppendTwoLines() {
-        String sample = this.sampleBuilder.appendln(786).append("chihuahua").build();
+        final String sample =
+                this.sampleBuilder.appendln(786).append("chihuahua").build();
 
-        String expected = "786" + System.lineSeparator() + "chihuahua";
+        final String expected = "786" + System.lineSeparator() + "chihuahua";
         assertThat(sample).isEqualTo(expected);
     }
 
     @Test
     void shouldAppendTwoLinesWithNewLineAtTheEnd() {
-        String sample = this.sampleBuilder.appendln(1.2).appendln("muchacho").build();
+        final String sample =
+                this.sampleBuilder.appendln(1.2).appendln("muchacho").build();
 
-        String expected = "1.2" + System.lineSeparator() + "muchacho" + System.lineSeparator();
+        final String expected = "1.2" + System.lineSeparator() + "muchacho" + System.lineSeparator();
         assertThat(sample).isEqualTo(expected);
     }
 
     @Test
     void shouldAppendFourLinesOneTypeEach() {
-        String sample = this.sampleBuilder
+        final String sample = this.sampleBuilder
                 .appendln(123)
                 .appendln(987654321L)
                 .appendln(99.99)
                 .appendln("end")
                 .build();
 
-        String expected = "123" + System.lineSeparator() + "987654321" + System.lineSeparator() + "99.99"
+        final String expected = "123" + System.lineSeparator() + "987654321" + System.lineSeparator() + "99.99"
                 + System.lineSeparator() + "end" + System.lineSeparator();
         assertThat(sample).isEqualTo(expected);
     }

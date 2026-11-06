@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
  */
 class ReverseWordsTest {
 
-    static String solve(String message) {
-        var chars = message.toCharArray();
+    static String solve(final String message) {
+        final var chars = message.toCharArray();
         reverse(chars, 0, chars.length - 1);
         var wordStart = 0;
         for (var i = 0; i <= chars.length; i++) {
@@ -27,9 +27,9 @@ class ReverseWordsTest {
         return new String(chars);
     }
 
-    private static void reverse(char[] chars, int start, int end) {
+    private static void reverse(final char[] chars, final int start, final int end) {
         for (int front = start, back = end; front < back; front++, back--) {
-            var tmp = chars[front];
+            final var tmp = chars[front];
             chars[front] = chars[back];
             chars[back] = tmp;
         }

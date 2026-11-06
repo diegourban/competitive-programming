@@ -8,7 +8,7 @@ class SetTest {
 
     @Test
     void shouldAdd() {
-        Set set = new Set();
+        final Set set = new Set();
         set.add("Diego");
         set.add("André");
         set.add("Zuleika");
@@ -19,7 +19,7 @@ class SetTest {
 
     @Test
     void shouldRemove() {
-        Set set = new Set();
+        final Set set = new Set();
         set.add("Diego");
         set.add("André");
         set.add("Zuleika");
@@ -34,7 +34,7 @@ class SetTest {
 
     @Test
     void shouldIgnoreDuplicates() {
-        Set set = new Set();
+        final Set set = new Set();
         set.add("Diego");
         set.add("Diego");
 
@@ -45,7 +45,7 @@ class SetTest {
 
     @Test
     void shouldIgnoreRemovingAMissingWord() {
-        Set set = new Set();
+        final Set set = new Set();
         set.add("Diego");
         set.remove("Daniel");
 

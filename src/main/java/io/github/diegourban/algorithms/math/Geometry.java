@@ -2,7 +2,7 @@ package io.github.diegourban.algorithms.math;
 
 import java.util.Arrays;
 
-public class Geometry {
+public final class Geometry {
 
     private Geometry() {}
 
@@ -17,7 +17,7 @@ public class Geometry {
      * @param y2 point 2 y coordinate
      * @return the distance between the two points
      */
-    public static double distance(int x1, int y1, int x2, int y2) {
+    public static double distance(final int x1, final int y1, final int x2, final int y2) {
         // return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
         return Math.hypot(x1 - x2, y1 - y2);
     }
@@ -28,7 +28,7 @@ public class Geometry {
      * @param radius the radius of the circle
      * @return the area of the circle
      */
-    public static double areaOfCircleFromRadius(double radius) {
+    public static double areaOfCircleFromRadius(final double radius) {
         return SIMPLE_PI * (radius * radius);
     }
 
@@ -38,8 +38,8 @@ public class Geometry {
      * @param diameter the diameter of the circle
      * @return the area of the circle
      */
-    public static double areaOfCircleFromDiameter(double diameter) {
-        double radius = radiusOfCircleFromDiameter(diameter);
+    public static double areaOfCircleFromDiameter(final double diameter) {
+        final double radius = radiusOfCircleFromDiameter(diameter);
         return areaOfCircleFromRadius(radius);
     }
 
@@ -49,7 +49,7 @@ public class Geometry {
      * @param diameter the diameter of the circle
      * @return the radius of the circle
      */
-    public static double radiusOfCircleFromDiameter(double diameter) {
+    public static double radiusOfCircleFromDiameter(final double diameter) {
         return diameter / 2.0;
     }
 
@@ -59,7 +59,7 @@ public class Geometry {
      * @param area the area of the circle
      * @return the radius of the circle
      */
-    public static double radiusOfCircleFromArea(double area) {
+    public static double radiusOfCircleFromArea(final double area) {
         return Math.sqrt(area / SIMPLE_PI);
     }
 
@@ -69,7 +69,7 @@ public class Geometry {
      * @param sides the number of sides of the polygon
      * @return the amount of diagonals
      */
-    public static long diagonalsOfPolygonWithSides(long sides) {
+    public static long diagonalsOfPolygonWithSides(final long sides) {
         return (sides * (sides - 3)) / 2;
     }
 
@@ -80,7 +80,7 @@ public class Geometry {
      * @param baseRadius the cylinder base radius
      * @return the height of the cylinder
      */
-    public static double heightOfCylinder(double volume, double baseRadius) {
+    public static double heightOfCylinder(final double volume, final double baseRadius) {
         return volume / (SIMPLE_PI * baseRadius * baseRadius);
     }
 
@@ -92,20 +92,20 @@ public class Geometry {
      * @param c side c
      * @return true if the sides form a valid triangle, false otherwise
      */
-    public static boolean isValidTriangle(double a, double b, double c) {
+    public static boolean isValidTriangle(final double a, final double b, final double c) {
         return (a + b > c) && (b + c > a) && (a + c > b);
     }
 
-    public static TriangleType checkTriangleType(double a, double b, double c) {
-        double[] array = new double[3];
+    public static TriangleType checkTriangleType(final double a, final double b, final double c) {
+        final double[] array = new double[3];
         array[0] = a;
         array[1] = b;
         array[2] = c;
         Arrays.sort(array);
 
-        double min = array[0];
-        double med = array[1];
-        double max = array[2];
+        final double min = array[0];
+        final double med = array[1];
+        final double max = array[2];
 
         if (max == med && med == min) {
             return TriangleType.EQUILATERAL;
@@ -118,20 +118,20 @@ public class Geometry {
         return TriangleType.ESCALENE;
     }
 
-    public static boolean isRectangleTriangle(double a, double b, double c) {
-        double[] array = new double[3];
+    public static boolean isRectangleTriangle(final double a, final double b, final double c) {
+        final double[] array = new double[3];
         array[0] = a;
         array[1] = b;
         array[2] = c;
         Arrays.sort(array);
 
-        double min = array[0];
-        double med = array[1];
-        double max = array[2];
+        final double min = array[0];
+        final double med = array[1];
+        final double max = array[2];
 
-        double maxSquared = max * max;
-        double medSquared = med * med;
-        double minSquared = min * min;
+        final double maxSquared = max * max;
+        final double medSquared = med * med;
+        final double minSquared = min * min;
 
         return maxSquared == medSquared + minSquared;
     }

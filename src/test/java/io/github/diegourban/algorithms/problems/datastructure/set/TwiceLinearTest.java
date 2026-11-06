@@ -16,11 +16,11 @@ import org.junit.jupiter.api.Test;
  */
 class TwiceLinearTest {
 
-    static int solve(int n) {
-        var pending = new TreeSet<Integer>();
+    static int solve(final int n) {
+        final var pending = new TreeSet<Integer>();
         pending.add(1);
         for (var i = 0; i < n; i++) {
-            var x = pending.pollFirst();
+            final var x = pending.pollFirst();
             pending.add(2 * x + 1);
             pending.add(3 * x + 1);
         }

@@ -20,8 +20,8 @@ class TdaRationalTest {
 
     record Result(Fraction raw, Fraction simplified) {}
 
-    static Result solve(Fraction a, char operator, Fraction b) {
-        var raw = switch (operator) {
+    static Result solve(final Fraction a, final char operator, final Fraction b) {
+        final var raw = switch (operator) {
             case '+' ->
                 new Fraction(
                         a.numerator() * b.denominator() + b.numerator() * a.denominator(),
@@ -34,11 +34,12 @@ class TdaRationalTest {
             case '/' -> new Fraction(a.numerator() * b.denominator(), b.numerator() * a.denominator());
             default -> throw new IllegalArgumentException("Invalid operator: " + operator);
         };
-        var gcd = (int) NumberTheory.gcdLoop(Math.abs(raw.numerator()), Math.abs(raw.denominator()));
+        final var gcd = (int) NumberTheory.gcdLoop(Math.abs(raw.numerator()), Math.abs(raw.denominator()));
         return new Result(raw, new Fraction(raw.numerator() / gcd, raw.denominator() / gcd));
     }
 
-    private static Result result(int rawNumerator, int rawDenominator, int numerator, int denominator) {
+    private static Result result(
+            final int rawNumerator, final int rawDenominator, final int numerator, final int denominator) {
         return new Result(new Fraction(rawNumerator, rawDenominator), new Fraction(numerator, denominator));
     }
 

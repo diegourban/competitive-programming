@@ -14,42 +14,42 @@ public class SampleBuilder {
         this.stringBuilder = new StringBuilder();
     }
 
-    public SampleBuilder append(int i) {
+    public SampleBuilder append(final int i) {
         this.stringBuilder.append(i).append(SPACE_SEPARATOR);
         return this;
     }
 
-    public SampleBuilder appendln(int i) {
+    public SampleBuilder appendln(final int i) {
         this.stringBuilder.append(i).append(LINE_SEPARATOR);
         return this;
     }
 
-    public SampleBuilder append(double d) {
+    public SampleBuilder append(final double d) {
         this.stringBuilder.append(d).append(SPACE_SEPARATOR);
         return this;
     }
 
-    public SampleBuilder appendln(double d) {
+    public SampleBuilder appendln(final double d) {
         this.stringBuilder.append(d).append(LINE_SEPARATOR);
         return this;
     }
 
-    public SampleBuilder append(long l) {
+    public SampleBuilder append(final long l) {
         this.stringBuilder.append(l).append(SPACE_SEPARATOR);
         return this;
     }
 
-    public SampleBuilder appendln(long l) {
+    public SampleBuilder appendln(final long l) {
         this.stringBuilder.append(l).append(LINE_SEPARATOR);
         return this;
     }
 
-    public SampleBuilder append(String str) {
+    public SampleBuilder append(final String str) {
         this.stringBuilder.append(str).append(SPACE_SEPARATOR);
         return this;
     }
 
-    public SampleBuilder appendln(String str) {
+    public SampleBuilder appendln(final String str) {
         this.stringBuilder.append(str).append(LINE_SEPARATOR);
         return this;
     }

@@ -13,7 +13,7 @@ import org.junit.jupiter.params.provider.CsvSource;
  */
 class CollatzConjectureTest {
 
-    static long solve(long x) {
+    static long solve(final long x) {
         if (x == 1) {
             return 1;
         }
@@ -24,7 +24,7 @@ class CollatzConjectureTest {
     @CsvSource({
         "1, 1", "2, 2", "3, 8", "30, 19", "27, 112", "100, 26", "103, 88",
     })
-    void countsSequenceLength(long x, long expected) {
+    void countsSequenceLength(final long x, final long expected) {
         assertThat(solve(x)).isEqualTo(expected);
     }
 }

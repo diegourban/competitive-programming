@@ -1,6 +1,6 @@
 package io.github.diegourban.algorithms.math;
 
-public class Numbers {
+public final class Numbers {
 
     private Numbers() {}
 
@@ -11,7 +11,7 @@ public class Numbers {
      * @param digit  the digit expected to find in the number
      * @return true if the number contains the digit, false otherwise
      */
-    public static boolean containsDigit(long number, long digit) {
+    public static boolean containsDigit(final long number, final long digit) {
         long thisNumber = number >= 0 ? number : -number;
         long thisDigit;
 
@@ -41,7 +41,7 @@ public class Numbers {
         int reps = 0;
 
         while (theNumber > 0) {
-            Long n = theNumber % 10;
+            final Long n = theNumber % 10;
             theNumber /= 10;
             if (n.equals(old)) {
                 if (++reps == times) {
@@ -65,8 +65,8 @@ public class Numbers {
     public static int[] toArray(final long number) {
         long theNumber = number;
 
-        int length = Long.toString(theNumber).length();
-        int[] array = new int[length];
+        final int length = Long.toString(theNumber).length();
+        final int[] array = new int[length];
 
         for (int index = 0; index < length; index++) {
             array[index] = (int) theNumber % 10;
@@ -82,7 +82,7 @@ public class Numbers {
      * @param number some number
      * @return the length of the number
      */
-    public static int length(int number) {
+    public static int length(final int number) {
         if (number < 100000) {
             // 5 or less
             if (number < 100) {

@@ -19,11 +19,11 @@ class PrefaceTest {
 
     record Division(int quotient, int remainder) {}
 
-    static Division solve(int a, int b) {
+    static Division solve(final int a, final int b) {
         if (b == 0) {
             throw new IllegalArgumentException("division by zero");
         }
-        var remainder = Math.floorMod(a, Math.abs(b));
+        final var remainder = Math.floorMod(a, Math.abs(b));
         return new Division((a - remainder) / b, remainder);
     }
 
@@ -38,7 +38,7 @@ class PrefaceTest {
         "-6, 3, -2, 0",
         "0, -5, 0, 0",
     })
-    void remainderIsNeverNegative(int a, int b, int quotient, int remainder) {
+    void remainderIsNeverNegative(final int a, final int b, final int quotient, final int remainder) {
         assertThat(solve(a, b)).isEqualTo(new Division(quotient, remainder));
     }
 

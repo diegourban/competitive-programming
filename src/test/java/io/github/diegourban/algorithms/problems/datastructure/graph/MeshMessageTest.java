@@ -20,24 +20,24 @@ import org.junit.jupiter.api.Test;
  */
 class MeshMessageTest {
 
-    static String[] solve(Map<String, String[]> graph, String start, String end) {
+    static String[] solve(final Map<String, String[]> graph, final String start, final String end) {
         if (!graph.containsKey(start)) {
             throw new IllegalArgumentException("Start node not in graph");
         }
         if (!graph.containsKey(end)) {
             throw new IllegalArgumentException("End node not in graph");
         }
-        var toVisit = new ArrayDeque<String>();
+        final var toVisit = new ArrayDeque<String>();
         toVisit.add(start);
-        var reachedFrom = new HashMap<String, String>();
+        final var reachedFrom = new HashMap<String, String>();
         reachedFrom.put(start, null);
 
         while (!toVisit.isEmpty()) {
-            var current = toVisit.remove();
+            final var current = toVisit.remove();
             if (current.equals(end)) {
                 return path(reachedFrom, end);
             }
-            for (var neighbor : graph.get(current)) {
+            for (final var neighbor : graph.get(current)) {
                 if (!reachedFrom.containsKey(neighbor)) {
                     toVisit.add(neighbor);
                     reachedFrom.put(neighbor, current);
@@ -47,8 +47,8 @@ class MeshMessageTest {
         return null;
     }
 
-    private static String[] path(Map<String, String> reachedFrom, String end) {
-        var path = new ArrayList<String>();
+    private static String[] path(final Map<String, String> reachedFrom, final String end) {
+        final var path = new ArrayList<String>();
         for (var node = end; node != null; node = reachedFrom.get(node)) {
             path.add(node);
         }
@@ -58,21 +58,21 @@ class MeshMessageTest {
 
     @Test
     void unknownSenderIsRejected() {
-        var graph = Map.of("Foo", new String[] {"A", "B"});
+        final var graph = Map.of("Foo", new String[] {"A", "B"});
 
         assertThatIllegalArgumentException().isThrownBy(() -> solve(graph, "Bar", "Baz"));
     }
 
     @Test
     void unknownRecipientIsRejected() {
-        var graph = Map.of("Foo", new String[] {"A", "B"});
+        final var graph = Map.of("Foo", new String[] {"A", "B"});
 
         assertThatIllegalArgumentException().isThrownBy(() -> solve(graph, "Foo", "Baz"));
     }
 
     @Test
     void disconnectedRecipientHasNoPath() {
-        var graph = Map.of(
+        final var graph = Map.of(
                 "Foo", new String[] {"Bar"},
                 "Bar", new String[] {"Foo"},
                 "Baz", new String[] {"Asdf"},
@@ -83,7 +83,7 @@ class MeshMessageTest {
 
     @Test
     void loopsDoNotPreventTermination() {
-        var graph = Map.of(
+        final var graph = Map.of(
                 "Foo", new String[] {"Asdf", "Bar"},
                 "Asdf", new String[] {"Foo", "Bar"},
                 "Bar", new String[] {"Foo", "Asdf", "Baz"},
@@ -94,7 +94,7 @@ class MeshMessageTest {
 
     @Test
     void findsShortestRoute() {
-        var graph = Map.of(
+        final var graph = Map.of(
                 "Min", new String[] {"William", "Jayden"},
                 "William", new String[] {"Min"},
                 "Jayden", new String[] {"Min", "Amelia", "Ren"},
@@ -108,7 +108,7 @@ class MeshMessageTest {
 
     @Test
     void senderIsRecipient() {
-        var graph = Map.of("Foo", new String[] {});
+        final var graph = Map.of("Foo", new String[] {});
 
         assertThat(solve(graph, "Foo", "Foo")).containsExactly("Foo");
     }

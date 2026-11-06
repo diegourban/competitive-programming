@@ -21,9 +21,9 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 class ParenthesisBalanceTest {
 
-    static boolean solve(String expression) {
+    static boolean solve(final String expression) {
         var depth = 0;
-        for (var c : expression.toCharArray()) {
+        for (final var c : expression.toCharArray()) {
             switch (c) {
                 case '(' -> depth++;
                 case ')' -> {
@@ -37,9 +37,9 @@ class ParenthesisBalanceTest {
         return depth == 0;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var out = new StringBuilder();
         try {
             for (var line = reader.readLine(); !line.isEmpty(); line = reader.readLine()) {
                 out.append(solve(line) ? "correct" : "incorrect").append('\n');
@@ -77,8 +77,8 @@ class ParenthesisBalanceTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
-        var samples = new SampleLoader("problems/datastructure/stack/parenthesis-balance");
+    void matchesSample(final String name) throws IOException {
+        final var samples = new SampleLoader("problems/datastructure/stack/parenthesis-balance");
         assertThat(run(samples.loadAsInputStream(name + ".in"))).isEqualTo(samples.loadAsString(name + ".out"));
     }
 }

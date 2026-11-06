@@ -14,18 +14,18 @@ import org.junit.jupiter.api.Test;
  */
 class FindRepeatTest {
 
-    static int solve(int[] numbers) {
+    static int solve(final int[] numbers) {
         var floor = 1;
         var ceiling = numbers.length - 1;
         while (floor < ceiling) {
-            var midpoint = floor + (ceiling - floor) / 2;
+            final var midpoint = floor + (ceiling - floor) / 2;
             var itemsInLowerRange = 0;
-            for (var item : numbers) {
+            for (final var item : numbers) {
                 if (item >= floor && item <= midpoint) {
                     itemsInLowerRange++;
                 }
             }
-            var distinctInLowerRange = midpoint - floor + 1;
+            final var distinctInLowerRange = midpoint - floor + 1;
             if (itemsInLowerRange > distinctInLowerRange) {
                 ceiling = midpoint;
             } else {

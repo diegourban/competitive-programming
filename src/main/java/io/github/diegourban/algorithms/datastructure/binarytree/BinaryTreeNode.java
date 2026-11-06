@@ -6,16 +6,16 @@ public class BinaryTreeNode {
     public BinaryTreeNode left;
     public BinaryTreeNode right;
 
-    public BinaryTreeNode(int value) {
+    public BinaryTreeNode(final int value) {
         this.value = value;
     }
 
-    public BinaryTreeNode insertLeft(int leftValue) {
+    public BinaryTreeNode insertLeft(final int leftValue) {
         this.left = new BinaryTreeNode(leftValue);
         return this.left;
     }
 
-    public BinaryTreeNode insertRight(int rightValue) {
+    public BinaryTreeNode insertRight(final int rightValue) {
         this.right = new BinaryTreeNode(rightValue);
         return this.right;
     }

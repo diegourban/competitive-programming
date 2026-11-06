@@ -7,7 +7,7 @@ import java.math.RoundingMode;
 /**
  * Number sequences.
  */
-public class Sequences {
+public final class Sequences {
 
     private Sequences() {}
 
@@ -22,7 +22,7 @@ public class Sequences {
      * @param n the nth number in the Fibonacci sequence to calculate
      * @return the nth Fibonacci number
      */
-    public static int fibonacci(int n) {
+    public static int fibonacci(final int n) {
         // edge cases:
         if (n < 0) {
             throw new IllegalArgumentException("Index was negative. No such thing as a negative index in a series.");
@@ -57,7 +57,7 @@ public class Sequences {
      * @param n the nth number in the Fibonacci sequence to calculate
      * @return the nth Fibonacci number
      */
-    public static double fibonacciSimpleBinetFormula(int n) {
+    public static double fibonacciSimpleBinetFormula(final int n) {
         if (n == 0) {
             return 0;
         }
@@ -73,7 +73,7 @@ public class Sequences {
      * @param n the nth number in the Fibonacci sequence to calculate
      * @return the nth Fibonacci number
      */
-    public static BigInteger fibonacciBinetFormula(int n) {
+    public static BigInteger fibonacciBinetFormula(final int n) {
         if (n == 0) {
             return new BigInteger("0");
         }
@@ -85,10 +85,10 @@ public class Sequences {
         }
 
         final double phi = (1 + Math.sqrt(5)) / 2;
-        BigDecimal sqrt5 = BigDecimal.valueOf(Math.sqrt(5));
+        final BigDecimal sqrt5 = BigDecimal.valueOf(Math.sqrt(5));
 
-        BigDecimal pow = BigDecimal.valueOf(Math.pow(phi, n));
-        BigDecimal powInvrt = BigDecimal.valueOf(Math.pow(-phi, -n));
+        final BigDecimal pow = BigDecimal.valueOf(Math.pow(phi, n));
+        final BigDecimal powInvrt = BigDecimal.valueOf(Math.pow(-phi, -n));
         return pow.subtract(powInvrt).divide(sqrt5, RoundingMode.HALF_UP).toBigInteger();
     }
 }

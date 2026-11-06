@@ -23,11 +23,11 @@ class FactorialSumTest {
 
     private static final SampleLoader SAMPLES = new SampleLoader("problems/math/factorial-sum");
 
-    static long solve(int m, int n) {
+    static long solve(final int m, final int n) {
         return factorial(m) + factorial(n);
     }
 
-    private static long factorial(int n) {
+    private static long factorial(final int n) {
         var result = 1L;
         for (var i = 2; i <= n; i++) {
             result *= i;
@@ -35,9 +35,9 @@ class FactorialSumTest {
         return result;
     }
 
-    static String run(InputStream in) throws IOException {
-        var reader = new Reader(in);
-        var out = new StringBuilder();
+    static String run(final InputStream in) throws IOException {
+        final var reader = new Reader(in);
+        final var out = new StringBuilder();
         while (true) {
             try {
                 out.append(solve(reader.nextInt(), reader.nextInt())).append('\n');
@@ -56,13 +56,13 @@ class FactorialSumTest {
         "5, 0, 121",
         "20, 20, 4865804016353280000",
     })
-    void sumsBothFactorials(int m, int n, long expected) {
+    void sumsBothFactorials(final int m, final int n, final long expected) {
         assertThat(solve(m, n)).isEqualTo(expected);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"uri", "udebug"})
-    void matchesSample(String name) throws IOException {
+    void matchesSample(final String name) throws IOException {
         assertThat(run(SAMPLES.loadAsInputStream(name + ".in"))).isEqualTo(SAMPLES.loadAsString(name + ".out"));
     }
 }
