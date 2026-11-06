@@ -11,13 +11,13 @@ public class Statistics {
      * @param data
      * @return
      */
-    public static double mean(int[] data) {
+    public static double mean(double[] data) {
         if (data.length == 0) {
             return 0.0;
         }
 
         double sum = 0.0;
-        for (int value : data) {
+        for (double value : data) {
             sum += value;
         }
 
@@ -30,7 +30,7 @@ public class Statistics {
      * @param data
      * @return
      */
-    public static double median(int[] data) {
+    public static double median(double[] data) {
         Arrays.sort(data);
 
         final int middle = data.length / 2;
@@ -48,8 +48,8 @@ public class Statistics {
      * @param data
      * @return
      */
-    public static int mode(int[] data) {
-        int maxValue = 0;
+    public static double mode(double[] data) {
+        double maxValue = 0;
         int maxCount = 0;
 
         for (int i = 0; i < data.length; ++i) {
@@ -74,11 +74,11 @@ public class Statistics {
      * @param data
      * @return the Average Absolute Deviation from data
      */
-    public static double meanAbsoluteDeviation(int[] data) {
+    public static double meanAbsoluteDeviation(double[] data) {
         double mean = mean(data);
 
         double sum = 0;
-        for (int value : data) {
+        for (double value : data) {
             sum += Math.abs(value - mean);
         }
 
