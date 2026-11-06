@@ -9,7 +9,9 @@ import java.util.Arrays;
  */
 public class Vector {
 
-    private Element[] elements = new Element[100];
+    private static final int INITIAL_CAPACITY = 100;
+
+    private Element[] elements = new Element[INITIAL_CAPACITY];
     private int totalElements = 0;
 
     /** Creates an empty vector with capacity 100. */

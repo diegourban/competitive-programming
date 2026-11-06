@@ -20,7 +20,7 @@ import java.io.InputStream;
  */
 public class Reader {
 
-    private final int BUFFER_SIZE = 1 << 16;
+    private static final int BUFFER_SIZE = 1 << 16;
     private DataInputStream din;
     private final byte[] buffer;
     private int bufferPointer, bytesRead;

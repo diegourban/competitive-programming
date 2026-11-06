@@ -9,6 +9,9 @@ import java.math.RoundingMode;
  */
 public final class Sequences {
 
+    private static final double SQRT_5 = Math.sqrt(5);
+    private static final double GOLDEN_RATIO = (1 + SQRT_5) / 2;
+
     private Sequences() {}
 
     /**
@@ -65,9 +68,7 @@ public final class Sequences {
         if (n == 0) {
             return 0;
         }
-        final double phi = (1 + Math.sqrt(5)) / 2;
-        final double sqrt5 = Math.sqrt(5);
-        return ((Math.pow(phi, n) - Math.pow(-phi, -n)) / sqrt5);
+        return ((Math.pow(GOLDEN_RATIO, n) - Math.pow(-GOLDEN_RATIO, -n)) / SQRT_5);
     }
 
     /**
@@ -83,20 +84,19 @@ public final class Sequences {
      */
     public static BigInteger fibonacciBinetFormula(final int n) {
         if (n == 0) {
-            return new BigInteger("0");
+            return BigInteger.ZERO;
         }
         if (n == 1 || n == 2) {
-            return new BigInteger("1");
+            return BigInteger.ONE;
         }
         if (n == 3) {
-            return new BigInteger("2");
+            return BigInteger.TWO;
         }
 
-        final double phi = (1 + Math.sqrt(5)) / 2;
-        final BigDecimal sqrt5 = BigDecimal.valueOf(Math.sqrt(5));
+        final BigDecimal sqrt5 = BigDecimal.valueOf(SQRT_5);
 
-        final BigDecimal pow = BigDecimal.valueOf(Math.pow(phi, n));
-        final BigDecimal powInvrt = BigDecimal.valueOf(Math.pow(-phi, -n));
+        final BigDecimal pow = BigDecimal.valueOf(Math.pow(GOLDEN_RATIO, n));
+        final BigDecimal powInvrt = BigDecimal.valueOf(Math.pow(-GOLDEN_RATIO, -n));
         return pow.subtract(powInvrt).divide(sqrt5, RoundingMode.HALF_UP).toBigInteger();
     }
 }

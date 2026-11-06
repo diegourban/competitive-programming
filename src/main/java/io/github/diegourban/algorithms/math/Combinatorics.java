@@ -31,21 +31,21 @@ public final class Combinatorics {
      */
     public static BigInteger binomialCoefficient(final int n, final int m) {
         if (m < 0 || m > n) {
-            return new BigInteger("0");
+            return BigInteger.ZERO;
         }
 
         if (m == 0 || m == n) {
-            return new BigInteger("1");
+            return BigInteger.ONE;
         }
 
         if (m == 1 || m == n - 1) {
-            return new BigInteger(String.valueOf(n));
+            return BigInteger.valueOf(n);
         }
 
         final BigInteger[] binomials = new BigInteger[n + 1];
-        binomials[0] = new BigInteger("1");
+        binomials[0] = BigInteger.ONE;
         for (int i = 1; i <= n; i++) {
-            binomials[i] = new BigInteger("1");
+            binomials[i] = BigInteger.ONE;
             for (int j = i - 1; j > 0; --j) {
                 binomials[j] = binomials[j].add(binomials[j - 1]);
             }

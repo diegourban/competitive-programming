@@ -10,11 +10,13 @@ import java.util.List;
  */
 public class Set {
 
+    private static final int BUCKET_COUNT = 26;
+
     private final List<LinkedList<String>> table = new LinkedList<LinkedList<String>>();
 
     /** Creates an empty set with 26 empty buckets. */
     public Set() {
-        for (int i = 0; i < 26; i++) {
+        for (int i = 0; i < BUCKET_COUNT; i++) {
             this.table.add(new LinkedList<String>());
         }
     }
@@ -56,7 +58,7 @@ public class Set {
         if (word.isEmpty()) {
             throw new IllegalArgumentException("word must not be empty");
         }
-        return word.toLowerCase().charAt(0) % 26;
+        return word.toLowerCase().charAt(0) % BUCKET_COUNT;
     }
 
     /**
